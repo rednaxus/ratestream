@@ -71,7 +71,7 @@ a:active {
 }
 
 .section {
-    padding: 100px 0;
+    padding: 40px 0;
 }
 
 .sectionSmall {
@@ -84,14 +84,14 @@ a:active {
 .heading {
     text-align: center;
     color: #777777;
-    padding-bottom: 70px;
+    padding-bottom: 40px;
 }
 .heading h2 {
     color: #3c3c3c;
-    padding-bottom: 30px;
+    padding-bottom: 0px;
     text-transform: capitalize;
     font-weight: 300;
-    font-size: 40px;
+    font-size: 50px;
     line-height: 40px;
 }
 .heading p {
@@ -541,13 +541,25 @@ a:active {
     overflow: hidden;
     height: 60px;
 }
+
+
+
+
+#vision {
+    text-align: center;
+    background: #f9f9f9;
+}
+
+
+
+
 /*--
     service start
 --*/
 
 #service {
     text-align: center;
-    background: #f9f9f9;
+    background: #ffffff;
 }
 
 .service {
@@ -593,7 +605,7 @@ a:active {
 }
 .service .icon-box .icon {
     background-color: #26282b;
-    border-radius: 5px;
+    border-radius: 50%;
     display: inline-block;
     height: 75px;
     left: 36%;
@@ -681,6 +693,20 @@ background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#0000
     font-size: 15px;
     color: #7e7e7e;
 }
+
+
+
+#analysts {
+  background: #f9f9f9;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+
+
+
+
+
 /*--
     About start
 --*/
@@ -746,7 +772,7 @@ background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#0000
 
 #call-to-action {
     padding: 70px 0px;
-    background: rgba(0, 0, 0, 0) linear-gradient(135deg, #0000cc 0%, #0083FF 100%) repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) linear-gradient(135deg, #01c236 0%, #70e400 100%) repeat scroll 0 0;
 
     background-repeat: no-repeat;
     background-size: cover;
@@ -891,4 +917,34 @@ footer p a {
 }
 footer p a:hover {
   color: #fff;
+}
+
+
+
+/*
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.hideResponsive {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+  .protocolFlex {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+
+
 }

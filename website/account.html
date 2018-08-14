@@ -1,0 +1,682 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Analyst Dashboard</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<style>
+
+
+.header {
+  display:flex;
+  justify-content: space-between;
+
+  padding-bottom: 15px;
+}
+
+.headerLogo {
+  max-width: 100px;
+  max-height: 85px;
+}
+
+.signup {
+padding: 20px;
+display:flex;
+align-items: flex-end;
+}
+
+.signText {
+  margin-left: 25px;
+  font-size: 18px;
+  font-style: italic;
+  color: #fd6731;
+}
+
+.lndBtn {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #fd6731;
+  color: #fd6731;
+  padding: 4px;
+  font-size: 18px;
+  min-width: 120px;
+  text-align:center;
+  border-radius:25px;
+margin-right:15px;
+}
+
+.lndBtn:hover {
+  color: white;
+  background-color: #fd6731;
+}
+
+
+.textCenter {
+  text-align: center;
+}
+
+.textRight {
+  text-align: right;
+}
+
+.headText {
+  font-size: 60px;
+  line-height: .6;
+}
+
+
+
+.bg-dark {
+  padding: 20px;
+  background-color: #646566;
+}
+
+.bg-dark .topText {
+  color:#ffffff;
+
+}
+
+.bg-light {
+  padding: 20px;
+
+}
+
+.bg-light .topText {
+  color:#000000;
+}
+
+
+.smallSearch {
+  width: 100px !important;
+}
+
+.footer {
+  background-color: #dedee0;
+  padding-top: 10px;
+}
+
+
+#min15 {
+  width: 75%;
+  text-align: center;
+}
+
+.wrapper {
+  width:100%;
+
+    display: flex;
+    align-items: stretch;
+
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+    content: '\e259';
+    display: block;
+    position: absolute;
+    right: 20px;
+    font-family: 'Glyphicons Halflings';
+    font-size: 0.6em;
+}
+
+a[aria-expanded="true"]::before {
+    content: '\e260';
+}
+
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+
+    background: #383838;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #A9A9A9;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #A9A9A9;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #A9A9A9;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #A9A9A9;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #A9A9A9;
+}
+
+.placeholder {
+  border-style: double;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 5px;
+
+  margin-bottom: 25px;
+}
+
+.dashFlex {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.dashCard {
+display:flex;
+justify-content: space-around;
+}
+
+.dashEnd {
+  display:flex;
+  justify-content:flex-end;
+}
+
+.dashFlex {
+  display:flex;
+  flex-direction: column;
+
+}
+
+.placeholder {
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+}
+
+.cardHead {
+  font-size: 26px;
+  display:flex;
+  justify-content: center;
+}
+
+.cardFlip {
+
+width: 100%;
+display:flex;
+justify-content: space-around;
+
+}
+
+.cardOne {
+  border-style: solid;
+  padding: 10px;
+  padding-bottom: 5px;
+}
+
+.cardButton {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  display:flex;
+  justify-content: center;
+}
+
+.cardBottom {
+    padding-bottom: 0px !important;
+}
+
+.wideDiv {
+  width:100%;
+  padding: 15px;
+}
+
+.alertAccount {
+text-align: center;
+background-color: red;
+  color: white;
+}
+
+.alertRounds {
+text-align: center;
+background-color: blue;
+  color: white;
+}
+
+.alertLevel {
+text-align: center;
+background-color: black;
+  color: white;
+}
+
+
+.alertRep {
+text-align: center;
+background-color: green;
+  color: white;
+}
+
+.alertRef {
+text-align: center;
+background-color: orange;
+  color: white;
+}
+
+.alertRem {
+text-align: center;
+background-color: purple;
+  color: white;
+}
+
+.alertOut {
+text-align: center;
+background-color: grey;
+  color: white;
+}
+
+.acctHead {
+  width: 100%;
+  font-size: 45px;
+  text-align: center;
+}
+
+.acctHeadPad {
+  width: 100%;
+  font-size: 45px;
+  text-align: center;
+  margin-top: 35px;
+}
+
+
+</style>
+
+  </head>
+
+
+  <body>
+
+<div class = "bg-light">
+
+    <div class= "header">
+
+    <img class="headerLogo" src="./resources/site/bg_white.jpeg">
+
+
+    <span><h1>veva.one  |  decentralized token ratings</h1> </span>
+
+      <div class="signup">
+
+      <a href="./index.html" class = "lndBtn"> <u> LOG OUT </u></a>
+      <a href="./help.html" class = "lndBtn"> <u> HELP </u> </a>
+
+    </div>
+      </div>
+
+<hr>
+
+
+
+<div class="wrapper">
+
+  <nav id="sidebar">
+                     <!-- Sidebar Header -->
+                     <div class="sidebar-header">
+                         <h3>VEVA</h3>
+                     </div>
+
+                     <!-- Sidebar Links -->
+                     <ul class="list-unstyled components">
+                         <li class="active"><a href="./dash.html">Dashboard</a></li>
+
+                         <li><!-- Link with dropdown items -->
+                             <a href="#adminSub" data-toggle="collapse" aria-expanded="false">Admin</a>
+                             <ul class="collapse list-unstyled" id="adminSub">
+                                 <li><a href="#">Analysts</a></li>
+                                 <li><a href="#">Round Cycles</a></li>
+                             </ul>
+                           </li>
+                           <li><!-- Link with dropdown items -->
+                               <a href="#analystSub" data-toggle="collapse" aria-expanded="false">Analyst</a>
+                               <ul class="collapse list-unstyled" id="analystSub">
+                                   <li><a href="./dash.html">Dashboard</a></li>
+                                   <li><a href="#">Availability</a></li>
+                                   <li><a href="./survey.html">Survey</a></li>
+                               </ul>
+                             </li>
+                             <li><!-- Link with dropdown items -->
+                                 <a href="#infoSub" data-toggle="collapse" aria-expanded="false">Info</a>
+                                 <ul class="collapse list-unstyled" id="infoSub">
+                                     <li><a href="#">General Preview</a></li>
+                                     <li><a href="#">Tokens</a></li>
+                                     <li><a href="#">Rules</a></li>
+                                     <li><a href="#">About</a></li>
+                                 </ul>
+                               </li>
+                         <li><a href="./account.html">Account</a></li>
+                         <li><a href="./referrals.html">Referrals</a></li>
+                     </ul>
+  </nav>
+
+
+
+<div class="wideDiv">
+
+
+
+<div class="acctHead"><u>User Account</u></div>
+<br>
+
+<div class="cardFlip">
+
+<div class="alert alertAccount" role="alert">
+
+<span class="glyphicon glyphicon-piggy-bank" aria-hidden="true" style="font-size:55px;"></span>
+<br>
+<br>
+
+You have 17,900 VEVA <br>
+$4,772 USD
+
+</div>
+
+
+
+<div class="alert alertRounds" role="alert">
+
+<span class="glyphicon glyphicon-briefcase" aria-hidden="true" style="font-size:55px;"></span>
+<br>
+<br>
+
+You've participated in 8 rounds <br>
+Lead: 3; Jury: 5
+
+</div>
+
+<div class="alert alertLevel" role="alert">
+
+<span class="glyphicon glyphicon-knight" aria-hidden="true" style="font-size:55px;"></span>
+<br>
+<br>
+
+Level: Magistrate <br>
+Next Level: Jurist (+18 RP)
+
+</div>
+
+
+<div class="alert alertRep" role="alert">
+
+<span class="glyphicon glyphicon-ok-circle" aria-hidden="true" style="font-size:55px;"></span>
+<br>
+<br>
+
+You have 104 Rep Points <br>
+Next Referral: +56 RP
+
+</div>
+
+</div>
+
+<div class="acctHeadPad"><u>Round Info</u></div>
+<br>
+
+
+<h4>Win/Loss Breakdown:</h4>
+
+<div class="progress">
+  <div class="progress-bar progress-bar-success" style="width: 35%">
+    <span> Lead Win</span>
+  </div>
+  <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 40%">
+    <span>Lead Loss</span>
+  </div>
+  <div class="progress-bar progress-bar-danger" style="width: 25%">
+    <span>Jury Win</span>
+  </div>
+</div>
+
+
+<h4>Profit Breakdown:</h4>
+
+<div class="progress">
+  <div class="progress-bar progress-bar-success" style="width: 65%">
+    <span> Lead Win</span>
+  </div>
+  <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 20%">
+    <span>Lead Loss</span>
+  </div>
+  <div class="progress-bar progress-bar-danger" style="width: 15%">
+    <span>Jury Win</span>
+  </div>
+</div>
+
+
+<div class="acctHeadPad"><u>Referrals</u></div>
+<br>
+
+
+<div class="cardFlip">
+
+<div class="alert alertRef" role="alert">
+
+<span class="glyphicon glyphicon-usd" aria-hidden="true" style="font-size:55px;"></span>
+<br>
+<br>
+
+Referral Income: 1200 VEVA
+
+</div>
+
+
+
+<div class="alert alertOut" role="alert">
+
+<span class="glyphicon glyphicon-gift" aria-hidden="true" style="font-size:55px;"></span>
+<br>
+<br>
+
+You have 1 referral remaining
+
+</div>
+
+
+
+<div class="alert alertRem" role="alert">
+
+<span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size:55px;"></span>
+<br>
+<br>
+
+You have 3 grandchildren
+
+</div>
+
+</div>
+
+
+
+<div class="acctHeadPad"><u>Recent Coverages</u></div>
+<br>
+<div class="table-responsive">
+                   <table class="table table-striped">
+                     <thead>
+                       <tr>
+                         <th>Date</th>
+                         <th>Role</th>
+                         <th>Token</th>
+                         <th>Symbol</th>
+                         <th>Outcome</th>
+                         <th>Payout</th>
+                         <th>Briefs</th>
+                         <th>Details</th>
+                       </tr>
+
+                       <tr>
+                         <td>03/01/18</td>
+                         <td>Jury</td>
+                         <td>Civic</td>
+                         <td>CVC</td>
+                         <td>BEAR Sway (-3.1)</td>
+                         <td>1,000 VEVA</td>
+                         <td><a href link="#"> [link] </a> </td>
+                         <td>More</td>
+                       </tr>
+
+                       <tr>
+                         <td>02/27/18</td>
+                         <td>BULL Analyst</td>
+                         <td>Ethereum</td>
+                         <td>ETH</td>
+                         <td>NO Sway (-0.6)</td>
+                         <td>11,000 VEVA</td>
+                         <td><a href link="#"> [link] </a> </td>
+                         <td>More</td>
+                       </tr>
+
+                       <tr>
+                         <td>02/19/18</td>
+                         <td>BEAR Analyst</td>
+                         <td>Neo</td>
+                         <td>NEO</td>
+                         <td>BULL Sway (+2.6)</td>
+                         <td>6,000 VEVA</td>
+                         <td><a href link="#"> [link] </a> </td>
+                         <td>More</td>
+                       </tr>
+
+                       <tr>
+                         <td>2/11/18</td>
+                         <td>Jury</td>
+                         <td>Iconomi</td>
+                         <td>ICN</td>
+                         <td>NO Sway (-1.8)</td>
+                         <td>0 VEVA</td>
+                         <td><a href link="#"> [link] </a> </td>
+                         <td>More</td>
+                       </tr>
+                       <tr>
+                         <td>2/01/18</td>
+                         <td>BEAR Analyst</td>
+                         <td>Ripple</td>
+                         <td>XRP</td>
+                         <td>BEAR Sway (-2.2)</td>
+                         <td>11,000 VEVA</td>
+                         <td><a href link="#"> [link] </a> </td>
+                         <td>More</td>
+                       </tr>
+                     </tbody>
+                   </table>
+                 </div>
+
+
+
+
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="footer">
+
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="col-md-8">
+				<a href="#">Terms of Service</a>
+        |
+				<a href="#">Privacy</a>
+        |
+				<a href="#">Security</a>
+			</div>
+			<div class="span4">
+				<p class="muted pull-right">© 2017 Veva. All rights reserved</p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>
