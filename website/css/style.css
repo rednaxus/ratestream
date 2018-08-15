@@ -260,11 +260,11 @@ a:hover, a:focus, a:active {
 }
 
 .probootstrap-navbar .navbar-brand {
-  text-transform: uppercase;
-  font-family: "Open Sans", Arial, sans-serif;
+  /*text-transform: uppercase;
+  font-family: "Open Sans", Arial, sans-serif;*/
   color: #ffffff;
-  font-size: 26px;
-  font-weight: 700;
+  font-size: 80px;
+  font-weight: 300;
   padding-left: 15px;
 }
 
@@ -1206,6 +1206,10 @@ a:hover, a:focus, a:active {
     max-width: 100%;
   }
 }
+
+
+/******** CUSTOM CSS *********/
+
 
 .flexboxHeader {
   display: flex;
