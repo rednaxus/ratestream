@@ -1,1382 +1,456 @@
-<!-- TO DO
-
-1. join the community link
-2. icons links
-3. TABLE
-4. slides coming in from opposite sides
-5. hook up mailchimp
--->
-
-<!--
-Glyphicons:  Ionicons
--->
-
-
 <!DOCTYPE html>
-<html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Longmire</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-        <!-- Fonts -->
-        <!-- Lato -->
-        <link href='//fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" type='text/css'>
-
-        <link href='http://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" type='text/css'>
-
-
-        <!-- CSS -->
-
-        <link rel="stylesheet" href="./css/bootstrap.min.css">
-        <link rel="stylesheet" href="./css/font-awesome.min.css">
-        <link rel="stylesheet" href="./css/owl.carousel.css">
-        <link rel="stylesheet" href="./css/animate.css">
-        <link rel="stylesheet" href="./css/main.css">
-        <!-- Responsive Stylesheet -->
-        <link rel="stylesheet" href="./css/responsive.css">
-
-        <style>
-
-        .headTop {
-          margin-bottom: 30px;
-          margin-top: 30px;
-        }
-
-        .logo-height {
-          max-height: 50px;
-          max-width: auto;
-        }
-
-        .custom-logo-height {
-          max-height: 30px;
-          max-width: auto;
-          padding-left:15px;
-        }
-
-
-        .blockSmall {
-          padding-top: 50px !important;
-        }
-
-        .tokenMargin {
-          margin-top: 50px;
-        }
-
-        .blockFlex {
-          height:100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-          align-items: center;
-        }
-
-        .topSocial {
-          color:white;
-          font-size: 30px;
-          padding: 15px;
-        }
-
-        .topIcon {
-          padding: 12px;
-          color:white !important;
-        }
-
-        .img-limit {
-          max-height:150px;
-          max-width: auto;
-        }
-
-        .blockEnd {
-          height:570px;
-        }
-
-        .blockFull {
-          height: 100%;
-        }
-
-
-        .horizontalFlex {
-          display:flex;
-          justify-content: space-around;
-          align-items: center;
-        }
-
-        .columnFlex {
-          display:flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .headerPad {
-          padding-left:30px;
-        }
-
-        .protocolText {
-          font-size: 18px;
-          font-weight: 100;
-          font-weight: lighter;
-        }
-
-        .pad-right {
-          padding-left:30px;
-        }
-
-        .img-tall {
-          height: 200px;
-          width: auto !important;
-        }
-
-        .btn-limit {
-          max-width: 60%;
-        }
-
-        .buttonCenter {
-          width:100%;
-          display:flex;
-          justify-content: center;
-        }
-
-        .buttonCenter {
-          width:100%;
-          display:flex;
-          justify-content: center;
-        }
-
-        .AnalystButtonCenter {
-          margin-top: 20px;
-          width:100%;
-          display:flex;
-          justify-content: center;
-        }
-
-        .aBtn {
-          width: 10% !important;
-        }
-
-        .protocolPad {
-          padding-bottom:30px;
-        }
-
-        .protocolIcon {
-          font-size: 100px;
-          padding:15px;
-          color: #0253E0;
-
-        }
-
-        .responsiveTable {
-          overflow-x:auto;
-        }
-
-        .headerFlex {
-          display: flex;
-          align-items: center;
-        }
-
-        .headerBack {
-          background-color: #01c236;
-        }
-
-        .headTextL {
-          color:white;
-          padding-left: 20px;
-          padding-bottom: 5px;
-          font-weight: 100;
-          font-size: 30px;
-        }
-
-        .headTextD {
-          color:black;
-          padding-left: 20px;
-          padding-bottom: 5px;
-          font-weight: 100;
-          font-size: 30px;
-        }
-
-        .img-fluid{
-          max-height: 300px;
-          max-width:100%;
-          height:auto;
-        }
-
-        .rounded-circle{border-radius:50%!important}
-
-        .analystFlex {
-          width: 100%;
-          display: flex;
-          justify-content: space-around;
-
-        }
-
-        .analystTextFlex {
-          max-width: 400px;
-          display:flex;
-          flex-direction:column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .chartClass {
-          max-width: 80%;
-          max-height: auto;
-        }
-
-        .chartFlex {
-          display: flex;
-          justify-content: center;
-          margin-bottom: 30px;
-        }
-
-        .chartHeaderFlex {
-          display: flex;
-          justify-content: center;
-          margin-top: 20px;
-        }
-
-        .adoptionHead {
-          padding-bottom: 10px !important;
-        }
-
-        .protocol-border {
-
-          height: 210px;
-          width: 210px;
-
-          border-style: solid;
-          border-width: 2px;
-          border-color: #3333ff;
-
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-        }
-
-        .protocolFlex {
-          width:100%;
-          display: flex;
-          justify-content: space-around;
-        }
-
-        .arrowIcon {
-          max-height:15px;
-          max-width: auto;
-        }
-
-        #mc_embed_signup_scroll {
-          display: flex !important;
-          justify-content: center !important;
-        }
-
-        .clearMail {
-          width: 100px !important;
-          display: flex !important;
-          justify-content: left !important;
-        }
-
-        .emailBtn {
-          width: 100% !important;
-        }
-
-        .top-container {
-          background-image: url('images/wyoming_hero.jpg');
-        }
-
-
-        </style>
-
-
-    </head>
-
-    <body id="body">
-
-    	<div id="preloader">
-    		<div class="book">
-    		  <div class="book__page"></div>
-    		  <div class="book__page"></div>
-    		  <div class="book__page"></div>
-    		</div>
-    	</div>
-
-	    <!--
-	    Header start
-	    ==================== -->
-	    <div class="navbar-default navbar-fixed-top headerBack" id="navigation">
-	        <div class="container">
-	            <!-- Brand and toggle get grouped for better mobile display -->
-	            <div class="navbar-header">
-	                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-	                    <span class="sr-only">Toggle navigation</span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                </button>
-	                <a class="navbar-brand" href="#">
-                        <span class="headerFlex"><img class="logo-1 logo-height" src="./images/logo.png" alt="VEVA"> <span class="logo-1 headTextL">LONGMIRE</span> </span>
-	                    <span class="headerFlex"><img class="logo-2 logo-height" src="./images/logo.png" alt="VEVA"> <span class="logo-2 headTextD">LONGMIRE</span> </span>
-	                </a>
-	            </div>
-
-	            <!-- Collect the nav links, forms, and other content for toggling -->
-	            <nav class="collapse navbar-collapse" id="navbar">
-	                <ul class="nav navbar-nav navbar-right" id="top-nav">
-	                    <li class="current"><a href="#body">Ratings Stream</a></li>
-                      <li><a href="#analysts">Analysts</a></li>
-                      <li><a href="./paper.html">Paper</a></li>
-	                    <li><a href="./team.html">Team</a></li>
-                      <li><a href="http://medium.com/@longmire.kaiser">Blog</a></li>
-	                    <li><a href="#join">Contact</a></li>
-	                </ul>
-	            </nav><!-- /.navbar-collapse -->
-	        </div><!-- /.container-fluid -->
-	    </div>
-
-
-
-
-      <section id="ratings" class="tokenMargin"></section>
-      <section id="contact" class="section">
-          <div class="container top-container">
-              <div class="row">
-                  <div class="col-xs-12 col-sm-12 col-md-12">
-                      <div class="block">
-                          <div class="heading wow fadeInUp">
-                              <h2 class="headTop">Token Stream</h2>
-                              <p>
-
-                                <div class="col-sm-6 col-md-3 wow fadeInLeft">
-                                    <div class="service">
-                                        <div class="icon-box">
-                                          <span class="icon">
-                                                <i class="ion-earth"></i>
-                                            </span>
-                                        </div>
-                                        <div class="caption">
-                                            <h3>Collusion-Proof</h3>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-3 wow fadeInLeft" data-wow-delay="0.3s">
-                                    <div class="service">
-                                        <div class="icon-box">
-                                          <span class="icon">
-                                                <i class="ion-ios-cloud-outline"></i>
-                                            </span>
-                                        </div>
-                                        <div class="caption">
-                                          <h3>Built on Ethereum</h3>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-3 wow fadeInLeft" data-wow-delay="0.6s">
-                                  <div class="service">
-                                      <div class="icon-box">
-                                        <span class="icon">
-                                              <i class="ion-trophy"></i>
-                                          </span>
-                                      </div>
-                                      <div class="caption">
-                                          <h3>Prosecutor-and-Jury Model</h3>
-
-                                      </div>
-                                  </div>
-
-                                </div>
-                                <div class="col-sm-6 col-md-3 wow fadeInLeft" data-wow-delay="0.9s">
-                                  <div class="service">
-                                      <div class="icon-box">
-                                        <span class="icon">
-                                              <i class="ion-ios-infinite-outline"></i>
-                                          </span>
-                                      </div>
-                                      <div class="caption">
-                                          <h3>Infinite Scale</h3>
-
-                                      </div>
-                                  </div>
-                                </div>
-
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-
-                  <!--TOKENS TABLE -->
-                <div>
-                  <table class="table wow fadeInUp" data-wow-delay="0.3s">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col" class="hideResponsive">Price</th>
-                        <th scope="col" class="hideResponsive">Market Cap</th>
-                        <th scope="col">Last 5<br>Ratings</th>
-                        <th scope="col">Last Review</th>
-                        <th scope="col">Consensus</th>
-                        <th scope="col" class="hideResponsive">Team</th>
-                        <th scope="col" class="hideResponsive">Oppor-<br>tunity</th>
-                        <th scope="col" class="hideResponsive">Market</th>
-                        <th scope="col" class="hideResponsive">Tech</th>
-                        <th scope="col" class="hideResponsive">Resources</th>
-
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Bitcoin (BTC)</td>
-                        <td class="hideResponsive">$9,126</td>
-                        <td class="hideResponsive">160B</td>
-                        <td>8.1</td>
-                        <td>2 weeks ago</td>
-                        <td>Bear</td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></img></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Ethereum (ETH)</td>
-                        <td class="hideResponsive">$779</td>
-                        <td class="hideResponsive">99M</td>
-                        <td>9.2</td>
-                        <td>4 days ago</td>
-                        <td>Strong Bull</td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Ripple (XRP)</td>
-                        <td class="hideResponsive">$0.86</td>
-                        <td class="hideResponsive">15M</td>
-                        <td>5.5</td>
-                        <td>5 days ago</td>
-                        <td>Strong Bear</td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-
-                      </tr>
-                      <tr>
-                        <th scope="row">4</th>
-                        <td>Neo (NEO)</td>
-                        <td class="hideResponsive">$76</td>
-                        <td class="hideResponsive">9M</td>
-                        <td>9.2</td>
-                        <td>2 weeks ago</td>
-                        <td>Bull</td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-
-                      </tr>
-                      <tr>
-                        <th scope="row">5</th>
-                        <td>Litecoin (LTC)</td>
-                        <td class="hideResponsive">$188</td>
-                        <td class="hideResponsive">11M</td>
-                        <td>4.0</td>
-                        <td>1 day ago</td>
-                        <td>Bull</td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-
-                      </tr>
-                      <tr>
-                        <th scope="row">6</th>
-                        <td>Monero (XMR)</td>
-                        <td class="hideResponsive">$299</td>
-                        <td class="hideResponsive">2M</td>
-                        <td>7.9</td>
-                        <td>1 month ago</td>
-                        <td>Strong Bull</td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-
-                      </tr>
-                      <tr>
-                        <th scope="row">7</th>
-                        <td>Tronix (TRX)</td>
-                        <td class="hideResponsive">$0.29</td>
-                        <td class="hideResponsive">4M</td>
-                        <td>1.9</td>
-                        <td>1 day ago</td>
-                        <td>Strong Bear</td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-
-                      </tr>
-                      <tr>
-                        <th scope="row">8</th>
-                        <td>Cardano (ADA)</td>
-                        <td class="hideResponsive">$12</td>
-                        <td class="hideResponsive">8M</td>
-                        <td>6.6</td>
-                        <td>3 weeks ago</td>
-                        <td>Bull</td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-
-                      </tr>
-                      <tr>
-                        <th scope="row">9</th>
-                        <td>Nem (XEM)</td>
-                        <td class="hideResponsive">$0.39</td>
-                        <td class="hideResponsive">3M</td>
-                        <td>5.0</td>
-                        <td>6 days ago</td>
-                        <td>Neutral</td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-
-                      </tr>
-                      <tr>
-                        <th scope="row">10</th>
-                        <td>EOS (EOS)</td>
-                        <td class="hideResponsive">$18</td>
-                        <td class="hideResponsive">14M</td>
-                        <td>4.4</td>
-                        <td>1 month ago</td>
-                        <td>Bear</td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/green.png" alt="up" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-                        <td align="center" class="hideResponsive"><img src="./resources/icons/red.png" alt="down" class="arrowIcon"></td>
-
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                  <!-- END TOKENS TABLE-->
-
-                <div class="buttonCenter">
-                  <button class="btn btn-send btn-limit" type="submit">See Full Token Ratings</button>
-                </div>
-
-              </div>
-
-          </div>
-      </section>
-
-
-
-
-
-<!--
-	    <section id="hero-area">
-	        <div class="container">
-	            <div class="row">
-	                <div class="col-md-6">
-	                    <div class="block blockSmall">
-	                        <h1 class="wow fadeInDown">Token Ratings for <br> a decentralized world</h1>
-	                        <p class="wow fadeInDown" data-wow-delay="0.3s">
-
-                            We care about investors&#8212;so we're bringing traditional theories of legal advocacy into the crypto sphere by letting trustless experts compete to sway token scores.
-                            The result is a decentralized ratings platform offering truly objective token valuations.
-
-                          </p>
-	                        <div class="wow fadeInDown" data-wow-delay="0.3s">
-	                        	<a class="btn btn-default btn-home" href="#join" role="button">Join the Community!</a>
-	                        </div>
-
-                          <div class="topSocial">
-                            <div class="icon-box">
-                            	<span class="icon">
-                                  <a href="https://github.com/vevaone"><i class="ion-social-github-outline topIcon"></i></a>
-                                  <a href="https://t.me/vevaone"><i class="ion-paper-airplane topIcon"></i></a>
-                                  <a href="https://twitter.com/vevaone"><i class="ion-social-twitter-outline topIcon"></i></a>
-                                  <a href="mailto:info@veva.one?subject=Hello!"><i class="ion-ios-email-outline topIcon"></i></a>
--->
-                                  <!--
-                                  <i class="ion-ios-mic-outline"></i>
-                                  <i class="ion-ios-book-outline"></i>
-                                  <i class="ion-social-facebook-outline"></i>
-                                  <i class="ion-ios-chatboxes-outline"></i>
-                                  <i class="ion-social-rss-outline"></i>
-                                -->
-<!--
-                              </span>
-                            </div>
-                          </div>
-
-	                    </div>
-	                </div>
-
-	                <div class="col-md-6 wow zoomIn">
-	                    <div class="block">
--->
-
-                        <!--
-	                        <div class="counter text-center">
-	                            <ul id="countdown_dashboard">
-	                                <li>
-	                                    <div class="dash days_dash">
-	                                        <div class="digit">0</div>
-	                                        <div class="digit">0</div>
-	                                        <div class="digit">0</div>
-	                                        <span class="dash_title">Days</span>
-	                                    </div>
-	                                </li>
-	                                <li>
-	                                    <div class="dash hours_dash">
-	                                        <div class="digit">0</div>
-	                                        <div class="digit">0</div>
-	                                        <span class="dash_title">Hours</span>
-	                                    </div>
-	                                </li>
-	                                <li>
-	                                    <div class="dash minutes_dash">
-	                                        <div class="digit">0</div>
-	                                        <div class="digit">0</div>
-	                                        <span class="dash_title">Minutes</span>
-	                                    </div>
-	                                </li>
-	                                <li>
-	                                    <div class="dash seconds_dash">
-	                                        <div class="digit">0</div>
-	                                        <div class="digit">0</div>
-	                                        <span class="dash_title">Seconds</span>
-	                                    </div>
-	                                </li>
-	                            </ul>
-	                        </div>
-                        -->
-<!--
-	                    </div>
-	                </div>
-
-
-	            </div>
-	        </div>
-	    </section>
--->
-
-
-<!--
-    <section id="analysts">
-
-      <div class="heading wow fadeInUp">
-          <h2>Meet Our Analysts</h2>
-      </div>
-
-      <div class="analystFlex wow">
-          <img class="img-fluid rounded-circle" src="./resources/analysts/analyst1.jpg" alt="">
-          <div class="analystTextFlex">
-            <h2>John Li</h2>
-            <p>
-              "I used to use VEVA to help with my trading, but onboarding as an analyst has been an amazing opportunity. I get paid to research the top coins and make my case to other crypto enthusiasts all over the world!"
-            </p>
-          </div>
-      </div>
-
-
-
-      <div class="analystFlex wow">
-          <div class="analystTextFlex">
-            <h2>Karen Reiley</h2>
-            <p>
-              "This is more than just a coin rating platform—I earn VEVA tokens to really engage with the community and dive deep into projects I would otherwise have overlooked. And I can go back and read past briefs to see what has changed!"
-            </p>
-          </div>
-          <img class="img-fluid rounded-circle" src="./resources/analysts/analyst2.jpg" alt="">
-      </div>
-
-
-
-      <div class="analystFlex wow">
-          <img class="img-fluid rounded-circle" src="./resources/analysts/analyst3.jpg" alt="">
-          <div class="analystTextFlex">
-            <h2>Justine Sanford</h2>
-            <p>
-              "VEVA has allowed me to utilize my whole background, from financial analysis to data science. Evaluating these coins has been great both profesionally and personally, as I'm contintually receiving new insights."
-            </p>
-          </div>
-      </div>
-
-
-
-      <div class="analystFlex wow">
-          <div class="analystTextFlex">
-            <h2>Tyler Miller</h2>
-            <p>
-              "I left my fund to explore blockchain opportunities, but didn't expect to be able to engage in bona fide financial analysis. VEVA is a fantastic opportunity for anyone trying to intimately familiarize themselves with crypto-tokens."
-            </p>
-          </div>
-          <img class="img-fluid rounded-circle" src="./resources/analysts/analyst4.jpg" alt="">
-      </div>
-
-
-      <div class="AnalystButtonCenter">
-        <button class="btn aBtn btn-send btn-limit" type="submit">See More</button>
-      </div>
-
-    </section>
-
-
-
-    <section>
-
-      <div class="chartHeaderFlex heading adoptionHead wow fadeInUp">
-        <h2> Adoption </h2>
-      </div>
-
-      <div class="chartHeaderFlex heading wow fadeInUp">
-      <p> Our network is growing every day. With over 1,000 analysts and counting, VEVA provides the most trusted ratings available!</p>
-      </div>
-
-      <div class="chartFlex wow fadeInUp">
-
-      <canvas id="myChart" class="chartClass fadeInUp"></canvas>
-
-<script src="./js/chart.js/dist/Chart.js"> </script>
-
-<script>
-
-
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
-type: 'line',
-data: {
-    labels: ["Jan", "Feb", "March", "April", "May", "June"],
-    datasets: [{
-        label: 'Analyst Growth YTD',
-        data: [5, 6, 3, 9, 15, 20],
-        backgroundColor: [
-            '#b5c4e4'
-        ],
-        borderColor: [
-            '#f18f01'
-        ],
-        borderWidth: 1
-    }]
-},
-options: {
-    scales: {
-        yAxes: [{
-            ticks: {
-                beginAtZero:true
-            }
-        }]
-    }
-}
-});
-
-
-</script>
-
-</div>
-    </section>
--->
-
-<!--
-      <section>
-            <div class="container">
-              <div class="row align-items-center">
-                <div class="col-lg-6 order-lg-2">
-                  <div class="p-5">
-                    <img class="img-fluid rounded-circle" src="./resources/analysts/analyst4.jpg" alt="">
-                  </div>
-                </div>
-                <div class="col-lg-6 order-lg-1">
-                  <div class="p-5">
-                    <h2 class="display-4">For those about to rock...</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <div class="container">
-              <div class="row align-items-center">
-                <div class="col-lg-6">
-                  <div class="p-5">
-                    <img class="img-fluid rounded-circle" src="./resources/analysts/analyst4.jpg" alt="">
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="p-5">
-                    <h2 class="display-4">We salute you!</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <div class="container">
-              <div class="row align-items-center">
-                <div class="col-lg-6 order-lg-2">
-                  <div class="p-5">
-                    <img class="img-fluid rounded-circle" src="./resources/analysts/analyst4.jpg" alt="">
-                  </div>
-                </div>
-                <div class="col-lg-6 order-lg-1">
-                  <div class="p-5">
-                    <h2 class="display-4">Let there be rock!</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <div class="container">
-              <div class="row align-items-center">
-                <div class="col-lg-6 order-lg-2">
-                  <div class="p-5">
-                    <img class="img-fluid rounded-circle" src="./resources/analysts/analyst4.jpg" alt="">
-                  </div>
-                </div>
-                <div class="col-lg-6 order-lg-1">
-                  <div class="p-5">
-                    <h2 class="display-4">Let there be rock!</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
--->
-
-<section id="vision" class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="block">
-                    <div class="heading wow fadeInUp">
-                        <h2>Longmire Tokenstream</h2>
-                        <p>
-                          We aim to be the easiest to use, and most assuredly safe way to gain confidence in trading tokens.
-                          <br>
-                          Beginning to trade tokens is a scary prospect for most people.... blaha
-                        </p>
-<br>
-<br>
-                        <h4> Why are ratings desperately needed: </h4>
-<p>Blockchains, decentralized computing, and tokens are unleashing an economic transformation not seen in generations.  As business processes become fully digital and global, finance is following suit. Tokens are early methods of encapsulating digital units of value for liquid global trading.</p>
-
-​
-
-<p>We see a world powered by millions of tokens traded 24/7 by algorithms. The market is decentralized and borderless, and there are no reporting, disclosure, regulation or exchange standards to support price discovery.​</p>
-
-​
-
-<p>Without any mechanism for parsing signal from noise, how do we trust prices? The promise of crypto is at risk of being hijacked by scams, pump+dump schemes, incompetent teams or manic speculation. Price discovery is a critical imperative and we hope to support this obective by provding an open database of fundamental signals to support valuation models.</p>
-
-
-<br>
-<h4> Why adversarial ratings? </h4>
-<p>Decentralized computing is really trustless computing.  Bitcoin / Ethereum organizes a p2p ledger assuming nodes are unreliable or corrupt; the proof-of-work protocol ensures good behavior and a robust/trusted network.</p>
-
-​
-
-<p>Similarly, VEVA is a peer-to-peer network of trustless experts. We assume analysts are either incompetent, lazy, conflicted, or corrupted and work backwards. The game theoretical mechanics eliminates bad actors/actions to provide the highest quality token analysis platform ever.</p>
-
-​
-
-<p>As VEVA grows the network maintains high and verifiable standards of quality / integrity. Many are aware of the mortgage securities rating scandals of 2008; we are committed to building a ratings platform that is conflict/collusion proof.</p>
-​
-                    </div>
-                </div>
-            </div>
-
-
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Longmire &mdash; Decentralized Token Ratings</title>
+    <meta name="description" content="Free Bootstrap Theme by uicookies.com">
+    <meta name="keywords" content="Free website templates, Free bootstrap themes, Free template, Free bootstrap, Free website template">
+
+    <link rel="stylesheet" href="css/styles-merged.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default probootstrap-navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html" title="uiCookies:Frame">Longmire</a>
         </div>
 
-    </div>
-</section>
+        <div id="navbar-collapse" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#" data-nav-section="home">Home</a></li>
+            <li><a href="#" data-nav-section="reviews">Reviews</a></li>
+            <li><a href="#" data-nav-section="features">Features</a></li>
+            <li><a href="#" data-nav-section="pricing">Earn</a></li>
+            <li><a href="#" data-nav-section="contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
+    <section class="probootstrap-hero prohttp://localhost/probootstrap/frame/#featuresbootstrap-slant" style="background-image: url(img/bg.jpg);" data-section="home" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row intro-text">
+          <div class="col-md-8 col-md-offset-2 text-center">
+            <h1 class="probootstrap-heading probootstrap-animate">Rate. Discover. Earn. </h1>
+            <div class="probootstrap-subheading center">
+              <p class="probootstrap-animate"><a href="www.stinkie.one" target="_blank" role="button" class="btn btn-primary">Try It Now</a><a href="#features" class="btn btn-default smoothscroll" role="button">Get More Info</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!--
-        Service start
-        ==================== -->
-        <section id="about"></section>
-        <section id="service" class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="heading wow fadeInUp">
-                        <h2>Our Platform</h2>
-                        <p>
-                          VEVA is a peer-to-peer network of trustless experts, resulting in completely decentralized token ratings.
-                          <br>
-                          We use a prosecutor-and-jury model to extract the best arguments and facts while minimizing noise and bias.
-                        </p>
-                    </div>
+    <section class="probootstrap-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="probootstrap-service-item probootstrap-animate" data-animate-effect="fadeIn">
+              <span class="icon icon-phone3"></span>
+              <h2>Mobile</h2>
+              <p>Crypto is the antithesis of your grandma's heavy old IBM machine. With Longmire, you can ease into crypto the way it was meant to be experienced: lightweight and fun.</p>
+              <p><a href="#" class="probootstrap-link">Learn More <i class="icon-chevron-right"></i></a></p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="probootstrap-service-item probootstrap-animate" data-animate-effect="fadeIn">
+              <span class="icon icon-wallet2"></span>
+              <h2>Smart</h2>
+              <p>Help yourself by helping others. Rate tokens as you learn about them, earn LMR tokens for your input, and then buy the best tokens—right in our app.</p>
+              <p><a href="#" class="probootstrap-link">Learn More <i class="icon-chevron-right"></i></a></p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="probootstrap-service-item probootstrap-animate" data-animate-effect="fadeIn">
+              <span class="icon icon-lightbulb"></span>
+              <h2>Easy</h2>
+              <p>Start investing in a safe, unintimidating environment. Explore tokens, rate them, and then jump into our guided micro-transaction marketplace.</p>
+              <p><a href="#" class="probootstrap-link">Learn More <i class="icon-chevron-right"></i></a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                  <div class="protocolFlex">
-                    <div class="col-sm-6 col-md-3 wow fadeInLeft img-fluid rounded-circle protocol-border">
+    <section class="probootstrap-section probootstrap-bg-light" id="features" data-section="features">
+      <div class="container">
+        <div class="row text-center mb100">
+          <div class="col-md-8 col-md-offset-2 probootstrap-section-heading">
+            <h2 class="mb30 text-black probootstrap-heading">Features</h2>
+            <p>Longmire is <em> the </em> best way to get started with crypto. We make purchasing easy—you earn LRM tokens as you rate different projects and can exchange them for other coins right in our app. Collect reputation points to earn the right to higher and higher spending limits!</p>
+          </div>
+        </div>
+        <!-- END row -->
+        <div class="row mb100">
+          <div class="col-md-8 col-md-pull-2 probootstrap-animate">
+            <p><img src="img/img_showcase_1.jpg" alt="Free Template by uicookies.com" class="img-responsive probootstrap-shadow"></p>
+          </div>
+          <div class="col-md-4 col-md-pull-1 probootstrap-section-heading">
+            <h3 class="text-primary probootstrap-heading-2">Decentralized Ratings</h3>
+            <p>Of course, we are ultimately a token ratings platform. Browse our ratings data to find your next hot investment! Or feel free to hook into our API for the most up-to-date insights into crypto data, trends, and ratings.</p>
+            <ul class="probootstrap-list">
+              <li class="probootstrap-check">Objective</li>
+              <li class="probootstrap-check">Open data</li>
+              <li class="probootstrap-check">Accurate</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END row -->
+        <div class="row mb100">
+          <!-- <div class="col-md-8 col-md-pull-2"> -->
+          <div class="col-md-8 col-md-push-5 probootstrap-animate">
+            <p><img src="img/img_showcase_2.jpg" alt="Free Template by uicookies.com" class="img-responsive probootstrap-shadow"></p>
+          </div>
+          <!-- <div class="col-md-4 col-md-pull-1"> -->
+          <div class="col-md-4 col-md-pull-8 probootstrap-section-heading">
+            <h3 class="text-primary probootstrap-heading-2">How Longmire is Different</h3>
+            <p>Our goal is to provide quality ratings without the bias present in most other, pay-to-play systems. Longmire pushes rating assignments at random, meaning that most people will mostly be rating tokens they have no stake in.</p>
+            <ul class="probootstrap-list">
+              <li class="probootstrap-check">Zero bias</li>
+              <li class="probootstrap-check">Random token assignment</li>
+              <li class="probootstrap-check">Decentralized</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END row -->
 
+        <div class="row mb100">
+          <div class="col-md-8 col-md-pull-2 probootstrap-animate">
+            <p><img src="img/img_showcase_1.jpg" alt="Free Template by uicookies.com" class="img-responsive probootstrap-shadow"></p>
+          </div>
+          <div class="col-md-4 col-md-pull-1 probootstrap-section-heading">
+            <h3 class="text-primary probootstrap-heading-2">Safe Marketplace</h3>
+            <p>We want to make crypto as frictionless as possible, so we've made investing easy. Earn LMR tokens as you rate, and exchange them for other coins. As an additional safety feature, we limit your purchasing power until you unlock pre-set reputation levels!</p>
+            <ul class="probootstrap-list">
+              <li class="probootstrap-check">Trusted</li>
+              <li class="probootstrap-check">Easy</li>
+              <li class="probootstrap-check">Protected</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END row -->
+      </div>
+    </section>
+    <!-- END section -->
+
+    <section class="probootstrap-section" data-section="pricing">
+      <div class="container">
+        <div class="row text-center mb100">
+          <div class="col-md-8 col-md-offset-2 probootstrap-section-heading">
+            <h2 class="mb30 text-black probootstrap-heading"> Rate to earn tokens and reputation points!</h2>
+            <p>At Longmire, we're committed to making crypto as safe as possible for all people. Everyone is free to use our data to make token purchases elsewhere, but for those interested in doing it in a protected environment, Longmire
+             allows for in-app purchases using LMR tokens, or in tiers via USD. At first, we restrict our users to $20/month, but this goes up as you earn reputation in the Longmire ecosystem!</p>
+          </div>
+        </div>
+        <!-- END row -->
+        <div class="row">
+          <div class="col-md-4">
+            <div class="probootstrap-pricing probootstrap-popular probootstrap-shadow">
+              <h2>Beginner</h2>
+              <p class="probootstrap-note">0-100 rep points</p>
+              <p class="probootstrap-price"><strong>$20</strong>/month</p>
+              <p class="probootstrap-note">You can break this up however you choose</p>
+              <ul class="probootstrap-list text-left mb50">
+                <li class="probootstrap-check">1 LMR per rating</li>
+                <li class="probootstrap-check">5 reputation points per rating</li>
+                <li class="probootstrap-check">5 token portfolio</li>
+              </ul>
+              <p><a href="#" class="btn btn-primary">More</a></p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="probootstrap-pricing">
+              <h2>Intermediate</h2>
+              <p class="probootstrap-note">101-500 rep points</p>
+              <p class="probootstrap-price"><strong>$400</strong>/month</p>
+              <p class="probootstrap-note">$100 USD per week max spending limit</p>
+              <ul class="probootstrap-list text-left mb50">
+                <li class="probootstrap-check">5 LMR per rating</li>
+                <li class="probootstrap-check">10 reputation points per rating</li>
+                <li class="probootstrap-check">25 token max portfolio</li>
+              </ul>
+              <p><a href="#" class="btn btn-black">More</a></p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="probootstrap-pricing">
+              <h2>Expert</h2>
+              <p class="probootstrap-note">500+ rep points</p>
+              <p class="probootstrap-price"><strong>$5000</strong>/month</p>
+              <p class="probootstrap-note">No weekly limits</p>
+              <ul class="probootstrap-list text-left mb50">
+                <li class="probootstrap-check">25 LMR per rating</li>
+                <li class="probootstrap-check">+1 LMR per rating per every 500 rep points</li>
+                <li class="probootstrap-check">Opportunity to be a part of our invite-only "elite" class</li>
+              </ul>
+              <p><a href="#" class="btn btn-black">More</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+     <section class="probootstrap-section probootstrap-bg-light" data-section="reviews">
+      <div class="container">
+        <div class="row text-center mb100">
+          <div class="col-md-8 col-md-offset-2 probootstrap-section-heading">
+            <h2 class="mb30 text-black probootstrap-heading">Join the 100,000+ other Longmire users today!</h2>
+            <p>Our ratings are the heart of our system, and they can be accessed via chatbot (Toshi or Telegram), in our app, or on our website.</p>
+          </div>
+        </div>
+        <!-- END row -->
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="probootstrap-testimonial">
+              <p><img src="img/person_1.jpg" class="img-responsive img-circle probootstrap-author-photo" alt="Free Template by uicookies.com"></p>
+              <p class="mb10 probootstrap-rate">
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+              </p>
+              <blockquote>
+                <p>Ethereum is, hands down, the future. They have one of the few truly decentralized core teams, and are actively working on scaling solutions (Casper).</p>
+              </blockquote>
+              <p class="mb0">&mdash; 0x8ff7f3ba</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="probootstrap-testimonial">
+              <p><img src="img/person_2.jpg" class="img-responsive img-circle probootstrap-author-photo" alt="Free Template by uicookies.com"></p>
+              <p class="mb10 probootstrap-rate">
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star-outlined"></i>
+                <i class="icon-star-outlined"></i>
+                <i class="icon-star-outlined"></i>
+              </p>
+              <blockquote>
+                <p>Litecoin benefitted early on from their Coinbase listing, but haven't really done much since Charlie Lee stepped down. Not looking good...</p>
+              </blockquote>
+              <p class="mb0">&mdash; 0xcc4e2865</p>
+            </div>
+          </div>
+          <div class="clearfix visible-sm-block"></div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="probootstrap-testimonial">
+              <p><img src="img/person_3.jpg" class="img-responsive img-circle probootstrap-author-photo" alt="Free Template by uicookies.com"></p>
+              <p class="mb10 probootstrap-rate">
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star-outlined"></i>
+              </p>
+              <blockquote>
+                <p>I didn't know much about Zcash before getting this assignment, but they are <em>strong</em>. Solid privacy tech, great team, and a bright future.</p>
+              </blockquote>
+              <p class="mb0">&mdash; 0x732d00aa</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="probootstrap-testimonial">
+              <p><img src="img/person_4.jpg" class="img-responsive img-circle probootstrap-author-photo" alt="Free Template by uicookies.com"></p>
+              <p class="mb10 probootstrap-rate">
+                <i class="icon-star"></i>
+                <i class="icon-star-outlined"></i>
+                <i class="icon-star-outlined"></i>
+                <i class="icon-star-outlined"></i>
+                <i class="icon-star-outlined"></i>
+              </p>
+              <blockquote>
+                <p>Tron... just no. Plagiarized white paper, naked marketing, and zero (yep, zero) working tech. They may be a good company someday, but for now, they are incredibly overvalued.</p>
+              </blockquote>
+              <p class="mb0">&mdash; 0xacfe6a77b</p>
+            </div>
+          </div>
+          <div class="clearfix visible-sm-block"></div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="probootstrap-testimonial">
+              <p><img src="img/person_2.jpg" class="img-responsive img-circle probootstrap-author-photo" alt="Free Template by uicookies.com"></p>
+              <p class="mb10 probootstrap-rate">
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star-outlined"></i>
+              </p>
+              <blockquote>
+                <p>Bitcoin is the king of crypto, and are especially undeniable now that they've broken the 50% market cap threshold again. The only safe investment in crypto.</p>
+              </blockquote>
+              <p class="mb0">&mdash; 0x818f0095</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="probootstrap-testimonial">
+              <p><img src="img/person_3.jpg" class="img-responsive img-circle probootstrap-author-photo" alt="Free Template by uicookies.com"></p>
+              <p class="mb10 probootstrap-rate">
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+              </p>
+              <blockquote>
+                <p>Monero is one of the only true privacy coins available. Ring signatures offer protection that nothing else even approaches. Ledger support is on the horizon, as well!</p>
+              </blockquote>
+              <p class="mb0">&mdash; 0x44bb630fd</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
 <!--
-                        <div class="service">
-                            <div class="icon-box">
-                            	<span class="icon">
-                                    <i class="ion-earth"></i>
-                                </span>
-                            </div>
-                      -->
-                            <div class="caption">
-                                <h3>Conflict-<br>Proof</h3>
-                                <p>
-                                  Quasi-random token assignments and game theoretical mechanics economically incentivize the truth.
-                                </p>
-                            </div>
-                    </div>     <!--
-            </div>    -->
 
-                    <div class="col-sm-6 col-md-3 wow fadeInLeft img-fluid rounded-circle protocol-border" data-wow-delay="0.3s">
-
-
-                            <div class="caption">
-                            	<h3>Built for<br>Blockchain</h3>
-                                <p>
-                                  The blockchain guarantees the immutability of ratings logic, data, and the reward ledger.
-                                </p>
-                            </div>
-
-                    </div>
-                    <div class="col-sm-6 col-md-3 wow fadeInLeft img-fluid rounded-circle protocol-border" data-wow-delay="0.6s">
-
-
-                            <div class="caption">
-                                <h3>Highly<br>Scalable</h3>
-                                <p>
-                                  VEVA is designed to be completely permissionless, allowing for incredible scalability.
-                                </p>
-                            </div>
-
-                    </div>
-                    <div class="col-sm-6 col-md-3 wow fadeInLeft img-fluid rounded-circle protocol-border" data-wow-delay="0.9s">
-
-
-                            <div class="caption">
-                                <h3>Adversarial<br>Ratings</h3>
-                                <p>
-                                  Symmetrical opposing arguments ensure that each data point is contested and fact-checked.
-                                </p>
-                            </div>
-
-                    </div>
-                  </div>
-                </div>
+    <section class="probootstrap-section">
+      <div class="container">
+         <div class="row text-center mb100">
+          <div class="col-md-8 col-md-offset-2 probootstrap-section-heading">
+            <h2 class="mb30 text-black probootstrap-heading">Try It Today</h2>
+            <p>and start earning LMRs. Just download, create a profile, and start rating!</p>
+            <p><a href="#" class="btn btn-primary">Get It Now</a></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <p><img src="img/laptop_1.jpg" alt="Free Template by uicookies.com" class="img-responsive"></p>
+              </div>
             </div>
-        </section>
+            <div class="row">
+              <div class="col-md-6">
+                <h4 class="text-black probootstrap-check-2"> What is Instant?</h4>
+                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
 
+                <h4 class="text-black probootstrap-check-2">How do I use the new features of Frame App?</h4>
+                <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. </p>
+              </div>
+              <div class="col-md-6">
+                <h4 class="text-black probootstrap-check-2">Is this available to my country?</h4>
+                <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.
+</p>
 
-
-
-<!--
-TEST SECTION
--->
-
-<!--
-
-<script>
-// using SendGrid's v3 Node.js Library
-// https://github.com/sendgrid/sendgrid-nodejs
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-const msg = {
-  to: 'reuben@veva.one',
-  from: 'test@example.com',
-  subject: 'Sending with SendGrid is Fun',
-  text: 'and easy to do anywhere, even with Node.js',
-  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-};
-sgMail.send(msg);
-
-
-
-</script>
-
--->
-
-<!--
-end TEST SECTION
--->
-
-
-        <!--
-        About start
-        ==================== -->
-
-
-        <section id="about" class="section sectionSmall">
-            <div class="container">
-                <div class="row columnFlex">
-
-                  <div class="sub-heading">
-                    <h2> How it Works: A Typical Round </h2>
-                  </div>
-
-                    <!--<div class="col-md-7 col-sm-12 wow fadeInLeft">-->
-                    <div class="col-md-7 col-sm-12">
-                        <div class="block blockFlex">
-                            <div class="about-slider blockFlex">
-
-
-                              <div class="horizontalFlex protocolPad wow" data-wow-delay="0.3s">
-                                <span class="protocolText">
-
-                                  <b>Day 1:</b> Analysts from across the globe are randomly assigned to a token and a position as either BULL or BEAR lead, or a jury member.
-                                  This randomness virtually eliminates the possibility of collusion, as nobody can control what they're arguing for or against.
-
-                                </span>
-                                <div class="about-item">
-                                  <i class="ion-ios-world-outline protocolIcon"></i>
-                                </div>
-                              </div>
-
-
-                            <div class="horizontalFlex protocolPad wow" data-wow-delay="0.3s">
-
-                              <div class="about-item">
-
-                                <i class="ion-ios-paper-outline protocolIcon"></i>
-
-                                <!--
-                                <img src="./resources/v13/coins.png" alt="" class="img-responsive img-limit">
-                                -->
-                              </div>
-
-                              <span class="protocolText headerPad">
-
-                                <b>Days 1-5:</b> Bull and Bear leads do in-depth research: one trying to prove that the token is a good buy, and the other building a case for selling.
-                                These briefs will be used to sway an impartial jury, and each lead is economically incentivized to put forth the strongest argument available.
-                              </span>
-
-                            </div>
-
-
-                            <div class="horizontalFlex protocolPad wow" data-wow-delay="0.3s">
-                              <span class="protocolText">
-                                <b>Day 6:</b> Jury members take a valuation survey before receiving the briefs to establish a baseline, and another after reading and considering both sides of the argument.
-                                This ensures that what's measured is <i>sway</i>: whether or not one of the leads had an effect the general sentiment.
-                              </span>
-
-                              <div class="about-item">
-                              <i class="ion-ios-people-outline protocolIcon"></i>
-                              </div>
-
-                            </div>
-
-                            <div class="horizontalFlex protocolPad wow" data-wow-delay="0.3s">
-
-                              <div class="about-item">
-
-                                <i class="ion-ios-barcode-outline protocolIcon"></i>
-
-                              </div>
-
-                              <span class="protocolText headerPad">
-                                <b>Day 7:</b> VEVA tokens will be distributed according to performance, including jury members who are best able to predict the outcome.
-                                Paying losing leads and accurate jury members rewards precision and effort through game-theoretical mechanics.
-                              </span>
-
-                            </div>
-
-
-                            <div class="horizontalFlex protocolPad wow" data-wow-delay="0.3s">
-
-
-                              <span class="protocolText headerPad">
-                                <i><b>After the Round:</b></i>
-                                All VEVA data is available to the public at no cost via our website or API. You can browse historical data in our archives, or read our <a href="./paper.html">whitepaper</a> for more information on the protocol!
-                              </span>
-
-                            </div>
-
-                          <div class="horizontalFlex protocolPad wow" data-wow-delay="0.3s">
-                            <div class="about-item">
-
-                              <i class="ion-ios-filing protocolIcon"></i>
-
-                            </div>
-
-                            <span class="protocolText headerPad" style="text-align:center">
-                              <i><b>Sample Briefs:</b></i>
-                              <br>
-                               <a href = "./resources/sampleBriefs/BullSample.pdf">Bull</a> | <a href = "./resources/sampleBriefs/BearSample.pdf">Bear</a>
-                            </span>
-                          </div>
-
-
-                        </div>
-                    </div>
-                </div>
+                <h4 class="text-black probootstrap-check-2">I have technical problem who do I email?</h4>
+                <p>But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </section>
+  -->
+    <!-- END section -->
+
+    <section class="probootstrap-section probootstrap-cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 text-center">
+            <h2 class="probootstrap-heading">Join Our Ranks</h2>
+            <p class="probootstrap-sub-heading">and start earning LMR today! Just download, join, and start rating tokens.</p>
+            <p><a href="#" class="btn btn-black">Get Started</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <section class"probootstrap-section probootstrap-cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <h2 class="probootstrap-heading">Join With Over 100K Members</h2>
+            <p class="probootstrap-sub-heading">But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+
+          </div>
+        </div>
+      </div>
+    </section> -->
+    <!-- END section -->
+    <section class="probootstrap-section probootstrap-bg-light" data-section="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <form action="" class="probootstrap-form">
+              <h2 class="text-black mt0">Get In Touch</h2>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Name">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Your Email">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Your Phone">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control"cols="30" rows="10" placeholder="Write a Message"></textarea>
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Send Message">
+              </div>
+            </form>
+          </div>
+          <div class="col-md-3 col-md-push-1">
+            <ul class="probootstrap-contact-details">
+              <li>
+                <span class="text-uppercase">Email</span>
+                longmirelmr@gmail.com
+              </li>
+              <li>
+                <span class="text-uppercase">Phone</span>
+                +1 (415) 555-5555
+              </li>
+              <li>
+                <span class="text-uppercase">Telegram</span>
+                t.me/longmire
+              </li>
+              <li>
+                <span class="text-uppercase">Address</span>
+                P.O. Box 95 <br>
+                Cheyenne, WY
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="probootstrap-footer">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="probootstrap-social"><a href="#"><i class="icon-twitter"></i></a> <a href="#"><i class="icon-facebook2"></i></a> <a href="#"><i class="icon-instagram2"></i></a><a href="#"><i class="icon-linkedin"></i></a></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            &copy; 2017 <a href="#">Longmire, Inc.</a> A Wyoming Corporation <br>  <br> Demo Images by <a href="https://unsplash.com">Unsplash</a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
 
 
+    <script src="js/scripts.min.js"></script>
+    <script src="js/custom.js"></script>
 
-
-<!--
-
-
-        <section id="about" class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-7 col-sm-12 wow fadeInLeft">
-                    	<div class="sub-heading">
-                    		<h2>Our protocol takes its inspirations from the prosecutor-and-jury model, and game theory</h2>
-                    	</div>
-                        <div class="block blockFlex">
-                            <h4>
-                              VEVA is a peer-to-peer network of trustless experts. We assume analysts are either incompetent, lazy, conflicted, or corrupted and work backwards. The game theoretical mechanics eliminates bad actors/actions to provide the highest quality token analysis platform——ever.
-                            </h4>
-
-                            <h4>
-                              Two analysts competing to disprove each other ensures that only the highest quality, most accurate information gets considered by the jury. Each analyst has an economic incentive to champion their side, and the jurors have similar incentives to rate the tokens accurately.
-                            </h4>
-
-                            <h4>
-                              Our analysts earn 'Reputation Points' to reach new levels. Higher levels come with additional referrals, used for adding new members to the ecosystem——and the ability to earn a percentage of their income! This ensures a network of only trusted analysts.
-                            </h4>
-
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-5 col-sm-12 wow fadeInLeft blockEnd" data-wow-delay="0.3s">
-                        <div class="about-slider blockFull">
-                        	<div class="init-slider blockFlex blockFull">
-                            <div></div>
-                            <div></div>
-                            <br>
-                            <br>
-                        		<div class="about-item">
-                        			<img src="./resources/v13/lock.png" alt="" class="img-responsive img-limit">
-                        		</div>
-                        		<div class="about-item">
-                        			<img src="./resources/v13/coins.png" alt="" class="img-responsive img-limit">
-                        		</div>
-                        		<div class="about-item">
-                        			<img src="./resources/v13/rank.png" alt="" class="img-responsive img-limit">
-                        		</div>
-                        	</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-      -->
-
-        <!-- #about close -->
-        <!--
-        About start
-        ==================== -->
-
-        <section id="join"></section>
-        <section id="call-to-action" class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 wow text-center">
-                        <div class="block">
-                            <h2>Want updates?</h2>
-                            <p>Subscribe for news about events, new ratings, and more!</p>
-                            <div class="form-group">
-                              <!-- Begin MailChimp Signup Form -->
-                                <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
-                                <style type="text/css">
-                                  #mc_embed_signup{background: inherit; clear:left; width:100%; color:black;}
-                                  /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-                                     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-                                </style>
-
-
-                                <div id="mc_embed_signup">
-                                <form action="https://one.us18.list-manage.com/subscribe/post?u=5ff9c21dd08de85d9f87f0ba1&amp;id=305e683f66" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-
-                                    <div id="mc_embed_signup_scroll">
-
-                                  <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-                                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_5ff9c21dd08de85d9f87f0ba1_305e683f66" tabindex="-1" value=""></div>
-                                    <div class="clearMail"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-default btn-submit emailBtn"></div>
-                                    </div>
-
-                                </form>
-                                </div>
-
-<!--End mc_embed_signup-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section><!-- #call-to-action close -->
-
-        <!--
-        Contact start
-        ==================== -->
-        <section id="contact" class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="block">
-                            <div class="heading wow fadeInUp">
-                                <h2>Get In Touch</h2>
-                                <p>We'd love to hear from you! feel free to reach out with questions, comments, or just to say hello... or, you can apply to become an analyst using our application form! There is a signifcant waitlist, but don't worry, we will be in touch as soon as we can.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-5 wow fadeInUp">
-						<div class="block text-left">
-							<div class="sub-heading">
-								<h4>Contact</h4>
-								<p>
-                  VEVA
-                </p>
-							</div>
-							<address class="address">
-                                <hr>
-								<p>Palo Alto,<br> California,<br> USA</p>
-                                <hr>
-                                <p>
-                                  <strong>Email:</strong>&nbsp;info@veva.one <br>
-                                  <strong>Github:</strong>&nbsp;github.com/vevaone <br>
-                                  <strong>Twitter:</strong>&nbsp;@vevaone <br>
-                                  <strong>Telegram:</strong>&nbsp;t.me/vevaone
-                              </p>
-
-
-							</address>
-						</div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-1 wow fadeInUp" data-wow-delay="0.3s">
-                      <h4>Apply to become an analyst!</h4>
-                      <div class="form-group">
-                    	    <form action="inTouch.php" method="post" id="contact-form">
-                    	        <div class="input-field">
-                    	            <input type="text" class="form-control" placeholder="Your Name" name="name">
-                    	        </div>
-                    	        <div class="input-field">
-                    	            <input type="email" class="form-control" placeholder="Email Address" name="email">
-                    	        </div>
-                    	        <div class="input-field">
-                    	            <textarea class="form-control" placeholder="Brief Bio" rows="3" name="message"></textarea>
-                    	        </div>
-                    	        <button class="btn btn-send" type="submit">Apply</button>
-                    	    </form>
-
-                    	    <div id="success">
-                    	        <p>Your application was sent successfully!</p>
-                    	    </div>
-                    	    <div id="error">
-                    	        <p>There was a problem.... please try again!</p>
-                    	    </div>
-                    	</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section clas="wow fadeInUp">
-        	<div class="map-wrapper">
-        	</div>
-        </section>
-
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="block">
-                            <p>Copyright &copy; <a href="http://www.veva.one">VEVA  </a>|  All right reserved</p>
-                            <sub style="color:white">
-                              <b><i><u>Ve</b></i></u>rum <b><i><u>Va</b></i></u>lorem: "true value" <i>(latin)</l>
-                            </sub>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-
-        <script>
-
-
-        function sendMail (
-
-          var fromName = $("#name").val()
-          var fromEmail = $("#email").val()
-          var fromMsg = $("#message").val()
-
-        Email.send(fromEmail,
-            "reuben@veva.one",
-            "Analyst Application",
-            fromMsg,
-            "smtp.veva.one",
-            fromName,
-            "");
-
-          );
-
-        </script>
-
-
-        <!-- Js -->
-
-        <script src="https://smtpjs.com/v2/smtp.js"></script>
-
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-        <script src="js/vendor/jquery-1.10.2.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-        <script src="js/jquery.lwtCountdown-1.0.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/jquery.validate.min.js"></script>
-        <script src="js/jquery.form.js"></script>
-        <script src="js/jquery.nav.js"></script>
-        <script src="js/jquery.sticky.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/wow.min.js"></script>
-        <script src="js/main.js"></script>
-
-    </body>
+  </body>
 </html>
