@@ -18,7 +18,11 @@
 
 ## Documentation
 
-##Bot Commands:
+#### Bot Commands:
+
+/start: Starts the bot
+/tokens: view available tokens
+/checkToken <Token Ticker>: Pull Token Data
 
 
 
