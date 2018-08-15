@@ -1,0 +1,5 @@
+test erc20 for lmr on ropstein
+
+0x7803e4835636393a55bb327b51a5acc54434d277
+
+
