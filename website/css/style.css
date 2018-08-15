@@ -1206,3 +1206,15 @@ a:hover, a:focus, a:active {
     max-width: 100%;
   }
 }
+
+.flexboxHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoImage {
+  margin-left: 50px;
+  max-width: 70px ;
+  max-height: 70px;
+}
