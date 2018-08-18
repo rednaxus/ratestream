@@ -3,57 +3,50 @@
 const TelegramBot = require('node-telegram-bot-api')
 const { InlineKeyboard, ReplyKeyboard, ForceReply } = require('telegram-keyboard-wrapper')
 
-const nlp = require('compromise')
+const { translate } = require('../nlp')
+
+var app = require('../application')
+
+var { tokens, users, rounds, questions, reviews, scripts } = app.data
+
+app.start()
+
+
+console.log('users:',users)
 
 /* nlp tests */
-var t = nlp('dinosaur').nouns().toPlural()
+var t = translate('dinosaur').nouns().toPlural()
 
 console.log( t.out('text') )
 
-var doc = nlp('London is calling')
+var doc = translate('London is calling')
 console.log( doc.sentences().toNegative().out('text'))
+
 
 /* */
 
 
 const config = require('../config.js')
 
-const roundsService = require('../../src/app/services/API/rounds')
-const cyclesService = require('../../src/app/services/API/cycles')
-const tokensService = require('../../src/app/services/API/tokens')
+const roundsService = require('../../app/services/API/rounds')
+const cyclesService = require('../../app/services/API/cycles')
+const tokensService = require('../../app/services/API/tokens')
 
-const tokenomics = require('../../src/app/services/tokenomics')
-const statusService = require('../../src/app/services/analystStatus')
+const tokenomics = require('../../app/services/tokenomics')
+const statusService = require('../../app/services/analystStatus')
 
-const utils = require('../../src/app/services/utils') // parseB32StringtoUintArray, toHexString, bytesToHex, hexToBytes
-
-
+const utils = require('../../app/services/utils') // parseB32StringtoUintArray, toHexString, bytesToHex, hexToBytes
 
 
-const ethplorer = require('../../src/app/services/API/ethplorer.js')
 
-const survey = require('../../src/app/services/survey')
+
+const ethplorer = require('../../app/services/API/ethplorer.js')
+
+const survey = require('../../app/services/survey')
 const surveyElements = survey.getElements()
 
 
-const standardTokens = [
-  { address: '0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0', name: 'EOS'              		},
-  { address: '0xf230b790e05390fc8295f4d3f60332c93bed42e2', name: 'Tronix'           		},
-  { address: '0xd850942ef8811f2a866692a623011bde52a462c1', name: 'VeChain Token'     		},
-  { address: '0xd26114cd6ee289accf82350c8d8487fedb8a0c07', name: 'OMGToken'             },
-  { address: '0xb5a5f22694352c15b00323844ad545abb2b11028', name: 'ICON'           			},
-  { address: '0xb8c77482e45f1f44de1745f52c74426c631bdd52', name: 'BNB' 									},
-  { address: '0xe0b7927c4af23765cb51314a0e0521a9645f0e2a', name: 'Digix'         				},
-  { address: '0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a', name: 'Populous Platform'    },
-  { address: '0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2', name: 'Maker'     						},
-  { address: '0x744d70fdbe2ba4cf95131626614a1763df805b9e', name: 'Status Network'      	},
-  { address: '0x168296bb09e24a88805cb9c33356536b980d3fc5', name: 'RHOC'      						},
-  { address: '0xe94327d07fc17907b4db788e5adf2ed424addff6', name: 'Reputation'         	},
-  { address: '0x5ca9a71b1d01849c0a95490cc00559717fcf0d1d', name: 'Aeternity'          	},
-  { address: '0xcb97e65f07da24d46bcdd078ebebd7c6e6e3d750', name: 'Bytom'              	},
-  { address: '0xb7cb1c96db6b22b0d3d9536e0108d062bd488f74', name: 'Walton Token'         },
-  { address: '0x4ceda7906a5ed2179785cd3a40a69ee8bc99c466', name: 'AION'          				}
-]
+
 
 
 

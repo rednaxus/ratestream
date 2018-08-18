@@ -1,6 +1,6 @@
 
 
 module.exports = {
-	...require('../src/app/config/appConfig'),
+	...require('../app/config/appConfig'),
 	...require('./config-private.js')
 }
