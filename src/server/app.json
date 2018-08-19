@@ -2,7 +2,60 @@
   "tokens": [
     {
       "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
-      "name": "EOS"
+      "name": "EOS",
+      "markets": [
+        {
+          "timestamp": 1534637289.24,
+          "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
+          "name": "EOS",
+          "decimals": 18,
+          "symbol": "EOS",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0xd0a6e6c54dbc68db5db3a091b171a77407ff7ccf",
+          "transfersCount": 3170931,
+          "lastUpdated": 1531913635,
+          "issuancesCount": 0,
+          "holdersCount": 331093,
+          "description": "https://eos.io/",
+          "ethTransfersCount": 224,
+          "price": false,
+          "countOps": 3170931
+        },
+        {
+          "timestamp": 1534637571,
+          "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
+          "name": "EOS",
+          "decimals": 18,
+          "symbol": "EOS",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0xd0a6e6c54dbc68db5db3a091b171a77407ff7ccf",
+          "transfersCount": 3170931,
+          "lastUpdated": 1531913635,
+          "issuancesCount": 0,
+          "holdersCount": 331093,
+          "description": "https://eos.io/",
+          "ethTransfersCount": 224,
+          "price": false,
+          "countOps": 3170931
+        },
+        {
+          "timestamp": 1534703285,
+          "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
+          "name": "EOS",
+          "decimals": 18,
+          "symbol": "EOS",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0xd0a6e6c54dbc68db5db3a091b171a77407ff7ccf",
+          "transfersCount": 3170931,
+          "lastUpdated": 1531913635,
+          "issuancesCount": 0,
+          "holdersCount": 331093,
+          "description": "https://eos.io/",
+          "ethTransfersCount": 224,
+          "price": false,
+          "countOps": 3170931
+        }
+      ]
     },
     {
       "address": "0xf230b790e05390fc8295f4d3f60332c93bed42e2",
@@ -86,16 +139,228 @@
   ],
   "questions": [
     {
-      "category": "team",
       "name": "pedigree",
-      "title": "Rate this team's core ability to execute the most challenging aspects of this venture, based on the pedigree of the principals"
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "pedigree",
+      "text": "Rate this team\"s core ability to execute the most challenging aspects of this venture, based on the pedigree of the principals"
+    },
+    {
+      "name": "critical skills",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "critical skills",
+      "text": "Has this team filled all the critical skills gap required to successfully execute this venture?"
+    },
+    {
+      "name": "experience&accomplishments",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "experience&accomplishments",
+      "text": "How close does the team\"s prior experience and accomplishments match the most difficult aspects of this venture?"
+    },
+    {
+      "name": "commitment",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "commitment",
+      "text": "Has the team demonstrated the commitment necessary to see this venture through to success?"
+    },
+    {
+      "name": "problem strength",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "problem strength",
+      "text": "Consider this venture’s offering from the vantage of its audience.  \nHow strong is the problem, need, or desire being addressed?"
+    },
+    {
+      "name": "size of need",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "size of need",
+      "text": "How many individuals, companies have this need?  How large is the addressable market in your estimate?"
+    },
+    {
+      "name": "market growth",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "market growth",
+      "text": "Is this a market that is growing fast or stagnating/regressing?\n"
+    },
+    {
+      "name": "competition",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "competition",
+      "text": "How intense is the competition, either direct or indirect?\n"
+    },
+    {
+      "name": "coverage",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "coverage",
+      "text": "Has the offering/product been previewed by pundits, social media, reviewers.  How positive / negative is the reaction?"
+    },
+    {
+      "name": "market support",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "market support",
+      "text": "How much support is this offering having in the market, either from channel partners, or organic marketing, or press?"
+    },
+    {
+      "name": "adoption",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "adoption",
+      "text": "How fast is the addressable market adopting this product/offering?"
+    },
+    {
+      "name": "competitor response",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "competitor response",
+      "text": "What is the response from competitors (direct/indirect)?"
+    },
+    {
+      "name": "core capabilities",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "core capabilities",
+      "text": "Upon review of the solution, product, technology and core science, how transformative is this team’s offering to the market?"
+    },
+    {
+      "name": "review credibility",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "review credibility",
+      "text": "Has the technology been reviewed by experts(you or other peers) to validate it?  How credible are the ac?"
+    },
+    {
+      "name": "technology risk",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "technology risk",
+      "text": "How risky is this technology/approach?"
+    },
+    {
+      "name": "comparitive effectiveness",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "comparitive effectiveness",
+      "text": "Comparing this offering with existing/upcoming alternatives.  \nHow much more effective is it?"
+    },
+    {
+      "name": "balance sheet",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "balance sheet",
+      "text": "Based on audited financials (if available), how strong is its balance sheet and ability to continually invest?"
+    },
+    {
+      "name": "revenue / profit momentum",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "revenue / profit momentum",
+      "text": "Based on audited financials (if available), how strong is the revenue and marginal profit momentum of the company?\n"
+    },
+    {
+      "name": "brand / community support",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "brand / community support",
+      "text": "How strong is the goodwill (brand or community support) of the company? How strong is the human capital goodwill of the company?"
+    },
+    {
+      "name": "intellectual property",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "intellectual property",
+      "text": "How strong is the intellectual property related to the company’s offering and roadmap?  Does it give it a competitive advantage?"
+    },
+    {
+      "name": "number of tokens issued",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "number of tokens issued",
+      "text": "Review the schedule of token issuance by the company.\nDo you anticipate greater than usual tokens to be offered for sale?"
+    },
+    {
+      "name": "vesting schedule / time-locks",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "vesting schedule / time-locks",
+      "text": "Review the schedule of vesting / time-locks on tokens in the ecosystem.\nDo you anticipate greater than usual tokens to be offered for sale?"
+    },
+    {
+      "name": "token demand",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "token demand",
+      "text": "Based on demand by trade/commercial buyers of tokens, do you anticipate greater than usual tokens to be purchased?"
+    },
+    {
+      "name": "speculative demand",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "speculative demand",
+      "text": "Based on demand by speculative/financial buyers of tokens, do you anticipate greater than usual tokens to be purchased?"
+    },
+    {
+      "name": "bull brief",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "bull brief",
+      "text": "Upon review, can you attest that the Bull valuation brief represents a best-effort, truthful, non-plagiarized, non-conflicted effort by the analyst?"
+    },
+    {
+      "name": "bear brief",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "bear brief",
+      "text": "Upon review, can you attest that the Bear valuation brief represents a best-effort, truthful, non-plagiarized, non-conflicted effort by the analyst?"
+    },
+    {
+      "name": "jurist recommendation",
+      "category": "",
+      "max": 5,
+      "min": 1,
+      "title": "jurist recommendation",
+      "text": "After reviewing the Bull and Bear valuation briefs what is your recommendation?"
     }
   ],
   "reviews": [
     {
       "token": "0x0000",
       "start_time": "",
-      "expiry": ""
+      "expiry": "",
+      "reviewer": ""
     }
   ],
   "scripts": [

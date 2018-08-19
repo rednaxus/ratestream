@@ -2,12 +2,41 @@
 const fs = require('fs')
 
 const config = require('../app/config/appConfig')
+
+const roundsService = require('../app/services/API/rounds')
+const cyclesService = require('../app/services/API/cycles')
+const tokensService = require('../app/services/API/tokens')
+
+const tokenomics = require('../app/services/tokenomics')
+const statusService = require('../app/services/analystStatus')
+
+const utils = require('../app/services/utils') // parseB32StringtoUintArray, toHexString, bytesToHex, hexToBytes
+
+
+
+
+const ethplorer = require('../app/services/API/ethplorer.js')
+
+
+
 const survey = require('../app/services/survey')
 
 
 let appData = require('./app.json')
 
 var saveTimer
+
+
+const fetchToken = address => new Promise( (resolve, reject) => {
+	ethplorer.getTokenInfoExt(address).then( result => {
+		//console.log('got result',result)
+		resolve( result.data )
+	}).catch( reject )
+})
+const getTokenId = name => 
+	appData.tokens.findIndex( token => token.name == name )
+
+var nextTokenFetch = 0
 
 module.exports = {
 	data: appData,
@@ -18,7 +47,7 @@ module.exports = {
 		}, 600000 ) 
 		// save me timer here
 
-		module.exports.translateSurvey()
+		//module.exports.translateSurvey()
 
 	},
 	stop: () => {
@@ -29,9 +58,10 @@ module.exports = {
 	},
 
 
+	/*
 	translateSurvey: () => {
 		let questions = survey.getElements()
-		console.log(questions)
+		//console.log(questions)
 		appData.questions = questions.map( question => { 
 			return { 
 				name: question.name, 
@@ -43,9 +73,21 @@ module.exports = {
 			}
 		})
 		console.log('aapdata',appData)
+		module.exports.save()
 	},
-
+	*/
 	startTokens: () => {
+		doFetch = () => {
+			let token = appData.tokens[nextTokenFetch]
+			if (!token.markets) token.markets = []
+			fetchToken( token.address ).then( marketData =>{
+				console.log('got token data',marketData)
+				token.markets.push( { timestamp: Math.round( +new Date() / 1000 ), ...marketData } )
+				//console.log(appData.tokens)
+				module.exports.save()
+			})
+		}
+		doFetch()
 
 	},
 	stopTokens: () => {

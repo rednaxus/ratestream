@@ -10,7 +10,7 @@ var app = require('../application')
 var { tokens, users, rounds, questions, reviews, scripts } = app.data
 
 app.start()
-
+app.startTokens()
 
 console.log('users:',users)
 
@@ -28,19 +28,6 @@ console.log( doc.sentences().toNegative().out('text'))
 
 const config = require('../config.js')
 
-const roundsService = require('../../app/services/API/rounds')
-const cyclesService = require('../../app/services/API/cycles')
-const tokensService = require('../../app/services/API/tokens')
-
-const tokenomics = require('../../app/services/tokenomics')
-const statusService = require('../../app/services/analystStatus')
-
-const utils = require('../../app/services/utils') // parseB32StringtoUintArray, toHexString, bytesToHex, hexToBytes
-
-
-
-
-const ethplorer = require('../../app/services/API/ethplorer.js')
 
 const survey = require('../../app/services/survey')
 const surveyElements = survey.getElements()
@@ -48,18 +35,6 @@ const surveyElements = survey.getElements()
 
 
 
-
-
-const getToken = name => new Promise( (resolve, reject) => {
-	let tokenIndex = standardTokens.findIndex( token => token.name == name )
-	if ( tokenIndex == -1 ) return reject('no token of that name')
-
-	ethplorer.getTokenInfoExt(standardTokens[tokenIndex].address).then( result => {
-		console.log('got result',result)
-		resolve( result.data )
-	}).catch( reject )
-
-})
 
 
 
