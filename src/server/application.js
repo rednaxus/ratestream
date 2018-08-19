@@ -1,5 +1,7 @@
 
 const fs = require('fs')
+const moment = require('moment')
+
 
 const config = require('../app/config/appConfig')
 
@@ -33,8 +35,6 @@ const fetchToken = address => new Promise( (resolve, reject) => {
 		resolve( result.data )
 	}).catch( reject )
 })
-const getTokenId = name => 
-	appData.tokens.findIndex( token => token.name == name )
 
 var nextTokenFetch = 0
 
@@ -76,15 +76,25 @@ module.exports = {
 		module.exports.save()
 	},
 	*/
-	startTokens: () => {
+
+
+	/* tokens */
+	getTokenId: name => ( appData.tokens.findIndex( token => token.name == name ) ),
+
+	refreshTokens: () => {
 		doFetch = () => {
 			let token = appData.tokens[nextTokenFetch]
 			if (!token.markets) token.markets = []
 			fetchToken( token.address ).then( marketData =>{
 				console.log('got token data',marketData)
-				token.markets.push( { timestamp: Math.round( +new Date() / 1000 ), ...marketData } )
+				token.markets.push( { timestamp: Math.round( moment.now() / 1000 ), ...marketData } )
 				//console.log(appData.tokens)
-				module.exports.save()
+				if (++nextTokenFetch === appData.tokens.length ) {
+					module.exports.save()
+					nextTokenFetch = 0
+				} else {
+					doFetch()
+				}
 			})
 		}
 		doFetch()

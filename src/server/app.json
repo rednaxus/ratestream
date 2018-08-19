@@ -1,123 +1,4 @@
 {
-  "tokens": [
-    {
-      "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
-      "name": "EOS",
-      "markets": [
-        {
-          "timestamp": 1534637289.24,
-          "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
-          "name": "EOS",
-          "decimals": 18,
-          "symbol": "EOS",
-          "totalSupply": "1000000000000000000000000000",
-          "owner": "0xd0a6e6c54dbc68db5db3a091b171a77407ff7ccf",
-          "transfersCount": 3170931,
-          "lastUpdated": 1531913635,
-          "issuancesCount": 0,
-          "holdersCount": 331093,
-          "description": "https://eos.io/",
-          "ethTransfersCount": 224,
-          "price": false,
-          "countOps": 3170931
-        },
-        {
-          "timestamp": 1534637571,
-          "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
-          "name": "EOS",
-          "decimals": 18,
-          "symbol": "EOS",
-          "totalSupply": "1000000000000000000000000000",
-          "owner": "0xd0a6e6c54dbc68db5db3a091b171a77407ff7ccf",
-          "transfersCount": 3170931,
-          "lastUpdated": 1531913635,
-          "issuancesCount": 0,
-          "holdersCount": 331093,
-          "description": "https://eos.io/",
-          "ethTransfersCount": 224,
-          "price": false,
-          "countOps": 3170931
-        },
-        {
-          "timestamp": 1534703285,
-          "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
-          "name": "EOS",
-          "decimals": 18,
-          "symbol": "EOS",
-          "totalSupply": "1000000000000000000000000000",
-          "owner": "0xd0a6e6c54dbc68db5db3a091b171a77407ff7ccf",
-          "transfersCount": 3170931,
-          "lastUpdated": 1531913635,
-          "issuancesCount": 0,
-          "holdersCount": 331093,
-          "description": "https://eos.io/",
-          "ethTransfersCount": 224,
-          "price": false,
-          "countOps": 3170931
-        }
-      ]
-    },
-    {
-      "address": "0xf230b790e05390fc8295f4d3f60332c93bed42e2",
-      "name": "Tronix"
-    },
-    {
-      "address": "0xd850942ef8811f2a866692a623011bde52a462c1",
-      "name": "VeChain Token"
-    },
-    {
-      "address": "0xd26114cd6ee289accf82350c8d8487fedb8a0c07",
-      "name": "OMGToken"
-    },
-    {
-      "address": "0xb5a5f22694352c15b00323844ad545abb2b11028",
-      "name": "ICON"
-    },
-    {
-      "address": "0xb8c77482e45f1f44de1745f52c74426c631bdd52",
-      "name": "BNB"
-    },
-    {
-      "address": "0xe0b7927c4af23765cb51314a0e0521a9645f0e2a",
-      "name": "Digix"
-    },
-    {
-      "address": "0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a",
-      "name": "Populous Platform"
-    },
-    {
-      "address": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
-      "name": "Maker"
-    },
-    {
-      "address": "0x744d70fdbe2ba4cf95131626614a1763df805b9e",
-      "name": "Status Network"
-    },
-    {
-      "address": "0x168296bb09e24a88805cb9c33356536b980d3fc5",
-      "name": "RHOC"
-    },
-    {
-      "address": "0xe94327d07fc17907b4db788e5adf2ed424addff6",
-      "name": "Reputation"
-    },
-    {
-      "address": "0x5ca9a71b1d01849c0a95490cc00559717fcf0d1d",
-      "name": "Aeternity"
-    },
-    {
-      "address": "0xcb97e65f07da24d46bcdd078ebebd7c6e6e3d750",
-      "name": "Bytom"
-    },
-    {
-      "address": "0xb7cb1c96db6b22b0d3d9536e0108d062bd488f74",
-      "name": "Walton Token"
-    },
-    {
-      "address": "0x4ceda7906a5ed2179785cd3a40a69ee8bc99c466",
-      "name": "AION"
-    }
-  ],
   "rounds": [
     {
       "id": "0x0000",
@@ -387,6 +268,1013 @@
       "active_review_rounds": [
         {
           "review_state": ""
+        }
+      ]
+    }
+  ],
+  "tokens": [
+    {
+      "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
+      "name": "EOS",
+      "markets": [
+        {
+          "timestamp": 1534637289,
+          "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
+          "name": "EOS",
+          "decimals": 18,
+          "symbol": "EOS",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0xd0a6e6c54dbc68db5db3a091b171a77407ff7ccf",
+          "transfersCount": 3170931,
+          "lastUpdated": 1531913635,
+          "issuancesCount": 0,
+          "holdersCount": 331093,
+          "description": "https://eos.io/",
+          "ethTransfersCount": 224,
+          "price": false,
+          "countOps": 3170931
+        },
+        {
+          "timestamp": 1534637571,
+          "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
+          "name": "EOS",
+          "decimals": 18,
+          "symbol": "EOS",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0xd0a6e6c54dbc68db5db3a091b171a77407ff7ccf",
+          "transfersCount": 3170931,
+          "lastUpdated": 1531913635,
+          "issuancesCount": 0,
+          "holdersCount": 331093,
+          "description": "https://eos.io/",
+          "ethTransfersCount": 224,
+          "price": false,
+          "countOps": 3170931
+        },
+        {
+          "timestamp": 1534703285,
+          "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
+          "name": "EOS",
+          "decimals": 18,
+          "symbol": "EOS",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0xd0a6e6c54dbc68db5db3a091b171a77407ff7ccf",
+          "transfersCount": 3170931,
+          "lastUpdated": 1531913635,
+          "issuancesCount": 0,
+          "holdersCount": 331093,
+          "description": "https://eos.io/",
+          "ethTransfersCount": 224,
+          "price": false,
+          "countOps": 3170931
+        },
+        {
+          "timestamp": 1534703848,
+          "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
+          "name": "EOS",
+          "decimals": 18,
+          "symbol": "EOS",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0xd0a6e6c54dbc68db5db3a091b171a77407ff7ccf",
+          "transfersCount": 3170931,
+          "lastUpdated": 1531913635,
+          "issuancesCount": 0,
+          "holdersCount": 331093,
+          "description": "https://eos.io/",
+          "ethTransfersCount": 224,
+          "price": false,
+          "countOps": 3170931
+        },
+        {
+          "timestamp": 1534703894,
+          "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
+          "name": "EOS",
+          "decimals": 18,
+          "symbol": "EOS",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0xd0a6e6c54dbc68db5db3a091b171a77407ff7ccf",
+          "transfersCount": 3170931,
+          "lastUpdated": 1531913635,
+          "issuancesCount": 0,
+          "holdersCount": 331093,
+          "description": "https://eos.io/",
+          "ethTransfersCount": 224,
+          "price": false,
+          "countOps": 3170931
+        },
+        {
+          "timestamp": 1534704320,
+          "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
+          "name": "EOS",
+          "decimals": 18,
+          "symbol": "EOS",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0xd0a6e6c54dbc68db5db3a091b171a77407ff7ccf",
+          "transfersCount": 3170931,
+          "lastUpdated": 1531913635,
+          "issuancesCount": 0,
+          "holdersCount": 331093,
+          "description": "https://eos.io/",
+          "ethTransfersCount": 224,
+          "price": false,
+          "countOps": 3170931
+        },
+        {
+          "timestamp": 1534704802,
+          "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
+          "name": "EOS",
+          "decimals": 18,
+          "symbol": "EOS",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0xd0a6e6c54dbc68db5db3a091b171a77407ff7ccf",
+          "transfersCount": 3170931,
+          "lastUpdated": 1531913635,
+          "issuancesCount": 0,
+          "holdersCount": 331093,
+          "description": "https://eos.io/",
+          "ethTransfersCount": 224,
+          "price": false,
+          "countOps": 3170931
+        }
+      ]
+    },
+    {
+      "address": "0xf230b790e05390fc8295f4d3f60332c93bed42e2",
+      "name": "Tronix",
+      "markets": [
+        {
+          "timestamp": 1534704320,
+          "address": "0xf230b790e05390fc8295f4d3f60332c93bed42e2",
+          "name": "Tronix",
+          "decimals": "6",
+          "symbol": "TRX",
+          "totalSupply": "100000000000000000",
+          "owner": "0x",
+          "transfersCount": 2812175,
+          "lastUpdated": 1534703365,
+          "issuancesCount": 0,
+          "holdersCount": 1086599,
+          "ethTransfersCount": 13,
+          "price": {
+            "rate": "0.0217371068",
+            "diff": 3.32,
+            "diff7d": -4.38,
+            "ts": "1534703280",
+            "marketCapUsd": "1429173727.0",
+            "availableSupply": "65748111645.0",
+            "volume24h": "96649929.5064",
+            "diff30d": -40.690993326167,
+            "currency": "USD"
+          },
+          "countOps": 2812175
+        },
+        {
+          "timestamp": 1534704803,
+          "address": "0xf230b790e05390fc8295f4d3f60332c93bed42e2",
+          "name": "Tronix",
+          "decimals": "6",
+          "symbol": "TRX",
+          "totalSupply": "100000000000000000",
+          "owner": "0x",
+          "transfersCount": 2812176,
+          "lastUpdated": 1534704049,
+          "issuancesCount": 0,
+          "holdersCount": 1086597,
+          "ethTransfersCount": 13,
+          "price": {
+            "rate": "0.0217371068",
+            "diff": 3.32,
+            "diff7d": -4.38,
+            "ts": "1534703280",
+            "marketCapUsd": "1429173727.0",
+            "availableSupply": "65748111645.0",
+            "volume24h": "96649929.5064",
+            "diff30d": -40.690993326167,
+            "currency": "USD"
+          },
+          "countOps": 2812176
+        }
+      ]
+    },
+    {
+      "address": "0xd850942ef8811f2a866692a623011bde52a462c1",
+      "name": "VeChain Token",
+      "markets": [
+        {
+          "timestamp": 1534704321,
+          "address": "0xd850942ef8811f2a866692a623011bde52a462c1",
+          "name": "VeChain Token",
+          "decimals": "18",
+          "symbol": "VEN",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0x0000000000000000000000000000000000000000",
+          "transfersCount": 378601,
+          "lastUpdated": 1503349448,
+          "issuancesCount": 0,
+          "holdersCount": 52167,
+          "ethTransfersCount": 32,
+          "price": {
+            "rate": "0.0140302192",
+            "diff": 15.71,
+            "diff7d": 51.94,
+            "ts": "1534703292",
+            "marketCapUsd": "778042084.0",
+            "availableSupply": "55454734800.0",
+            "volume24h": "35748148.2512",
+            "currency": "USD"
+          },
+          "countOps": 378601
+        },
+        {
+          "timestamp": 1534704808,
+          "address": "0xd850942ef8811f2a866692a623011bde52a462c1",
+          "name": "VeChain Token",
+          "decimals": "18",
+          "symbol": "VEN",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0x0000000000000000000000000000000000000000",
+          "transfersCount": 378609,
+          "lastUpdated": 1503349448,
+          "issuancesCount": 0,
+          "holdersCount": 52167,
+          "ethTransfersCount": 32,
+          "price": {
+            "rate": "0.0141548448",
+            "diff": 16.38,
+            "diff7d": 53.39,
+            "ts": "1534703891",
+            "marketCapUsd": "784953165.0",
+            "availableSupply": "55454734800.0",
+            "volume24h": "35490018.7963",
+            "currency": "USD"
+          },
+          "countOps": 378609
+        }
+      ]
+    },
+    {
+      "address": "0xd26114cd6ee289accf82350c8d8487fedb8a0c07",
+      "name": "OMGToken",
+      "markets": [
+        {
+          "timestamp": 1534704322,
+          "address": "0xd26114cd6ee289accf82350c8d8487fedb8a0c07",
+          "name": "OMGToken",
+          "decimals": "18",
+          "symbol": "OMG",
+          "totalSupply": "140245398245132780789239631",
+          "owner": "0x000000000000000000000000000000000000dead",
+          "transfersCount": 1900195,
+          "lastUpdated": 1534703368,
+          "issuancesCount": 0,
+          "holdersCount": 597591,
+          "ethTransfersCount": 80,
+          "price": {
+            "rate": "4.0387238525",
+            "diff": 3.29,
+            "diff7d": -1.77,
+            "ts": "1534702673",
+            "marketCapUsd": "566412435.0",
+            "availableSupply": "140245398.0",
+            "volume24h": "48546725.2195",
+            "diff30d": -43.293871942656,
+            "currency": "USD"
+          },
+          "countOps": 1900195
+        },
+        {
+          "timestamp": 1534704809,
+          "address": "0xd26114cd6ee289accf82350c8d8487fedb8a0c07",
+          "name": "OMGToken",
+          "decimals": "18",
+          "symbol": "OMG",
+          "totalSupply": "140245398245132780789239631",
+          "owner": "0x000000000000000000000000000000000000dead",
+          "transfersCount": 1900204,
+          "lastUpdated": 1534704291,
+          "issuancesCount": 0,
+          "holdersCount": 597589,
+          "ethTransfersCount": 80,
+          "price": {
+            "rate": "4.0387238525",
+            "diff": 3.29,
+            "diff7d": -1.77,
+            "ts": "1534702673",
+            "marketCapUsd": "566412435.0",
+            "availableSupply": "140245398.0",
+            "volume24h": "48546725.2195",
+            "diff30d": -43.293871942656,
+            "currency": "USD"
+          },
+          "countOps": 1900204
+        }
+      ]
+    },
+    {
+      "address": "0xb5a5f22694352c15b00323844ad545abb2b11028",
+      "name": "ICON",
+      "markets": [
+        {
+          "timestamp": 1534704322,
+          "address": "0xb5a5f22694352c15b00323844ad545abb2b11028",
+          "name": "ICON",
+          "decimals": 18,
+          "symbol": "ICX",
+          "totalSupply": "400228739999999999999999999",
+          "owner": "0xe16fd9b95758fe8f3a478ef9b750a64513bf2e80",
+          "transfersCount": 291339,
+          "lastUpdated": 1534703364,
+          "issuancesCount": 0,
+          "holdersCount": 31096,
+          "description": "The ICON project is building one of the largest decentralized networks in the world.",
+          "ethTransfersCount": 7,
+          "price": {
+            "rate": "0.6447007834",
+            "diff": 4.78,
+            "diff7d": -6.74,
+            "ts": "1534703881",
+            "marketCapUsd": "249777288.0",
+            "availableSupply": "387431340.0",
+            "volume24h": "13365733.8564",
+            "diff30d": -55.361477881556,
+            "currency": "USD"
+          },
+          "countOps": 291339
+        },
+        {
+          "timestamp": 1534704810,
+          "address": "0xb5a5f22694352c15b00323844ad545abb2b11028",
+          "name": "ICON",
+          "decimals": 18,
+          "symbol": "ICX",
+          "totalSupply": "400228739999999999999999999",
+          "owner": "0xe16fd9b95758fe8f3a478ef9b750a64513bf2e80",
+          "transfersCount": 291344,
+          "lastUpdated": 1534704236,
+          "issuancesCount": 0,
+          "holdersCount": 31094,
+          "description": "The ICON project is building one of the largest decentralized networks in the world.",
+          "ethTransfersCount": 7,
+          "price": {
+            "rate": "0.6447007834",
+            "diff": 4.78,
+            "diff7d": -6.74,
+            "ts": "1534703881",
+            "marketCapUsd": "249777288.0",
+            "availableSupply": "387431340.0",
+            "volume24h": "13365733.8564",
+            "diff30d": -55.361477881556,
+            "currency": "USD"
+          },
+          "countOps": 291344
+        }
+      ]
+    },
+    {
+      "address": "0xb8c77482e45f1f44de1745f52c74426c631bdd52",
+      "name": "BNB",
+      "markets": [
+        {
+          "timestamp": 1534704323,
+          "address": "0xb8c77482e45f1f44de1745f52c74426c631bdd52",
+          "name": "BNB",
+          "decimals": "18",
+          "symbol": "BNB",
+          "totalSupply": "192443301000000000000000000",
+          "owner": "0x00c5e04176d95a286fcce0e68c683ca0bfec8454",
+          "transfersCount": 450190,
+          "lastUpdated": 1534702994,
+          "issuancesCount": 0,
+          "holdersCount": 295652,
+          "ethTransfersCount": 23,
+          "price": {
+            "rate": "9.9466053725",
+            "diff": 2.55,
+            "diff7d": -14.9,
+            "ts": "1534703279",
+            "marketCapUsd": "950025376.0",
+            "availableSupply": "95512523.0",
+            "volume24h": "18803766.3591",
+            "diff30d": -20.036294427154,
+            "currency": "USD"
+          },
+          "countOps": 450190
+        },
+        {
+          "timestamp": 1534704812,
+          "address": "0xb8c77482e45f1f44de1745f52c74426c631bdd52",
+          "name": "BNB",
+          "decimals": "18",
+          "symbol": "BNB",
+          "totalSupply": "192443301000000000000000000",
+          "owner": "0x00c5e04176d95a286fcce0e68c683ca0bfec8454",
+          "transfersCount": 450190,
+          "lastUpdated": 1534704236,
+          "issuancesCount": 0,
+          "holdersCount": 295652,
+          "ethTransfersCount": 23,
+          "price": {
+            "rate": "9.9385472496",
+            "diff": 2.36,
+            "diff7d": -14.97,
+            "ts": "1534703875",
+            "marketCapUsd": "949255724.0",
+            "availableSupply": "95512523.0",
+            "volume24h": "18939807.3824",
+            "diff30d": -20.10107606299,
+            "currency": "USD"
+          },
+          "countOps": 450190
+        }
+      ]
+    },
+    {
+      "address": "0xe0b7927c4af23765cb51314a0e0521a9645f0e2a",
+      "name": "Digix",
+      "markets": [
+        {
+          "timestamp": 1534704324,
+          "address": "0xe0b7927c4af23765cb51314a0e0521a9645f0e2a",
+          "name": "Digix",
+          "decimals": "9",
+          "symbol": "DGD",
+          "totalSupply": "1999420638300000",
+          "owner": "0x4366ddc115d8cf213c564da36e64c8ebaa30cdbd",
+          "transfersCount": 81760,
+          "lastUpdated": 1530123385469,
+          "issuancesCount": 0,
+          "holdersCount": 7838,
+          "ethTransfersCount": 44,
+          "price": {
+            "rate": "58.4817330887",
+            "diff": 12.23,
+            "diff7d": 3.1,
+            "ts": "1534703931",
+            "marketCapUsd": "116963466.0",
+            "availableSupply": "2000000.0",
+            "volume24h": "1262681.33973",
+            "diff30d": -38.78008371565,
+            "currency": "USD"
+          },
+          "countOps": 81760
+        },
+        {
+          "timestamp": 1534704813,
+          "address": "0xe0b7927c4af23765cb51314a0e0521a9645f0e2a",
+          "name": "Digix",
+          "decimals": "9",
+          "symbol": "DGD",
+          "totalSupply": "1999420638300000",
+          "owner": "0x4366ddc115d8cf213c564da36e64c8ebaa30cdbd",
+          "transfersCount": 81760,
+          "lastUpdated": 1530123385469,
+          "issuancesCount": 0,
+          "holdersCount": 7838,
+          "ethTransfersCount": 44,
+          "price": {
+            "rate": "58.4817330887",
+            "diff": 12.23,
+            "diff7d": 3.1,
+            "ts": "1534703931",
+            "marketCapUsd": "116963466.0",
+            "availableSupply": "2000000.0",
+            "volume24h": "1262681.33973",
+            "diff30d": -38.78008371565,
+            "currency": "USD"
+          },
+          "countOps": 81760
+        }
+      ]
+    },
+    {
+      "address": "0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a",
+      "name": "Populous Platform",
+      "markets": [
+        {
+          "timestamp": 1534704325,
+          "address": "0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a",
+          "name": "Populous Platform",
+          "decimals": "8",
+          "symbol": "PPT",
+          "totalSupply": "5325224600000000",
+          "owner": "0x9cc9c3de8e710781983a65b90b7efeaad2d3d7d8",
+          "transfersCount": 225860,
+          "lastUpdated": 1534703295,
+          "issuancesCount": 0,
+          "holdersCount": 26509,
+          "description": "http://populous.co/",
+          "ethTransfersCount": 82,
+          "price": {
+            "rate": "5.1699090199",
+            "diff": -2.17,
+            "diff7d": 27.29,
+            "ts": "1534703877",
+            "marketCapUsd": "191307452.0",
+            "availableSupply": "37004027.0",
+            "volume24h": "5701294.81482",
+            "diff30d": -21.209868601048,
+            "currency": "USD"
+          },
+          "countOps": 225860
+        },
+        {
+          "timestamp": 1534704814,
+          "address": "0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a",
+          "name": "Populous Platform",
+          "decimals": "8",
+          "symbol": "PPT",
+          "totalSupply": "5325224600000000",
+          "owner": "0x9cc9c3de8e710781983a65b90b7efeaad2d3d7d8",
+          "transfersCount": 225864,
+          "lastUpdated": 1534703972,
+          "issuancesCount": 0,
+          "holdersCount": 26509,
+          "description": "http://populous.co/",
+          "ethTransfersCount": 82,
+          "price": {
+            "rate": "5.1699090199",
+            "diff": -2.17,
+            "diff7d": 27.29,
+            "ts": "1534703877",
+            "marketCapUsd": "191307452.0",
+            "availableSupply": "37004027.0",
+            "volume24h": "5701294.81482",
+            "diff30d": -21.209868601048,
+            "currency": "USD"
+          },
+          "countOps": 225864
+        }
+      ]
+    },
+    {
+      "address": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+      "name": "Maker",
+      "markets": [
+        {
+          "timestamp": 1534704326,
+          "address": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+          "name": "Maker",
+          "decimals": "18",
+          "symbol": "MKR",
+          "totalSupply": "1000000000000000000000000",
+          "owner": "0x7bb0b08587b8a6b8945e09f1baca426558b0f06a",
+          "transfersCount": 55738,
+          "lastUpdated": 1534701732,
+          "issuancesCount": 0,
+          "holdersCount": 4364,
+          "description": "Maker Token for Makerdao governance and fees.\n\nhttp://makerdao.com/\nhttps://twitter.com/makerdao\nhttps://reddit.com/r/makerdao\nhttps://chat.makerdao.com for questions/discussion",
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "446.271848065",
+            "diff": 3.77,
+            "diff7d": -6.45,
+            "ts": "1534702672",
+            "marketCapUsd": "298211242.0",
+            "availableSupply": "668228.0",
+            "volume24h": "323256.553136",
+            "diff30d": -27.376782852972,
+            "currency": "USD"
+          },
+          "countOps": 55738
+        },
+        {
+          "timestamp": 1534704816,
+          "address": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+          "name": "Maker",
+          "decimals": "18",
+          "symbol": "MKR",
+          "totalSupply": "1000000000000000000000000",
+          "owner": "0x7bb0b08587b8a6b8945e09f1baca426558b0f06a",
+          "transfersCount": 55738,
+          "lastUpdated": 1534703482,
+          "issuancesCount": 0,
+          "holdersCount": 4364,
+          "description": "Maker Token for Makerdao governance and fees.\n\nhttp://makerdao.com/\nhttps://twitter.com/makerdao\nhttps://reddit.com/r/makerdao\nhttps://chat.makerdao.com for questions/discussion",
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "447.353872912",
+            "diff": 4.14,
+            "diff7d": -6.21,
+            "ts": "1534703933",
+            "marketCapUsd": "298934281.0",
+            "availableSupply": "668228.0",
+            "volume24h": "323894.772091",
+            "diff30d": -27.200701556868,
+            "currency": "USD"
+          },
+          "countOps": 55738
+        }
+      ]
+    },
+    {
+      "address": "0x744d70fdbe2ba4cf95131626614a1763df805b9e",
+      "name": "Status Network",
+      "markets": [
+        {
+          "timestamp": 1534704327,
+          "address": "0x744d70fdbe2ba4cf95131626614a1763df805b9e",
+          "name": "Status Network",
+          "decimals": "18",
+          "symbol": "SNT",
+          "totalSupply": "6804870174878168246198837603",
+          "owner": "0x",
+          "transfersCount": 565375,
+          "lastUpdated": 1534702994,
+          "issuancesCount": 0,
+          "holdersCount": 68244,
+          "image": "https://ethplorer.io/images/status.png",
+          "description": "https://status.im",
+          "ethTransfersCount": 106,
+          "price": {
+            "rate": "0.0395164983",
+            "diff": 2.7,
+            "diff7d": -4.19,
+            "ts": "1534702075",
+            "marketCapUsd": "137141367.0",
+            "availableSupply": "3470483788.0",
+            "volume24h": "4775030.12024",
+            "diff30d": -48.838804260014,
+            "currency": "USD"
+          },
+          "countOps": 565375
+        },
+        {
+          "timestamp": 1534704817,
+          "address": "0x744d70fdbe2ba4cf95131626614a1763df805b9e",
+          "name": "Status Network",
+          "decimals": "18",
+          "symbol": "SNT",
+          "totalSupply": "6804870174878168246198837603",
+          "owner": "0x",
+          "transfersCount": 565375,
+          "lastUpdated": 1534703911,
+          "issuancesCount": 0,
+          "holdersCount": 68244,
+          "image": "https://ethplorer.io/images/status.png",
+          "description": "https://status.im",
+          "ethTransfersCount": 106,
+          "price": {
+            "rate": "0.0395164983",
+            "diff": 2.7,
+            "diff7d": -4.19,
+            "ts": "1534702075",
+            "marketCapUsd": "137141367.0",
+            "availableSupply": "3470483788.0",
+            "volume24h": "4775030.12024",
+            "diff30d": -48.838804260014,
+            "currency": "USD"
+          },
+          "countOps": 565375
+        }
+      ]
+    },
+    {
+      "address": "0x168296bb09e24a88805cb9c33356536b980d3fc5",
+      "name": "RHOC",
+      "markets": [
+        {
+          "timestamp": 1534704329,
+          "address": "0x168296bb09e24a88805cb9c33356536b980d3fc5",
+          "name": "RHOC",
+          "decimals": "8",
+          "symbol": "RHOC",
+          "totalSupply": "100000000000000000",
+          "owner": "0x",
+          "transfersCount": 32723,
+          "lastUpdated": 1534702290,
+          "issuancesCount": 0,
+          "holdersCount": 8550,
+          "ethTransfersCount": 9,
+          "price": {
+            "rate": "0.4216829918",
+            "diff": 11.09,
+            "diff7d": -5.6,
+            "ts": "1534703275",
+            "marketCapUsd": "152640502.0",
+            "availableSupply": "361979271.0",
+            "volume24h": "106672.572326",
+            "diff30d": -45.241948696507,
+            "currency": "USD"
+          },
+          "countOps": 32723
+        },
+        {
+          "timestamp": 1534704819,
+          "address": "0x168296bb09e24a88805cb9c33356536b980d3fc5",
+          "name": "RHOC",
+          "decimals": "8",
+          "symbol": "RHOC",
+          "totalSupply": "100000000000000000",
+          "owner": "0x",
+          "transfersCount": 32723,
+          "lastUpdated": 1534703448,
+          "issuancesCount": 0,
+          "holdersCount": 8551,
+          "ethTransfersCount": 9,
+          "price": {
+            "rate": "0.4215232465",
+            "diff": 11.07,
+            "diff7d": -5.65,
+            "ts": "1534704477",
+            "marketCapUsd": "152582678.0",
+            "availableSupply": "361979271.0",
+            "volume24h": "103755.926967",
+            "diff30d": -45.262692576396,
+            "currency": "USD"
+          },
+          "countOps": 32723
+        }
+      ]
+    },
+    {
+      "address": "0xe94327d07fc17907b4db788e5adf2ed424addff6",
+      "name": "Reputation",
+      "markets": [
+        {
+          "timestamp": 1534704332,
+          "address": "0xe94327d07fc17907b4db788e5adf2ed424addff6",
+          "name": "Reputation",
+          "decimals": "18",
+          "symbol": "REP",
+          "totalSupply": "11000000000000000000000000",
+          "owner": "0x7e614ec62cfd5761f20a9c5a2fe2bc0ac7431918",
+          "transfersCount": 224666,
+          "lastUpdated": 1534342785,
+          "issuancesCount": 0,
+          "holdersCount": 37472,
+          "ethTransfersCount": 21,
+          "price": {
+            "rate": "18.5777316897",
+            "diff": 5.53,
+            "diff7d": -11.5,
+            "ts": "1534703866",
+            "marketCapUsd": "204355049.0",
+            "availableSupply": "11000000.0",
+            "volume24h": "10541664.0966",
+            "diff30d": -38.512632630346,
+            "currency": "USD"
+          },
+          "countOps": 224666
+        },
+        {
+          "timestamp": 1534704820,
+          "address": "0xe94327d07fc17907b4db788e5adf2ed424addff6",
+          "name": "Reputation",
+          "decimals": "18",
+          "symbol": "REP",
+          "totalSupply": "11000000000000000000000000",
+          "owner": "0x7e614ec62cfd5761f20a9c5a2fe2bc0ac7431918",
+          "transfersCount": 224666,
+          "lastUpdated": 1534342785,
+          "issuancesCount": 0,
+          "holdersCount": 37472,
+          "ethTransfersCount": 21,
+          "price": {
+            "rate": "18.5777316897",
+            "diff": 5.53,
+            "diff7d": -11.5,
+            "ts": "1534703866",
+            "marketCapUsd": "204355049.0",
+            "availableSupply": "11000000.0",
+            "volume24h": "10541664.0966",
+            "diff30d": -38.512632630346,
+            "currency": "USD"
+          },
+          "countOps": 224666
+        }
+      ]
+    },
+    {
+      "address": "0x5ca9a71b1d01849c0a95490cc00559717fcf0d1d",
+      "name": "Aeternity",
+      "markets": [
+        {
+          "timestamp": 1534704333,
+          "address": "0x5ca9a71b1d01849c0a95490cc00559717fcf0d1d",
+          "name": "Aeternity",
+          "decimals": "18",
+          "symbol": "AE",
+          "totalSupply": "273685830164329920936121003",
+          "owner": "0x",
+          "transfersCount": 169852,
+          "lastUpdated": 1534702867,
+          "issuancesCount": 0,
+          "holdersCount": 24502,
+          "ethTransfersCount": 37,
+          "price": {
+            "rate": "1.0868849591",
+            "diff": 3.53,
+            "diff7d": -4.35,
+            "ts": "1534703273",
+            "marketCapUsd": "253266446.0",
+            "availableSupply": "233020472.0",
+            "volume24h": "10716082.3852",
+            "diff30d": -43.131947892465,
+            "currency": "USD"
+          },
+          "countOps": 169852
+        },
+        {
+          "timestamp": 1534704822,
+          "address": "0x5ca9a71b1d01849c0a95490cc00559717fcf0d1d",
+          "name": "Aeternity",
+          "decimals": "18",
+          "symbol": "AE",
+          "totalSupply": "273685830164329920936121003",
+          "owner": "0x",
+          "transfersCount": 169852,
+          "lastUpdated": 1534703984,
+          "issuancesCount": 0,
+          "holdersCount": 24502,
+          "ethTransfersCount": 37,
+          "price": {
+            "rate": "1.0858667614",
+            "diff": 3.23,
+            "diff7d": -4.45,
+            "ts": "1534703873",
+            "marketCapUsd": "253029185.0",
+            "availableSupply": "233020472.0",
+            "volume24h": "10698470.9012",
+            "diff30d": -43.185222086182,
+            "currency": "USD"
+          },
+          "countOps": 169852
+        }
+      ]
+    },
+    {
+      "address": "0xcb97e65f07da24d46bcdd078ebebd7c6e6e3d750",
+      "name": "Bytom",
+      "markets": [
+        {
+          "timestamp": 1534704334,
+          "address": "0xcb97e65f07da24d46bcdd078ebebd7c6e6e3d750",
+          "name": "Bytom",
+          "decimals": 8,
+          "symbol": "BTM",
+          "totalSupply": "140700000000000000",
+          "owner": "0x",
+          "transfersCount": 282782,
+          "lastUpdated": 1534700030,
+          "issuancesCount": 0,
+          "holdersCount": 54210,
+          "description": "Bytom is an interactive protocol of multiple byte assets. Heterogeneous byte-assets (indigenous digital currency, digital assets) that operate in different forms on the Bytom Blockchain and atomic assets (warrants, securities, dividends, bonds, intelligence information, forecasting information and other information that exist in the physical world) can be registered, exchanged, gambled and engaged in other more complicated and contract-based interoperations via Bytom.\n\nhttp://bytom.io/\nhttps://facebook.com/bytomofficial\nhttps://twitter.com/Bytom_Official\nhttps://www.reddit.com/r/BytomBlockchain/",
+          "ethTransfersCount": 6,
+          "price": {
+            "rate": "0.1762748367",
+            "diff": 3.96,
+            "diff7d": -2.02,
+            "ts": "1534703277",
+            "marketCapUsd": "176715396.0",
+            "availableSupply": "1002499275.0",
+            "volume24h": "35247330.7196",
+            "diff30d": -52.291231024059,
+            "currency": "USD"
+          },
+          "countOps": 282782
+        },
+        {
+          "timestamp": 1534704824,
+          "address": "0xcb97e65f07da24d46bcdd078ebebd7c6e6e3d750",
+          "name": "Bytom",
+          "decimals": 8,
+          "symbol": "BTM",
+          "totalSupply": "140700000000000000",
+          "owner": "0x",
+          "transfersCount": 282782,
+          "lastUpdated": 1534700030,
+          "issuancesCount": 0,
+          "holdersCount": 54210,
+          "description": "Bytom is an interactive protocol of multiple byte assets. Heterogeneous byte-assets (indigenous digital currency, digital assets) that operate in different forms on the Bytom Blockchain and atomic assets (warrants, securities, dividends, bonds, intelligence information, forecasting information and other information that exist in the physical world) can be registered, exchanged, gambled and engaged in other more complicated and contract-based interoperations via Bytom.\n\nhttp://bytom.io/\nhttps://facebook.com/bytomofficial\nhttps://twitter.com/Bytom_Official\nhttps://www.reddit.com/r/BytomBlockchain/",
+          "ethTransfersCount": 6,
+          "price": {
+            "rate": "0.1755252967",
+            "diff": 2.95,
+            "diff7d": -2.39,
+            "ts": "1534704479",
+            "marketCapUsd": "175963983.0",
+            "availableSupply": "1002499275.0",
+            "volume24h": "35181755.5144",
+            "diff30d": -52.494093958825,
+            "currency": "USD"
+          },
+          "countOps": 282782
+        }
+      ]
+    },
+    {
+      "address": "0xb7cb1c96db6b22b0d3d9536e0108d062bd488f74",
+      "name": "Walton Token",
+      "markets": [
+        {
+          "timestamp": 1534704335,
+          "address": "0xb7cb1c96db6b22b0d3d9536e0108d062bd488f74",
+          "name": "Walton Token",
+          "decimals": "18",
+          "symbol": "WTC",
+          "totalSupply": "70000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 130746,
+          "lastUpdated": 1534703377,
+          "issuancesCount": 0,
+          "holdersCount": 24966,
+          "ethTransfersCount": 19,
+          "price": {
+            "rate": "2.6941415627",
+            "diff": 6.2,
+            "diff7d": -0.29,
+            "ts": "1534703279",
+            "marketCapUsd": "108153887.0",
+            "availableSupply": "40144099.0",
+            "volume24h": "4683874.96558",
+            "diff30d": -59.718830641084,
+            "currency": "USD"
+          },
+          "countOps": 130746
+        },
+        {
+          "timestamp": 1534704825,
+          "address": "0xb7cb1c96db6b22b0d3d9536e0108d062bd488f74",
+          "name": "Walton Token",
+          "decimals": "18",
+          "symbol": "WTC",
+          "totalSupply": "70000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 130748,
+          "lastUpdated": 1534703971,
+          "issuancesCount": 0,
+          "holdersCount": 24965,
+          "ethTransfersCount": 19,
+          "price": {
+            "rate": "2.693582371",
+            "diff": 5.98,
+            "diff7d": -0.25,
+            "ts": "1534703877",
+            "marketCapUsd": "108131438.0",
+            "availableSupply": "40144099.0",
+            "volume24h": "4695802.01983",
+            "diff30d": -59.727191335965,
+            "currency": "USD"
+          },
+          "countOps": 130748
+        }
+      ]
+    },
+    {
+      "address": "0x4ceda7906a5ed2179785cd3a40a69ee8bc99c466",
+      "name": "AION",
+      "markets": [
+        {
+          "timestamp": 1534704336,
+          "address": "0x4ceda7906a5ed2179785cd3a40a69ee8bc99c466",
+          "name": "AION",
+          "decimals": "8",
+          "symbol": "AION",
+          "totalSupply": "46593458666000000",
+          "owner": "0x9b317d104399ef0759063b0ca1e9c7d24d36f7f5",
+          "transfersCount": 123701,
+          "lastUpdated": 1534700663,
+          "issuancesCount": 0,
+          "holdersCount": 20545,
+          "ethTransfersCount": 1,
+          "price": {
+            "rate": "0.5109893008",
+            "diff": 8.29,
+            "diff7d": 19.32,
+            "ts": "1534703879",
+            "marketCapUsd": "104968873.0",
+            "availableSupply": "205422840.0",
+            "volume24h": "3919344.15945",
+            "diff30d": -42.770727476561,
+            "currency": "USD"
+          },
+          "countOps": 123701
+        },
+        {
+          "timestamp": 1534704826,
+          "address": "0x4ceda7906a5ed2179785cd3a40a69ee8bc99c466",
+          "name": "AION",
+          "decimals": "8",
+          "symbol": "AION",
+          "totalSupply": "46593458666000000",
+          "owner": "0x9b317d104399ef0759063b0ca1e9c7d24d36f7f5",
+          "transfersCount": 123703,
+          "lastUpdated": 1534704048,
+          "issuancesCount": 0,
+          "holdersCount": 20546,
+          "ethTransfersCount": 1,
+          "price": {
+            "rate": "0.5109893008",
+            "diff": 8.29,
+            "diff7d": 19.32,
+            "ts": "1534703879",
+            "marketCapUsd": "104968873.0",
+            "availableSupply": "205422840.0",
+            "volume24h": "3919344.15945",
+            "diff30d": -42.770727476561,
+            "currency": "USD"
+          },
+          "countOps": 123703
         }
       ]
     }

@@ -6,11 +6,13 @@ const { InlineKeyboard, ReplyKeyboard, ForceReply } = require('telegram-keyboard
 const { translate } = require('../nlp')
 
 var app = require('../application')
+const formatters = require('./formatters')
 
 var { tokens, users, rounds, questions, reviews, scripts } = app.data
 
 app.start()
-app.startTokens()
+
+//app.refreshTokens() // can do this on regular interval
 
 console.log('users:',users)
 
@@ -86,19 +88,23 @@ bot.onText(/\/start/, msg => {
 })
 
 bot.onText(/\/tokens/, msg => {
-	let tokens = standardTokens.reduce( (a,c) => `${a}[${c.name}] `, "" )
-	bot.sendMessage( msg.chat.id, tokens )
+	let msgtokens = tokens.reduce( (a,c) => `${a}[${c.name}] `, "" )
+	bot.sendMessage( msg.chat.id, msgtokens )
 })
 
 bot.onText(/\/checkToken/, msg => {
 	const tokenName = msg.text.substring(12)
-	console.log(`checking token of name ${tokenName}`)
-	getToken( tokenName ).then( token => {
-		bot.sendMessage( msg.chat.id, JSON.stringify(token) )
-	}).catch( err => {
+	const tokenId = app.getTokenId( tokenName )
+	console.log(`checking token ${tokenId}:${tokenName}`)
+	if( tokenId === -1)
 		bot.sendMessage( msg.chat.id, `no token ${tokenName} in our library`)
+	else {
+		const markets = tokens[tokenId].markets
+		const current = markets[markets.length-1]
+		let str = formatters.tokenMarket( current )
+		bot.sendMessage( msg.chat.id, str, {parse_mode : "HTML"} )
+	}
 
-	})
 
 
 })
