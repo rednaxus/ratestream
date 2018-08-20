@@ -35,14 +35,6 @@ const survey = require('../../app/services/survey')
 const surveyElements = survey.getElements()
 
 
-
-
-
-
-
-
-
-
 let questionCount = 0
 
 // console.log('config',config)
@@ -58,7 +50,43 @@ const bot = new TelegramBot(config.telegram.botkey, { polling: true })
 	console.log('error setting webhook', err )
 })
 */
+
+var leadNum = 0 // for now, need to be better about token choices
+var role = 0 // bull/bear, 0->1
 bot.on('message', msg => {
+	let msgText = msg.text.toString().toLowerCase()
+	let userIdx = app.userByTelegram( msg.from )
+	//console.log('msg in essage',msg)
+	switch (msgText) {
+		case 'command':
+			bot.sendMessage(msg.chat.id,'commands....')
+			break
+		case 'lead round':
+			console.log(`getting round for user ${userIdx}`)
+			let roundIdx = app.roundToLead( userIdx )
+			console.log(`round ${roundIdx}`)
+			let round = rounds[ roundIdx ]
+			let token = tokens[ round.token ]
+			let role = app.roundRole(round, userIdx)
+			bot.sendMessage(msg.chat.id,`you are ${role} lead, for token ${token.name}`)
+			break
+		case 'questions':
+			let str = ''
+			questions.forEach( (question,num) => {
+				str += `${num+1}. ${question.text}\n`
+			})
+			bot.sendMessage(msg.chat.id, str)
+			break
+		default:
+			console.log(`unknown msg ${msg.text}`)
+	
+	}
+	
+})
+
+
+
+	/*
 	if (msg.text.toString().toLowerCase().indexOf("hi") === 0) {
 		bot.sendMessage(msg.chat.id,"Hello dear user")
 		bot.sendMessage(msg.from.id, "Hello  " + msg.from.first_name)
@@ -74,12 +102,16 @@ bot.on('message', msg => {
 	if (msg.text.indexOf("location") === 0) {
     bot.sendLocation(msg.chat.id,44.97108, -104.27719)
     bot.sendMessage(msg.chat.id, "Here is the point")
-  }     
-})
+  } 
+  */    
+
 
 bot.onText(/\/start/, msg => {
-
-	bot.sendMessage( msg.chat.id, "Welcome", { 
+	console.log('start',msg)
+	let idx = app.userByTelegram( msg.from )
+	let user = users[idx]
+	//console.log(`got user ${userIdx}`,user)
+	bot.sendMessage( msg.chat.id, `Welcome ${user.first_name}`, { 
 		"reply_markup": {
     	"keyboard": [["Sample text", "Second sample"], ["Keyboard"], ["I'm robot"]]
    	}
