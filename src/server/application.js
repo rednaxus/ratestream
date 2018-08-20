@@ -23,8 +23,9 @@ const ethplorer = require('../app/services/API/ethplorer.js')
 
 const survey = require('../app/services/survey')
 
-
+const info = require('../app/services/API/newsinfo')
 let appData = require('./app.json')
+let infoData = require('./info.json')
 
 var saveTimer
 
@@ -38,19 +39,21 @@ const fetchToken = address => new Promise( (resolve, reject) => {
 })
 
 var nextTokenFetch = 0
+var nextTokenInfoFetch = 0
 var nextRoundToken = 0
 
 const now = () => Math.round(+new Date() / 1000)
-module.exports = {
-	data: appData,
 
+module.exports = {
+	...info,
+	data: appData,
 	start: () => {  // start app
 		saveTimer = setInterval( ()=> {
 			module.exports.save()
-		}, 600000 ) 
-		// save me timer here
+		}, 600000 )
 
-		//module.exports.translateSurvey()
+		appData.tokens.forEach( token => console.log(token.name ) )
+
 
 	},
 	stop: () => {
@@ -58,6 +61,11 @@ module.exports = {
 	},
 	save: () => {
 		fs.writeFileSync('../app.json', JSON.stringify(appData,null,2), 'utf8')
+	},
+
+	saveInfo: () => {
+		console.log('saving',infoData)
+		fs.writeFileSync('../info.json', JSON.stringify(infoData,null,2), 'utf8')
 	},
 
 
@@ -114,13 +122,29 @@ module.exports = {
 	/* tokens */
 	getTokenId: name => ( appData.tokens.findIndex( token => token.name == name ) ),
 
+	refreshTopTokens: () => {
+		ethplorer.getTopTokens().then( tops => {
+			//appData.tokens_top = tops
+			let toptokens = tops.data.tokens
+			console.log('tops',toptokens )
+			toptokens.forEach( toptoken => {
+				let tokenFound = appData.tokens.findIndex( token => token.name === toptoken.name )
+				if (tokenFound === -1) {
+					appData.tokens.push( { address: toptoken.address, name: toptoken.name.trim(), markets: [] } )
+					tokenFound = appData.tokens.length - 1
+				}
+				//appData.tokens[ tokenFound ].markets.push( { timestamp: now(), ...toptoken } )
+			})
+			module.exports.save()
+		}).catch( err => console.log(err) )
+	},
 	refreshTokens: () => {
 		doFetch = () => {
 			let token = appData.tokens[nextTokenFetch]
 			if (!token.markets) token.markets = []
 			fetchToken( token.address ).then( marketData =>{
 				console.log('got token data',marketData)
-				token.markets.push( { timestamp: Math.round( moment.now() / 1000 ), ...marketData } )
+				token.markets.push( { timestamp: now(), ...marketData } )
 				//console.log(appData.tokens)
 				if (++nextTokenFetch === appData.tokens.length ) {
 					module.exports.save()
@@ -155,7 +179,58 @@ module.exports = {
 		})
 		module.exports.save()
 		return appData.users.length-1
+	},
+
+	/* news / info */
+	refreshInfo: () => {
+		doFetch = () => {
+			let token = appData.tokens[nextTokenInfoFetch]
+			//if (!infoData.tokens[token.name]) infoData.tokens[tokenName] = 
+			console.log(`getting details for ${token.name}`)
+			let tokenName = token.name.toLowerCase()
+			module.exports.coinDetails( tokenName ).then( details => {
+				console.log('got token details',details)
+				if (!infoData.tokens[token.name]) infoData.tokens[token.name] = { timestamp: Math.round( moment.now() / 1000 ) }
+				infoData.tokens[token.name].details = details
+				//console.log(appData.tokens)
+				module.exports.topNewsByCoin( tokenName ).then( news => {
+					infoData.tokens[token.name].news = news
+					// save any coins for staging if included in the article and not in the db
+					news.forEach( anews => anews.coins.forEach( coin => {
+						console.log('checking coverage for ',coin)
+						let coinname = coin.name.toLowerCase()
+						let tokenFound = appData.tokens.findIndex( token => token.name.toLowerCase() === coinname )
+						if ( tokenFound === -1 && !appData.tokens_not_covered[coin.name] ) {
+							//console.log('adding ',coin.name)
+							appData.tokens_not_covered[coin.name] = { name: coin.name }
+						}
+					}))
+					if (++nextTokenInfoFetch === appData.tokens.length ) {
+						module.exports.saveInfo()
+						module.exports.save()
+						nextTokenInfoFetch = 0
+					} else {
+						doFetch()
+					}					
+				}).catch( err => {
+					console.log('!!!!should not happen, error in getting news')
+				})
+
+			}).catch( err => { 
+				console.log(`fail to get info`,err )
+				if (++nextTokenInfoFetch === appData.tokens.length ) {
+					module.exports.saveInfo()
+					module.exports.save()
+					nextTokenInfoFetch = 0
+				} else {
+					doFetch()
+				}
+			})
+		}
+		doFetch()
+
 	}
+
 }
 
 

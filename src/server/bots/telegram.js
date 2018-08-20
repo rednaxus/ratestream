@@ -12,7 +12,7 @@ var { tokens, users, rounds, questions, reviews, scripts } = app.data
 
 app.start()
 
-//app.refreshTokens() // can do this on regular interval
+
 
 console.log('users:',users)
 
@@ -58,6 +58,8 @@ bot.on('message', msg => {
 	let userIdx = app.userByTelegram( msg.from )
 	//console.log('msg in essage',msg)
 	switch (msgText) {
+		case 'news':
+			app.topNewsByCoin('monero').then( articles => console.log(articles) )
 		case 'command':
 			bot.sendMessage(msg.chat.id,'commands....')
 			break
@@ -141,6 +143,18 @@ bot.onText(/\/checkToken/, msg => {
 
 })
 
+bot.onText(/\/refreshTokens/, msg => {
+	app.refreshTokens() // can do this on regular interval
+	bot.sendMessage( msg.chat.id, `refreshing token data`)
+})
+bot.onText(/\/refreshInfo/, msg => {
+	app.refreshInfo()
+	bot.sendMessage( msg.chat.id, `refreshing news information`)
+})
+bot.onText(/\/refreshTopTokens/, msg => {
+	app.refreshTopTokens() // can do this on regular interval
+	bot.sendMessage( msg.chat.id, `refreshing top tokens`)
+})
 bot.onText(/\/restart/, msg => {
 
 	bot.sendMessage( msg.chat.id, "Welcome", { 

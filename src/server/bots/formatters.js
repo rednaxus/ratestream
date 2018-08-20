@@ -37,7 +37,7 @@ module.exports = {
 		*/
 		var str = ''
 		for ( let [key, value] of entries(market) ) {
-   		if (key === 'price') {
+   		if ( key === 'price' && value ) { // value can be 'false'
    			for ( let [pkey, pvalue] of entries(value) ){
    				switch (pkey) {
    					case 'ts': 
