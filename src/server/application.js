@@ -158,11 +158,13 @@ module.exports = {
 		doFetch = () => {
 			let token = appData.tokens[nextTokenFetch]
 			if (!token.markets) token.markets = []
+			//console.log('fetch token with address',token.address)
 			fetchToken( token.address ).then( marketData =>{
 				//console.log('got token data',marketData)
 				token.markets.push( { timestamp: now(), ...marketData } )
 				//console.log(appData.tokens)
 				if (++nextTokenFetch === appData.tokens.length ) {
+					console.log('finish fetching tokens')
 					module.exports.save()
 					nextTokenFetch = 0
 				} else {

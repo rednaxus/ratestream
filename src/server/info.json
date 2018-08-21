@@ -40,8 +40,8 @@
       "news": [
         {
           "_id": "5b7b137d8bd183000fe54ce1",
-          "hotness": 71058.32044385235,
-          "activityHotness": 3.1148420005118274,
+          "hotness": 71058.33635032183,
+          "activityHotness": 3.130748469974796,
           "primaryCategory": "Government",
           "words": 359,
           "similarArticles": [
@@ -132,9 +132,82 @@
           "originalImageUrl": "https://www.coindiary.net/wp-content/uploads/2018/08/stellar-lumens-rocket-icon.jpg"
         },
         {
+          "_id": "5b7b433ef51f66000f18245e",
+          "hotness": 71057.37838660213,
+          "activityHotness": 1.6207014169384326,
+          "primaryCategory": "Analysis",
+          "words": 401,
+          "similarArticles": [
+            {
+              "_id": "5b7ac2c8601e8b00195723a0",
+              "title": "Not Everyone Is Happy With TRON’s Acquisition Of BitTorrent - Crypto Daily™",
+              "publishedAt": "2018-08-20T13:30:24.000Z",
+              "sourceDomain": "cryptodaily.co.uk",
+              "url": "https://cryptocontrol.io/r/api/article/5b7ac2c8601e8b00195723a0?ref=5b7adbf3601e8b001958df14",
+              "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b7ac2c8601e8b00195723a0?ref=5b7adbf3601e8b001958df14"
+            }
+          ],
+          "coins": [
+            {
+              "_id": "59d21e9b83a0523906a45db0",
+              "name": "Litecoin",
+              "slug": "litecoin",
+              "tradingSymbol": "ltc"
+            },
+            {
+              "_id": "59d21e9b83a0523906a45df4",
+              "name": "TRON",
+              "slug": "tron",
+              "tradingSymbol": "trx"
+            },
+            {
+              "_id": "59d21e9b83a0523906a45dc5",
+              "name": "EOS",
+              "slug": "eos",
+              "tradingSymbol": "eos"
+            },
+            {
+              "_id": "59cb5a047ab17a0b2ec00edf",
+              "name": "Ripple",
+              "tradingSymbol": "xrp",
+              "slug": "ripple"
+            },
+            {
+              "_id": "59d21e9b83a0523906a45dcb",
+              "name": "Stellar Lumens",
+              "slug": "stellar",
+              "tradingSymbol": "xlm"
+            },
+            {
+              "_id": "59cb59e81c073f09e76f614b",
+              "name": "Bitcoin",
+              "slug": "bitcoin",
+              "tradingSymbol": "btc"
+            },
+            {
+              "_id": "59cb59f9b0836b0a63aebc7c",
+              "name": "Ethereum",
+              "tradingSymbol": "eth",
+              "slug": "ethereum"
+            }
+          ],
+          "description": "As we start out the fourth week of August, we see most of the cryptocurrency market fall. Bitcoin (BTC) is trading just below $6,500 and Ethereum (ETH) has once again dipped below $300. This weekend, the market took a slight rise and almost peaked over $225 billion, but has since been corrected.…",
+          "publishedAt": "2018-08-20T22:32:46.000Z",
+          "title": "Cryptocurrency Market Fall | EOS, Litecoin (LTC), & Tron (TRX) -",
+          "url": "https://cryptocontrol.io/r/api/article/5b7b433ef51f66000f18245e?ref=5b7adbf3601e8b001958df14",
+          "source": {
+            "_id": "5b5626158cb221000fe2f223",
+            "name": "Currency Times",
+            "url": "http://currencytimes.co.in/"
+          },
+          "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b7b433ef51f66000f18245e?ref=5b7adbf3601e8b001958df14",
+          "sourceDomain": "currencytimes.co.in",
+          "originalImageUrl": "https://www.currencytimes.co.in/wp-content/uploads/2018/08/EOS-Litecoin....jpg"
+        },
+        {
           "_id": "5b7b02c9601e8b00195a480e",
-          "hotness": 71056.61808977516,
-          "activityHotness": 1.6173953307123439,
+          "hotness": 71056.63217551843,
+          "activityHotness": 1.6314810739840033,
           "primaryCategory": "Mining",
           "words": 363,
           "similarArticles": [
@@ -223,6 +296,310 @@
           "originalImageUrl": "https://ethereumworldnews.com/wp-content/uploads/2018/08/Robert-Kiyosaki-Bitcoin-Cryptocurrency.jpg"
         },
         {
+          "_id": "5b7b783d8bd183000fe8b16e",
+          "hotness": 71056.51065475374,
+          "activityHotness": 0.10676586484738149,
+          "primaryCategory": "Analysis",
+          "words": 504,
+          "similarArticles": [],
+          "coins": [
+            {
+              "_id": "59d21e9b83a0523906a45dc5",
+              "name": "EOS",
+              "slug": "eos",
+              "tradingSymbol": "eos"
+            }
+          ],
+          "description": "EOS daily chart made its downward movement to the price level of $4.1 and bounced up towards the resistance level of $5.0,  suggesting that there could be a form of a bullish reversal this week.   Key Highlights There is a probability of the bullish trend reversal Consolidation pattern is currently…",
+          "publishedAt": "2018-08-21T02:25:24.000Z",
+          "title": "EOSUSD Price Analysis: Trends of August 20th–26th, 2018 | CoinSpeaker",
+          "url": "https://cryptocontrol.io/r/api/article/5b7b783d8bd183000fe8b16e?ref=5b7adbf3601e8b001958df14",
+          "source": {
+            "_id": "5b4b5794c831fd000f6b5152",
+            "name": "CoinSpeaker",
+            "url": "https://www.coinspeaker.com/"
+          },
+          "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b7b783d8bd183000fe8b16e?ref=5b7adbf3601e8b001958df14",
+          "sourceDomain": "coinspeaker.com",
+          "originalImageUrl": "https://coinspeaker-yyissxxdmt7hpv.netdna-ssl.com/wp-content/uploads/2018/08/EOS-20TH-D1.png"
+        },
+        {
+          "_id": "5b7b70f98bd183000fe873a8",
+          "hotness": 71056.42651919273,
+          "activityHotness": 0.11823215567939548,
+          "primaryCategory": "Mining",
+          "words": 433,
+          "similarArticles": [],
+          "coins": [
+            {
+              "_id": "59cb59e81c073f09e76f614b",
+              "name": "Bitcoin",
+              "slug": "bitcoin",
+              "tradingSymbol": "btc"
+            },
+            {
+              "_id": "59d21e9b83a0523906a45daf",
+              "name": "Bitcoin Cash",
+              "slug": "bitcoin-cash",
+              "tradingSymbol": "bch"
+            },
+            {
+              "_id": "5a7b931102ac032bc99781f1",
+              "name": "DATA",
+              "slug": "data",
+              "tradingSymbol": "dta"
+            },
+            {
+              "_id": "59d21e9b83a0523906a45dc5",
+              "name": "EOS",
+              "slug": "eos",
+              "tradingSymbol": "eos"
+            }
+          ],
+          "description": "China has updated its crypto ranking, adding two projects to the previous month’s list. Bitcoin has significantly improved, making the top 10 list for the first time. Crypto projects are ranked in three categories: technology, application, and innovation. Also read: Yahoo! Japan Confirms Entrance…",
+          "publishedAt": "2018-08-21T01:50:59.000Z",
+          "title": "China Updates Crypto Ranking – Bitcoin Makes Top 10 - Bitcoin News",
+          "url": "https://cryptocontrol.io/r/api/article/5b7b70f98bd183000fe873a8?ref=5b7adbf3601e8b001958df14",
+          "source": {
+            "_id": "59d71c67ef8bf95cc2ab0147",
+            "name": "Bitcoin.com",
+            "url": "https://news.bitcoin.com/"
+          },
+          "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b7b70f98bd183000fe873a8?ref=5b7adbf3601e8b001958df14",
+          "sourceDomain": "news.bitcoin.com",
+          "originalImageUrl": "https://news.bitcoin.com/wp-content/uploads/2018/08/CCID-banner.png"
+        },
+        {
+          "_id": "5b7b630bf51f66000f192170",
+          "hotness": 71056.11615138836,
+          "activityHotness": 0.10953101798043251,
+          "primaryCategory": "General",
+          "words": 569,
+          "similarArticles": [],
+          "coins": [
+            {
+              "_id": "59d21e9b83a0523906a45db4",
+              "name": "IOTA",
+              "slug": "iota",
+              "tradingSymbol": "miota"
+            },
+            {
+              "_id": "59d21e9b83a0523906a45dcb",
+              "name": "Stellar Lumens",
+              "slug": "stellar",
+              "tradingSymbol": "xlm"
+            },
+            {
+              "_id": "59d21e9b83a0523906a45df4",
+              "name": "TRON",
+              "slug": "tron",
+              "tradingSymbol": "trx"
+            },
+            {
+              "_id": "59d21e9b83a0523906a45dc5",
+              "name": "EOS",
+              "slug": "eos",
+              "tradingSymbol": "eos"
+            },
+            {
+              "_id": "59d21e9b83a0523906a45db0",
+              "name": "Litecoin",
+              "slug": "litecoin",
+              "tradingSymbol": "ltc"
+            }
+          ],
+          "description": "All in all, traders and investors are optimistic of a morale boosting recovery in altcoins price. Nonetheless, for that to happen then we must see strides as EOS, Litecoin and Tron buyers build up enough momentum for further higher highs past last week’s highs. IOTA and Stellar Lumens bulls might…",
+          "publishedAt": "2018-08-21T00:02:23.000Z",
+          "title": "IOTA, Stellar Lumens, Litecoin, Tron, EOS Technical Analysis",
+          "url": "https://cryptocontrol.io/r/api/article/5b7b630bf51f66000f192170?ref=5b7adbf3601e8b001958df14",
+          "source": {
+            "_id": "59d71bd7ef8bf95cc2aaf579",
+            "name": "NewsBTC",
+            "url": "http://www.newsbtc.com"
+          },
+          "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b7b630bf51f66000f192170?ref=5b7adbf3601e8b001958df14",
+          "sourceDomain": "newsbtc.com",
+          "originalImageUrl": "https://s3.amazonaws.com/main-newsbtc-images/2018/08/20112105/lamp-2663053_1280.jpg"
+        },
+        {
+          "_id": "5b7b5aed8bd183000fe7c5ae",
+          "hotness": 71056.11463060402,
+          "activityHotness": 0.11310282624064044,
+          "primaryCategory": "Analysis",
+          "words": 543,
+          "similarArticles": [],
+          "coins": [
+            {
+              "_id": "59d21e9b83a0523906a45dc5",
+              "name": "EOS",
+              "slug": "eos",
+              "tradingSymbol": "eos"
+            },
+            {
+              "_id": "59cb59f9b0836b0a63aebc7c",
+              "name": "Ethereum",
+              "tradingSymbol": "eth",
+              "slug": "ethereum"
+            }
+          ],
+          "description": "Ethereum [ETH], EOS [EOS] Technical Analyses and Price Prediction 2018, 2020\nMajor cryptocurrencies are falling again, leaving little room for any significant recovery. Ethereum [ETH] and EOS [EOS] are among the victims of selling pressures, in line with the broader declines seen in the market.…",
+          "publishedAt": "2018-08-21T00:00:33.000Z",
+          "title": "Ethereum [ETH], EOS [EOS] Technical Analyses and Price Prediction 2018, 2020",
+          "url": "https://cryptocontrol.io/r/api/article/5b7b5aed8bd183000fe7c5ae?ref=5b7adbf3601e8b001958df14",
+          "source": {
+            "_id": "5b4078bfdae2a9000f26c87c",
+            "name": "BCFocus",
+            "url": "http://bcfocus.com"
+          },
+          "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b7b5aed8bd183000fe7c5ae?ref=5b7adbf3601e8b001958df14",
+          "sourceDomain": "bcfocus.com",
+          "originalImageUrl": "https://bcfocus.com/wp-content/uploads/2018/08/2018082107122825.jpg"
+        },
+        {
+          "_id": "5b7b50428bd183000fe7734f",
+          "hotness": 71056.03166064761,
+          "activityHotness": 0.10953101798043251,
+          "primaryCategory": "General",
+          "words": 2443,
+          "similarArticles": [],
+          "coins": [
+            {
+              "_id": "59cb59f9b0836b0a63aebc7c",
+              "name": "Ethereum",
+              "tradingSymbol": "eth",
+              "slug": "ethereum"
+            },
+            {
+              "_id": "59cb59e81c073f09e76f614b",
+              "name": "Bitcoin",
+              "slug": "bitcoin",
+              "tradingSymbol": "btc"
+            },
+            {
+              "_id": "59d21e9b83a0523906a45dc5",
+              "name": "EOS",
+              "slug": "eos",
+              "tradingSymbol": "eos"
+            },
+            {
+              "_id": "59d21e9b83a0523906a45de0",
+              "name": "Veritaseum",
+              "slug": "veritaseum",
+              "tradingSymbol": "veri"
+            },
+            {
+              "_id": "59d21e9b83a0523906a45e6e",
+              "name": "Shift",
+              "slug": "shift",
+              "tradingSymbol": "shift"
+            }
+          ],
+          "description": "Ethereum’s relative stability around the $300 range over the last three days was enough to trigger proclamations of a full recovery, with many prominent publications going so far as to forecast an imminent breakout. Ethereum Price Down 5.6% in 18 Hours The analysis here at Hacked was a little more…",
+          "publishedAt": "2018-08-20T23:31:58.000Z",
+          "title": "Ethereum Price Bucks Positive Sentiment with Another 5.6% Dip | Hacked: Hacking Finance",
+          "url": "https://cryptocontrol.io/r/api/article/5b7b50428bd183000fe7734f?ref=5b7adbf3601e8b001958df14",
+          "source": {
+            "_id": "5b4b5727c831fd000f6b0af9",
+            "name": "Hacked.om",
+            "url": "https://hacked.com"
+          },
+          "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b7b50428bd183000fe7734f?ref=5b7adbf3601e8b001958df14",
+          "sourceDomain": "hacked.com",
+          "originalImageUrl": "https://hacked.com/wp-content/uploads/2018/04/Ethereum-on-cash.jpg"
+        },
+        {
+          "_id": "5b7b422df51f66000f181bce",
+          "hotness": 71055.75883286854,
+          "activityHotness": 0.11133286853070033,
+          "primaryCategory": "General",
+          "words": 1746,
+          "similarArticles": [],
+          "coins": [
+            {
+              "_id": "59cb59f9b0836b0a63aebc7c",
+              "name": "Ethereum",
+              "tradingSymbol": "eth",
+              "slug": "ethereum"
+            },
+            {
+              "_id": "59cb59e81c073f09e76f614b",
+              "name": "Bitcoin",
+              "slug": "bitcoin",
+              "tradingSymbol": "btc"
+            },
+            {
+              "_id": "59d21e9b83a0523906a45db6",
+              "name": "Ethereum Classic",
+              "slug": "ethereum-classic",
+              "tradingSymbol": "etc"
+            },
+            {
+              "_id": "59d21e9b83a0523906a45dc5",
+              "name": "EOS",
+              "slug": "eos",
+              "tradingSymbol": "eos"
+            },
+            {
+              "_id": "59d21e9b83a0523906a45dcb",
+              "name": "Stellar Lumens",
+              "slug": "stellar",
+              "tradingSymbol": "xlm"
+            },
+            {
+              "_id": "59d21e9b83a0523906a45e01",
+              "name": "VeChain",
+              "slug": "vechain",
+              "tradingSymbol": "ven"
+            },
+            {
+              "_id": "59cb5a047ab17a0b2ec00edf",
+              "name": "Ripple",
+              "tradingSymbol": "xrp",
+              "slug": "ripple"
+            }
+          ],
+          "description": "What happened this week in the Crypto markets? The Arca Funds Portfolio team discusses the volatile week-over-week price action, Ethereum’s fallout, and Coinbase’s continued dominance. For those of…",
+          "publishedAt": "2018-08-20T21:53:06.000Z",
+          "title": "“That’s Our Two Satoshis” — Crypto Market Recap 8/20/18 (BTC, ETH, XRP, VET)",
+          "url": "https://cryptocontrol.io/r/api/article/5b7b422df51f66000f181bce?ref=5b7adbf3601e8b001958df14",
+          "source": {
+            "_id": "5b4b575cc831fd000f6b2af3",
+            "name": "Hacker Noon",
+            "url": "https://hackernoon.com/feed"
+          },
+          "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b7b422df51f66000f181bce?ref=5b7adbf3601e8b001958df14",
+          "sourceDomain": "hackernoon.com",
+          "originalImageUrl": "https://cdn-images-1.medium.com/max/2000/0*-ocAdUvniDUbOLpH"
+        },
+        {
+          "_id": "5b7b3c538bd183000fe6cb9e",
+          "hotness": 71055.75046956856,
+          "activityHotness": 0.10676586484738149,
+          "primaryCategory": "General",
+          "words": 1319,
+          "similarArticles": [],
+          "coins": [
+            {
+              "_id": "59d21e9b83a0523906a45dc5",
+              "name": "EOS",
+              "slug": "eos",
+              "tradingSymbol": "eos"
+            }
+          ],
+          "description": "Al evento se dieron cita representantes del ecosistema local, así como participantes provenientes de Rusia y Brasil para hablar de sus proyectos en el continente\n",
+          "publishedAt": "2018-08-20T21:51:44.000Z",
+          "title": "Equipo U.Community presentó su proyecto durante evento realizado en la Cámara de Comercio de Bogotá | U.Today",
+          "url": "https://cryptocontrol.io/r/api/article/5b7b3c538bd183000fe6cb9e?ref=5b7adbf3601e8b001958df14",
+          "source": {
+            "_id": "5b1a6133bad05a000fa0d9f1",
+            "name": "CryptoComes",
+            "url": "https://cryptocomes.com"
+          },
+          "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b7b3c538bd183000fe6cb9e?ref=5b7adbf3601e8b001958df14",
+          "sourceDomain": "es.u.today",
+          "originalImageUrl": "https://es.u.today//sites/default/files/styles/912x570/public/2018-08/uc.jpg?itok=0FcxGDma"
+        },
+        {
           "_id": "5b7a8772601e8b0019518a15",
           "hotness": 71055.1380958328,
           "activityHotness": 1.6095310179804325,
@@ -273,8 +650,8 @@
         },
         {
           "_id": "5b7b0446e90958000fb5528b",
-          "hotness": 71055.12583993893,
-          "activityHotness": 0.10676586484738149,
+          "hotness": 71055.12951007561,
+          "activityHotness": 0.11043600153242428,
           "primaryCategory": "Blockchain",
           "words": 381,
           "similarArticles": [],
@@ -319,8 +696,8 @@
         },
         {
           "_id": "5b7af870e90958000fb4ecfa",
-          "hotness": 71054.93974012753,
-          "activityHotness": 0.10487901641694322,
+          "hotness": 71054.94068800192,
+          "activityHotness": 0.10582689081239759,
           "primaryCategory": "ICO",
           "words": 371,
           "similarArticles": [],
@@ -359,8 +736,8 @@
         },
         {
           "_id": "5b7aded1601e8b001959079e",
-          "hotness": 71054.68987901643,
-          "activityHotness": 0.10487901641694322,
+          "hotness": 71054.69269610412,
+          "activityHotness": 0.10769610411361284,
           "primaryCategory": "Blockchain",
           "words": 419,
           "similarArticles": [],
@@ -399,8 +776,8 @@
         },
         {
           "_id": "5b7ad7b7601e8b001958bad0",
-          "hotness": 71054.6162308894,
-          "activityHotness": 0.11484200051182732,
+          "hotness": 71054.61794033274,
+          "activityHotness": 0.11655144384775734,
           "primaryCategory": "General",
           "words": 2529,
           "similarArticles": [],
@@ -463,8 +840,8 @@
         },
         {
           "_id": "5b7acf77601e8b001958733a",
-          "hotness": 71054.50699028178,
-          "activityHotness": 0.1122217632724249,
+          "hotness": 71054.50787134476,
+          "activityHotness": 0.11310282624064044,
           "primaryCategory": "General",
           "words": 920,
           "similarArticles": [],
@@ -515,8 +892,8 @@
         },
         {
           "_id": "5b7acbf5601e8b0019580e85",
-          "hotness": 71054.46518472623,
-          "activityHotness": 0.1122217632724249,
+          "hotness": 71054.46606578921,
+          "activityHotness": 0.11310282624064044,
           "primaryCategory": "Analysis",
           "words": 423,
           "similarArticles": [],
@@ -549,8 +926,8 @@
         },
         {
           "_id": "5b7ac170e90958000fb1e8c3",
-          "hotness": 71054.34428644495,
-          "activityHotness": 0.11484200051182732,
+          "hotness": 71054.34514481932,
+          "activityHotness": 0.11570037488096648,
           "primaryCategory": "Blockchain",
           "words": 538,
           "similarArticles": [],
@@ -635,8 +1012,8 @@
         },
         {
           "_id": "5b7aa76f601e8b0019547769",
-          "hotness": 71054.03302017819,
-          "activityHotness": 0.10769610411361284,
+          "hotness": 71054.0339418437,
+          "activityHotness": 0.10861776962410524,
           "primaryCategory": "Analysis",
           "words": 473,
           "similarArticles": [],
@@ -881,8 +1258,8 @@
         },
         {
           "_id": "5b7a5f19e90958000fa8a057",
-          "hotness": 71053.16995496258,
-          "activityHotness": 0.1254642218373581,
+          "hotness": 71053.17072716718,
+          "activityHotness": 0.12623642644674912,
           "primaryCategory": "General",
           "words": 453,
           "similarArticles": [],
@@ -1484,8 +1861,8 @@
         },
         {
           "_id": "5b790db1e90958000f9f3fa0",
-          "hotness": 71049.18882798847,
-          "activityHotness": 0.12776317365982798,
+          "hotness": 71049.18958270903,
+          "activityHotness": 0.12851789422336624,
           "primaryCategory": "Analysis",
           "words": 407,
           "similarArticles": [],
@@ -2293,416 +2670,6 @@
           "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b77484bb0267c000f0215f3?ref=5b7adbf3601e8b001958df14",
           "sourceDomain": "cointelegraph.com",
           "originalImageUrl": "https://images.cointelegraph.com/images/740_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS9zdG9yYWdlL3VwbG9hZHMvdmlldy81ZThhZjIwYzZkNTYyYjU5Zjk3ZTk3MGYyNzIyMTNjZi5qcGc=.jpg"
-        },
-        {
-          "_id": "5b7740aeb0267c000f01d3ff",
-          "hotness": 71043.70281548901,
-          "activityHotness": 0.11823215567939548,
-          "primaryCategory": "General",
-          "words": 691,
-          "similarArticles": [],
-          "coins": [
-            {
-              "_id": "59cb59f9b0836b0a63aebc7c",
-              "name": "Ethereum",
-              "tradingSymbol": "eth",
-              "slug": "ethereum"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45dcb",
-              "name": "Stellar Lumens",
-              "slug": "stellar",
-              "tradingSymbol": "xlm"
-            },
-            {
-              "_id": "59cb5a047ab17a0b2ec00edf",
-              "name": "Ripple",
-              "tradingSymbol": "xrp",
-              "slug": "ripple"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45dc5",
-              "name": "EOS",
-              "slug": "eos",
-              "tradingSymbol": "eos"
-            },
-            {
-              "_id": "59cb59e81c073f09e76f614b",
-              "name": "Bitcoin",
-              "slug": "bitcoin",
-              "tradingSymbol": "btc"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45daf",
-              "name": "Bitcoin Cash",
-              "slug": "bitcoin-cash",
-              "tradingSymbol": "bch"
-            }
-          ],
-          "description": "Ripple’s XRP, Bitcoin Cash [BCH], Stellar Lumens [XLM] back on an uptrend: Technical Analyses and Latest Updates\nThe crypto market has more or less shaken off the losses seen in last week owing to the recent bearish trends. Ripple's XRP, Bitcoin Cash [BCH] and Stellar Lumens [XLM] are all back in…",
-          "publishedAt": "2018-08-17T21:30:27.000Z",
-          "title": "Ripple’s XRP, Bitcoin Cash [BCH], Stellar Lumens [XLM] back on an uptrend: Technical Analyses and Latest Updates",
-          "url": "https://cryptocontrol.io/r/api/article/5b7740aeb0267c000f01d3ff?ref=5b7adbf3601e8b001958df14",
-          "source": {
-            "_id": "5b4078bfdae2a9000f26c87c",
-            "name": "BCFocus",
-            "url": "http://bcfocus.com"
-          },
-          "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b7740aeb0267c000f01d3ff?ref=5b7adbf3601e8b001958df14",
-          "sourceDomain": "bcfocus.com",
-          "originalImageUrl": "https://bcfocus.com/wp-content/uploads/2018/08/2018081805173045.jpg"
-        },
-        {
-          "_id": "5b771e2bf18d40000fa922d7",
-          "hotness": 71043.3096069994,
-          "activityHotness": 0.11655144384775734,
-          "primaryCategory": "ICO",
-          "words": 357,
-          "similarArticles": [],
-          "coins": [
-            {
-              "_id": "59cb59e81c073f09e76f614b",
-              "name": "Bitcoin",
-              "slug": "bitcoin",
-              "tradingSymbol": "btc"
-            },
-            {
-              "_id": "59cb59f9b0836b0a63aebc7c",
-              "name": "Ethereum",
-              "tradingSymbol": "eth",
-              "slug": "ethereum"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45dc5",
-              "name": "EOS",
-              "slug": "eos",
-              "tradingSymbol": "eos"
-            },
-            {
-              "_id": "5a1aafdbda3d21115462eead",
-              "name": "ERC20",
-              "slug": "erc20",
-              "tradingSymbol": "erc20"
-            }
-          ],
-          "description": "In a recent tweet, BitFi announces through its official Twitter handle that the “unhackable” hardware wallet will now support ERC20 tokens. The BitFi project is headed by John McAfee, a software developer and a controversial cryptocurrency analyst who is known for his price predictions. The BitFi…",
-          "publishedAt": "2018-08-17T19:09:30.000Z",
-          "title": "Awesome! BitFi Announces It's Wallet Will Now Support ERC20 Tokens",
-          "url": "https://cryptocontrol.io/r/api/article/5b771e2bf18d40000fa922d7?ref=5b7adbf3601e8b001958df14",
-          "source": {
-            "_id": "5adc20e7ec0af7be3539d369",
-            "name": "ZyCrypto",
-            "url": "https://zycrypto.com"
-          },
-          "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b771e2bf18d40000fa922d7?ref=5b7adbf3601e8b001958df14",
-          "sourceDomain": "zycrypto.com",
-          "originalImageUrl": "https://zycrypto.com/wp-content/uploads/2018/08/Awesome-BitFi-Announces-Its-Wallet-Will-Now-Support-ERC20-Tokens.png"
-        },
-        {
-          "_id": "5b7739b5f18d40000faa02a0",
-          "hotness": 71043.25643615957,
-          "activityHotness": 0.11310282624064044,
-          "primaryCategory": "General",
-          "words": 21,
-          "similarArticles": [],
-          "coins": [
-            {
-              "_id": "59d21e9b83a0523906a45dc5",
-              "name": "EOS",
-              "slug": "eos",
-              "tradingSymbol": "eos"
-            }
-          ],
-          "description": "The Sackville-based non-profit group EOS Eco-Energy is hosting a citizen science water-sampling blitz Saturday in the southeastern corner of New Brunswick.",
-          "publishedAt": "2018-08-17T18:51:36.000Z",
-          "title": "Citizen science: Water-testing blitz in Cape Tormentine area",
-          "url": "https://cryptocontrol.io/r/api/article/5b7739b5f18d40000faa02a0?ref=5b7adbf3601e8b001958df14",
-          "source": {
-            "_id": "5b03100d311c75000f143900",
-            "name": "CBC News",
-            "url": "http://www.cbc.ca"
-          },
-          "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b7739b5f18d40000faa02a0?ref=5b7adbf3601e8b001958df14",
-          "sourceDomain": "cbc.ca",
-          "originalImageUrl": "https://i.cbc.ca/1.4789094.1534520266!/fileImage/httpImage/image.JPG_gen/derivatives/16x9_620/eos-eco-energy-staff.JPG"
-        },
-        {
-          "_id": "5b771871b0267c000f008544",
-          "hotness": 71043.23578101798,
-          "activityHotness": 0.10953101798043251,
-          "primaryCategory": "Analysis",
-          "words": 632,
-          "similarArticles": [],
-          "coins": [
-            {
-              "_id": "59d21e9b83a0523906a45dc5",
-              "name": "EOS",
-              "slug": "eos",
-              "tradingSymbol": "eos"
-            }
-          ],
-          "description": "QOS price drop after FCoin listing sparks concerns over ICO, links with listed firm\nQOS has raised all sorts of red flags regarding its recent listing on crypto exchange FCoin and its price performance. According to local media reports, QOS may have been be involved in illegal financing activities…",
-          "publishedAt": "2018-08-17T18:45:27.000Z",
-          "title": "QOS price drop after FCoin listing sparks concerns over ICO, links with listed firm",
-          "url": "https://cryptocontrol.io/r/api/article/5b771871b0267c000f008544?ref=5b7adbf3601e8b001958df14",
-          "source": {
-            "_id": "5b4078bfdae2a9000f26c87c",
-            "name": "BCFocus",
-            "url": "http://bcfocus.com"
-          },
-          "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b771871b0267c000f008544?ref=5b7adbf3601e8b001958df14",
-          "sourceDomain": "bcfocus.com",
-          "originalImageUrl": "https://bcfocus.com/wp-content/uploads/2018/08/2018081802364260.jpg"
-        },
-        {
-          "_id": "5b77116df18d40000fa8ab4e",
-          "hotness": 71043.19876914918,
-          "activityHotness": 0.1524728528934982,
-          "primaryCategory": "Government",
-          "words": 314,
-          "similarArticles": [],
-          "coins": [
-            {
-              "_id": "59d21e9b83a0523906a45db4",
-              "name": "IOTA",
-              "slug": "iota",
-              "tradingSymbol": "miota"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45dbc",
-              "name": "Cardano",
-              "slug": "cardano",
-              "tradingSymbol": "ada"
-            },
-            {
-              "_id": "59cb59e81c073f09e76f614b",
-              "name": "Bitcoin",
-              "slug": "bitcoin",
-              "tradingSymbol": "btc"
-            },
-            {
-              "_id": "5a7b930902ac032bc997817d",
-              "name": "Bibox Token",
-              "slug": "bibox-token",
-              "tradingSymbol": "bix"
-            },
-            {
-              "_id": "59cb59f9b0836b0a63aebc7c",
-              "name": "Ethereum",
-              "tradingSymbol": "eth",
-              "slug": "ethereum"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45db6",
-              "name": "Ethereum Classic",
-              "slug": "ethereum-classic",
-              "tradingSymbol": "etc"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45dc1",
-              "name": "Kyber Network",
-              "slug": "kyber-network",
-              "tradingSymbol": "knc"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45dc5",
-              "name": "EOS",
-              "slug": "eos",
-              "tradingSymbol": "eos"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45df4",
-              "name": "TRON",
-              "slug": "tron",
-              "tradingSymbol": "trx"
-            }
-          ],
-          "description": "60 out of 100 cryptocurrencies have no working products: ‘Invest in Blockchain’ research\nInvest in Blockchain’s has published a new research which provides fresh insight into cryptocurrencies that actually possesses working products. According to the research article on the website,” We researched…",
-          "publishedAt": "2018-08-17T18:16:40.000Z",
-          "title": "60 out of 100 cryptocurrencies have no working products: ‘Invest in Blockchain’ research",
-          "url": "https://cryptocontrol.io/r/api/article/5b77116df18d40000fa8ab4e?ref=5b7adbf3601e8b001958df14",
-          "source": {
-            "_id": "5b4078bfdae2a9000f26c87c",
-            "name": "BCFocus",
-            "url": "http://bcfocus.com"
-          },
-          "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b77116df18d40000fa8ab4e?ref=5b7adbf3601e8b001958df14",
-          "sourceDomain": "bcfocus.com",
-          "originalImageUrl": "https://bcfocus.com/wp-content/uploads/2018/08/2018081802120054.jpg"
-        },
-        {
-          "_id": "5b76f845b0267c000fff2d5f",
-          "hotness": 71042.82881996236,
-          "activityHotness": 0.11655144384775734,
-          "primaryCategory": "General",
-          "words": 481,
-          "similarArticles": [],
-          "coins": [
-            {
-              "_id": "59cb59f9b0836b0a63aebc7c",
-              "name": "Ethereum",
-              "tradingSymbol": "eth",
-              "slug": "ethereum"
-            },
-            {
-              "_id": "5a7b930702ac032bc9978165",
-              "name": "Zilliqa",
-              "slug": "zilliqa",
-              "tradingSymbol": "zil"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45dc5",
-              "name": "EOS",
-              "slug": "eos",
-              "tradingSymbol": "eos"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45dc3",
-              "name": "Gas",
-              "slug": "gas",
-              "tradingSymbol": "gas"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45dbc",
-              "name": "Cardano",
-              "slug": "cardano",
-              "tradingSymbol": "ada"
-            }
-          ],
-          "description": "Ethereum (ETH) is without a doubt the most popular Dapps platform in the market. However, its popularity has also exposed its scalability problems, as happened with CryptoKitties, and now with Last winner. Last winner is a Chinese gaming project that is running on Ethereum. It is so popular in China…",
-          "publishedAt": "2018-08-17T16:16:25.000Z",
-          "title": "Last winner game jams Ethereum network – Is Ethereum (ETH) dominance at stake?",
-          "url": "https://cryptocontrol.io/r/api/article/5b76f845b0267c000fff2d5f?ref=5b7adbf3601e8b001958df14",
-          "source": {
-            "_id": "5b4b58d6c831fd000f6c2607",
-            "name": "Crypto Globalist",
-            "url": "https://cryptoglobalist.com"
-          },
-          "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b76f845b0267c000fff2d5f?ref=5b7adbf3601e8b001958df14",
-          "sourceDomain": "cryptoglobalist.com",
-          "originalImageUrl": "https://i2.wp.com/cryptoglobalist.com/wp-content/uploads/2018/07/Ethereum.png?fit=800%2C530&ssl=1"
-        },
-        {
-          "_id": "5b76f39cf18d40000fa7832a",
-          "hotness": 71042.76272175742,
-          "activityHotness": 0.11133286853070033,
-          "primaryCategory": "Analysis",
-          "words": 477,
-          "similarArticles": [],
-          "coins": [
-            {
-              "_id": "59d21e9b83a0523906a45dc5",
-              "name": "EOS",
-              "slug": "eos",
-              "tradingSymbol": "eos"
-            }
-          ],
-          "description": "EOS has been undergoing a downward spiral for the last several weeks. Even when other cryptocurrencies and Bitcoin were recording recoveries, EOS continued on its downward trajectory. Today is the first significant gain since the downward spiral began, but whether it can hold and close the day…",
-          "publishedAt": "2018-08-17T15:54:30.000Z",
-          "title": "EOS Price Records First Significant Gain After Downward Spiral | [blokt] - Blockchain, Bitcoin & Cryptocurrency News",
-          "url": "https://cryptocontrol.io/r/api/article/5b76f39cf18d40000fa7832a?ref=5b7adbf3601e8b001958df14",
-          "source": {
-            "_id": "5b47a8d3dae2a9000fcabea9",
-            "name": "Blokt",
-            "url": "https://blokt.com"
-          },
-          "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b76f39cf18d40000fa7832a?ref=5b7adbf3601e8b001958df14",
-          "sourceDomain": "blokt.com",
-          "originalImageUrl": "https://blokt.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-17-at-15.03.52.png"
-        },
-        {
-          "_id": "5b76dcc281c78b000f99db1a",
-          "hotness": 71042.55669344022,
-          "activityHotness": 0.14252677354043441,
-          "primaryCategory": "General",
-          "words": 1635,
-          "similarArticles": [],
-          "coins": [
-            {
-              "_id": "59cb5a047ab17a0b2ec00edf",
-              "name": "Ripple",
-              "tradingSymbol": "xrp",
-              "slug": "ripple"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45dba",
-              "name": "Lisk",
-              "slug": "lisk",
-              "tradingSymbol": "lsk"
-            },
-            {
-              "_id": "59cb59e81c073f09e76f614b",
-              "name": "Bitcoin",
-              "slug": "bitcoin",
-              "tradingSymbol": "btc"
-            },
-            {
-              "_id": "59cb59f9b0836b0a63aebc7c",
-              "name": "Ethereum",
-              "tradingSymbol": "eth",
-              "slug": "ethereum"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45db4",
-              "name": "IOTA",
-              "slug": "iota",
-              "tradingSymbol": "miota"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45e01",
-              "name": "VeChain",
-              "slug": "vechain",
-              "tradingSymbol": "ven"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45daf",
-              "name": "Bitcoin Cash",
-              "slug": "bitcoin-cash",
-              "tradingSymbol": "bch"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45dc5",
-              "name": "EOS",
-              "slug": "eos",
-              "tradingSymbol": "eos"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45db0",
-              "name": "Litecoin",
-              "slug": "litecoin",
-              "tradingSymbol": "ltc"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45dbc",
-              "name": "Cardano",
-              "slug": "cardano",
-              "tradingSymbol": "ada"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45de3",
-              "name": "Dogecoin",
-              "slug": "dogecoin",
-              "tradingSymbol": "doge"
-            },
-            {
-              "_id": "59d21e9b83a0523906a45e18",
-              "name": "Triggers",
-              "slug": "triggers",
-              "tradingSymbol": "trig"
-            }
-          ],
-          "description": "CryptoDaily; Cardano, Bitcoin, Ripple, Huobi, Binance, Coinbase; August 17,2018\n  BLOCKCHAIN NEWS   Blockchain tech “natural fit” for commodity trading, but issues remain: BCG report Blockchain technology may seem like a natural fit for the commodity business, but it may spell trouble for certain…",
-          "publishedAt": "2018-08-17T14:29:06.000Z",
-          "title": "CryptoDaily; Cardano, Bitcoin, Ripple, Huobi, Binance, Coinbase; August 17,2018",
-          "url": "https://cryptocontrol.io/r/api/article/5b76dcc281c78b000f99db1a?ref=5b7adbf3601e8b001958df14",
-          "source": {
-            "_id": "5b4078bfdae2a9000f26c87c",
-            "name": "BCFocus",
-            "url": "http://bcfocus.com"
-          },
-          "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b76dcc281c78b000f99db1a?ref=5b7adbf3601e8b001958df14",
-          "sourceDomain": "bcfocus.com",
-          "originalImageUrl": "https://bcfocus.com/wp-content/uploads/2018/08/2018081718294123.jpg"
         }
       ]
     },
@@ -2734,8 +2701,8 @@
       "news": [
         {
           "_id": "5b7b13ac8bd183000fe54dd9",
-          "hotness": 71055.27041666667,
-          "activityHotness": 0.1,
+          "hotness": 71055.27141169975,
+          "activityHotness": 0.10099503308531682,
           "primaryCategory": "ICO",
           "words": 489,
           "similarArticles": [],
@@ -2836,8 +2803,8 @@
         },
         {
           "_id": "5b72eefa51cccb000fcaf24b",
-          "hotness": 71030.62658415595,
-          "activityHotness": 0.12468600779315259,
+          "hotness": 71030.62736237,
+          "activityHotness": 0.1254642218373581,
           "primaryCategory": "General",
           "words": 520,
           "similarArticles": [],
@@ -7979,8 +7946,8 @@
         },
         {
           "_id": "5b5d5e0fca5e70000f73830e",
-          "hotness": 70965.2903060501,
-          "activityHotness": 0.22947271675944003,
+          "hotness": 70965.29057964808,
+          "activityHotness": 0.2297463147413275,
           "primaryCategory": "General",
           "words": 1557,
           "similarArticles": [],
@@ -12533,8 +12500,8 @@
         },
         {
           "_id": "5b52bf6bc4c2e400190ff756",
-          "hotness": 70932.97178891573,
-          "activityHotness": 0.12151113796169455,
+          "hotness": 70932.97259213291,
+          "activityHotness": 0.12231435513142097,
           "primaryCategory": "Exchanges",
           "words": 347,
           "similarArticles": [],
@@ -15054,8 +15021,8 @@
       "news": [
         {
           "_id": "5b7a8b8f601e8b001951e7f5",
-          "hotness": 71053.69696377931,
-          "activityHotness": 0.11043600153242428,
+          "hotness": 71053.69786064631,
+          "activityHotness": 0.11133286853070033,
           "primaryCategory": "Analysis",
           "words": 433,
           "similarArticles": [],

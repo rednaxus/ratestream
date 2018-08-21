@@ -17,25 +17,20 @@ module.exports = {
 	},
 	tokens: tokens => {
 		//	let msgtokens = tokens.reduce( (str,token) => `${str}[${token.name}] `, "" )
-	 	let out = {
-			reply_markup:{
-				inline_keyboard:[]
-			}
-		}
-		let arr = []
+		let ik = []
+		let row = []
 		tokens.forEach( (token,idx) => {
-			let data = { text: token.name, callback_data: idx }
-			if (idx % 4 != 0) { // add column
-				arr.push( data )
-			} else {
-				if (arr.length) out.reply_markup.inline_keyboard.push( arr )
-				arr = [ data ]
+			let col = { text: token.name, callback_data: `token-${idx}` }
+			if (idx % 3 != 0) { // add column
+				row.push( col )
+			} else { // new row
+				if (row.length) ik.push( row )
+				row = [ col ]
 			}
 		})
-
-		if (arr.length) out.reply_markup.inline_keyboard.push( arr )
-
-		return out
+		ik.push( row )
+		return { reply_markup:{ inline_keyboard: ik } }
+	
 /*
 			[
 				{
@@ -87,15 +82,19 @@ module.exports = {
 		*/
 		var str = ''
 		for ( let [key, value] of entries(market) ) {
-   		if ( key === 'price' && value ) { // value can be 'false' / no price data
-   			for ( let [pkey, pvalue] of entries(value) ){
-   				switch (pkey) {
-   					case 'ts': 
-   						str += ''
-   						break
-   					default: 
-   						str += `<i>${pkey}</i> <b>${pvalue}</b>\n`
-   				}
+   		if ( key === 'price' ) { 
+   			if (value) {
+   				str += '---------\n'
+	   			for ( let [pkey, pvalue] of entries(value) ) { // value can be 'false' / no price data
+	   				switch (pkey) {
+	   					case 'ts': 
+	   						str += ''
+	   						break
+	   					default: 
+	   						str += `<i>${pkey}</i> <b>${pvalue}</b>\n`
+	   				}
+	   			}
+	   			str += '---------\n'
    			}
    		} else {
 				switch (key) {

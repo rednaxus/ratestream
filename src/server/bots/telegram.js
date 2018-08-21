@@ -165,6 +165,7 @@ bot.onText(/\/checkToken/, msg => {
 
 /* internal use */
 bot.onText(/\/refreshTokens/, msg => {
+	console.log('refresh tokens')
 	app.refreshTokens() // can do this on regular interval
 	bot.sendMessage( msg.chat.id, `refreshing token data`)
 })
@@ -186,6 +187,29 @@ bot.onText(/\/questions/i, msg => {
 	bot.sendMessage(msg.chat.id, str)
 })
 
+
+/* query callbacks */
+bot.on("callback_query", query => {
+	let userIdx = app.userByTelegram( query.from )
+	let user = users[userIdx]
+	bot.answerCallbackQuery(query.id, { text: `Action received from ${user.first_name}!` })
+	.then( () => {
+		console.log('query on callback',query)
+		let q = query.data.split('-')
+		switch (q[0]) {
+			case 'token': 
+				const tokenId = +q[1]
+				const markets = tokens[tokenId].markets
+				const current = markets[markets.length-1]
+				bot.sendMessage( query.message.chat.id, formatters.tokenMarket( current ), {parse_mode : "HTML"} )
+				break
+			default:
+				console.log(`unrecognized command ${q[0]}`)
+		}
+		//bot.sendMessage(query.from.id, `Hey there! You clicked on an inline button! ${query.data}`)
+
+	})
+})
 
 
 /* misc examples / dumping ground */
@@ -222,7 +246,7 @@ ik
 		{ text: "1:1 button", callback_data: "1:1 Works!" },
 		{ text: "1:2 button", callback_data: "1:2 Works!" }
 	);
-console.log('ik export',JSON.stringify(ik.export()))
+//console.log('ik export',JSON.stringify(ik.export()))
 
 function hasBotCommands(entities) {
 	if (!entities || !(entities instanceof Array)) {
@@ -230,7 +254,7 @@ function hasBotCommands(entities) {
 	}
 	return entities.some(e => e.type === "bot_command")
 }
-
+/*
 const ikexport = {
 	"reply_markup":{
 		"inline_keyboard":[
@@ -251,12 +275,13 @@ const ikexport = {
 		]
 	}
 }
+*/
 bot.onText(/\/forceReply/i, msg => {
 	bot.sendMessage(msg.from.id, "Hey, this is a forced-reply. Reply me.", (new ForceReply()).export())
 })
 
 bot.onText(/\/inlineKeyboard/i, msg => {
-	bot.sendMessage(msg.from.id, "This is a message with an inline keyboard.", ikexport) //ik.export())
+	bot.sendMessage(msg.from.id, "This is a message with an inline keyboard.", ik.export())
 })
 
 bot.on("message", msg => {
@@ -273,11 +298,5 @@ bot.on("message", msg => {
 	}
 })
 
-bot.on("callback_query", query => {
-	bot.answerCallbackQuery(query.id, { text: "Action received!" })
-	.then( () => {
-		console.log('query on callback',query)
-		bot.sendMessage(query.from.id, `Hey there! You clicked on an inline button! ${query.data} So, as you saw, the support library works!`);
-	})
-})
+
 
