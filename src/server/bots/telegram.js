@@ -10,7 +10,8 @@ const formatters = require('./formatters')
 
 var { tokens, users, rounds, questions, reviews, scripts } = app.data
 
-app.start()
+app.start(false) // no autosave for development
+app.save() // reformat any json changes
 
 
 
@@ -63,22 +64,6 @@ bot.on('message', msg => {
 		case 'command':
 			bot.sendMessage(msg.chat.id,'commands....')
 			break
-		case 'lead round':
-			console.log(`getting round for user ${userIdx}`)
-			let roundIdx = app.roundToLead( userIdx )
-			console.log(`round ${roundIdx}`)
-			let round = rounds[ roundIdx ]
-			let token = tokens[ round.token ]
-			let role = app.roundRole(round, userIdx)
-			bot.sendMessage(msg.chat.id,`you are ${role} lead, for token ${token.name}`)
-			break
-		case 'questions':
-			let str = ''
-			questions.forEach( (question,num) => {
-				str += `${num+1}. ${question.text}\n`
-			})
-			bot.sendMessage(msg.chat.id, str)
-			break
 		default:
 			console.log(`unknown msg ${msg.text}`)
 	
@@ -107,6 +92,16 @@ bot.on('message', msg => {
   } 
   */    
 
+/* app */
+bot.onText(/\/restart/, msg => {
+
+	bot.sendMessage( msg.chat.id, "Welcome", { 
+		"reply_markup": {
+    	"keyboard": [["Diff text", "Diff sample"], ["Keyboard"], ["I'm robot"]]
+   	}
+	})
+    
+})
 
 bot.onText(/\/start/, msg => {
 	console.log('start',msg)
@@ -121,9 +116,37 @@ bot.onText(/\/start/, msg => {
     
 })
 
-bot.onText(/\/tokens/, msg => {
-	let msgtokens = tokens.reduce( (a,c) => `${a}[${c.name}] `, "" )
-	bot.sendMessage( msg.chat.id, msgtokens )
+/* rounds */
+bot.onText(/\/leadRound/i, msg => {
+	let userIdx = app.userByTelegram( msg.from )
+	console.log(`getting round for user ${userIdx}`)
+	let roundIdx = app.roundToLead( userIdx )
+	let round = rounds.all[ roundIdx ]
+	let token = tokens[ round.token ]
+	let role = app.roundRole(round, userIdx)
+	console.log(`round ${roundIdx}`)
+	bot.sendMessage(msg.chat.id,`you are ${role} lead, for token ${token.name}`)
+})
+
+bot.onText(/\/analyze/i, msg => { // jurist start round
+
+})
+
+
+bot.onText(/\/next/i, msg => {
+	
+	bot.sendMessage(msg.from.id, surveyElements[questionCount++].title, rk.open({resize_keyboard: true}))
+	.then( () => {
+		isRKOpen = !isRKOpen
+	})
+	if (questionCount == surveyElements.length) questionCount = 0
+})
+
+
+/* tokens */
+bot.onText(/\/tokens/i, msg => {
+	let obj = formatters.tokens( tokens )
+	bot.sendMessage( msg.chat.id, "Covered Tokens", obj )
 })
 
 bot.onText(/\/checkToken/, msg => {
@@ -138,11 +161,9 @@ bot.onText(/\/checkToken/, msg => {
 		let str = formatters.tokenMarket( current )
 		bot.sendMessage( msg.chat.id, str, {parse_mode : "HTML"} )
 	}
-
-
-
 })
 
+/* internal use */
 bot.onText(/\/refreshTokens/, msg => {
 	app.refreshTokens() // can do this on regular interval
 	bot.sendMessage( msg.chat.id, `refreshing token data`)
@@ -155,16 +176,19 @@ bot.onText(/\/refreshTopTokens/, msg => {
 	app.refreshTopTokens() // can do this on regular interval
 	bot.sendMessage( msg.chat.id, `refreshing top tokens`)
 })
-bot.onText(/\/restart/, msg => {
 
-	bot.sendMessage( msg.chat.id, "Welcome", { 
-		"reply_markup": {
-    	"keyboard": [["Diff text", "Diff sample"], ["Keyboard"], ["I'm robot"]]
-   	}
-	})
-    
+
+/* questions */
+
+bot.onText(/\/questions/i, msg => {
+	let str = ''
+	str = questions.reduce( (str, question, num) => ( `${str}${num+1}. ${question.text}\n` ), "")
+	bot.sendMessage(msg.chat.id, str)
 })
 
+
+
+/* misc examples / dumping ground */
 bot.onText(/\/sendpic/, msg => {
 
 	bot.sendPhoto( msg.chat.id, smelly, {caption : "Here we go ! \nThis is just a caption "})
@@ -188,13 +212,17 @@ rk
 ik
 	.addRow(
 		{ text: "1:1 button", callback_data: "1:1 Works!" },
+		{ text: "1:2 button", callback_data: "1:2 Works!" },
+		{ text: "1:1 button", callback_data: "1:1 Works!" },
 		{ text: "1:2 button", callback_data: "1:2 Works!" }
 	)
 	.addRow(
 		{ text: "2:1 button", callback_data: "2:1 Works!" },
-		{ text: "2:2 button", callback_data: "2:2 Works!" }
+		{ text: "2:2 button", callback_data: "2:2 Works!" },
+		{ text: "1:1 button", callback_data: "1:1 Works!" },
+		{ text: "1:2 button", callback_data: "1:2 Works!" }
 	);
-
+console.log('ik export',JSON.stringify(ik.export()))
 
 function hasBotCommands(entities) {
 	if (!entities || !(entities instanceof Array)) {
@@ -203,20 +231,32 @@ function hasBotCommands(entities) {
 	return entities.some(e => e.type === "bot_command")
 }
 
-bot.onText(/\/nextQuestion/i, msg => {
-	bot.sendMessage(msg.from.id, surveyElements[questionCount++].title, rk.open({resize_keyboard: true}))
-	.then( () => {
-		isRKOpen = !isRKOpen
-	})
-	if (questionCount == surveyElements.length) questionCount = 0
-});
-
+const ikexport = {
+	"reply_markup":{
+		"inline_keyboard":[
+			[
+				{
+					"text":"1:1 button","callback_data":"1:1 Works!"
+				},
+				{"text":"1:2 button","callback_data":"1:2 Works!"},
+				{"text":"1:1 button","callback_data":"1:1 Works!"},
+				{"text":"1:2 button","callback_data":"1:2 Works!"}
+			],
+			[
+				{"text":"2:1 button","callback_data":"2:1 Works!"},
+				{"text":"2:2 button","callback_data":"2:2 Works!"},
+				{"text":"1:1 button","callback_data":"1:1 Works!"},
+				{"text":"1:2 button","callback_data":"1:2 Works!"}
+			]
+		]
+	}
+}
 bot.onText(/\/forceReply/i, msg => {
 	bot.sendMessage(msg.from.id, "Hey, this is a forced-reply. Reply me.", (new ForceReply()).export())
 })
 
 bot.onText(/\/inlineKeyboard/i, msg => {
-	bot.sendMessage(msg.from.id, "This is a message with an inline keyboard.", ik.export())
+	bot.sendMessage(msg.from.id, "This is a message with an inline keyboard.", ikexport) //ik.export())
 })
 
 bot.on("message", msg => {

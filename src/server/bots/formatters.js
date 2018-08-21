@@ -1,4 +1,7 @@
 
+const { InlineKeyboard, ReplyKeyboard, ForceReply } = require('telegram-keyboard-wrapper')
+
+
 function* entries(obj) { // object iterator
 	for (let key of Object.keys(obj)) 
 		yield [key, obj[key]]
@@ -6,7 +9,54 @@ function* entries(obj) { // object iterator
 
 module.exports = {
 
-	tokenMarket: ( market ) => {
+	commands: cmds => {
+
+	},
+	question: question => {
+
+	},
+	tokens: tokens => {
+		//	let msgtokens = tokens.reduce( (str,token) => `${str}[${token.name}] `, "" )
+	 	let out = {
+			reply_markup:{
+				inline_keyboard:[]
+			}
+		}
+		let arr = []
+		tokens.forEach( (token,idx) => {
+			let data = { text: token.name, callback_data: idx }
+			if (idx % 4 != 0) { // add column
+				arr.push( data )
+			} else {
+				if (arr.length) out.reply_markup.inline_keyboard.push( arr )
+				arr = [ data ]
+			}
+		})
+
+		if (arr.length) out.reply_markup.inline_keyboard.push( arr )
+
+		return out
+/*
+			[
+				{
+					"text":"1:1 button","callback_data":"1:1 Works!"
+				},
+				{"text":"1:2 button","callback_data":"1:2 Works!"},
+				{"text":"1:1 button","callback_data":"1:1 Works!"},
+				{"text":"1:2 button","callback_data":"1:2 Works!"}
+			],
+			[
+				{"text":"2:1 button","callback_data":"2:1 Works!"},
+				{"text":"2:2 button","callback_data":"2:2 Works!"},
+				{"text":"1:1 button","callback_data":"1:1 Works!"},
+				{"text":"1:2 button","callback_data":"1:2 Works!"}
+			]
+		]
+	}
+}
+*/
+	},
+	tokenMarket: market => {
 		/*
 		{
 			"timestamp":1534704803,
@@ -37,7 +87,7 @@ module.exports = {
 		*/
 		var str = ''
 		for ( let [key, value] of entries(market) ) {
-   		if ( key === 'price' && value ) { // value can be 'false'
+   		if ( key === 'price' && value ) { // value can be 'false' / no price data
    			for ( let [pkey, pvalue] of entries(value) ){
    				switch (pkey) {
    					case 'ts': 

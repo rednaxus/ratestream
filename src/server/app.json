@@ -1,26 +1,24 @@
 {
-  "rounds": [
-    {
-      "token": 0,
-      "start_time": 1534749689,
-      "finish_time": 1534778489,
-      "leads": [
-        1,
-        2
-      ],
-      "jurists": []
-    },
-    {
-      "token": 1,
-      "start_time": 1534749787,
-      "finish_time": 1534778587,
-      "leads": [
-        1,
-        2
-      ],
-      "jurists": []
-    }
-  ],
+  "rounds": {
+    "role_names": [
+      "bull",
+      "bear"
+    ],
+    "tokens_to_cover": [],
+    "categories": [
+      "overview",
+      "team",
+      "opportunity",
+      "momentum",
+      "solution",
+      "resources",
+      "token-supply",
+      "summary"
+    ],
+    "active": [],
+    "finished": [],
+    "all": []
+  },
   "questions": [
     {
       "name": "pedigree",
@@ -184,7 +182,7 @@
     },
     {
       "name": "number of tokens issued",
-      "category": "token supply",
+      "category": "token-supply",
       "max": 5,
       "min": 1,
       "title": "number of tokens issued",
@@ -192,7 +190,7 @@
     },
     {
       "name": "vesting schedule / time-locks",
-      "category": "token supply",
+      "category": "token-supply",
       "max": 5,
       "min": 1,
       "title": "vesting schedule / time-locks",
@@ -200,7 +198,7 @@
     },
     {
       "name": "token demand",
-      "category": "token supply",
+      "category": "token-supply",
       "max": 5,
       "min": 1,
       "title": "token demand",
@@ -295,6 +293,16 @@
       "active_review_rounds": [
         1
       ]
+    },
+    {
+      "identity": "0x574cb65f8172b99c80cca9641527182c63bf5a52",
+      "regcode": "0x922af2f3634130a0053400e07e63ebfb1f33f8328b3dcf7205d52b7051eea3ac",
+      "t_id": 507161840,
+      "first_name": "margaret",
+      "last_name": "j",
+      "language_code": "en-US",
+      "active_jury_rounds": [],
+      "active_review_rounds": []
     }
   ],
   "tokens_not_covered": {

@@ -24,6 +24,8 @@ const ethplorer = require('../app/services/API/ethplorer.js')
 const survey = require('../app/services/survey')
 
 const info = require('../app/services/API/newsinfo')
+
+
 let appData = require('./app.json')
 let infoData = require('./info.json')
 
@@ -42,17 +44,19 @@ var nextTokenFetch = 0
 var nextTokenInfoFetch = 0
 var nextRoundToken = 0
 
+
 const now = () => Math.round(+new Date() / 1000)
+const randomInt = max => Math.floor( Math.random() * Math.floor( max ) )
 
 module.exports = {
 	...info,
 	data: appData,
-	start: () => {  // start app
-		saveTimer = setInterval( ()=> {
+	start: ( autosave = true ) => {  // start app
+		if (autosave) saveTimer = setInterval( ()=> {
 			module.exports.save()
 		}, 600000 )
 
-		appData.tokens.forEach( token => console.log(token.name ) )
+		appData.tokens.forEach( (token,idx) => console.log( `[${idx}] ${token.name}` ) )
 
 
 	},
@@ -60,11 +64,12 @@ module.exports = {
 		clearInterval(saveTimer)
 	},
 	save: () => {
+		console.log('saving app')
 		fs.writeFileSync('../app.json', JSON.stringify(appData,null,2), 'utf8')
 	},
 
 	saveInfo: () => {
-		console.log('saving',infoData)
+		console.log('saving info')
 		fs.writeFileSync('../info.json', JSON.stringify(infoData,null,2), 'utf8')
 	},
 
@@ -92,25 +97,36 @@ module.exports = {
 	roundToLead: userIdx => {
 		let time = now()
 		let user = appData.users[ userIdx ]
-		let roundIdx = appData.rounds.findIndex( round => {
-			return ( round.leads.length < 2 && round.finish_time > time )	// fix this...
+		let rounds = appData.rounds.all
+		let roundIdx = rounds.findIndex( round => { // fill rounds currently available
+			return ( round.leads.length < 2 && round.finish > time )	// fix this...
 		})
-		if (roundIdx === -1) { // create round 
-			console.log('creating round')
-			appData.rounds.push({
-				token: nextRoundToken,
-				start_time: time,
-				finish_time: time + active_round_window,
-				leads:[ userIdx ],
+		if (roundIdx === -1) { // create round
+			if (!appData.rounds.tokens_to_cover.length) {
+				appData.rounds.tokens_to_cover = appData.tokens.map( (_,idx) => idx )
+			}
+			let tokenIdx = randomInt( appData.rounds.tokens_to_cover.length - 1 )
+			let token = appData.tokens[ tokenIdx ]
+			appData.rounds.tokens_to_cover = appData.rounds.tokens_to_cover.slice(tokenIdx, tokenIdx)
+			console.log('creating round with token ${token.name}')
+			appData.rounds.all.push({
+				token: tokenIdx,
+				start: time,
+				finish: time + active_round_window,
+				leads:[{
+				  user:userIdx, 
+          start: time,
+          finish: 0,
+          sections:[]
+         }],
 				jurists:[]
 			})
-			if (++nextRoundToken === appData.tokens.length) nextRoundToken = 0
-			roundIdx = appData.rounds.length - 1
+			roundIdx = appData.rounds.all.length - 1
 			console.log(`created round ${roundIdx}`)
 		} else { // assign to round
 			console.log('assigning round')
-			let round = appData.rounds[roundIdx]
-			round.leads.push(userIdx)
+			let round = appData.rounds.all[ roundIdx ]
+			round.leads.push({ user:userIdx, start: time, finish:0, sections:[] })
 		}
 		user.active_review_rounds.push( roundIdx )
 		module.exports.save()
@@ -126,7 +142,7 @@ module.exports = {
 		ethplorer.getTopTokens().then( tops => {
 			//appData.tokens_top = tops
 			let toptokens = tops.data.tokens
-			console.log('tops',toptokens )
+			//console.log('tops',toptokens )
 			toptokens.forEach( toptoken => {
 				let tokenFound = appData.tokens.findIndex( token => token.name === toptoken.name )
 				if (tokenFound === -1) {
@@ -143,7 +159,7 @@ module.exports = {
 			let token = appData.tokens[nextTokenFetch]
 			if (!token.markets) token.markets = []
 			fetchToken( token.address ).then( marketData =>{
-				console.log('got token data',marketData)
+				//console.log('got token data',marketData)
 				token.markets.push( { timestamp: now(), ...marketData } )
 				//console.log(appData.tokens)
 				if (++nextTokenFetch === appData.tokens.length ) {
