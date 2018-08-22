@@ -8,14 +8,14 @@ const { translate } = require('../nlp')
 var app = require('../application')
 const formatters = require('./formatters')
 
-var { tokens, users, rounds, questions, reviews, scripts } = app.data
+var { tokens, users, rounds, analyst_questions, reviewer_questions, reviews, scripts } = app.data
 
 app.start(false) // no autosave for development
 app.save() // reformat any json changes
 
-
-
+var testUsers = users.filter( user => user.first_name.startsWith('tester_'))
 console.log('users:',users)
+console.log('testusers:',testUsers)
 
 /* nlp tests */
 var t = translate('dinosaur').nouns().toPlural()
@@ -205,13 +205,26 @@ bot.onText(/\/refreshTopTokens/, msg => {
 	bot.sendMessage( msg.chat.id, `refreshing top tokens`)
 })
 
+bot.onText(/\/testAddReviewers/, msg => {	
+	testUsers.forEach( (user,idx) => {
+		let userIdx = app.userByTelegram( { id: user.t_id } )
+		roundIdx = app.roundToLead( userIdx )
+		if (roundIdx === -1) {
+			console.log(`failed to add ${userIdx}`)
+			return
+		}
+		round = rounds[ roundIdx ]
+		role = app.roundRole(round, userIdx)
+		console.log(`${userIdx} added to round ${roundIdx}`)
+	})
+})
+bot.onText(/\/testAddAnalysts/, msg => {
 
+})
 /* questions */
 
 bot.onText(/\/questions/i, msg => {
-	let str = ''
-	str = questions.reduce( (str, question, num) => ( `${str}${num+1}. ${question.text}\n` ), "")
-	bot.sendMessage(msg.chat.id, str)
+	bot.sendMessage(msg.chat.id, formatters.analyst_questions())
 })
 
 

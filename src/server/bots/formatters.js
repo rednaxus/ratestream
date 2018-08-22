@@ -18,9 +18,16 @@ module.exports = {
     	"keyboard": [[ "tokens", "commands", "news", "activity" ]]
    	}
 	}),
-	question: question => {
+	analyst_question: (round, question) => {
 
 	},
+	analyst_questions: () => (
+		str = analyst_questions.reduce( (str, question, num) => ( `${str}${num+1}. ${question.text}\n` ), "")
+	),
+	reviewer_questions: () => ( {}
+	),
+	reviewer_question: (round, question) => ( {}
+	),
 	tokens: tokens => {
 		//	let msgtokens = tokens.reduce( (str,token) => `${str}[${token.name}] `, "" )
 		let ik = []

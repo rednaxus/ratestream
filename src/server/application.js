@@ -29,7 +29,7 @@ const info = require('../app/services/API/newsinfo')
 let appData = require('./app.json')
 let infoData = require('./info.json')
 
-var { tokens, users, questions, rounds, reviews, scripts } = appData
+var { tokens, users, analyst_questions, reviewer_questions, rounds, reviews, scripts } = appData
 
 var saveTimer
 

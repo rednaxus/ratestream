@@ -245,8 +245,10 @@ const appConfig = {
 
   review_categories: [
     "overview",
+    "outreach",
     "team",
     "opportunity",
+    "ecosystem",
     "momentum",
     "solution",
     "resources",
