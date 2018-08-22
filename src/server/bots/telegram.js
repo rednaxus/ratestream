@@ -117,19 +117,41 @@ bot.onText(/\/start/, msg => {
 })
 
 /* rounds */
-bot.onText(/\/leadRound/i, msg => {
+bot.onText(/\/review/i, msg => {
 	let userIdx = app.userByTelegram( msg.from )
-	console.log(`getting round for user ${userIdx}`)
-	let roundIdx = app.roundToLead( userIdx )
-	let round = rounds.all[ roundIdx ]
-	let token = tokens[ round.token ]
-	let role = app.roundRole(round, userIdx)
-	console.log(`round ${roundIdx}`)
-	bot.sendMessage(msg.chat.id,`you are ${role} lead, for token ${token.name}`)
+	let user = users[ userIdx ]
+	let roundIdx
+	let round
+	let role
+	let token
+	if ( user.active_review_round ) {
+		//console.log('already review busy')
+		round = rounds.all[ user.active_review_round.round ]
+		//console.log('with round',round)
+		bot.sendMessage(msg.chat.id,`you are already ${app.roundRole(round, userIdx)} reviewer for ${tokens[round.token].name}`)
+		return
+	}
+	//console.log(`finding review round for user ${userIdx}`)
+	roundIdx = app.roundToLead( userIdx )
+	round = rounds.all[ roundIdx ]
+	role = app.roundRole(round, userIdx)
+	//console.log(`round ${roundIdx}`)
+	bot.sendMessage(msg.chat.id,`you are ${role} reviewer, for token ${tokens[round.token].name}`)
+	bot.sendMessage(msg.chat.id,`let's get started!`)
 })
 
 bot.onText(/\/analyze/i, msg => { // jurist start round
-
+	let userIdx = app.userByTelegram( msg.from )
+	let user = users[ userIdx ]
+	if (user.active_jury_round) {
+		let token = tokens[ rounds.all[ user.active_jury_round.round ].token ]
+		bot.sendMessage(msg.chat.id,`you are active already in round with token ${token.name}`)
+		bot.sendMessage(msg.chat.id,`next question: ${ surveyElements[user.active_jury_round.question+1].title }`)
+	}
+	let roundIdx = app.roundToAnalyze( userIdx )
+	if (roundIdx == -1) {
+		bot.sendMessage(msg.chat.id,`Sorry...no rounds to analyze right now`)
+	}
 })
 
 
@@ -149,7 +171,7 @@ bot.onText(/\/tokens/i, msg => {
 	bot.sendMessage( msg.chat.id, "Covered Tokens", obj )
 })
 
-bot.onText(/\/checkToken/, msg => {
+bot.onText(/\/token/i, msg => {
 	const tokenName = msg.text.substring(12)
 	const tokenId = app.getTokenId( tokenName )
 	console.log(`checking token ${tokenId}:${tokenName}`)
@@ -163,7 +185,7 @@ bot.onText(/\/checkToken/, msg => {
 	}
 })
 
-/* internal use */
+/* internal use, admin only */
 bot.onText(/\/refreshTokens/, msg => {
 	console.log('refresh tokens')
 	app.refreshTokens() // can do this on regular interval
