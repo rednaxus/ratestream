@@ -29,6 +29,8 @@ const info = require('../app/services/API/newsinfo')
 let appData = require('./app.json')
 let infoData = require('./info.json')
 
+var { tokens, users, questions, rounds, reviews, scripts } = appData
+
 var saveTimer
 
 const round_window = 3600*8 // 8 hours
@@ -44,7 +46,7 @@ const fetchToken = address => new Promise( (resolve, reject) => {
 var nextTokenFetch = 0
 var nextTokenInfoFetch = 0
 var nextRoundToken = 0
-
+var tokensToCover = []
 
 const now = () => Math.round(+new Date() / 1000)
 const randomInt = max => Math.floor( Math.random() * Math.floor( max ) )
@@ -57,7 +59,7 @@ module.exports = {
 			module.exports.roundsExpire()
 			module.exports.save()
 		}, 600000 )
-		appData.tokens.forEach( (token,idx) => console.log( `[${idx}] ${token.name}` ) )
+		tokens.forEach( (token,idx) => console.log( `[${idx}] ${token.name}` ) )
 	},
 	stop: () => {
 		clearInterval(saveTimer)
@@ -96,17 +98,17 @@ module.exports = {
 	roundToLead: userIdx => { // get a round to lead
 
 		let time = now()
-		let user = appData.users[ userIdx ]
+		let user = users[ userIdx ]
 		// sanity check, don't call me if you already have active round
-		if ( user.active_review_round ) {
+		if ( user.active_review_round !== -1 ) {
 			console.log('programmer error!!! user already has active round')
+			return
 		}
 
-		let rounds = appData.rounds.all
 		let roundIdx
 		let role
 		let roundCandidates = rounds.reduce( ( candidates, round, idx ) => { 
-			if (round.leads.length < 2 && round.finish >= time + round_window_min) {
+			if (!round.users[1].user && round.finish >= time + round_window_min) {
 				candidates.push( idx )
 			}
 			return candidates
@@ -115,57 +117,75 @@ module.exports = {
 		if ( roundCandidates.length ) {
 			roundIdx = roundCandidates[ randomIdx( roundCandidates.length ) ]
 			console.log(`assigning to existing round ${roundIdx}`)
-			let round = appData.rounds.all[ roundIdx ]
-			round.leads.push( { user: userIdx, start: time, finish:0, sections:[] })
-			role = round.leads.length - 1
+			let round = rounds[ roundIdx ]
+			round.users[1] = { user: userIdx, start: time, finish:0, sections:{} }
 		} else { // create round
-			if (!appData.rounds.tokens_to_cover.length) { // reset list of tokens to choose
-				appData.rounds.tokens_to_cover = appData.tokens.map( (_,idx) => idx )
+			if (!tokensToCover.length) { // reset list of tokens to choose
+				tokensToCover = tokens.map( (_,idx) => idx )
 			}
-			let tokenIdx = randomIdx( appData.rounds.tokens_to_cover.length )
-			let token = appData.tokens[ tokenIdx ]
-			appData.rounds.tokens_to_cover = appData.rounds.tokens_to_cover.slice(tokenIdx, tokenIdx)
+			let tokenIdx = randomIdx( tokensToCover.length )
+			let token = tokens[ tokenIdx ]
+			tokensToCover = tokensToCover.slice(tokenIdx, tokenIdx)
 
 			console.log(`creating round with token ${token.name}`)
-			appData.rounds.all.push({
+			rounds.push({
 				token: tokenIdx,
 				start: time,
 				finish: time + round_window,
-				leads:[{
-				  user:userIdx, 
+				status: 'active',
+				users: [{ // first 2 are leads
+				  user: userIdx, 
           start: time,
           finish: 0,
-          sections:[]
-         }],
-				jurists:[]
+          sections:{}
+         },{}]
 			})
-			role = 0
-			roundIdx = appData.rounds.all.length - 1
-			appData.rounds.active.push( roundIdx )
+			roundIdx = rounds.length - 1
+			//appData.rounds.active.push( roundIdx )
 			console.log(`created round ${roundIdx}`)
 		}
 
-		user.active_review_round = { review_state:null, round: roundIdx, media_state: null, role }
+		user.active_review_round = roundIdx //{ review_state:null, round: roundIdx, media_state: null, role }
 		module.exports.save()
 		return roundIdx
 	},
 	roundToAnalyze: userIdx => {
 		// get least covered round
-		let user = appData.users[ userIdx ]
-		if (!appData.rounds.active.length || user.activeJuryRound ) return -1
-		let activeRounds = appData.rounds.active.sort( (r1,r2) => ( appData.rounds.all[ r1 ].jurists.length - appData.rounds.all[ r2 ].jurists.length ) )
+
+		let user = users[ userIdx ]
+ 		if (user.active_jury_round !== -1) {
+ 			console.log('already have active jury round')
+ 			return -1
+		}
+
+		let roundsActive = rounds.reduce( (actives, round, idx) => {
+			if (round.status === 'active' && round.users[0].user !== userIdx && round.users[1].user !== userIdx ) 
+				actives.push(idx)
+			return actives
+		}, [] )
+		if (!roundsActive.length ) {
+			console.log('no valid rounds active')
+			return -1
+		}
+
+		console.log('sorting',roundsActive)
+		roundsActive = roundsActive.sort( (r1,r2) => ( rounds[ r1 ].users.length - rounds[ r2 ].users.length ) )
+		console.log('rounds active',roundsActive)
 
 		// add jurist to round
-		let juryRound = activeRounds[ 0 ]
-		round = appData.rounds.all[ juryRound ]
-		round.jurists.push( { user: userIdx, start: now(), finish: 0 } )
-		appData.users[ userIdx ].active_jury_round = { round: juryRound, question: -1 }
+		let juryRound = roundsActive[ 0 ]
+		rounds[juryRound].users.push( { user: userIdx, start: now(), finish: 0, question: 0 } )
+		users[ userIdx ].active_jury_round = juryRound
+		module.exports.save()
 		return juryRound
 	},
 	roundsExpire: () => { // finalize any expired rounds
 
 	},
-	roundRole: ( round, userIdx ) => ( round.leads[0].user == userIdx ? 'bull':'bear'),
+	roundRole: ( round, userIdx ) => ( 
+		round.users[0].user == userIdx ? 'bull': 
+		( round.users[1].user == userIdx ? 'bear': 'analyst')
+	),
 
 
 	/* tokens */
@@ -225,8 +245,8 @@ module.exports = {
 			last_name: 			t_user.last_name,
 			username: 			t_user.username, 
 			language_code: 	t_user.language_code, 
-			active_jury_round:null,
-			active_review_round:null
+			active_jury_round:-1,
+			active_review_round:-1
 		})
 		module.exports.save()
 		return appData.users.length-1

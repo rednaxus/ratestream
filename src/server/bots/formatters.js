@@ -12,6 +12,12 @@ module.exports = {
 	commands: cmds => {
 
 	},
+	menu: () => ({ 
+		"reply_markup": {
+			"resize_keyboard": true,
+    	"keyboard": [[ "tokens", "commands", "news", "activity" ]]
+   	}
+	}),
 	question: question => {
 
 	},

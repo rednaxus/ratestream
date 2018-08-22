@@ -61,8 +61,11 @@ bot.on('message', msg => {
 	switch (msgText) {
 		case 'news':
 			app.topNewsByCoin('monero').then( articles => console.log(articles) )
-		case 'command':
+		case 'commands':
 			bot.sendMessage(msg.chat.id,'commands....')
+			break
+		case 'tokens':
+			bot.sendMessage( msg.chat.id, "Covered Tokens", formatters.tokens( tokens ) )
 			break
 		default:
 			console.log(`unknown msg ${msg.text}`)
@@ -108,11 +111,7 @@ bot.onText(/\/start/, msg => {
 	let idx = app.userByTelegram( msg.from )
 	let user = users[idx]
 	//console.log(`got user ${userIdx}`,user)
-	bot.sendMessage( msg.chat.id, `Welcome ${user.first_name}`, { 
-		"reply_markup": {
-    	"keyboard": [["Sample text", "Second sample"], ["Keyboard"], ["I'm robot"]]
-   	}
-	})
+	bot.sendMessage( msg.chat.id, `Welcome ${user.first_name}`, formatters.menu() ) 
     
 })
 
@@ -124,18 +123,18 @@ bot.onText(/\/review/i, msg => {
 	let round
 	let role
 	let token
-	if ( user.active_review_round ) {
+	if ( user.active_review_round !== -1 ) {
 		//console.log('already review busy')
-		round = rounds.all[ user.active_review_round.round ]
+		round = rounds[ user.active_review_round ]
 		//console.log('with round',round)
 		bot.sendMessage(msg.chat.id,`you are already ${app.roundRole(round, userIdx)} reviewer for ${tokens[round.token].name}`)
 		return
 	}
 	//console.log(`finding review round for user ${userIdx}`)
 	roundIdx = app.roundToLead( userIdx )
-	round = rounds.all[ roundIdx ]
+	round = rounds[ roundIdx ]
 	role = app.roundRole(round, userIdx)
-	//console.log(`round ${roundIdx}`)
+
 	bot.sendMessage(msg.chat.id,`you are ${role} reviewer, for token ${tokens[round.token].name}`)
 	bot.sendMessage(msg.chat.id,`let's get started!`)
 })
@@ -143,14 +142,20 @@ bot.onText(/\/review/i, msg => {
 bot.onText(/\/analyze/i, msg => { // jurist start round
 	let userIdx = app.userByTelegram( msg.from )
 	let user = users[ userIdx ]
-	if (user.active_jury_round) {
-		let token = tokens[ rounds.all[ user.active_jury_round.round ].token ]
+	if (user.active_jury_round !== -1) {
+		let round = rounds[ user.active_jury_round ]
+		let token = tokens[ round.token ]
+		let roundUser = round.users.find( roundUser => roundUser.user == userIdx )
 		bot.sendMessage(msg.chat.id,`you are active already in round with token ${token.name}`)
-		bot.sendMessage(msg.chat.id,`next question: ${ surveyElements[user.active_jury_round.question+1].title }`)
+		bot.sendMessage(msg.chat.id,`next question: ${ questions[roundUser.question].text }`)
+		return
 	}
 	let roundIdx = app.roundToAnalyze( userIdx )
 	if (roundIdx == -1) {
 		bot.sendMessage(msg.chat.id,`Sorry...no rounds to analyze right now`)
+	} else {
+		let round = rounds[ roundIdx ]
+		bot.sendMessage(msg.chat.id,`now active in round with token ${tokens[round.token].name}`)
 	}
 })
 

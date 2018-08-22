@@ -237,6 +237,23 @@ const appConfig = {
     apiKey: 'sifd7328Ophmc33' //  freekey
   },
 
+
+  review_roles: [
+    "bull",
+    "bear"
+  ],
+
+  review_categories: [
+    "overview",
+    "team",
+    "opportunity",
+    "momentum",
+    "solution",
+    "resources",
+    "token-supply",
+    "summary"
+  ],
+
   ...customConfig
 
 }

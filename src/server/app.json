@@ -1,81 +1,38 @@
 {
-  "rounds": {
-    "role_names": [
-      "bull",
-      "bear"
-    ],
-    "tokens_to_cover": [],
-    "categories": [
-      "overview",
-      "team",
-      "opportunity",
-      "momentum",
-      "solution",
-      "resources",
-      "token-supply",
-      "summary"
-    ],
-    "active": [
-      0,
-      1
-    ],
-    "finished": [],
-    "all": [
-      {
-        "token": 43,
-        "start": 1534897887,
-        "finish": 1534926687,
-        "leads": [
-          {
-            "user": 0,
-            "start": 1534897887,
-            "finish": 0,
-            "sections": []
-          },
-          {
-            "user": 1,
-            "start": 1534898037,
-            "finish": 0,
-            "sections": []
-          }
-        ],
-        "jurists": [
-          {
-            "user": 6,
-            "start": 1534899119,
-            "finish": 0
-          }
-        ]
-      },
-      {
-        "token": 62,
-        "start": 1534898166,
-        "finish": 1534926966,
-        "leads": [
-          {
-            "user": 2,
-            "start": 1534898166,
-            "finish": 0,
-            "sections": []
-          },
-          {
-            "user": 6,
-            "start": 1534899132,
-            "finish": 0,
-            "sections": []
-          }
-        ],
-        "jurists": []
-      }
-    ]
-  },
+  "rounds": [
+    {
+      "token": 17,
+      "start": 1534911373,
+      "finish": 1534940173,
+      "status": "active",
+      "users": [
+        {
+          "user": 0,
+          "start": 1534911373,
+          "finish": 0,
+          "sections": {}
+        },
+        {
+          "user": 1,
+          "start": 1534911671,
+          "finish": 0,
+          "sections": {}
+        },
+        {
+          "user": 7,
+          "start": 1534914261,
+          "finish": 0,
+          "question": 0
+        }
+      ]
+    }
+  ],
   "questions": [
     {
       "name": "pedigree",
       "category": "team",
       "max": 5,
       "min": 1,
-      "title": "pedigree",
       "text": "Rate this team's core ability to execute the most challenging aspects of this venture, based on the pedigree of the principals"
     },
     {
@@ -83,7 +40,6 @@
       "category": "team",
       "max": 5,
       "min": 1,
-      "title": "critical skills",
       "text": "Has this team filled all the critical skills gap required to successfully execute this venture?"
     },
     {
@@ -91,7 +47,6 @@
       "category": "team",
       "max": 5,
       "min": 1,
-      "title": "experience&accomplishments",
       "text": "How close does the team's prior experience and accomplishments match the most difficult aspects of this venture?"
     },
     {
@@ -99,7 +54,6 @@
       "category": "team",
       "max": 5,
       "min": 1,
-      "title": "commitment",
       "text": "Has the team demonstrated the commitment necessary to see this venture through to success?"
     },
     {
@@ -107,7 +61,6 @@
       "category": "opportunity",
       "max": 5,
       "min": 1,
-      "title": "problem strength",
       "text": "Consider this venture’s offering from the vantage of its audience. How strong is the problem, need, or desire being addressed?"
     },
     {
@@ -115,7 +68,6 @@
       "category": "opportunity",
       "max": 5,
       "min": 1,
-      "title": "size of need",
       "text": "How many individuals, companies have this need?  How large is the addressable market in your estimate?"
     },
     {
@@ -123,7 +75,6 @@
       "category": "opportunity",
       "max": 5,
       "min": 1,
-      "title": "market growth",
       "text": "Is this a market that is growing fast or stagnating/regressing?"
     },
     {
@@ -131,7 +82,6 @@
       "category": "opportunity",
       "max": 5,
       "min": 1,
-      "title": "competition",
       "text": "How intense is the competition, either direct or indirect?"
     },
     {
@@ -139,7 +89,6 @@
       "category": "momentum",
       "max": 5,
       "min": 1,
-      "title": "coverage",
       "text": "Has the offering/product been previewed by pundits, social media, reviewers.  How positive / negative is the reaction?"
     },
     {
@@ -147,7 +96,6 @@
       "category": "momentum",
       "max": 5,
       "min": 1,
-      "title": "market support",
       "text": "How much support is this offering having in the market, either from channel partners, or organic marketing, or press?"
     },
     {
@@ -155,7 +103,6 @@
       "category": "momentum",
       "max": 5,
       "min": 1,
-      "title": "adoption",
       "text": "How fast is the addressable market adopting this product/offering?"
     },
     {
@@ -163,7 +110,6 @@
       "category": "momentum",
       "max": 5,
       "min": 1,
-      "title": "competitor response",
       "text": "What is the response from competitors (direct/indirect)?"
     },
     {
@@ -171,7 +117,6 @@
       "category": "solution",
       "max": 5,
       "min": 1,
-      "title": "core capabilities",
       "text": "Upon review of the solution, product, technology and core science, how transformative is this team’s offering to the market?"
     },
     {
@@ -179,7 +124,6 @@
       "category": "solution",
       "max": 5,
       "min": 1,
-      "title": "review credibility",
       "text": "Has the technology been reviewed by experts(you or other peers) to validate it?  How credible are the ac?"
     },
     {
@@ -187,7 +131,6 @@
       "category": "solution",
       "max": 5,
       "min": 1,
-      "title": "technology risk",
       "text": "How risky is this technology/approach?"
     },
     {
@@ -195,7 +138,6 @@
       "category": "solution",
       "max": 5,
       "min": 1,
-      "title": "comparitive effectiveness",
       "text": "Comparing this offering with existing/upcoming alternatives. How much more effective is it?"
     },
     {
@@ -203,7 +145,6 @@
       "category": "resources",
       "max": 5,
       "min": 1,
-      "title": "balance sheet",
       "text": "Based on audited financials (if available), how strong is its balance sheet and ability to continually invest?"
     },
     {
@@ -211,15 +152,13 @@
       "category": "resources",
       "max": 5,
       "min": 1,
-      "title": "revenue / profit momentum",
-      "text": "Based on audited financials (if available), how strong is the revenue and marginal profit momentum of the company?\n"
+      "text": "Based on audited financials (if available), how strong is the revenue and marginal profit momentum of the company?\\n"
     },
     {
       "name": "brand / community support",
       "category": "resources",
       "max": 5,
       "min": 1,
-      "title": "brand / community support",
       "text": "How strong is the goodwill (brand or community support) of the company? How strong is the human capital goodwill of the company?"
     },
     {
@@ -227,7 +166,6 @@
       "category": "resources",
       "max": 5,
       "min": 1,
-      "title": "intellectual property",
       "text": "How strong is the intellectual property related to the company’s offering and roadmap?  Does it give it a competitive advantage?"
     },
     {
@@ -235,7 +173,6 @@
       "category": "token-supply",
       "max": 5,
       "min": 1,
-      "title": "number of tokens issued",
       "text": "Review the schedule of token issuance by the company. Do you anticipate greater than usual tokens to be offered for sale?"
     },
     {
@@ -243,7 +180,6 @@
       "category": "token-supply",
       "max": 5,
       "min": 1,
-      "title": "vesting schedule / time-locks",
       "text": "Review the schedule of vesting / time-locks on tokens in the ecosystem. Do you anticipate greater than usual tokens to be offered for sale?"
     },
     {
@@ -251,7 +187,6 @@
       "category": "token-supply",
       "max": 5,
       "min": 1,
-      "title": "token demand",
       "text": "Based on demand by trade/commercial buyers of tokens, do you anticipate greater than usual tokens to be purchased?"
     },
     {
@@ -259,7 +194,6 @@
       "category": "token supply",
       "max": 5,
       "min": 1,
-      "title": "speculative demand",
       "text": "Based on demand by speculative/financial buyers of tokens, do you anticipate greater than usual tokens to be purchased?"
     },
     {
@@ -267,7 +201,6 @@
       "category": "leads",
       "max": 5,
       "min": 1,
-      "title": "bull brief",
       "text": "Upon review, can you attest that the Bull valuation brief represents a best-effort, truthful, non-plagiarized, non-conflicted effort by the analyst?"
     },
     {
@@ -275,7 +208,6 @@
       "category": "leads",
       "max": 5,
       "min": 1,
-      "title": "bear brief",
       "text": "Upon review, can you attest that the Bear valuation brief represents a best-effort, truthful, non-plagiarized, non-conflicted effort by the analyst?"
     },
     {
@@ -283,7 +215,6 @@
       "category": "summary",
       "max": 5,
       "min": 1,
-      "title": "jurist recommendation",
       "text": "After reviewing the Bull and Bear valuation briefs what is your recommendation?"
     }
   ],
@@ -312,13 +243,8 @@
       "last_name": "k",
       "username": "dummy_1",
       "language_code": "en-US",
-      "active_jury_round": null,
-      "active_review_round": {
-        "review_state": null,
-        "round": 0,
-        "media_state": null,
-        "role": 0
-      }
+      "active_jury_round": -1,
+      "active_review_round": 0
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -328,13 +254,8 @@
       "last_name": "k",
       "username": "dummy_2",
       "language_code": "en-US",
-      "active_jury_round": null,
-      "active_review_round": {
-        "review_state": null,
-        "round": 0,
-        "media_state": null,
-        "role": 1
-      }
+      "active_jury_round": -1,
+      "active_review_round": 0
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -344,13 +265,8 @@
       "last_name": "k",
       "username": "dummy_3",
       "language_code": "en-US",
-      "active_jury_round": null,
-      "active_review_round": {
-        "review_state": null,
-        "round": 1,
-        "media_state": null,
-        "role": 0
-      }
+      "active_jury_round": -1,
+      "active_review_round": -1
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -360,8 +276,8 @@
       "last_name": "k",
       "username": "dummy_4",
       "language_code": "en-US",
-      "active_jury_round": null,
-      "active_review_round": null
+      "active_jury_round": -1,
+      "active_review_round": -1
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -371,8 +287,8 @@
       "last_name": "k",
       "username": "dummy_5",
       "language_code": "en-US",
-      "active_jury_round": null,
-      "active_review_round": null
+      "active_jury_round": -1,
+      "active_review_round": -1
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -382,37 +298,8 @@
       "last_name": "k",
       "username": "dummy_6",
       "language_code": "en-US",
-      "active_jury_round": null,
-      "active_review_round": null
-    },
-    {
-      "identity": "0x463e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
-      "regcode": "0x44192f907ed7e3dd6559b601e5befd38dd53f67d91d4f9838dddf80035e51817",
-      "t_id": 368753334,
-      "first_name": "alan",
-      "last_name": "k",
-      "username": "alan_on40",
-      "language_code": "en-US",
-      "active_jury_round": {
-        "round": 0,
-        "question": -1
-      },
-      "active_review_round": {
-        "review_state": null,
-        "round": 1,
-        "media_state": null,
-        "role": 1
-      }
-    },
-    {
-      "identity": "0x574cb65f8172b99c80cca9641527182c63bf5a52",
-      "regcode": "0x922af2f3634130a0053400e07e63ebfb1f33f8328b3dcf7205d52b7051eea3ac",
-      "t_id": 507161840,
-      "first_name": "margaret",
-      "last_name": "j",
-      "language_code": "en-US",
-      "active_jury_round": null,
-      "active_review_round": null
+      "active_jury_round": -1,
+      "active_review_round": -1
     },
     {
       "identity": "0xaaad03ed9d54753d7b2b9cb654e049718aedb801",
@@ -421,8 +308,29 @@
       "first_name": "R",
       "last_name": "Y",
       "username": "ryoungblom",
-      "active_jury_rounds": null,
-      "active_review_rounds": null
+      "active_jury_rounds": -1,
+      "active_review_rounds": -1
+    },
+    {
+      "identity": "0x56291f2dda00d44c1fabceb69931d8db634c1bf2",
+      "regcode": "0x639bd85c0d83ad1369cb0d22cbf7a0da45b8425d950a86962cf3b8848a1ec58c",
+      "t_id": 368753334,
+      "first_name": "alan",
+      "last_name": "k",
+      "username": "alan_on40",
+      "language_code": "en-US",
+      "active_jury_round": 0,
+      "active_review_round": -1
+    },
+    {
+      "identity": "0xc9f413023e002651def5d896abfa7fa360680940",
+      "regcode": "0xd8fa8745d315b83de9e7c53aed06a748faaa44e3e94216fa3ff61586cf85afe6",
+      "t_id": 507161840,
+      "first_name": "margaret",
+      "last_name": "j",
+      "language_code": "en-US",
+      "active_jury_round": -1,
+      "active_review_round": -1
     }
   ],
   "tokens_not_covered": {
