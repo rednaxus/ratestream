@@ -1,4 +1,6 @@
 
+const moment = require('moment')
+
 const { InlineKeyboard, ReplyKeyboard, ForceReply } = require('telegram-keyboard-wrapper')
 
 
@@ -18,16 +20,23 @@ module.exports = {
     	"keyboard": [[ "tokens", "commands", "news", "activity" ]]
    	}
 	}),
-	analyst_question: (round, question) => {
+	analyst_question: ( round, question ) => {
 
 	},
 	analyst_questions: () => (
-		str = analyst_questions.reduce( (str, question, num) => ( `${str}${num+1}. ${question.text}\n` ), "")
+		analyst_questions.reduce( (str, question, num) => ( `${str}${num+1}. ${question.text}\n` ), "")
 	),
 	reviewer_questions: () => ( {}
 	),
 	reviewer_question: (round, question) => ( {}
 	),
+	rounds: rounds => {
+
+	},
+	apptime: seconds => ( 
+		`app time is [${seconds}] ${moment(seconds*1000).format('DD-MMMM-YYYY HH:MM:SS')}`
+	),
+
 	tokens: tokens => {
 		//	let msgtokens = tokens.reduce( (str,token) => `${str}[${token.name}] `, "" )
 		let ik = []

@@ -4,6 +4,7 @@ const TelegramBot = require('node-telegram-bot-api')
 const { InlineKeyboard, ReplyKeyboard, ForceReply } = require('telegram-keyboard-wrapper')
 
 const { translate } = require('../nlp')
+const moment = require('moment')
 
 var app = require('../application')
 const formatters = require('./formatters')
@@ -32,8 +33,8 @@ console.log( doc.sentences().toNegative().out('text'))
 const config = require('../config.js')
 
 
-const survey = require('../../app/services/survey')
-const surveyElements = survey.getElements()
+//const survey = require('../../app/services/survey')
+//const surveyElements = survey.getElements()
 
 
 let questionCount = 0
@@ -117,6 +118,9 @@ bot.onText(/\/start/, msg => {
 
 /* rounds */
 bot.onText(/\/review/i, msg => {
+	
+	let msgInfo = msg.text.split(' ') // for testing, so can explicitly specify user
+
 	let userIdx = app.userByTelegram( msg.from )
 	let user = users[ userIdx ]
 	let roundIdx
@@ -146,8 +150,8 @@ bot.onText(/\/analyze/i, msg => { // jurist start round
 		let round = rounds[ user.active_jury_round ]
 		let token = tokens[ round.token ]
 		let roundUser = round.users.find( roundUser => roundUser.user == userIdx )
-		bot.sendMessage(msg.chat.id,`you are active already in round with token ${token.name}`)
-		bot.sendMessage(msg.chat.id,`next question: ${ questions[roundUser.question].text }`)
+		bot.sendMessage(msg.chat.id,`you are already analyst in round with token ${token.name}`)
+		bot.sendMessage(msg.chat.id,`next question: ${ analyst_questions[roundUser.question].text }`)
 		return
 	}
 	let roundIdx = app.roundToAnalyze( userIdx )
@@ -162,11 +166,11 @@ bot.onText(/\/analyze/i, msg => { // jurist start round
 
 bot.onText(/\/next/i, msg => {
 	
-	bot.sendMessage(msg.from.id, surveyElements[questionCount++].title, rk.open({resize_keyboard: true}))
+	bot.sendMessage(msg.from.id, analyst_questions[questionCount++].text, rk.open({resize_keyboard: true}))
 	.then( () => {
 		isRKOpen = !isRKOpen
 	})
-	if (questionCount == surveyElements.length) questionCount = 0
+	if (questionCount == analyst_questions.length) questionCount = 0
 })
 
 
@@ -191,6 +195,11 @@ bot.onText(/\/token/i, msg => {
 })
 
 /* internal use, admin only */
+
+bot.onText(/\/clearRounds/i,msg => { // beware, clears all rounds, really
+	app.clearRounds()
+	bot.sendMessage(msg.chat.id,`rounds cleared`)
+})
 bot.onText(/\/refreshTokens/, msg => {
 	console.log('refresh tokens')
 	app.refreshTokens() // can do this on regular interval
@@ -204,7 +213,17 @@ bot.onText(/\/refreshTopTokens/, msg => {
 	app.refreshTopTokens() // can do this on regular interval
 	bot.sendMessage( msg.chat.id, `refreshing top tokens`)
 })
-
+bot.onText(/\/time/, msg => {
+	bot.sendMessage( msg.chat.id, formatters.apptime( app.time() ) )
+})
+bot.onText(/\/cron/, msg => { // specified in hours if want to specify
+	const fields = msg.text.split(' ')
+	console.log('fields',fields)
+	const delta = fields.length == 1 ? 3600 : +fields[1] * 3600
+	//console.log('delta is',delta)
+	app.cron( delta )
+	bot.sendMessage( msg.chat.id, formatters.apptime( app.time() ) )
+})
 bot.onText(/\/testAddReviewers/, msg => {	
 	testUsers.forEach( (user,idx) => {
 		let userIdx = app.userByTelegram( { id: user.t_id } )
@@ -215,11 +234,22 @@ bot.onText(/\/testAddReviewers/, msg => {
 		}
 		round = rounds[ roundIdx ]
 		role = app.roundRole(round, userIdx)
-		console.log(`${userIdx} added to round ${roundIdx}`)
+		//console.log(`${userIdx} added to round ${roundIdx}`)
+		bot.sendMessage(msg.chat.id,`${users[ userIdx ].first_name} now reviewing for round ${roundIdx} with token ${tokens[round.token].name}`)
+
 	})
 })
 bot.onText(/\/testAddAnalysts/, msg => {
-
+	testUsers.forEach( (user,idx) => {
+		let userIdx = app.userByTelegram( { id: user.t_id } )
+		let roundIdx = app.roundToAnalyze( userIdx )
+		if (roundIdx == -1) {
+			bot.sendMessage(msg.chat.id,`Sorry...no rounds to analyze right now`)
+		} else {
+			let round = rounds[ roundIdx ]
+			bot.sendMessage(msg.chat.id,`${users[ userIdx ].first_name} now analyzing in round ${roundIdx} with token ${tokens[round.token].name}`)
+		}	
+	})
 })
 /* questions */
 

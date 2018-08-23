@@ -48,15 +48,19 @@ var nextTokenInfoFetch = 0
 var nextRoundToken = 0
 var tokensToCover = []
 
-const now = () => Math.round(+new Date() / 1000)
+var now = config.timebase //() => Math.round(+new Date() / 1000) // can fix time from here
+
 const randomInt = max => Math.floor( Math.random() * Math.floor( max ) )
 const randomIdx = length => randomInt( length - 1 )	// random int starting at 0 to e.g. length-1 
 module.exports = {
 	...info,
 	data: appData,
-	start: ( autosave = true ) => {  // start app
+	time: () => now,
+	cron: forward_seconds => ( now += forward_seconds ),
+	start: ( autosave = true, cb ) => {  // start app
 		if (autosave) saveTimer = setInterval( ()=> {
-			module.exports.roundsExpire()
+			let changes = module.exports.roundsAssess()
+			if (cb) cb( changes )
 			module.exports.save()
 		}, 600000 )
 		tokens.forEach( (token,idx) => console.log( `[${idx}] ${token.name}` ) )
@@ -97,7 +101,7 @@ module.exports = {
 	/* rounds */
 	roundToLead: userIdx => { // get a round to lead
 
-		let time = now()
+		let time = now
 		let user = users[ userIdx ]
 		// sanity check, don't call me if you already have active round
 		if ( user.active_review_round !== -1 ) {
@@ -174,18 +178,33 @@ module.exports = {
 
 		// add jurist to round
 		let juryRound = roundsActive[ 0 ]
-		rounds[juryRound].users.push( { user: userIdx, start: now(), finish: 0, question: 0 } )
+		rounds[juryRound].users.push( { user: userIdx, start: now, finish: 0, question: 0 } )
 		users[ userIdx ].active_jury_round = juryRound
 		module.exports.save()
 		return juryRound
 	},
-	roundsExpire: () => { // finalize any expired rounds
+	roundsAssess: () => { // should run every 10 minutes or so
+		// tally results
 
+		// put analysts in proper pre or post stage
+
+		// finalize expired rounds
+		return { /* analysts_change_stage:[], analysts_round_expired:[]   */ }
 	},
 	roundRole: ( round, userIdx ) => ( 
 		round.users[0].user == userIdx ? 'bull': 
 		( round.users[1].user == userIdx ? 'bear': 'analyst')
 	),
+	clearRounds: () => { // clear all rounds...beware!
+		appData.rounds = []
+		rounds = appData.rounds
+		users.forEach( user => {
+			console.log('clearing for user',user)
+			user.active_jury_round = -1
+			user.active_review_round = -1
+		})
+		module.exports.save()
+	},
 
 
 	/* tokens */
@@ -202,7 +221,7 @@ module.exports = {
 					appData.tokens.push( { address: toptoken.address, name: toptoken.name.trim(), markets: [] } )
 					tokenFound = appData.tokens.length - 1
 				}
-				//appData.tokens[ tokenFound ].markets.push( { timestamp: now(), ...toptoken } )
+				//appData.tokens[ tokenFound ].markets.push( { timestamp: now, ...toptoken } )
 			})
 			module.exports.save()
 		}).catch( err => console.log(err) )
