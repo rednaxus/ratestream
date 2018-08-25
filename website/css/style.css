@@ -13,6 +13,9 @@
   font-style: normal;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Heebo:100');
+@import url('https://fonts.googleapis.com/css?family=Rye');
+
 html {
   overflow-x: hidden;
   font-size: 1.25em;
@@ -23,7 +26,8 @@ body {
   color: #73767c;
   line-height: 1.7;
   font-size: 16px;
-  font-family: "Open Sans", Arial, sans-serif;
+  /*font-family: "Open Sans", Arial, sans-serif;*/
+  font-family: 'Heebo', sans-serif;
 }
 
 ::-moz-selection {
@@ -545,17 +549,30 @@ a:hover, a:focus, a:active {
   }
 }
 
+/*custom*/
 .probootstrap-hero .intro-text .probootstrap-subheading .btn {
   padding: 20px 40px;
   border-radius: 0;
   margin-right: 10px;
-  border: 2px solid #1a57a5;
+  /*border: 2px solid #1a57a5;*/
+  /*border: 2px solid #313924;*/
+  /*border: 2px solid #ffffff;*/
+  border: 2px solid rgba(255, 255, 255, 0.7);
 }
 
+
+/*custom*/
 .probootstrap-hero .intro-text .probootstrap-subheading .btn:hover {
-  background: #103463;
-  border-color: #103463;
+  /*background: #103463;
+  border-color: #103463;*/
+  background: white;
+  color: #313924;
+  /*border-color: #313924;*/
+  border: 2px solid rgba(255, 255, 255, 0.7);
+
 }
+
+
 
 @media screen and (max-width: 480px) {
   .probootstrap-hero .intro-text .probootstrap-subheading .btn {
@@ -787,8 +804,13 @@ a:hover, a:focus, a:active {
   padding: 10px 40px;
 }
 
+
+/*custom*/
 .btn.btn-primary {
-  background: #1a57a5;
+  /*background: #1a57a5;*/
+
+  background: #313924;
+  background: rgba(49,57,36, .6);
 }
 
 .btn.btn-primary:hover, .btn.btn-primary:active, .btn.btn-primary:focus {
