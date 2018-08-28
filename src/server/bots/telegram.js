@@ -7,8 +7,9 @@ const { translate } = require('../nlp')
 const moment = require('moment')
 
 var app = require('../application')
+const { dialogs } = app
+
 const formatters = require('./formatters')
-const dialogs = require('../dialogs')
 
 var { tokens, users, rounds, analyst_questions, reviewer_questions, reviews, scripts } = app.data
 
@@ -55,24 +56,53 @@ const bot = new TelegramBot(config.telegram.botkey, { polling: true })
 })
 */
 
+const botReply = (chat_id,reply) => {
+	//console.log('bot reply',chat_id,reply)
+	let ret
+	let parse
+	if (reply.parse) parse = {...reply.parse} // oops, bug in bot, modifies parse 
+	if (reply.parse && reply.format)
+		ret = bot.sendMessage(chat_id,reply.text,reply.format,parse)
+	else if (reply.parse || reply.format)
+		ret = bot.sendMessage(chat_id,reply.text,reply.format || parse)
+	else
+		ret = bot.sendMessage(chat_id,reply.text)
+	return ret
+}
+
 var leadNum = 0 // for now, need to be better about token choices
 var role = 0 // bull/bear, 0->1
 bot.on('message', msg => {
-	let msgText = msg.text.toString().toLowerCase()
-	let userIdx = app.userByTelegram( msg.from )
-	//console.log('msg in essage',msg)
-	switch (msgText) {
-		case 'news':
-			app.topNewsByCoin('monero').then( articles => console.log(articles) )
-		case 'commands':
-			bot.sendMessage(msg.chat.id,'commands....')
-			break
-		case 'tokens':
-			bot.sendMessage( msg.chat.id, "Covered Tokens", formatters.tokens( tokens ) )
-			break
-		default:
-			console.log(`unknown msg ${msg.text}`)
-	
+	let user = app.userByTelegram( msg.from )
+	if (user.receive) {
+		console.log('user receive',user)
+		let q = user.receive.split('-')
+		if (q[0] == 'review'){
+			if (q[1] == 'category') {
+				let catIdx = +q[2]
+				botReply(msg.chat.id, app.cmd('review_category',{ user, category:catIdx, text:msg.text.toString() }) ).then( () => {
+					//botReply( msg.chat.id, app.cmd( 'review_categories', {user} ) )
+				})
+			}
+		}
+		user.receive = null // clear it	
+	}
+	else { // not sure about this yet
+		let msgText = msg.text.toString().toLowerCase()
+		//console.log('msg in essage',msg)
+		switch (msgText) {
+			case 'news':
+				app.topNewsByCoin('monero').then( articles => console.log(articles) )
+			case 'commands':
+				bot.sendMessage(msg.chat.id,'commands....')
+				break
+			case 'tokens':
+				bot.sendMessage( msg.chat.id, "Covered Tokens", formatters.tokens( tokens ) )
+				break
+			default:
+				//console.log(`unknown msg ${msg.text}`)
+		
+		}
 	}
 	
 })
@@ -100,52 +130,20 @@ bot.on('message', msg => {
 
 /* app */
 bot.onText(/\/restart/, msg => {
-	let user = users[ app.userByTelegram( msg.from ) ]
-	bot.sendMessage( msg.chat.id, dialogs['welcome.returning'].text({user: user}), formatters.menu() )
+	botReply( msg.chat.id, app.cmd('restart',{user:app.userByTelegram( msg.from )} ) )
 })
 
 bot.onText(/\/start/, msg => {
-	console.log('start',msg)
-	let idx = app.userByTelegram( msg.from )
-	let user = users[ idx ]
-	console.log(`got user ${idx}`,user)
-	bot.sendMessage( msg.chat.id, dialogs['welcome.new'].text({user:user}), formatters.menu() )    
+	botReply( msg.chat.id, app.cmd('start', {user: app.userByTelegram( msg.from )}) )    
 })
 
 /* rounds */
 bot.onText(/\/review/i, msg => {
-	
-	let msgInfo = msg.text.split(' ') // for testing, so can explicitly specify user
-
+	//let msgInfo = msg.text.split(' ') // for testing, so can explicitly specify user
 	let user = app.userByTelegram( msg.from )
-	let round
-	let role
-	let token
-	if ( user.active_review_round !== -1 ) {
-		//console.log('already review busy')
-		round = rounds[ user.active_review_round ]
-		//console.log('with round',round)
-		bot.sendMessage(msg.chat.id,dialogs['review.already'].text( {round: round, 
-			role:app.roundRole(round, user), 
-			token:tokens[round.token]
-		}))
-
-		const { needed: needed } = app.roundReviewCategories( round, user )
-		console.log(' got needed cats',needed)
-		if (needed[0] = 'overview') {
-			bot.sendMessage( msg.chat.id, dialogs['review.overview'].text( { round, user }) )
-		} else {
-			let str = formatters.reviewer_categories( needed )
-			bot.sendMessage( msg.chat.id, 'pick a category to review now', str, {parse_mode : "HTML"} )
-		}
-		return
-	}
-	//console.log(`finding review round for user ${userIdx}`)
-	round = app.roundToLead( user )
-	role = app.roundRole(round, user)
-
-	bot.sendMessage(msg.chat.id,dialogs['review.started'].text( { round, user } ) )
-
+	botReply( msg.chat.id, app.cmd( 'review', {user} ) ).then( () => {
+		botReply( msg.chat.id, app.cmd( 'review_categories', {user} ) )
+	})
 })
 
 bot.onText(/\/analyze/i, msg => { // jurist start round
@@ -178,35 +176,21 @@ bot.onText(/\/next/i, msg => {
 
 
 /* tokens */
-bot.onText(/\/tokens/i, msg => {
-	let obj = formatters.tokens( tokens )
-	bot.sendMessage( msg.chat.id, "Covered Tokens", obj )
+bot.onText(/\/tokens/i, msg => { 
+	botReply( msg.chat.id, app.cmd('tokens') )
 })
 
-bot.onText(/\/token/i, msg => {
-	const tokenName = msg.text.substring(12)
-	const tokenId = app.getTokenId( tokenName )
-	console.log(`checking token ${tokenId}:${tokenName}`)
-	if( tokenId === -1)
-		bot.sendMessage( msg.chat.id, `no token ${tokenName} in our library`)
-	else {
-		const markets = tokens[tokenId].markets
-		const current = markets[markets.length-1]
-		let str = formatters.tokenMarket( current )
-		bot.sendMessage( msg.chat.id, str, {parse_mode : "HTML"} )
-	}
+bot.onText(/\/token /i, msg => {
+	botReply( msg.chat.id, app.cmd('token', {name:msg.text.substring(12)}) )
 })
 
 /* internal use, admin only */
 
 bot.onText(/\/clearRounds/i,msg => { // beware, clears all rounds, really
-	app.clearRounds()
-	bot.sendMessage(msg.chat.id,`rounds cleared`)
+	botReply(msg.chat.id, app.cmd('roundsClear'))
 })
 bot.onText(/\/refreshTokens/, msg => {
-	console.log('refresh tokens')
-	app.refreshTokens() // can do this on regular interval
-	bot.sendMessage( msg.chat.id, `refreshing token data`)
+	botReply( msg.chat.id, app.cmd('tokensRefresh') )
 })
 bot.onText(/\/refreshInfo/, msg => {
 	app.refreshInfo()
@@ -217,15 +201,15 @@ bot.onText(/\/refreshTopTokens/, msg => {
 	bot.sendMessage( msg.chat.id, `refreshing top tokens`)
 })
 bot.onText(/\/time/, msg => {
-	bot.sendMessage( msg.chat.id, formatters.apptime( app.time() ) )
+	botReply( msg.chat.id, app.cmd('time') )
 })
 bot.onText(/\/cron/, msg => { // specified in hours if want to specify
 	const fields = msg.text.split(' ')
 	console.log('fields',fields)
 	const delta = fields.length == 1 ? 3600 : +fields[1] * 3600
 	//console.log('delta is',delta)
-	app.cron( delta )
-	bot.sendMessage( msg.chat.id, formatters.apptime( app.time() ) )
+	let reply = app.cmd('cron',{delta:delta})
+	bot.sendMessage( msg.chat.id, reply.text )
 })
 bot.onText(/\/testAddReviewers/, msg => {	
 	testUsers.forEach( (user,idx) => {
@@ -257,25 +241,25 @@ bot.onText(/\/testAddAnalysts/, msg => {
 /* questions */
 
 bot.onText(/\/questions/i, msg => {
-	bot.sendMessage(msg.chat.id, formatters.analyst_questions())
+	botReply(msg.chat.id, app.cmd('questions') )
 })
-
 
 /* query callbacks */
 bot.on("callback_query", query => {
-	let userIdx = app.userByTelegram( query.from )
-	let user = users[userIdx]
+	let user =  app.userByTelegram( query.from )
 	bot.answerCallbackQuery(query.id, { text: `Action received from ${user.first_name}!` })
 	.then( () => {
 		console.log('query on callback',query)
 		let q = query.data.split('-')
 		switch (q[0]) {
 			case 'token': 
-				const tokenId = +q[1]
-				const markets = tokens[tokenId].markets
-				const current = markets[markets.length-1]
-				bot.sendMessage( query.message.chat.id, formatters.tokenMarket( current ), {parse_mode : "HTML"} )
+				botReply( query.message.chat.id, app.cmd('token', {id:+q[1]} ) )
 				break
+			case 'review':
+				if (q[1] && q[1] == 'category') {
+					botReply(query.message.chat.id, app.cmd('review_category_request',{ user, category: +q[2]}) )
+					console.log('submit category')
+				}
 			default:
 				console.log(`unrecognized command ${q[0]}`)
 		}
@@ -286,6 +270,7 @@ bot.on("callback_query", query => {
 
 
 /* misc examples / dumping ground */
+/*
 bot.onText(/\/sendpic/, msg => {
 
 	bot.sendPhoto( msg.chat.id, smelly, {caption : "Here we go ! \nThis is just a caption "})
@@ -327,6 +312,7 @@ function hasBotCommands(entities) {
 	}
 	return entities.some(e => e.type === "bot_command")
 }
+*/
 /*
 const ikexport = {
 	"reply_markup":{
@@ -349,6 +335,7 @@ const ikexport = {
 	}
 }
 */
+/*
 bot.onText(/\/forceReply/i, msg => {
 	bot.sendMessage(msg.from.id, "Hey, this is a forced-reply. Reply me.", (new ForceReply()).export())
 })
@@ -370,6 +357,7 @@ bot.on("message", msg => {
 		}
 	}
 })
+*/
 
 
 

@@ -4,6 +4,8 @@ const moment = require('moment')
 const { InlineKeyboard, ReplyKeyboard, ForceReply } = require('telegram-keyboard-wrapper')
 
 
+const config = require('../../app/config/appConfig')
+
 function* entries(obj) { // object iterator
 	for (let key of Object.keys(obj)) 
 		yield [key, obj[key]]
@@ -30,7 +32,8 @@ module.exports = {
 		let ik = []
 		let row = []
 		categories.forEach( (category,idx) => {
-			let col = { text: category, callback_data: `review-category-${idx}` }
+			let catIdx = config.review_categories.findIndex( allcategory => allcategory == category )
+			let col = { text: category, callback_data: `review-category-${catIdx}` }
 			if (idx % 3 != 0) { // add column
 				row.push( col )
 			} else { // new row
