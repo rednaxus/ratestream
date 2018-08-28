@@ -255,6 +255,7 @@ const appConfig = {
     "token-supply",
     "summary"
   ],
+  
 
   ...customConfig
 

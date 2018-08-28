@@ -31,10 +31,18 @@ let infoData = require('./info.json')
 
 var { tokens, users, analyst_questions, reviewer_questions, rounds, reviews, scripts } = appData
 
+const categories = config.review_categories
+
 var saveTimer
 
 const round_window = 3600*8 // 8 hours
 const round_window_min = 3600*2 // 2 hours, minimum window left for a second lead to be added
+
+
+function* entries(obj) { // object iterator
+	for (let key of Object.keys(obj)) 
+		yield [key, obj[key]]
+}
 
 const fetchToken = address => new Promise( (resolve, reject) => {
 	ethplorer.getTokenInfoExt(address).then( result => {
@@ -99,10 +107,23 @@ module.exports = {
 	*/
 
 	/* rounds */
-	roundToLead: userIdx => { // get a round to lead
+
+	roundReviewCategories: ( round, user ) => {
+		let roundUser = round.users.find( (rounduser,idx) => ( idx < 2 && rounduser.user === user.id ) ) 
+		if (!roundUser) {
+			console.log('!!programmer error, reviewer user not found for round')
+			return {}
+		}
+		let done = []
+		let needed = []
+		console.log('chedking cats now')
+		categories.forEach( category => ( roundUser.sections[category] ? done.push(category): needed.push(category) ) )
+		return ({ done, needed })
+	},
+	roundToLead: user => { // get a round to lead
 
 		let time = now
-		let user = users[ userIdx ]
+		//let user = users[ userIdx ]
 		// sanity check, don't call me if you already have active round
 		if ( user.active_review_round !== -1 ) {
 			console.log('programmer error!!! user already has active round')
@@ -122,7 +143,7 @@ module.exports = {
 			roundIdx = roundCandidates[ randomIdx( roundCandidates.length ) ]
 			console.log(`assigning to existing round ${roundIdx}`)
 			let round = rounds[ roundIdx ]
-			round.users[1] = { user: userIdx, start: time, finish:0, sections:{} }
+			round.users[1] = { uid: user.id, start: time, finish:0, sections:{} }
 		} else { // create round
 			if (!tokensToCover.length) { // reset list of tokens to choose
 				tokensToCover = tokens.map( (_,idx) => idx )
@@ -132,38 +153,39 @@ module.exports = {
 			tokensToCover = tokensToCover.slice(tokenIdx, tokenIdx)
 
 			console.log(`creating round with token ${token.name}`)
+			roundIdx = rounds.length
 			rounds.push({
+				id: roundIdx,
 				token: tokenIdx,
 				start: time,
 				finish: time + round_window,
 				status: 'active',
 				users: [{ // first 2 are leads
-				  user: userIdx, 
+				  uid: user.id, 
           start: time,
           finish: 0,
           sections:{}
          },{}]
 			})
-			roundIdx = rounds.length - 1
+
 			//appData.rounds.active.push( roundIdx )
-			console.log(`created round ${roundIdx}`)
+			console.log(`created round`,round)
 		}
 
 		user.active_review_round = roundIdx //{ review_state:null, round: roundIdx, media_state: null, role }
 		module.exports.save()
 		return roundIdx
 	},
-	roundToAnalyze: userIdx => {
+	roundToAnalyze: user => {
 		// get least covered round
 
-		let user = users[ userIdx ]
  		if (user.active_jury_round !== -1) {
  			console.log('already have active jury round')
  			return -1
 		}
 
 		let roundsActive = rounds.reduce( (actives, round, idx) => {
-			if (round.status === 'active' && round.users[0].user !== userIdx && round.users[1].user !== userIdx ) 
+			if (round.status === 'active' && round.users[0].user !== userIdx && round.users[1].user !== user.id ) 
 				actives.push(idx)
 			return actives
 		}, [] )
@@ -178,22 +200,30 @@ module.exports = {
 
 		// add jurist to round
 		let juryRound = roundsActive[ 0 ]
-		rounds[juryRound].users.push( { user: userIdx, start: now, finish: 0, question: 0 } )
+		rounds[juryRound].users.push( { user: user.id, start: now, finish: 0, question: 0 } )
 		users[ userIdx ].active_jury_round = juryRound
 		module.exports.save()
 		return juryRound
 	},
 	roundsAssess: () => { // should run every 10 minutes or so
 		// tally results
-
+		//         
+		/* from veva: get winner
+        uint8 r0 = uint8(round.averages[ 0 ][ 0 ]);
+        uint8 r1 = uint8(round.averages[ 1 ][ 0 ]);
+        if ( r1 > r0 + 20) round.winner = 0;
+        else if ( r1 < r0 - 20) round.winner = 1;
+        else if ( r1 > 50 ) round.winner = 0;
+        else round.winner = 1;
+		*/
 		// put analysts in proper pre or post stage
 
 		// finalize expired rounds
 		return { /* analysts_change_stage:[], analysts_round_expired:[]   */ }
 	},
-	roundRole: ( round, userIdx ) => ( 
-		round.users[0].user == userIdx ? 'bull': 
-		( round.users[1].user == userIdx ? 'bear': 'analyst')
+	roundRole: ( round, user ) => ( 
+		round.users[0].user == user.id ? 'bull': 
+		( round.users[1].user == user.id ? 'bear': 'analyst')
 	),
 	clearRounds: () => { // clear all rounds...beware!
 		appData.rounds = []
@@ -257,7 +287,8 @@ module.exports = {
 		if (idx !== -1) return idx
 
 		// first time in, create user
-		appData.users.push( { 
+		let user = { 
+			id: appData.users.length,
 			...refcode.getRefCodePair(),
 			t_id: 					t_user.id, 
 			first_name: 		t_user.first_name,
@@ -266,9 +297,10 @@ module.exports = {
 			language_code: 	t_user.language_code, 
 			active_jury_round:-1,
 			active_review_round:-1
-		})
+		}
+		appData.users.push( user )
 		module.exports.save()
-		return appData.users.length-1
+		return user
 	},
 
 	/* news / info */

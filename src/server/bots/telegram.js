@@ -8,8 +8,10 @@ const moment = require('moment')
 
 var app = require('../application')
 const formatters = require('./formatters')
+const dialogs = require('../dialogs')
 
 var { tokens, users, rounds, analyst_questions, reviewer_questions, reviews, scripts } = app.data
+
 
 app.start(false) // no autosave for development
 app.save() // reformat any json changes
@@ -98,22 +100,16 @@ bot.on('message', msg => {
 
 /* app */
 bot.onText(/\/restart/, msg => {
-
-	bot.sendMessage( msg.chat.id, "Welcome", { 
-		"reply_markup": {
-    	"keyboard": [["Diff text", "Diff sample"], ["Keyboard"], ["I'm robot"]]
-   	}
-	})
-    
+	let user = users[ app.userByTelegram( msg.from ) ]
+	bot.sendMessage( msg.chat.id, dialogs['welcome.returning'].text({user: user}), formatters.menu() )
 })
 
 bot.onText(/\/start/, msg => {
 	console.log('start',msg)
 	let idx = app.userByTelegram( msg.from )
-	let user = users[idx]
-	//console.log(`got user ${userIdx}`,user)
-	bot.sendMessage( msg.chat.id, `Welcome ${user.first_name}`, formatters.menu() ) 
-    
+	let user = users[ idx ]
+	console.log(`got user ${idx}`,user)
+	bot.sendMessage( msg.chat.id, dialogs['welcome.new'].text({user:user}), formatters.menu() )    
 })
 
 /* rounds */
@@ -121,9 +117,7 @@ bot.onText(/\/review/i, msg => {
 	
 	let msgInfo = msg.text.split(' ') // for testing, so can explicitly specify user
 
-	let userIdx = app.userByTelegram( msg.from )
-	let user = users[ userIdx ]
-	let roundIdx
+	let user = app.userByTelegram( msg.from )
 	let round
 	let role
 	let token
@@ -131,35 +125,44 @@ bot.onText(/\/review/i, msg => {
 		//console.log('already review busy')
 		round = rounds[ user.active_review_round ]
 		//console.log('with round',round)
-		bot.sendMessage(msg.chat.id,`you are already ${app.roundRole(round, userIdx)} reviewer for ${tokens[round.token].name}`)
+		bot.sendMessage(msg.chat.id,dialogs['review.already'].text( {round: round, 
+			role:app.roundRole(round, user), 
+			token:tokens[round.token]
+		}))
+
+		const { needed: needed } = app.roundReviewCategories( round, user )
+		console.log(' got needed cats',needed)
+		if (needed[0] = 'overview') {
+			bot.sendMessage( msg.chat.id, dialogs['review.overview'].text( { round, user }) )
+		} else {
+			let str = formatters.reviewer_categories( needed )
+			bot.sendMessage( msg.chat.id, 'pick a category to review now', str, {parse_mode : "HTML"} )
+		}
 		return
 	}
 	//console.log(`finding review round for user ${userIdx}`)
-	roundIdx = app.roundToLead( userIdx )
-	round = rounds[ roundIdx ]
-	role = app.roundRole(round, userIdx)
+	round = app.roundToLead( user )
+	role = app.roundRole(round, user)
 
-	bot.sendMessage(msg.chat.id,`you are ${role} reviewer, for token ${tokens[round.token].name}`)
-	bot.sendMessage(msg.chat.id,`let's get started!`)
+	bot.sendMessage(msg.chat.id,dialogs['review.started'].text( { round, user } ) )
+
 })
 
 bot.onText(/\/analyze/i, msg => { // jurist start round
-	let userIdx = app.userByTelegram( msg.from )
-	let user = users[ userIdx ]
+	let user = app.userByTelegram( msg.from )
 	if (user.active_jury_round !== -1) {
 		let round = rounds[ user.active_jury_round ]
 		let token = tokens[ round.token ]
-		let roundUser = round.users.find( roundUser => roundUser.user == userIdx )
+		let roundUser = round.users.find( roundUser => roundUser.user == user.id )
 		bot.sendMessage(msg.chat.id,`you are already analyst in round with token ${token.name}`)
 		bot.sendMessage(msg.chat.id,`next question: ${ analyst_questions[roundUser.question].text }`)
 		return
 	}
-	let roundIdx = app.roundToAnalyze( userIdx )
-	if (roundIdx == -1) {
-		bot.sendMessage(msg.chat.id,`Sorry...no rounds to analyze right now`)
+	let round = app.roundToAnalyze( user )
+	if (!round) {
+		bot.sendMessage(msg.chat.id,dialogs['analysis.none'].text())
 	} else {
-		let round = rounds[ roundIdx ]
-		bot.sendMessage(msg.chat.id,`now active in round with token ${tokens[round.token].name}`)
+		bot.sendMessage(msg.chat.id,dialogs['analysis.active'].text( { round, user }))
 	}
 })
 

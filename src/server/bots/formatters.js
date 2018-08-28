@@ -26,6 +26,21 @@ module.exports = {
 	analyst_questions: () => (
 		analyst_questions.reduce( (str, question, num) => ( `${str}${num+1}. ${question.text}\n` ), "")
 	),
+	reviewer_categories: ( categories ) => {
+		let ik = []
+		let row = []
+		categories.forEach( (category,idx) => {
+			let col = { text: category, callback_data: `review-category-${idx}` }
+			if (idx % 3 != 0) { // add column
+				row.push( col )
+			} else { // new row
+				if (row.length) ik.push( row )
+				row = [ col ]
+			}
+		})
+		ik.push( row )
+		return { reply_markup:{ inline_keyboard: ik } }		
+	},
 	reviewer_questions: () => ( {}
 	),
 	reviewer_question: (round, question) => ( {}

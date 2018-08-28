@@ -1,331 +1,5 @@
 {
-  "rounds": [
-    {
-      "token": 55,
-      "start": 1514764800,
-      "finish": 1514793600,
-      "status": "active",
-      "users": [
-        {
-          "user": 0,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 1,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 2,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        },
-        {
-          "user": 10,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        },
-        {
-          "user": 19,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        }
-      ]
-    },
-    {
-      "token": 56,
-      "start": 1514764800,
-      "finish": 1514793600,
-      "status": "active",
-      "users": [
-        {
-          "user": 2,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 3,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 0,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        },
-        {
-          "user": 11,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        }
-      ]
-    },
-    {
-      "token": 42,
-      "start": 1514764800,
-      "finish": 1514793600,
-      "status": "active",
-      "users": [
-        {
-          "user": 4,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 5,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 1,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        },
-        {
-          "user": 12,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        }
-      ]
-    },
-    {
-      "token": 26,
-      "start": 1514764800,
-      "finish": 1514793600,
-      "status": "active",
-      "users": [
-        {
-          "user": 6,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 7,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 3,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        },
-        {
-          "user": 13,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        }
-      ]
-    },
-    {
-      "token": 38,
-      "start": 1514764800,
-      "finish": 1514793600,
-      "status": "active",
-      "users": [
-        {
-          "user": 8,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 9,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 4,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        },
-        {
-          "user": 14,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        }
-      ]
-    },
-    {
-      "token": 11,
-      "start": 1514764800,
-      "finish": 1514793600,
-      "status": "active",
-      "users": [
-        {
-          "user": 10,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 11,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 5,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        },
-        {
-          "user": 15,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        }
-      ]
-    },
-    {
-      "token": 6,
-      "start": 1514764800,
-      "finish": 1514793600,
-      "status": "active",
-      "users": [
-        {
-          "user": 12,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 13,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 6,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        },
-        {
-          "user": 16,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        }
-      ]
-    },
-    {
-      "token": 51,
-      "start": 1514764800,
-      "finish": 1514793600,
-      "status": "active",
-      "users": [
-        {
-          "user": 14,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 15,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 7,
-          "start": 1514764800,
-          "finish": 0,
-          "stage": 0,
-          "question": {
-            "current": 0,
-            "pre": 0,
-            "post": 1
-          }
-        },
-        {
-          "user": 17,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        }
-      ]
-    },
-    {
-      "token": 3,
-      "start": 1514764800,
-      "finish": 1514793600,
-      "status": "active",
-      "users": [
-        {
-          "user": 16,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 17,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 8,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        },
-        {
-          "user": 18,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        }
-      ]
-    },
-    {
-      "token": 4,
-      "start": 1514764800,
-      "finish": 1514793600,
-      "status": "active",
-      "users": [
-        {
-          "user": 18,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 19,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "user": 9,
-          "start": 1514764800,
-          "finish": 0,
-          "question": 0
-        }
-      ]
-    }
-  ],
+  "rounds": [],
   "analyst_questions": [
     {
       "name": "pedigree",
@@ -543,8 +217,9 @@
       "last_name": "k",
       "username": "tester_0",
       "language_code": "en-US",
-      "active_jury_round": 1,
-      "active_review_round": 0
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 0
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -554,8 +229,9 @@
       "last_name": "k",
       "username": "tester_1",
       "language_code": "en-US",
-      "active_jury_round": 2,
-      "active_review_round": 0
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 1
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -565,8 +241,9 @@
       "last_name": "k",
       "username": "tester_2",
       "language_code": "en-US",
-      "active_jury_round": 0,
-      "active_review_round": 1
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 2
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -576,8 +253,9 @@
       "last_name": "k",
       "username": "tester_3",
       "language_code": "en-US",
-      "active_jury_round": 3,
-      "active_review_round": 1
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 3
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -587,8 +265,9 @@
       "last_name": "k",
       "username": "tester_4",
       "language_code": "en-US",
-      "active_jury_round": 4,
-      "active_review_round": 2
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 4
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -598,8 +277,9 @@
       "last_name": "k",
       "username": "tester_5",
       "language_code": "en-US",
-      "active_jury_round": 5,
-      "active_review_round": 2
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 5
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -609,8 +289,9 @@
       "last_name": "k",
       "username": "tester_6",
       "language_code": "en-US",
-      "active_jury_round": 6,
-      "active_review_round": 3
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 6
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -620,8 +301,9 @@
       "last_name": "k",
       "username": "tester_7",
       "language_code": "en-US",
-      "active_jury_round": 7,
-      "active_review_round": 3
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 7
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -631,8 +313,9 @@
       "last_name": "k",
       "username": "tester_8",
       "language_code": "en-US",
-      "active_jury_round": 8,
-      "active_review_round": 4
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 8
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -642,8 +325,9 @@
       "last_name": "k",
       "username": "tester_9",
       "language_code": "en-US",
-      "active_jury_round": 9,
-      "active_review_round": 4
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 9
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -653,8 +337,9 @@
       "last_name": "k",
       "username": "tester_10",
       "language_code": "en-US",
-      "active_jury_round": 0,
-      "active_review_round": 5
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 10
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -664,8 +349,9 @@
       "last_name": "k",
       "username": "tester_11",
       "language_code": "en-US",
-      "active_jury_round": 1,
-      "active_review_round": 5
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 11
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -675,8 +361,9 @@
       "last_name": "k",
       "username": "tester_12",
       "language_code": "en-US",
-      "active_jury_round": 2,
-      "active_review_round": 6
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 12
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -686,8 +373,9 @@
       "last_name": "k",
       "username": "tester_13",
       "language_code": "en-US",
-      "active_jury_round": 3,
-      "active_review_round": 6
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 13
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -697,8 +385,9 @@
       "last_name": "k",
       "username": "tester_14",
       "language_code": "en-US",
-      "active_jury_round": 4,
-      "active_review_round": 7
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 14
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -708,8 +397,9 @@
       "last_name": "k",
       "username": "tester_15",
       "language_code": "en-US",
-      "active_jury_round": 5,
-      "active_review_round": 7
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 15
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -719,8 +409,9 @@
       "last_name": "k",
       "username": "tester_16",
       "language_code": "en-US",
-      "active_jury_round": 6,
-      "active_review_round": 8
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 16
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -730,8 +421,9 @@
       "last_name": "k",
       "username": "tester_17",
       "language_code": "en-US",
-      "active_jury_round": 7,
-      "active_review_round": 8
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 17
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -741,8 +433,9 @@
       "last_name": "k",
       "username": "tester_18",
       "language_code": "en-US",
-      "active_jury_round": 8,
-      "active_review_round": 9
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 18
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -752,8 +445,9 @@
       "last_name": "k",
       "username": "tester_19",
       "language_code": "en-US",
-      "active_jury_round": 0,
-      "active_review_round": 9
+      "active_jury_round": -1,
+      "active_review_round": -1,
+      "id": 19
     },
     {
       "identity": "0xaaad03ed9d54753d7b2b9cb654e049718aedb801",
@@ -765,7 +459,8 @@
       "active_jury_rounds": -1,
       "active_review_rounds": -1,
       "active_jury_round": -1,
-      "active_review_round": -1
+      "active_review_round": -1,
+      "id": 20
     },
     {
       "identity": "0x56291f2dda00d44c1fabceb69931d8db634c1bf2",
@@ -776,7 +471,8 @@
       "username": "alan_on40",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": -1
+      "active_review_round": -1,
+      "id": 21
     },
     {
       "identity": "0xc9f413023e002651def5d896abfa7fa360680940",
@@ -786,7 +482,8 @@
       "last_name": "j",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": -1
+      "active_review_round": -1,
+      "id": 22
     }
   ],
   "tokens_not_covered": {
