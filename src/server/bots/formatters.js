@@ -22,11 +22,21 @@ module.exports = {
     	"keyboard": [[ "tokens", "commands", "news", "activity" ]]
    	}
 	}),
-	analyst_question: ( round, question ) => {
-
+	analyst_question: ( question, question_number ) => {
+		let ik = []
+		let row = []
+		if (question.max == 2) { // yes/no
+			row.push( { text: 'yes', callback_data: `question-${question_number}-yes` } )
+			row.push( { text: 'no', callback_data: `question-${question_number}-no` } )
+		} else for (let idx = 1; idx <= question.max; idx++ ) {
+ 			row.push( { text: idx, callback_data: `question-${question_number}-${idx}` })
+		}
+		ik.push( row )
+		console.log('ik',JSON.stringify(ik))
+   	return { reply_markup:{ inline_keyboard: ik } }
 	},
-	analyst_questions: () => (
-		analyst_questions.reduce( (str, question, num) => ( `${str}${num+1}. ${question.text}\n` ), "")
+	analyst_questions: ( questions ) => (
+		questions.reduce( (str, question, num) => ( `${str}${num+1}. ${question.text}\n` ), "")
 	),
 	reviewer_categories: ( categories ) => {
 		let ik = []
@@ -44,10 +54,6 @@ module.exports = {
 		ik.push( row )
 		return { reply_markup:{ inline_keyboard: ik } }		
 	},
-	reviewer_questions: () => ( {}
-	),
-	reviewer_question: (round, question) => ( {}
-	),
 	rounds: rounds => {
 
 	},

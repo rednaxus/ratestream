@@ -137,13 +137,13 @@ const app = {
 			return
 		}
 
-		console.log('round to lead')
+		console.log(`round to lead for ${user.first_name}`)
 
 		let roundIdx
 		let round
 		let role
 		let roundCandidates = rounds.reduce( ( candidates, round, idx ) => { 
-			if (!round.users[1].user && round.finish >= time + round_window_min) {
+			if (!round.users[1].uid && round.finish >= time + round_window_min) {
 				candidates.push( idx )
 			}
 			return candidates
@@ -192,17 +192,17 @@ const app = {
 
  		if (user.active_jury_round !== -1) {
  			console.log('already have active jury round')
- 			return -1
+ 			return null
 		}
 
 		let roundsActive = rounds.reduce( (actives, round, idx) => {
-			if (round.status === 'active' && round.users[0].user !== userIdx && round.users[1].user !== user.id ) 
+			if (round.status === 'active' && round.users[0].uid !== user.id && round.users[1].uid !== user.id ) 
 				actives.push(idx)
 			return actives
 		}, [] )
 		if (!roundsActive.length ) {
 			console.log('no valid rounds active')
-			return -1
+			return null
 		}
 
 		console.log('sorting',roundsActive)
@@ -211,10 +211,17 @@ const app = {
 
 		// add jurist to round
 		let juryRound = roundsActive[ 0 ]
-		rounds[juryRound].users.push( { user: user.id, start: now, finish: 0, question: 0 } )
-		users[ userIdx ].active_jury_round = juryRound
+		let round = rounds[juryRound]
+		round.users.push({ 
+			uid: user.id, 
+			start: now, 
+			finish: 0, 
+			question: 0, 
+			answers: new Array(analyst_questions.length).fill({}) 
+		})
+		user.active_jury_round = juryRound
 		app.save()
-		return juryRound
+		return round
 	},
 	roundsAssess: () => { // should run every 10 minutes or so
 		// tally results
@@ -368,11 +375,16 @@ const app = {
 
 	},
 
-	cmd: (command, data) => { // command processor for the app
+	cmd: (command, data = {}) => { // command processor for the app
 		var retval
 		let round
-		let user
+		let user = data.user
 		let catName
+		let roundUser
+		let question_number
+		let answer
+		let question
+
 		//var ret = (text,format) => ({ text:text, format:format })
 		console.log(`command is ${command}`,data)
 		switch (command) {
@@ -381,14 +393,73 @@ const app = {
 				retval = { text: formatters.apptime( app.time() ) }
 				break
 			case 'time':
+				console.log('time')
 				retval = { text: formatters.apptime( app.time() ) }
 				break
+			case 'analyze':
+				console.log('analyze',user)
+				if (user.active_jury_round !== -1) {
+					round = rounds[ user.active_jury_round ]
+					console.log('got round',round)
+					roundUser = round.users.find( roundUser => {
+						return roundUser.uid == user.id 
+					})
+					console.log('got round user',roundUser)
+					retval = { text: dialogs['analysis.already'].text( { round, user }) }
+					//user.receive = 'question-'+roundUser.question
+				
+				} else {
+					round = app.roundToAnalyze( user )
+					console.log('round to analyze',round)
+					if (round) {
+						retval = { text: dialogs['analysis.active'].text( { round, user }) }
+						user.receive = 'question-0' 
+					} else {
+						retval = { text: dialogs['analysis.none'].text() }
+					}
+				}
+				break
+
 			case 'roundsClear':
+				console.log('rounds clear')
 				app.clearRounds()
 				retval = { text: dialogs['rounds.clear'].text() }
 				break
 			case 'questions':
-				retval = { text: formatters.analyst_questions() }
+				retval = { text: formatters.analyst_questions( analyst_questions ) }
+				break
+			case 'question':
+				round = rounds[user.active_jury_round]
+				roundUser = round.users.find( roundUser => roundUser.uid == user.id )
+				
+				retval = { 
+					text: dialogs['analysis.question'].text({ round, user }), 
+					format: formatters.analyst_question(analyst_questions[roundUser.question],roundUser.question),
+					parse:parseHtml
+				}
+
+				break
+			case 'question_answer':
+				question_number = data.question_number
+				answer = data.answer
+				round = rounds[user.active_jury_round]
+				roundUser = round.users.find( roundUser => roundUser.uid == user.id )
+				roundUser.answers[question_number] = { value: answer, timestamp: now }
+				roundUser.question = roundUser.answers.findIndex( answer => !answer.timestamp )
+				console.log('next question',roundUser.question)
+
+				if (roundUser.question == -1) {
+					retval = { 
+						text: dialogs['analysis.finished'].text({ round, user })
+					}
+				} else {
+					retval = {
+						text: dialogs['analysis.question'].text({ round, user }),
+						format: formatters.analyst_question(analyst_questions[roundUser.question],roundUser.question),
+						parse:parseHtml
+					}
+				}
+				app.save()
 				break
 			case 'start':
 				//console.log(`got user ${idx}`,user)
@@ -399,7 +470,6 @@ const app = {
 				break
 			case 'tokens':
 				retval = { text:dialogs['tokens'].text(), format:formatters.tokens( tokens ) }
-				console.log('retval',retval)
 				break
 			case 'tokensRefresh':
 				app.refreshTokens() // can do this on regular interval
@@ -416,13 +486,10 @@ const app = {
 				}
 				break
 			case 'review':
-				user = data.user
-				console.log('fuck 1',parseHtml)
 				if ( user.active_review_round !== -1 ) {
 					//console.log('already review busy')
 					round = rounds[ user.active_review_round ]
-					retval = { text: dialogs['review.already'].text( {round,user} ), parse: parseHtml, receive:'review-category-0' } //console.log('with round',round)
-								console.log('fuck 1.5',parseHtml)
+					retval = { text: dialogs['review.already'].text( {round,user} ), parse: parseHtml } //console.log('with round',round)
 				} else {
 					console.log(`finding review round for user ${user.id}`)
 					round = app.roundToLead( user )
@@ -430,9 +497,7 @@ const app = {
 					retval = { text: dialogs['review.started'].text( { round, user } ) }
 				}
 				break
-			case 'review_categories':
-							console.log('fuck 2',parseHtml)
-				user = data.user
+			case 'review_categories': // query for categories
 				round = appData.rounds[user.active_review_round]
 				const { needed: needed } = app.roundReviewCategories( round, user )
 				console.log('needed',needed)
@@ -443,30 +508,33 @@ const app = {
 						parse:parseHtml
 					}
 					user.receive = 'review-category-0'
-				} else {
+				} else if ( needed.length > 0 ) {
 					console.log('other cats needed')
 					retval = { 
 						text:dialogs['review.categories.pick'].text(), 
 						format: formatters.reviewer_categories( needed ), 
 						parse:parseHtml
 					}
+				} else {
+					retval = {
+						text:dialogs['review.categories.finished'].text({ round, user })
+					}
 				}
 				break
-			case 'review_category_request':
-				user = data.user
-				console.log('review category request',data)
+			case 'review_category_request': // request to review category
+				//console.log('review category request',data)
 				round = appData.rounds[user.active_review_round]
-				console.log('round',round)
+				//console.log('round',round)
 
 				catName = categories[data.category]
-				console.log('cat name',catName)
+				//console.log('cat name',catName)
 				retval = { 
 					text: dialogs['review.category.request'].text( {round, user, category:catName } ),
 					parse: parseHtml
 				}
 				user.receive = 'review-category-'+data.category
 				break
-			case 'review_category': // input a category
+			case 'review_category': // submit a category review
 				user = data.user
 				//console.log('review category',data)
 				round = appData.rounds[user.active_review_round]
@@ -474,11 +542,11 @@ const app = {
 
 				catName = categories[data.category]
 				//console.log('cat name',catName)
-				let roundUser = round.users.find( roundUser => roundUser.uid == user.id )
+				roundUser = round.users.find( roundUser => roundUser.uid == user.id )
 				roundUser.sections[catName] = data.text
 				//console.log('round is now',round)
 				app.save()
-				retval = { text: 'submitted' }
+				retval = { text: `review submitted for ${catName}`, parse:parseHtml }
 				break
 			default: 
 				console.log(`unknown command ${command}`)
@@ -503,8 +571,8 @@ const app = {
 		'review.started': {
 			text: ({round, user }) => {
 				return (
-					`great....you are now Lead as ${app.roundRole(round,user)} analyst for token ${token_name(round)}.`
-					+ `\nTo lead the round, You will need to submit reviews for ${categories.toString()}.`
+					`Great ${user.first_name}....you are now Lead as ${app.roundRole(round,user)} analyst for token ${token_name(round)}.`
+					+ `\n\nTo lead the round, You will need to submit reviews for ${categories.map( category => `\n  ${category}`) }.`
 				)
 			}
 		},
@@ -520,6 +588,9 @@ const app = {
 		},
 		'review.categories.awaiting':{
 			text: () => ``
+		},
+		'review.categories.finished':{
+			text: ({ round, user }) => `Great ${user.first_name}...all categories reviewed for ${token_name(round)}.  Good luck!`
 		},
 		'review.categories.pick': {
 			text: () => 'pick a category to review now'
@@ -551,14 +622,17 @@ const app = {
 				`you are already analyst in round with token ${token_name(round)}`
 			)
 		},
-		'analysis.question.next':{
+		'analysis.question':{
 			text: ({ round, user}) => {
 				let roundUser = round.users.find( roundUser => roundUser.uid == user.id )
-				return 'next question: \n' + app.data.analyst_questions[roundUser.question].text
+				return analyst_questions[roundUser.question].text
 			}
 		},
+		'analysis.finished':{
+			text: ({ round, user }) => 'All questions answered'
+		},
 		'sample.summary': {
-			text: ({}) => ``
+			text: () => ``
 		},
 
 		'token.notfound': {

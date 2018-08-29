@@ -77,13 +77,18 @@ bot.on('message', msg => {
 	if (user.receive) {
 		console.log('user receive',user)
 		let q = user.receive.split('-')
-		if (q[0] == 'review'){
-			if (q[1] == 'category') {
-				let catIdx = +q[2]
-				botReply(msg.chat.id, app.cmd('review_category',{ user, category:catIdx, text:msg.text.toString() }) ).then( () => {
-					//botReply( msg.chat.id, app.cmd( 'review_categories', {user} ) )
-				})
-			}
+		switch (q[0]) {
+			case 'review': 
+				if (q[1] == 'category') {
+					let catIdx = +q[2]
+					botReply(msg.chat.id, app.cmd('review_category',{ user, category:catIdx, text:msg.text.toString() }) ).then( () => {
+						botReply( msg.chat.id, app.cmd( 'review_categories', {user} ) )
+					})
+				}
+				break
+			case 'question':
+				botReply(msg.chat.id, app.cmd('question', { round, user }))
+				break
 		}
 		user.receive = null // clear it	
 	}
@@ -139,29 +144,24 @@ bot.onText(/\/start/, msg => {
 
 /* rounds */
 bot.onText(/\/review/i, msg => {
-	//let msgInfo = msg.text.split(' ') // for testing, so can explicitly specify user
-	let user = app.userByTelegram( msg.from )
+	let msgInfo = msg.text.split(' ') // for testing, so can explicitly specify user
+	console.log('msgInfo',msgInfo)
+	let user
+	if (msgInfo[1]) { // testing purposes only
+		user = testUsers[+msgInfo[1]]
+	} else {
+		user = app.userByTelegram( msg.from )
+	}
 	botReply( msg.chat.id, app.cmd( 'review', {user} ) ).then( () => {
 		botReply( msg.chat.id, app.cmd( 'review_categories', {user} ) )
 	})
 })
 
 bot.onText(/\/analyze/i, msg => { // jurist start round
-	let user = app.userByTelegram( msg.from )
-	if (user.active_jury_round !== -1) {
-		let round = rounds[ user.active_jury_round ]
-		let token = tokens[ round.token ]
-		let roundUser = round.users.find( roundUser => roundUser.user == user.id )
-		bot.sendMessage(msg.chat.id,`you are already analyst in round with token ${token.name}`)
-		bot.sendMessage(msg.chat.id,`next question: ${ analyst_questions[roundUser.question].text }`)
-		return
-	}
-	let round = app.roundToAnalyze( user )
-	if (!round) {
-		bot.sendMessage(msg.chat.id,dialogs['analysis.none'].text())
-	} else {
-		bot.sendMessage(msg.chat.id,dialogs['analysis.active'].text( { round, user }))
-	}
+	let user = app.userByTelegram( msg.from ) 
+	botReply(msg.chat.id,app.cmd('analyze',{ user })).then( () => {
+		botReply( msg.chat.id, app.cmd( 'question',{ user }))
+	})
 })
 
 
@@ -208,22 +208,11 @@ bot.onText(/\/cron/, msg => { // specified in hours if want to specify
 	console.log('fields',fields)
 	const delta = fields.length == 1 ? 3600 : +fields[1] * 3600
 	//console.log('delta is',delta)
-	let reply = app.cmd('cron',{delta:delta})
-	bot.sendMessage( msg.chat.id, reply.text )
+	botReply( msg.chat.id, app.cmd('cron',{delta:delta}) )
 })
 bot.onText(/\/testAddReviewers/, msg => {	
 	testUsers.forEach( (user,idx) => {
-		let userIdx = app.userByTelegram( { id: user.t_id } )
-		roundIdx = app.roundToLead( userIdx )
-		if (roundIdx === -1) {
-			console.log(`failed to add ${userIdx}`)
-			return
-		}
-		round = rounds[ roundIdx ]
-		role = app.roundRole(round, userIdx)
-		//console.log(`${userIdx} added to round ${roundIdx}`)
-		bot.sendMessage(msg.chat.id,`${users[ userIdx ].first_name} now reviewing for round ${roundIdx} with token ${tokens[round.token].name}`)
-
+		botReply( msg.chat.id, app.cmd( 'review', {user} ) )
 	})
 })
 bot.onText(/\/testAddAnalysts/, msg => {
@@ -245,7 +234,7 @@ bot.onText(/\/questions/i, msg => {
 })
 
 /* query callbacks */
-bot.on("callback_query", query => {
+bot.on('callback_query', query => {
 	let user =  app.userByTelegram( query.from )
 	bot.answerCallbackQuery(query.id, { text: `Action received from ${user.first_name}!` })
 	.then( () => {
@@ -260,6 +249,9 @@ bot.on("callback_query", query => {
 					botReply(query.message.chat.id, app.cmd('review_category_request',{ user, category: +q[2]}) )
 					console.log('submit category')
 				}
+			case 'question':
+				botReply(query.message.chat.id, app.cmd('question_answer',{user, question_number: +q[1], answer: +q[2] }) )
+				break
 			default:
 				console.log(`unrecognized command ${q[0]}`)
 		}

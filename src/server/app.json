@@ -2,7 +2,77 @@
   "rounds": [
     {
       "id": 0,
-      "token": 34,
+      "token": 29,
+      "start": 1514764800,
+      "finish": 1514793600,
+      "status": "active",
+      "users": [
+        {
+          "uid": 0,
+          "start": 1514764800,
+          "finish": 0,
+          "sections": {}
+        },
+        {
+          "uid": 1,
+          "start": 1514764800,
+          "finish": 0,
+          "sections": {}
+        },
+        {
+          "uid": 21,
+          "start": 1514764800,
+          "finish": 0,
+          "question": -1,
+          "answers": [
+            {
+              "value": 4,
+              "timestamp": 1514764800
+            },
+            {
+              "value": 4,
+              "timestamp": 1514764800
+            },
+            {
+              "value": 5,
+              "timestamp": 1514764800
+            },
+            {
+              "value": 5,
+              "timestamp": 1514764800
+            },
+            {
+              "value": 2,
+              "timestamp": 1514764800
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "token": 29,
+      "start": 1514764800,
+      "finish": 1514793600,
+      "status": "active",
+      "users": [
+        {
+          "uid": 2,
+          "start": 1514764800,
+          "finish": 0,
+          "sections": {}
+        },
+        {
+          "uid": 3,
+          "start": 1514764800,
+          "finish": 0,
+          "sections": {}
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "token": 50,
       "start": 1514764800,
       "finish": 1514793600,
       "status": "active",
@@ -12,12 +82,10 @@
           "start": 1514764800,
           "finish": 0,
           "sections": {
-            "overview": "/review",
-            "ecosystem": "/review",
-            "outreach": "/review",
-            "opportunity": "jawfd",
-            "momentum": "khawkdjfkj kwdjf",
-            "solution": "kajdfkj kajdf"
+            "overview": "ok, this is my overview for Storj",
+            "team": "this is an amazing team",
+            "summary": "this is an amazing solution",
+            "resources": "the resources are bull"
           }
         },
         {}
@@ -59,160 +127,6 @@
       "max": 5,
       "min": 1,
       "text": "Consider this venture’s offering from the vantage of its audience. How strong is the problem, need, or desire being addressed?"
-    },
-    {
-      "name": "size of need",
-      "category": "opportunity",
-      "max": 5,
-      "min": 1,
-      "text": "How many individuals, companies have this need?  How large is the addressable market in your estimate?"
-    },
-    {
-      "name": "market growth",
-      "category": "opportunity",
-      "max": 5,
-      "min": 1,
-      "text": "Is this a market that is growing fast or stagnating/regressing?"
-    },
-    {
-      "name": "competition",
-      "category": "opportunity",
-      "max": 5,
-      "min": 1,
-      "text": "How intense is the competition, either direct or indirect?"
-    },
-    {
-      "name": "coverage",
-      "category": "momentum",
-      "max": 5,
-      "min": 1,
-      "text": "Has the offering/product been previewed by pundits, social media, reviewers.  How positive / negative is the reaction?"
-    },
-    {
-      "name": "market support",
-      "category": "momentum",
-      "max": 5,
-      "min": 1,
-      "text": "How much support is this offering having in the market, either from channel partners, or organic marketing, or press?"
-    },
-    {
-      "name": "adoption",
-      "category": "momentum",
-      "max": 5,
-      "min": 1,
-      "text": "How fast is the addressable market adopting this product/offering?"
-    },
-    {
-      "name": "competitor response",
-      "category": "momentum",
-      "max": 5,
-      "min": 1,
-      "text": "What is the response from competitors (direct/indirect)?"
-    },
-    {
-      "name": "core capabilities",
-      "category": "solution",
-      "max": 5,
-      "min": 1,
-      "text": "Upon review of the solution, product, technology and core science, how transformative is this team’s offering to the market?"
-    },
-    {
-      "name": "review credibility",
-      "category": "solution",
-      "max": 5,
-      "min": 1,
-      "text": "Has the technology been reviewed by experts(you or other peers) to validate it?  How credible are the ac?"
-    },
-    {
-      "name": "technology risk",
-      "category": "solution",
-      "max": 5,
-      "min": 1,
-      "text": "How risky is this technology/approach?"
-    },
-    {
-      "name": "comparitive effectiveness",
-      "category": "solution",
-      "max": 5,
-      "min": 1,
-      "text": "Comparing this offering with existing/upcoming alternatives. How much more effective is it?"
-    },
-    {
-      "name": "balance sheet",
-      "category": "resources",
-      "max": 5,
-      "min": 1,
-      "text": "Based on audited financials (if available), how strong is its balance sheet and ability to continually invest?"
-    },
-    {
-      "name": "revenue / profit momentum",
-      "category": "resources",
-      "max": 5,
-      "min": 1,
-      "text": "Based on audited financials (if available), how strong is the revenue and marginal profit momentum of the company?\\n"
-    },
-    {
-      "name": "brand / community support",
-      "category": "resources",
-      "max": 5,
-      "min": 1,
-      "text": "How strong is the goodwill (brand or community support) of the company? How strong is the human capital goodwill of the company?"
-    },
-    {
-      "name": "intellectual property",
-      "category": "resources",
-      "max": 5,
-      "min": 1,
-      "text": "How strong is the intellectual property related to the company’s offering and roadmap?  Does it give it a competitive advantage?"
-    },
-    {
-      "name": "number of tokens issued",
-      "category": "token-supply",
-      "max": 5,
-      "min": 1,
-      "text": "Review the schedule of token issuance by the company. Do you anticipate greater than usual tokens to be offered for sale?"
-    },
-    {
-      "name": "vesting schedule / time-locks",
-      "category": "token-supply",
-      "max": 5,
-      "min": 1,
-      "text": "Review the schedule of vesting / time-locks on tokens in the ecosystem. Do you anticipate greater than usual tokens to be offered for sale?"
-    },
-    {
-      "name": "token demand",
-      "category": "token-supply",
-      "max": 5,
-      "min": 1,
-      "text": "Based on demand by trade/commercial buyers of tokens, do you anticipate greater than usual tokens to be purchased?"
-    },
-    {
-      "name": "speculative demand",
-      "category": "token supply",
-      "max": 5,
-      "min": 1,
-      "text": "Based on demand by speculative/financial buyers of tokens, do you anticipate greater than usual tokens to be purchased?"
-    },
-    {
-      "name": "bull brief",
-      "category": "leads",
-      "max": 5,
-      "min": 1,
-      "text": "Upon review, can you attest that the Bull valuation brief represents a best-effort, truthful, non-plagiarized, non-conflicted effort by the analyst?"
-    },
-    {
-      "name": "bear brief",
-      "category": "leads",
-      "max": 5,
-      "min": 1,
-      "text": "Upon review, can you attest that the Bear valuation brief represents a best-effort, truthful, non-plagiarized, non-conflicted effort by the analyst?"
-    },
-    {
-      "name": "jurist recommendation",
-      "category": "summary",
-      "max": 5,
-      "min": 1,
-      "text": "After reviewing the Bull and Bear valuation briefs what is your recommendation?"
     }
   ],
   "reviewer_questions": [],
@@ -234,7 +148,7 @@
       "username": "tester_0",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": -1,
+      "active_review_round": 0,
       "id": 0,
       "receive": null
     },
@@ -247,7 +161,7 @@
       "username": "tester_1",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": -1,
+      "active_review_round": 0,
       "id": 1,
       "receive": null
     },
@@ -260,7 +174,7 @@
       "username": "tester_2",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": -1,
+      "active_review_round": 1,
       "id": 2,
       "receive": null
     },
@@ -273,7 +187,7 @@
       "username": "tester_3",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": -1,
+      "active_review_round": 1,
       "id": 3,
       "receive": null
     },
@@ -507,10 +421,10 @@
       "last_name": "k",
       "username": "alan_on40",
       "language_code": "en-US",
-      "active_jury_round": -1,
-      "active_review_round": 0,
+      "active_jury_round": 0,
+      "active_review_round": 2,
       "id": 21,
-      "receive": "review-category-6"
+      "receive": "review-category-7"
     },
     {
       "identity": "0xc9f413023e002651def5d896abfa7fa360680940",
