@@ -1,97 +1,5 @@
 {
-  "rounds": [
-    {
-      "id": 0,
-      "token": 29,
-      "start": 1514764800,
-      "finish": 1514793600,
-      "status": "active",
-      "users": [
-        {
-          "uid": 0,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "uid": 1,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "uid": 21,
-          "start": 1514764800,
-          "finish": 0,
-          "question": -1,
-          "answers": [
-            {
-              "value": 4,
-              "timestamp": 1514764800
-            },
-            {
-              "value": 4,
-              "timestamp": 1514764800
-            },
-            {
-              "value": 5,
-              "timestamp": 1514764800
-            },
-            {
-              "value": 5,
-              "timestamp": 1514764800
-            },
-            {
-              "value": 2,
-              "timestamp": 1514764800
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "token": 29,
-      "start": 1514764800,
-      "finish": 1514793600,
-      "status": "active",
-      "users": [
-        {
-          "uid": 2,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        },
-        {
-          "uid": 3,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {}
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "token": 50,
-      "start": 1514764800,
-      "finish": 1514793600,
-      "status": "active",
-      "users": [
-        {
-          "uid": 21,
-          "start": 1514764800,
-          "finish": 0,
-          "sections": {
-            "overview": "ok, this is my overview for Storj",
-            "team": "this is an amazing team",
-            "summary": "this is an amazing solution",
-            "resources": "the resources are bull"
-          }
-        },
-        {}
-      ]
-    }
-  ],
+  "rounds": [],
   "analyst_questions": [
     {
       "name": "pedigree",
@@ -148,7 +56,7 @@
       "username": "tester_0",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": 0,
+      "active_review_round": -1,
       "id": 0,
       "receive": null
     },
@@ -161,7 +69,7 @@
       "username": "tester_1",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": 0,
+      "active_review_round": -1,
       "id": 1,
       "receive": null
     },
@@ -174,7 +82,7 @@
       "username": "tester_2",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": 1,
+      "active_review_round": -1,
       "id": 2,
       "receive": null
     },
@@ -187,7 +95,7 @@
       "username": "tester_3",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": 1,
+      "active_review_round": -1,
       "id": 3,
       "receive": null
     },
@@ -421,10 +329,11 @@
       "last_name": "k",
       "username": "alan_on40",
       "language_code": "en-US",
-      "active_jury_round": 0,
-      "active_review_round": 2,
+      "active_jury_round": -1,
+      "active_review_round": -1,
       "id": 21,
-      "receive": "review-category-7"
+      "receive": null,
+      "mockAs": 6
     },
     {
       "identity": "0xc9f413023e002651def5d896abfa7fa360680940",

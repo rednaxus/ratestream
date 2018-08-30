@@ -72,45 +72,6 @@ const botReply = (chat_id,reply) => {
 
 var leadNum = 0 // for now, need to be better about token choices
 var role = 0 // bull/bear, 0->1
-bot.on('message', msg => {
-	let user = app.userByTelegram( msg.from )
-	if (user.receive) {
-		console.log('user receive',user)
-		let q = user.receive.split('-')
-		switch (q[0]) {
-			case 'review': 
-				if (q[1] == 'category') {
-					let catIdx = +q[2]
-					botReply(msg.chat.id, app.cmd('review_category',{ user, category:catIdx, text:msg.text.toString() }) ).then( () => {
-						botReply( msg.chat.id, app.cmd( 'review_categories', {user} ) )
-					})
-				}
-				break
-			case 'question':
-				botReply(msg.chat.id, app.cmd('question', { round, user }))
-				break
-		}
-		user.receive = null // clear it	
-	}
-	else { // not sure about this yet
-		let msgText = msg.text.toString().toLowerCase()
-		//console.log('msg in essage',msg)
-		switch (msgText) {
-			case 'news':
-				app.topNewsByCoin('monero').then( articles => console.log(articles) )
-			case 'commands':
-				bot.sendMessage(msg.chat.id,'commands....')
-				break
-			case 'tokens':
-				bot.sendMessage( msg.chat.id, "Covered Tokens", formatters.tokens( tokens ) )
-				break
-			default:
-				//console.log(`unknown msg ${msg.text}`)
-		
-		}
-	}
-	
-})
 
 
 
@@ -148,9 +109,12 @@ bot.onText(/\/review/i, msg => {
 	console.log('msgInfo',msgInfo)
 	let user
 	if (msgInfo[1]) { // testing purposes only
-		user = testUsers[+msgInfo[1]]
+		user = app.userByTelegram( msg.from )
+		user.mockAs = +msgInfo[1]
+		user = testUsers[+msgInfo[1]]		
 	} else {
 		user = app.userByTelegram( msg.from )
+		user.mockAs = -1
 	}
 	botReply( msg.chat.id, app.cmd( 'review', {user} ) ).then( () => {
 		botReply( msg.chat.id, app.cmd( 'review_categories', {user} ) )
@@ -158,9 +122,20 @@ bot.onText(/\/review/i, msg => {
 })
 
 bot.onText(/\/analyze/i, msg => { // jurist start round
-	let user = app.userByTelegram( msg.from ) 
-	botReply(msg.chat.id,app.cmd('analyze',{ user })).then( () => {
-		botReply( msg.chat.id, app.cmd( 'question',{ user }))
+	let msgInfo = msg.text.split(' ') // for testing, so can explicitly specify user
+	console.log('msgInfo',msgInfo)
+	let user
+	if (msgInfo[1]) { // testing purposes only
+		user = app.userByTelegram( msg.from )
+		user.mockAs = +msgInfo[1]
+		user = testUsers[+msgInfo[1]]		
+	} else {
+		user = app.userByTelegram( msg.from )
+		user.mockAs = -1
+	}
+	let cmdResult = app.cmd('analyze',{ user })
+	botReply(msg.chat.id,cmdResult).then( () => {
+		if (cmdResult.status !== -1) botReply( msg.chat.id, app.cmd( 'question',{ user }))
 	})
 })
 
@@ -236,6 +211,7 @@ bot.onText(/\/questions/i, msg => {
 /* query callbacks */
 bot.on('callback_query', query => {
 	let user =  app.userByTelegram( query.from )
+	if (user.mockAs >= 0) user = testUsers[user.mockAs]
 	bot.answerCallbackQuery(query.id, { text: `Action received from ${user.first_name}!` })
 	.then( () => {
 		console.log('query on callback',query)
@@ -249,6 +225,7 @@ bot.on('callback_query', query => {
 					botReply(query.message.chat.id, app.cmd('review_category_request',{ user, category: +q[2]}) )
 					console.log('submit category')
 				}
+				break
 			case 'question':
 				botReply(query.message.chat.id, app.cmd('question_answer',{user, question_number: +q[1], answer: +q[2] }) )
 				break
@@ -258,6 +235,47 @@ bot.on('callback_query', query => {
 		//bot.sendMessage(query.from.id, `Hey there! You clicked on an inline button! ${query.data}`)
 
 	})
+})
+
+bot.on('message', msg => {
+	let user = app.userByTelegram( msg.from )
+	if (user.mockAs >= 0) user = testUsers[user.mockAs]
+	if (user.receive) {
+		console.log('user receive',user)
+		let q = user.receive.split('-')
+		switch (q[0]) {
+			case 'review': 
+				if (q[1] == 'category') {
+					let catIdx = +q[2]
+					botReply(msg.chat.id, app.cmd('review_category',{ user, category:catIdx, text:msg.text.toString() }) ).then( () => {
+						botReply( msg.chat.id, app.cmd( 'review_categories', {user} ) )
+					})
+				}
+				break
+			//case 'question':
+			//	botReply(msg.chat.id, app.cmd('question', { round, user }))
+			//	break
+		}
+		user.receive = null // clear it	
+	}
+	else { // not sure about this yet
+		let msgText = msg.text.toString().toLowerCase()
+		//console.log('msg in essage',msg)
+		switch (msgText) {
+			case 'news':
+				app.topNewsByCoin('monero').then( articles => console.log(articles) )
+			case 'commands':
+				bot.sendMessage(msg.chat.id,'commands....')
+				break
+			case 'tokens':
+				bot.sendMessage( msg.chat.id, "Covered Tokens", formatters.tokens( tokens ) )
+				break
+			default:
+				//console.log(`unknown msg ${msg.text}`)
+		
+		}
+	}
+	
 })
 
 

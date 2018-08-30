@@ -11,10 +11,11 @@ function* entries(obj) { // object iterator
 		yield [key, obj[key]]
 }
 
+
 module.exports = {
 
 	commands: cmds => {
-
+		
 	},
 	menu: () => ({ 
 		"reply_markup": {
