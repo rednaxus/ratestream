@@ -47,10 +47,18 @@ const commands = [
 	'news',
 	'token <name>',
 	'tokens',
-	'summaries'
+	'summaries',
+	'refreshInfo',
+	'refreshTokens',
+	'refreshTopTokens',
+	'clearRounds',
+	'refreshInfo',
+	'time',
+	'cron'
 ]
 
 var saveTimer
+var cronTimer
 
 const round_window = 3600*8 // 8 hours
 const round_window_min = 3600*2 // 2 hours, minimum window left for a second lead to be added
@@ -87,21 +95,25 @@ const app = {
 		if (autosave) saveTimer = setInterval( ()=> {
 			let changes = module.exports.roundsAssess()
 			if (cb) cb( changes )
-			module.exports.save()
+			console.log(`autosaving at ${now}`)
+			app.save()
 		}, 600000 )
+		// time
+		cronTimer = setInterval( () => app.cron( 10 ), 10000 )
 		tokens.forEach( (token,idx) => console.log( `[${idx}] ${token.name}` ) )
-		users.forEach( user => user.receive = null ) // clear out previous state
+		users.forEach( user => user.receive = null ) // clear out previous state (for development)
 	},
 	stop: () => {
 		clearInterval(saveTimer)
 	},
 	save: () => {
-		console.log('saving app')
+		console.log(`${now}: saving app`)
+		app.now = now
 		fs.writeFileSync('../app.json', JSON.stringify(appData,null,2), 'utf8')
 	},
 
 	saveInfo: () => {
-		console.log('saving info')
+		console.log(`${now}: saving info`)
 		fs.writeFileSync('../info.json', JSON.stringify(infoData,null,2), 'utf8')
 	},
 
@@ -166,7 +178,7 @@ const app = {
           start: time,
           finish: 0,
           sections:{}
-         },{}]
+        },{}]
 			}
 			rounds.push( round )
 
@@ -261,7 +273,6 @@ const app = {
 	getTokenId: name => ( appData.tokens.findIndex( token => token.name == name ) ),
 
 	refreshTopTokens: () => {
-		var self = this
 		ethplorer.getTopTokens().then( tops => {
 			//appData.tokens_top = tops
 			let toptokens = tops.data.tokens
@@ -269,27 +280,28 @@ const app = {
 			toptokens.forEach( toptoken => {
 				let tokenFound = appData.tokens.findIndex( token => token.name === toptoken.name )
 				if (tokenFound === -1) {
-					appData.tokens.push( { address: toptoken.address, name: toptoken.name.trim(), markets: [] } )
+					let name = toptoken.name.trim()
+					console.log(`${now} adding token ${name}`)
+					appData.tokens.push( { address: toptoken.address, name: name, markets: [] } )
 					tokenFound = appData.tokens.length - 1
 				}
 				//appData.tokens[ tokenFound ].markets.push( { timestamp: now, ...toptoken } )
 			})
-			self.save()
+			app.save()
 		}).catch( err => console.log(err) )
 	},
 	refreshTokens: () => {
-		var self = this
 		doFetch = () => {
 			let token = appData.tokens[nextTokenFetch]
 			if (!token.markets) token.markets = []
 			//console.log('fetch token with address',token.address)
 			fetchToken( token.address ).then( marketData =>{
-				//console.log('got token data',marketData)
-				token.markets.push( { timestamp: now(), ...marketData } )
+				console.log(`${now}: got token ${token.name} data`)
+				token.markets.push( { timestamp: now, ...marketData } )
 				//console.log(appData.tokens)
 				if (++nextTokenFetch === appData.tokens.length ) {
 					console.log('finish fetching tokens')
-					self.save()
+					app.save()
 					nextTokenFetch = 0
 				} else {
 					doFetch()
@@ -302,8 +314,12 @@ const app = {
 	stopTokens: () => {
 
 	},
+
 	/* users */
-	userByTelegram: t_user => {
+	identify: msg => { // who am i
+		let t_user = msg.from
+		let chat = msg.chat ? msg.chat.id : null
+
 		let idx = appData.users.findIndex( user => user.t_id === t_user.id )
 
 		if (idx !== -1) return appData.users[idx]
@@ -313,6 +329,7 @@ const app = {
 			id: appData.users.length,
 			...refcode.getRefCodePair(),
 			t_id: 					t_user.id, 
+			t_chat_id: 			chat,
 			first_name: 		t_user.first_name,
 			last_name: 			t_user.last_name,
 			username: 			t_user.username, 
@@ -385,7 +402,7 @@ const app = {
 			return `${result}\n\n<b>${category}</b>\n\n<i>bull:</i> ${reply[0]}\n\n<i>bear:</i> ${reply[1]}`
 		},'')
 	},
-	cmd: (command, data = {}) => { // command processor for the app
+	say: (command, data = {}) => { // command processor for the app
 		var retval
 		let round
 		let user = data.user
@@ -408,7 +425,9 @@ const app = {
 				break
 			case 'news':
 				break
-			case 'top_tokens': 
+			case 'news_refresh':
+				app.refreshInfo()
+				retval = { text: dialogs['news.refresh'].text() }
 				break
 			case 'summaries':
 				break
@@ -508,8 +527,13 @@ const app = {
 			case 'tokens':
 				retval = { text:dialogs['tokens'].text(), format:formatters.tokens( tokens ) }
 				break
-			case 'tokensRefresh':
+			case 'tokens_refresh':
 				app.refreshTokens() // can do this on regular interval
+				retval = { text:dialogs['tokens.refresh'].text() }
+				break
+			case 'tokens_top':
+				app.refreshTopTokens()
+				retval = { text: dialogs['tokens.top'].text() }
 				break
 			case 'token':
 				let tokenId = Number.isInteger(data.id) ? data.id : app.getTokenId( data.name )
@@ -600,51 +624,13 @@ const app = {
 
 	dialogs: {
 		'commands': {
-			text: () => commands.map( command => '\n/'+command )
+			text: () => commands.reduce( ( result, command ) => (`${result}\n/${command}`), '')
 		},
 		'welcome.new': {
 			text: ({ user }) => `Welcome ${user.first_name}...what you can do with ratestream:`
 		},
 		'welcome.returning': {
 			text: ({ user }) => `Welcome back ${user.first_name}`
-		},
-		'review.started': {
-			text: ({round, user }) => {
-				return (
-					`Great ${user.first_name}....you are now Lead as ${app.roundRole(round,user)} analyst for token ${token_name(round)}.`
-					+ `\n\nTo lead the round, You will need to submit reviews for ${categories.map( category => `\n  ${category}`) }.`
-				)
-			}
-		},
-		'review.overview': {
-			text: ({ round, user }) => (
-				`please submit <b>${app.roundRole(round,user)} overview</b> for <b>${token_name(round)}</b> now to get started`
-			)
-		},
-		'review.already': {
-			text: ({round, user}) => (
-				`${user.first_name}...you are already ${app.roundRole( round, user )} reviewer for ${token_name(round)}`
-			)
-		},
-		'review.categories.awaiting':{
-			text: () => ``
-		},
-		'review.categories.finished':{
-			text: ({ round, user }) => `Great ${user.first_name}...all categories reviewed for ${token_name(round)}.  Good luck!`
-		},
-		'review.categories.pick': {
-			text: ({ round, user }) => `${user.first_name} pick a category to review now`
-		},
-		'review.category.request': {
-			text: ({round,user,category}) => (
-				`please submit <b>${app.roundRole(round,user)}</b> review of <b>${category}</b> for <b>${token_name(round)}</b>`
-			)
-		},
-		'review.warning.round.ending': {
-			text: () => `warning!  round ends in... Get your reviews in...still missing`
-		},
-		'rounds.clear': {
-			text: () => 'rounds cleared'
 		},
 		'analysis.active': {
 			text: ({ round, user }) => (
@@ -690,15 +676,61 @@ const app = {
 		'analysis.finished':{
 			text: ({ round, user }) => 'All questions answered'
 		},
+		'news.refresh':{
+			text: () => 'refreshing news information'
+		},
+		'review.started': {
+			text: ({round, user }) => {
+				return (
+					`Great ${user.first_name}....you are now Lead as ${app.roundRole(round,user)} analyst for token ${token_name(round)}.`
+					+ `\n\nTo lead the round, You will need to submit reviews for ${categories.map( category => `\n  ${category}`) }.`
+				)
+			}
+		},
+		'review.overview': {
+			text: ({ round, user }) => (
+				`please submit <b>${app.roundRole(round,user)} overview</b> for <b>${token_name(round)}</b> now to get started`
+			)
+		},
+		'review.already': {
+			text: ({round, user}) => (
+				`${user.first_name}...you are already ${app.roundRole( round, user )} reviewer for ${token_name(round)}`
+			)
+		},
+		'review.categories.awaiting':{
+			text: () => ``
+		},
+		'review.categories.finished':{
+			text: ({ round, user }) => `Great ${user.first_name}...all categories reviewed for ${token_name(round)}.  Good luck!`
+		},
+		'review.categories.pick': {
+			text: ({ round, user }) => `${user.first_name} pick a category to review now`
+		},
+		'review.category.request': {
+			text: ({round,user,category}) => (
+				`please submit <b>${app.roundRole(round,user)}</b> review of <b>${category}</b> for <b>${token_name(round)}</b>`
+			)
+		},
+		'review.warning.round.ending': {
+			text: () => `warning!  round ends in... Get your reviews in...still missing`
+		},
+		'rounds.clear': {
+			text: () => 'rounds cleared'
+		},
 		'sample.summary': {
 			text: () => ``
 		},
-
 		'token.notfound': {
 			text: ({tokenName}) => `no token ${tokenName} in our library`
 		},
 		'tokens': {
 			text: () => `Covered Tokens`
+		},
+		'tokens.refresh': {
+			text: () => `Refreshing tokens`
+		},
+		'tokens.top': {
+			text: () => `Refreshing and acquiring top tokens (by market cap)`
 		}
 	}
 }

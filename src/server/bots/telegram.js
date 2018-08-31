@@ -7,7 +7,7 @@ const { translate } = require('../nlp')
 const moment = require('moment')
 
 var app = require('../application')
-const { dialogs } = app
+const { say, identify } = app
 
 const formatters = require('./formatters')
 
@@ -18,8 +18,8 @@ app.start(false) // no autosave for development
 app.save() // reformat any json changes
 
 var testUsers = users.filter( user => user.first_name.startsWith('tester_'))
-console.log('users:',users)
-console.log('testusers:',testUsers)
+// console.log('users:',users)
+// console.log('testusers:',testUsers)
 
 /* nlp tests */
 var t = translate('dinosaur').nouns().toPlural()
@@ -56,12 +56,12 @@ const bot = new TelegramBot(config.telegram.botkey, { polling: true })
 })
 */
 
-const botReply = (chat_id,reply) => {
+/* general bot reply point */
+const tell = (chat_id,reply) => {
 	//console.log('bot reply',chat_id,reply)
 	let ret
-	let parse
-	if (reply.parse) parse = {...reply.parse} // oops, bug in bot, modifies parse 
-	if (reply.parse && reply.format)
+	let parse = reply.parse ? {...reply.parse} : null // oops, bug in bot, sendMessage modifies parse 
+	if (parse && reply.format)
 		ret = bot.sendMessage(chat_id,reply.text,reply.format,parse)
 	else if (reply.parse || reply.format)
 		ret = bot.sendMessage(chat_id,reply.text,reply.format || parse)
@@ -95,13 +95,9 @@ var role = 0 // bull/bear, 0->1
   */    
 
 /* app */
-bot.onText(/\/restart/, msg => {
-	botReply( msg.chat.id, app.cmd('restart',{user:app.userByTelegram( msg.from )} ) )
-})
+bot.onText(/\/restart/, msg => tell( msg.chat.id, say('restart',{user:identify( msg )} ) ) )
 
-bot.onText(/\/start/, msg => {
-	botReply( msg.chat.id, app.cmd('start', {user: app.userByTelegram( msg.from )}) )    
-})
+bot.onText(/\/start/, msg => tell( msg.chat.id, say('start', {user: identify( msg )}) ) )
 
 /* rounds */
 bot.onText(/\/review/i, msg => {
@@ -109,15 +105,15 @@ bot.onText(/\/review/i, msg => {
 	console.log('msgInfo',msgInfo)
 	let user
 	if (msgInfo[1]) { // testing purposes only
-		user = app.userByTelegram( msg.from )
+		user = identify( msg )
 		user.mockAs = +msgInfo[1]
 		user = testUsers[+msgInfo[1]]		
 	} else {
-		user = app.userByTelegram( msg.from )
+		user = identify( msg )
 		user.mockAs = -1
 	}
-	botReply( msg.chat.id, app.cmd( 'review', {user} ) ).then( () => {
-		botReply( msg.chat.id, app.cmd( 'review_categories', {user} ) )
+	tell( msg.chat.id, say( 'review', {user} ) ).then( () => {
+		tell( msg.chat.id, say( 'review_categories', {user} ) )
 	})
 })
 
@@ -126,16 +122,16 @@ bot.onText(/\/analyze/i, msg => { // jurist start round
 	console.log('msgInfo',msgInfo)
 	let user
 	if (msgInfo[1]) { // testing purposes only
-		user = app.userByTelegram( msg.from )
+		user = identify( msg )
 		user.mockAs = +msgInfo[1]
 		user = testUsers[+msgInfo[1]]		
 	} else {
-		user = app.userByTelegram( msg.from )
+		user = identify( msg )
 		user.mockAs = -1
 	}
-	let cmdResult = app.cmd('analyze',{ user })
-	botReply(msg.chat.id,cmdResult).then( () => {
-		if (cmdResult.status !== -1) botReply( msg.chat.id, app.cmd( 'question',{ user }))
+	let cmdResult = say('analyze',{ user })
+	tell(msg.chat.id,cmdResult).then( () => {
+		if (cmdResult.status !== -1) tell( msg.chat.id, say( 'question',{ user }))
 	})
 })
 
@@ -151,66 +147,61 @@ bot.onText(/\/next/i, msg => {
 
 
 /* tokens */
-bot.onText(/\/tokens/i, msg => { 
-	botReply( msg.chat.id, app.cmd('tokens') )
-})
+bot.onText(/\/tokens/i, msg => tell( msg.chat.id, say('tokens') ) )
 
-bot.onText(/\/token /i, msg => {
-	botReply( msg.chat.id, app.cmd('token', {name:msg.text.substring(12)}) )
-})
+bot.onText(/\/token /i, msg => tell( msg.chat.id, say('token', {name:msg.text.substring(12)}) ) )
 
 /* internal use, admin only */
 
 bot.onText(/\/clearRounds/i,msg => { // beware, clears all rounds, really
-	botReply(msg.chat.id, app.cmd('roundsClear'))
+	tell(msg.chat.id, say('roundsClear'))
 })
-bot.onText(/\/refreshTokens/, msg => {
-	botReply( msg.chat.id, app.cmd('tokensRefresh') )
-})
-bot.onText(/\/refreshInfo/, msg => {
-	app.refreshInfo()
-	bot.sendMessage( msg.chat.id, `refreshing news information`)
-})
-bot.onText(/\/refreshTopTokens/, msg => {
-	app.refreshTopTokens() // can do this on regular interval
-	bot.sendMessage( msg.chat.id, `refreshing top tokens`)
-})
-bot.onText(/\/time/, msg => {
-	botReply( msg.chat.id, app.cmd('time') )
-})
+
+bot.onText(/\/refreshTokens/, msg => tell( msg.chat.id, say('tokens_refresh') ) )
+
+bot.onText(/\/refreshInfo/, msg => tell( msg.chat.id, say('news_refresh') ) )
+
+bot.onText(/\/refreshTopTokens/, msg => tell( msg.chat.id, say( 'tokens_top') ) )
+
+bot.onText(/\/time/, msg => tell( msg.chat.id, say('time') ) )
+
 bot.onText(/\/cron/, msg => { // specified in hours if want to specify
 	const fields = msg.text.split(' ')
 	console.log('fields',fields)
 	const delta = fields.length == 1 ? 3600 : +fields[1] * 3600
 	//console.log('delta is',delta)
-	botReply( msg.chat.id, app.cmd('cron',{delta:delta}) )
+	tell( msg.chat.id, say('cron',{delta:delta}) )
 })
+
+// fix these?
 bot.onText(/\/testAddReviewers/, msg => {	
 	testUsers.forEach( (user,idx) => {
-		botReply( msg.chat.id, app.cmd( 'review', {user} ) )
+		tell( msg.chat.id, say( 'review', {user} ) )
 	})
 })
+
 bot.onText(/\/testAddAnalysts/, msg => {
 	testUsers.forEach( (user,idx) => {
-		let userIdx = app.userByTelegram( { id: user.t_id } )
-		let roundIdx = app.roundToAnalyze( userIdx )
-		if (roundIdx == -1) {
+		//let user = identify( { id: user.t_id } )
+		let round = app.roundToAnalyze( user )
+		if (!round) {
 			bot.sendMessage(msg.chat.id,`Sorry...no rounds to analyze right now`)
 		} else {
-			let round = rounds[ roundIdx ]
 			bot.sendMessage(msg.chat.id,`${users[ userIdx ].first_name} now analyzing in round ${roundIdx} with token ${tokens[round.token].name}`)
 		}	
 	})
 })
+
+
 /* questions */
 
 bot.onText(/\/questions/i, msg => {
-	botReply(msg.chat.id, app.cmd('questions') )
+	tell(msg.chat.id, say('questions') )
 })
 
-/* query callbacks */
+/* query callbacks for buttons */
 bot.on('callback_query', query => {
-	let user =  app.userByTelegram( query.from )
+	let user =  identify( query )
 	let cmd
 	if (user.mockAs >= 0) user = testUsers[user.mockAs]
 	bot.answerCallbackQuery(query.id, { text: `Action received from ${user.first_name}!` })
@@ -219,31 +210,31 @@ bot.on('callback_query', query => {
 		let q = query.data.split('-')
 		switch (q[0]) {
 			case 'token': 
-				botReply( query.message.chat.id, app.cmd('token', {id:+q[1]} ) )
+				tell( query.message.chat.id, say('token', {id:+q[1]} ) )
 				break
 			case 'review':
 				if (q[1] && q[1] == 'category') {
-					botReply(query.message.chat.id, app.cmd('review_category_request',{ user, category: +q[2]}) )
+					tell(query.message.chat.id, say('review_category_request',{ user, category: +q[2]}) )
 					console.log('submit category')
 				}
 				break
 			case 'question':
-				cmd = app.cmd('question_answer',{user, question_number: +q[1], answer: +q[2] })
-				botReply(query.message.chat.id, cmd).then( () => {
-					if (cmd.status == 1) 
-						botReply(query.message.chat.id, app.cmd('question',{user} ))
+				cmd = say('question_answer',{user, question_number: +q[1], answer: +q[2] })
+				tell(query.message.chat.id, cmd).then( () => {
+					if (cmd.status == 1) // next question
+						tell(query.message.chat.id, say('question',{user} ))
 				})
 				break
 			default:
 				console.log(`unrecognized command ${q[0]}`)
 		}
-		//bot.sendMessage(query.from.id, `Hey there! You clicked on an inline button! ${query.data}`)
 
 	})
 })
 
+/* callbacks based on input text */
 bot.on('message', msg => {
-	let user = app.userByTelegram( msg.from )
+	let user = identify( msg )
 	if (user.mockAs >= 0) user = testUsers[user.mockAs]
 	if (user.receive) {
 		console.log('user receive',user)
@@ -252,13 +243,13 @@ bot.on('message', msg => {
 			case 'review': 
 				if (q[1] == 'category') {
 					let catIdx = +q[2]
-					botReply(msg.chat.id, app.cmd('review_category',{ user, category:catIdx, text:msg.text.toString() }) ).then( () => {
-						botReply( msg.chat.id, app.cmd( 'review_categories', {user} ) )
+					tell(msg.chat.id, say('review_category',{ user, category:catIdx, text:msg.text.toString() }) ).then( () => {
+						tell( msg.chat.id, say( 'review_categories', {user} ) )
 					})
 				}
 				break
 			//case 'question':
-			//	botReply(msg.chat.id, app.cmd('question', { round, user }))
+			//	tell(msg.chat.id, say('question', { round, user }))
 			//	break
 		}
 		user.receive = null // clear it	
@@ -270,10 +261,10 @@ bot.on('message', msg => {
 			case 'news':
 				app.topNewsByCoin('monero').then( articles => console.log(articles) )
 			case 'commands':
-				bot.sendMessage(msg.chat.id,'commands....')
+				tell(msg.chat.id, say('commands'))
 				break
 			case 'tokens':
-				bot.sendMessage( msg.chat.id, "Covered Tokens", formatters.tokens( tokens ) )
+				tell( msg.chat.id, say('tokens') )
 				break
 			default:
 				//console.log(`unknown msg ${msg.text}`)
