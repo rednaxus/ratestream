@@ -211,6 +211,7 @@ bot.onText(/\/questions/i, msg => {
 /* query callbacks */
 bot.on('callback_query', query => {
 	let user =  app.userByTelegram( query.from )
+	let cmd
 	if (user.mockAs >= 0) user = testUsers[user.mockAs]
 	bot.answerCallbackQuery(query.id, { text: `Action received from ${user.first_name}!` })
 	.then( () => {
@@ -227,7 +228,11 @@ bot.on('callback_query', query => {
 				}
 				break
 			case 'question':
-				botReply(query.message.chat.id, app.cmd('question_answer',{user, question_number: +q[1], answer: +q[2] }) )
+				cmd = app.cmd('question_answer',{user, question_number: +q[1], answer: +q[2] })
+				botReply(query.message.chat.id, cmd).then( () => {
+					if (cmd.status == 1) 
+						botReply(query.message.chat.id, app.cmd('question',{user} ))
+				})
 				break
 			default:
 				console.log(`unrecognized command ${q[0]}`)

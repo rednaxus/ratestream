@@ -105,26 +105,6 @@ const app = {
 		fs.writeFileSync('../info.json', JSON.stringify(infoData,null,2), 'utf8')
 	},
 
-
-	/*
-	translateSurvey: () => {
-		let questions = survey.getElements()
-		//console.log(questions)
-		appData.questions = questions.map( question => { 
-			return { 
-				name: question.name, 
-				category: "",
-				max: 5,
-				min: 1,
-				title: question.name,
-				text: question.title 
-			}
-		})
-		console.log('aapdata',appData)
-		module.exports.save()
-	},
-	*/
-
 	/* rounds */
 
 	roundReviewCategories: ( round, user ) => {
@@ -227,10 +207,17 @@ const app = {
 		let round = rounds[juryRound]
 		round.users.push({ 
 			uid: user.id, 
-			start: now, 
-			finish: 0, 
-			question: 0, 
-			answers: new Array(analyst_questions.length).fill({}) 
+			question: 0,
+			phase: 0,
+			phases: [{ // pre or post review
+				start: now, 
+				finish: 0, 	
+				answers: new Array(analyst_questions.length).fill({}) 			
+			},{
+				start: 0,
+				finish: 0,
+				answers: new Array(analyst_questions.length).fill({})			
+			}]
 		})
 		user.active_jury_round = juryRound
 		app.save()
@@ -387,7 +374,17 @@ const app = {
 		doFetch()
 
 	},
-
+	roundReviews: (round) => {
+		return categories.reduce( ( result, category, cidx ) => {
+			if (!round.users[0].sections[category] && !round.users[1].sections[category]) return result
+			let reply = [
+				round.users[0].sections[category] || '[-no review-]',
+				round.users[1].sections[category] || '[-no review-]'
+			]
+			console.log('reply',reply)
+			return `${result}\n\n<b>${category}</b>\n\n<i>bull:</i> ${reply[0]}\n\n<i>bear:</i> ${reply[1]}`
+		},'')
+	},
 	cmd: (command, data = {}) => { // command processor for the app
 		var retval
 		let round
@@ -397,6 +394,7 @@ const app = {
 		let question_number
 		let answer
 		let question
+		let phase
 
 		//var ret = (text,format) => ({ text:text, format:format })
 		console.log(`command is ${command}`,data)
@@ -470,15 +468,26 @@ const app = {
 				answer = data.answer
 				round = rounds[user.active_jury_round]
 				roundUser = round.users.find( roundUser => roundUser.uid == user.id )
-				roundUser.answers[question_number] = { value: answer, timestamp: now }
-				roundUser.question = roundUser.answers.findIndex( answer => !answer.timestamp )
+				phase = roundUser.phases[roundUser.phase]
+				phase.answers[question_number] = { value: answer, timestamp: now }
+				roundUser.question = phase.answers.findIndex( answer => !answer.timestamp )
 				console.log('next question',roundUser.question)
 
-				if (roundUser.question == -1) {
-					user.active_jury_round = -1
-
-					retval = { 
-						text: dialogs['analysis.finished'].text({ round, user })
+				if (roundUser.question == -1) { // finished phase...todo: time check for 10 minute limit
+					phase.finish = now
+					if (roundUser.phase == 2) {
+						console.log('!! programmer error, should not be here in phase 2')
+					}
+					if (roundUser.phase == 1) {
+						user.active_jury_round = -1
+						retval = { text: dialogs['analysis.finished'].text({ round, user }), parse:parseHtml }
+						roundUser.phase = 2
+					} else { // move to next phase
+						roundUser.phase = 1
+						roundUser.question = 0
+						phase = roundUser.phases[1]
+						phase.start = now
+						retval = { text: dialogs['analysis.finish.pre'].text( { round, user} ), parse:parseHtml, status: 1 }
 					}
 				} else {
 					retval = {
@@ -653,11 +662,29 @@ const app = {
 				`${user.first_name} you are already analyst in round with token ${token_name(round)}`
 			)
 		},
+		'analysis.finish.pre': {
+			text: ({ round, user }) => {
+				// tell round is finished
+				let reviews = app.roundReviews( round )
+				return (
+					`\n\npre-analysis finished!`
+					// tell reviews submitted
+					+`\n\nreviews:\n`
+					+ app.roundReviews(round)
+					// start questions
+					+`\n\nnow the post review questions`
+				)
+			}
+		},
+		'analysis.reviews': {
+
+		},
 		'analysis.question':{
 			text: ({ round, user}) => {
 				let roundUser = round.users.find( roundUser => roundUser.uid == user.id )
 				console.log('round user question ',roundUser)
-				return analyst_questions[roundUser.question].text
+				let question = analyst_questions[roundUser.question]
+				return `${question.category}:${question.name}:${roundUser.phase ? '[post-review]':'[pre-review]'}\n\n${question.text}`
 			}
 		},
 		'analysis.finished':{
