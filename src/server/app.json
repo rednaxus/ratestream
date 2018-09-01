@@ -7409,6 +7409,409 @@
               "avg": 0
             }
           ]
+        },
+        {
+          "timestamp": 1514764800,
+          "answers": [
+            {
+              "count": 9,
+              "avg": 2,
+              "sway_count": 9,
+              "avg_sway": null
+            },
+            {
+              "count": 9,
+              "avg": 2,
+              "sway_count": 9,
+              "avg_sway": null
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": null
+            },
+            {
+              "count": 9,
+              "avg": 1,
+              "sway_count": 9,
+              "avg_sway": null
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": null
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 36,
+              "avg": 2.25,
+              "sway_count": 36,
+              "avg_sway": null
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            }
+          ]
+        },
+        {
+          "timestamp": 1514764800,
+          "answers": [
+            {
+              "count": 9,
+              "avg": 2,
+              "sway_count": 9,
+              "avg_sway": -2
+            },
+            {
+              "count": 9,
+              "avg": 2,
+              "sway_count": 9,
+              "avg_sway": -1
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": -1
+            },
+            {
+              "count": 9,
+              "avg": 1,
+              "sway_count": 9,
+              "avg_sway": -1
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": 3
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 36,
+              "avg": 2.25,
+              "sway_count": 36,
+              "avg_sway": -1.25
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": 3
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            }
+          ]
+        },
+        {
+          "timestamp": 1514764800,
+          "answers": [
+            {
+              "count": 9,
+              "avg": 2,
+              "sway_count": 9,
+              "avg_sway": -2
+            },
+            {
+              "count": 9,
+              "avg": 2,
+              "sway_count": 9,
+              "avg_sway": -1
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": -1
+            },
+            {
+              "count": 9,
+              "avg": 1,
+              "sway_count": 9,
+              "avg_sway": -1
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": 3
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 36,
+              "avg": 2.25,
+              "sway_count": 36,
+              "avg_sway": -1.25
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": 3
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            }
+          ]
+        },
+        {
+          "timestamp": 1514764800,
+          "answers": [
+            {
+              "count": 9,
+              "avg": 2,
+              "sway_count": 9,
+              "avg_sway": -2,
+              "winner": 1
+            },
+            {
+              "count": 9,
+              "avg": 2,
+              "sway_count": 9,
+              "avg_sway": -1,
+              "winner": 1
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": -1,
+              "winner": 0
+            },
+            {
+              "count": 9,
+              "avg": 1,
+              "sway_count": 9,
+              "avg_sway": -1,
+              "winner": 1
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": 3,
+              "winner": 0
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 36,
+              "avg": 2.25,
+              "sway_count": 36,
+              "avg_sway": -1.25,
+              "winner": 1
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": 3,
+              "winner": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ]
         }
       ]
     },
@@ -10175,6 +10578,409 @@
             {
               "count": 0,
               "avg": 0
+            }
+          ]
+        },
+        {
+          "timestamp": 1514764800,
+          "answers": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            }
+          ]
+        },
+        {
+          "timestamp": 1514764800,
+          "answers": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            }
+          ]
+        },
+        {
+          "timestamp": 1514764800,
+          "answers": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            }
+          ]
+        },
+        {
+          "timestamp": 1514764800,
+          "answers": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
             }
           ]
         }

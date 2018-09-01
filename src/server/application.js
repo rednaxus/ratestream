@@ -262,45 +262,63 @@ const app = {
 		console.log('questions by category', questionsByCategory )
 		*/
 
-		windowed_rounds = rounds.filter( round => round.finish >= timebegin )
-		//console.log('eligible rounds',windowed_rounds)
-	
-		windowed_rounds.forEach( round => {
+		// windowed_rounds
+		rounds.filter( round => round.finish >= timebegin ).forEach( round => {
 			//console.log(`${now}:run round ${round.id} ${round.finish} ${round.status}` )
-			// finish any rounds in need of finishing
-			if (round.finish <= now && round.status == 'active') {
-				console.log('expiring')
-				app.roundExpire( round )
-			}
 
 			let token = tokens[round.token]			
 			let tally = {	 
 				timestamp: now,
-				answers: new Array(analyst_questions.length).fill().map( _ => ({count:0, avg:0})),
-				categories: new Array(categories.length).fill().map( _ => ({count:0, avg:0}))
+				answers: new Array(analyst_questions.length).fill().map( _ => ({count:0, avg:0, sway_count:0, avg_sway:0, winner:null})),
+				categories: new Array(categories.length).fill().map( _ => ({count:0, avg:0, sway_count:0, avg_sway:0, winner:null }))
 			}
 			if (!token.tallies) token.tallies = [tally]
 			else token.tallies.push(tally)
-			
 			// go through all the valid answers
 			round.users.forEach( (rounduser,uIdx) => {
 				if (uIdx < 2) return // not for leads
-				analyst_questions.forEach( (question,qIdx) => {
-					let answer = rounduser.phases[1].answers[ qIdx ] || rounduser.phases[0].answers[ qIdx ] || null
 
+				analyst_questions.forEach( (question,qIdx) => {
+					const whoWins = ( avg, avg_sway ) => {
+						if (avg_sway > question.max * 0.2) return 0
+						if (avg_sway < -question.max * 0.2) return 1
+						return avg > question.max * 0.5 ? 0 : 1
+					}
+					let answer = rounduser.phases[1].answers[ qIdx ] || rounduser.phases[0].answers[ qIdx ] || null
 					if (answer) { 
+
+						let sway = rounduser.phases[1].answers[ qIdx ] && rounduser.phases[0].answers[ qIdx ] ? 
+							{ value: rounduser.phases[1].answers[ qIdx ].value - rounduser.phases[0].answers[ qIdx ].value } : null 
+
 						let categoryIdx = categories.findIndex( category => category == question.category )
 						tallyCat = tally.categories[categoryIdx]
 						tallyCat.avg = ( tallyCat.count * tallyCat.avg + answer.value ) / (tallyCat.count + 1)
 						tallyCat.count++ 
 
-						let tallyAnswer = tally.answers[qIdx]
+						if (sway) {
+							tallyCat.avg_sway = ( tallyCat.sway_count * tallyCat.avg_sway + sway.value ) / ( tallyCat.sway_count + 1 )
+							tallyCat.sway_count++
+							tallyCat.winner = whoWins( tallyCat.avg, tallyCat.avg_sway )
+						}
 
-						tallyAnswer.avg = ( tallyAnswer.count * tallyAnswer.avg + answer.value ) / (tallyAnswer.count + 1)
+						let tallyAnswer = tally.answers[qIdx]
+						tallyAnswer.avg = ( tallyAnswer.count * tallyAnswer.avg + answer.value ) / ( tallyAnswer.count + 1 )
 						tallyAnswer.count++			
+						if (sway) {
+							tallyAnswer.avg_sway = ( tallyAnswer.sway_count * tallyAnswer.avg_sway + sway.value ) / ( tallyAnswer.sway_count + 1 )
+							tallyAnswer.sway_count++
+							tallyAnswer.winner = whoWins( tallyAnswer.avg, tallyAnswer.avg_sway )
+						}
 					}
 				})
 			})
+			
+			// finish round if in need of finishing
+			if (round.finish <= now && round.status == 'active') {
+				console.log('expiring')
+				app.roundExpire( round )
+				// compute winners
+			}
 		})
 		
 
@@ -311,9 +329,9 @@ const app = {
 		/* from veva: get winner
         uint8 r0 = uint8(round.averages[ 0 ][ 0 ]);
         uint8 r1 = uint8(round.averages[ 1 ][ 0 ]);
-        if ( r1 > r0 + 20) round.winner = 0;
-        else if ( r1 < r0 - 20) round.winner = 1;
-        else if ( r1 > 50 ) round.winner = 0;
+        if ( r1 > r0 + 20) round.winner = 0; if ( r1 - r0 > 20 )
+        else if ( r1 < r0 - 20) round.winner = 1; if (r1 - r0 < -20)
+        else if ( r1 > 50 ) round.winner = 0;		if r1 > 50
         else round.winner = 1;
 		*/
 		
@@ -327,9 +345,21 @@ const app = {
 	},
 	roundExpire: ( round ) => {
 		// compute sways and points
+
 		console.log('round expire',round.id)
-		// remove users references
-		//round.status = 'finished'
+		round.users.forEach( rounduser => {// remove users references
+			let user = users[rounduser.uid]
+			if (user.active_jury_round === round.id) {
+				user.active_jury_round = -1
+				rounduser.question = -1
+				rounduser.phase = -1
+			}
+			else if (user.active_lead_round === round.id) {
+				user.active_lead_round = -1
+			}
+		})
+		round.status = 'finished'
+		//app.save()
 	},
 	roundRole: ( round, user ) => {
 		console.log('round role',round,user)
