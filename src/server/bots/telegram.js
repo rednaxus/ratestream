@@ -173,6 +173,8 @@ bot.onText(/\/cron/, msg => { // specified in hours if want to specify
 	tell( msg.chat.id, say('cron',{delta:delta}) )
 })
 
+bot.onText(/\/tally/i, msg => tell( msg.chat.id, say('tally') ) )
+
 // fix these?
 bot.onText(/\/testAddReviewers/, msg => {	
 	testUsers.forEach( (user,idx) => {

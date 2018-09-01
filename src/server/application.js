@@ -32,6 +32,7 @@ let scripts = require('./scripts.json')
 
 var { tokens, users, analyst_questions, reviewer_questions, rounds, reviews } = appData
 
+var testUsers = users.filter( user => user.first_name.startsWith('tester_'))
 
 //const dialogs = require('./dialogs')
 const formatters = require('./bots/formatters')
@@ -43,7 +44,7 @@ const categories = config.review_categories
 const commands = [
 	'review',
 	'analyze',
-	'activity',
+	'activity',	// includes rounds you are and have been involved in, and outcomes
 	'news',
 	'token <name>',
 	'tokens',
@@ -62,6 +63,8 @@ var cronTimer
 
 const round_window = 3600*8 // 8 hours
 const round_window_min = 3600*2 // 2 hours, minimum window left for a second lead to be added
+const tally_window = 3600*24*7   // window from now to consider tallies (e.g. 1 week)
+
 const parseHtml = {parse_mode:'HTML'} 
 
 function* entries(obj) { // object iterator
@@ -82,9 +85,12 @@ var nextRoundToken = 0
 var tokensToCover = []
 
 var now = config.timebase //() => Math.round(+new Date() / 1000) // can fix time from here
+var last_tally = now
 
 const randomInt = max => Math.floor( Math.random() * Math.floor( max ) )
 const randomIdx = length => randomInt( length - 1 )	// random int starting at 0 to e.g. length-1 
+
+const round_user = ( round, user ) => round.users.find( roundUser => roundUser.uid == user.id )
 
 const app = {
 	...info,
@@ -102,6 +108,9 @@ const app = {
 		cronTimer = setInterval( () => app.cron( 10 ), 10000 )
 		tokens.forEach( (token,idx) => console.log( `[${idx}] ${token.name}` ) )
 		users.forEach( user => user.receive = null ) // clear out previous state (for development)
+		//console.log('not covere',appData.tokens_not_covered)
+
+		console.log(`${now}: tokens covered:${tokens.length}...tokens in db but not covered:${Object.keys(appData.tokens_not_covered).length}`)
 	},
 	stop: () => {
 		clearInterval(saveTimer)
@@ -177,6 +186,7 @@ const app = {
 				  uid: user.id, 
           start: time,
           finish: 0,
+          payoff: 0,
           sections:{}
         },{}]
 			}
@@ -229,15 +239,75 @@ const app = {
 				start: 0,
 				finish: 0,
 				answers: new Array(analyst_questions.length).fill({})			
-			}]
+			}],
+			sways: new Array(analyst_questions.length).fill(0)
 		})
 		user.active_jury_round = juryRound
 		app.save()
 		return round
 	},
-	roundsAssess: () => { // should run every 10 minutes or so
+	roundsAssess: () => { // zorg should run every 10 minutes or so
 		// tally results
-		//         
+		let timepassed = now - last_tally
+		let tallies = {}
+		let timebegin = now - tally_window
+
+		// if round finished after beginning of window, include its numbers
+		/*
+		let questionsByCategory = analyst_questions.reduce( ( results, question, qIdx ) => {
+			if (!results[question.category]) results[question.category] = [qIdx]
+			else results[question.category].push(qIdx)
+			return results
+		}, {})
+		console.log('questions by category', questionsByCategory )
+		*/
+
+		windowed_rounds = rounds.filter( round => round.finish >= timebegin )
+		//console.log('eligible rounds',windowed_rounds)
+	
+		windowed_rounds.forEach( round => {
+			//console.log(`${now}:run round ${round.id} ${round.finish} ${round.status}` )
+			// finish any rounds in need of finishing
+			if (round.finish <= now && round.status == 'active') {
+				console.log('expiring')
+				app.roundExpire( round )
+			}
+
+			let token = tokens[round.token]			
+			let tally = {	 
+				timestamp: now,
+				answers: new Array(analyst_questions.length).fill().map( _ => ({count:0, avg:0})),
+				categories: new Array(categories.length).fill().map( _ => ({count:0, avg:0}))
+			}
+			if (!token.tallies) token.tallies = [tally]
+			else token.tallies.push(tally)
+			
+			// go through all the valid answers
+			round.users.forEach( (rounduser,uIdx) => {
+				if (uIdx < 2) return // not for leads
+				analyst_questions.forEach( (question,qIdx) => {
+					let answer = rounduser.phases[1].answers[ qIdx ] || rounduser.phases[0].answers[ qIdx ] || null
+
+					if (answer) { 
+						let categoryIdx = categories.findIndex( category => category == question.category )
+						tallyCat = tally.categories[categoryIdx]
+						tallyCat.avg = ( tallyCat.count * tallyCat.avg + answer.value ) / (tallyCat.count + 1)
+						tallyCat.count++ 
+
+						let tallyAnswer = tally.answers[qIdx]
+
+						tallyAnswer.avg = ( tallyAnswer.count * tallyAnswer.avg + answer.value ) / (tallyAnswer.count + 1)
+						tallyAnswer.count++			
+					}
+				})
+			})
+		})
+		
+
+		//console.log('tallies',tallies)
+		//appData.tallies = tallies
+		app.save()
+
 		/* from veva: get winner
         uint8 r0 = uint8(round.averages[ 0 ][ 0 ]);
         uint8 r1 = uint8(round.averages[ 1 ][ 0 ]);
@@ -246,10 +316,20 @@ const app = {
         else if ( r1 > 50 ) round.winner = 0;
         else round.winner = 1;
 		*/
-		// put analysts in proper pre or post stage
+		
 
 		// finalize expired rounds
+		//let expireRounds = rounds.filter( round => round.status === 'active' && round.finish <= now)
+		//expireRounds.forEach( app.roundExpire )
+
+		last_tally = now
 		return { /* analysts_change_stage:[], analysts_round_expired:[]   */ }
+	},
+	roundExpire: ( round ) => {
+		// compute sways and points
+		console.log('round expire',round.id)
+		// remove users references
+		//round.status = 'finished'
 	},
 	roundRole: ( round, user ) => {
 		console.log('round role',round,user)
@@ -267,7 +347,6 @@ const app = {
 		})
 		app.save()
 	},
-
 
 	/* tokens */
 	getTokenId: name => ( appData.tokens.findIndex( token => token.name == name ) ),
@@ -474,7 +553,8 @@ const app = {
 			case 'question':
 				round = rounds[user.active_jury_round]
 				roundUser = round.users.find( roundUser => roundUser.uid == user.id )
-				
+				zorg
+				// put analysts in proper pre or post stage
 				retval = { 
 					text: dialogs['analysis.question'].text({ round, user }), 
 					format: formatters.analyst_question(analyst_questions[roundUser.question],roundUser.question),
@@ -609,6 +689,10 @@ const app = {
 				app.save()
 				retval = { text: `review submitted for <b>${catName}</b>`, parse:parseHtml }
 				break
+			case 'tally':
+				app.roundsAssess()
+				retval = { text: 'rounds assessed' }
+				break
 			default: 
 				console.log(`unknown command ${command}`)
 		}
@@ -717,6 +801,9 @@ const app = {
 		'rounds.clear': {
 			text: () => 'rounds cleared'
 		},
+		'rounds.tally': {
+			text: () => 'rounds tallied'
+		},
 		'sample.summary': {
 			text: () => ``
 		},
@@ -732,7 +819,10 @@ const app = {
 		'tokens.top': {
 			text: () => `Refreshing and acquiring top tokens (by market cap)`
 		}
-	}
+	},
+
+	/* temporary code for various things */
+
 }
 
 app.runScript('test.user.1')

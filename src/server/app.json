@@ -50,8 +50,8 @@
         },
         {
           "uid": 21,
-          "question": 0,
-          "phase": 1,
+          "question": -1,
+          "phase": 2,
           "phases": [
             {
               "start": 1514764850,
@@ -81,13 +81,500 @@
             },
             {
               "start": 1514764870,
-              "finish": 0,
+              "finish": 1514767280,
               "answers": [
-                {},
-                {},
-                {},
-                {},
-                {}
+                {
+                  "value": 2,
+                  "timestamp": 1514767260
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767280
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uid": 2,
+          "question": -1,
+          "phase": 2,
+          "phases": [
+            {
+              "start": 1514764850,
+              "finish": 1514764870,
+              "answers": [
+                {
+                  "value": 4,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514764870
+                }
+              ]
+            },
+            {
+              "start": 1514764870,
+              "finish": 1514767280,
+              "answers": [
+                {
+                  "value": 2,
+                  "timestamp": 1514767260
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767280
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uid": 3,
+          "question": -1,
+          "phase": 2,
+          "phases": [
+            {
+              "start": 1514764850,
+              "finish": 1514764870,
+              "answers": [
+                {
+                  "value": 4,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514764870
+                }
+              ]
+            },
+            {
+              "start": 1514764870,
+              "finish": 1514767280,
+              "answers": [
+                {
+                  "value": 2,
+                  "timestamp": 1514767260
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767280
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uid": 4,
+          "question": -1,
+          "phase": 2,
+          "phases": [
+            {
+              "start": 1514764850,
+              "finish": 1514764870,
+              "answers": [
+                {
+                  "value": 4,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514764870
+                }
+              ]
+            },
+            {
+              "start": 1514764870,
+              "finish": 1514767280,
+              "answers": [
+                {
+                  "value": 2,
+                  "timestamp": 1514767260
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767280
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uid": 5,
+          "question": -1,
+          "phase": 2,
+          "phases": [
+            {
+              "start": 1514764850,
+              "finish": 1514764870,
+              "answers": [
+                {
+                  "value": 4,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514764870
+                }
+              ]
+            },
+            {
+              "start": 1514764870,
+              "finish": 1514767280,
+              "answers": [
+                {
+                  "value": 2,
+                  "timestamp": 1514767260
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767280
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uid": 6,
+          "question": -1,
+          "phase": 2,
+          "phases": [
+            {
+              "start": 1514764850,
+              "finish": 1514764870,
+              "answers": [
+                {
+                  "value": 4,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514764870
+                }
+              ]
+            },
+            {
+              "start": 1514764870,
+              "finish": 1514767280,
+              "answers": [
+                {
+                  "value": 2,
+                  "timestamp": 1514767260
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767280
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uid": 7,
+          "question": -1,
+          "phase": 2,
+          "phases": [
+            {
+              "start": 1514764850,
+              "finish": 1514764870,
+              "answers": [
+                {
+                  "value": 4,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514764870
+                }
+              ]
+            },
+            {
+              "start": 1514764870,
+              "finish": 1514767280,
+              "answers": [
+                {
+                  "value": 2,
+                  "timestamp": 1514767260
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767280
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uid": 8,
+          "question": -1,
+          "phase": 2,
+          "phases": [
+            {
+              "start": 1514764850,
+              "finish": 1514764870,
+              "answers": [
+                {
+                  "value": 4,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514764870
+                }
+              ]
+            },
+            {
+              "start": 1514764870,
+              "finish": 1514767280,
+              "answers": [
+                {
+                  "value": 2,
+                  "timestamp": 1514767260
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767280
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uid": 9,
+          "question": -1,
+          "phase": 2,
+          "phases": [
+            {
+              "start": 1514764850,
+              "finish": 1514764870,
+              "answers": [
+                {
+                  "value": 4,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514764860
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514764870
+                }
+              ]
+            },
+            {
+              "start": 1514764870,
+              "finish": 1514767280,
+              "answers": [
+                {
+                  "value": 2,
+                  "timestamp": 1514767260
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1514767270
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1514767280
+                }
               ]
             }
           ]
@@ -424,7 +911,7 @@
       "last_name": "k",
       "username": "alan_on40",
       "language_code": "en-US",
-      "active_jury_round": 1,
+      "active_jury_round": -1,
       "active_review_round": 0,
       "id": 21,
       "receive": null,
@@ -6787,6 +7274,142 @@
           "price": false,
           "countOps": 207761
         }
+      ],
+      "tallies": [
+        {
+          "timestamp": 1514764800,
+          "answers": [
+            {
+              "count": 9,
+              "avg": 2
+            },
+            {
+              "count": 9,
+              "avg": 2
+            },
+            {
+              "count": 9,
+              "avg": 4
+            },
+            {
+              "count": 9,
+              "avg": 1
+            },
+            {
+              "count": 9,
+              "avg": 4
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 36,
+              "avg": 2.25
+            },
+            {
+              "count": 9,
+              "avg": 4
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            }
+          ]
+        },
+        {
+          "timestamp": 1514764810,
+          "answers": [
+            {
+              "count": 9,
+              "avg": 2
+            },
+            {
+              "count": 9,
+              "avg": 2
+            },
+            {
+              "count": 9,
+              "avg": 4
+            },
+            {
+              "count": 9,
+              "avg": 1
+            },
+            {
+              "count": 9,
+              "avg": 4
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 36,
+              "avg": 2.25
+            },
+            {
+              "count": 9,
+              "avg": 4
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            }
+          ]
+        }
       ]
     },
     {
@@ -9418,6 +10041,142 @@
             "currency": "USD"
           },
           "countOps": 217917
+        }
+      ],
+      "tallies": [
+        {
+          "timestamp": 1514764800,
+          "answers": [
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            }
+          ]
+        },
+        {
+          "timestamp": 1514764810,
+          "answers": [
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            },
+            {
+              "count": 0,
+              "avg": 0
+            }
+          ]
         }
       ]
     },
@@ -13163,5 +13922,139 @@
         }
       ]
     }
-  ]
+  ],
+  "tallies": {
+    "23": {
+      "answers": [
+        {
+          "count": 9,
+          "avg": 2
+        },
+        {
+          "count": 9,
+          "avg": 2
+        },
+        {
+          "count": 9,
+          "avg": 4
+        },
+        {
+          "count": 9,
+          "avg": 1
+        },
+        {
+          "count": 9,
+          "avg": 4
+        }
+      ],
+      "categories": [
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 36,
+          "avg": 2.25
+        },
+        {
+          "count": 9,
+          "avg": 4
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        }
+      ]
+    },
+    "43": {
+      "answers": [
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        }
+      ],
+      "categories": [
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        },
+        {
+          "count": 0,
+          "avg": 0
+        }
+      ]
+    }
+  }
 }
