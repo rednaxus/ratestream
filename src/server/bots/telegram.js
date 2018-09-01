@@ -100,7 +100,7 @@ bot.onText(/\/restart/, msg => tell( msg.chat.id, say('restart',{user:identify( 
 bot.onText(/\/start/, msg => tell( msg.chat.id, say('start', {user: identify( msg )}) ) )
 
 /* rounds */
-bot.onText(/\/review/i, msg => {
+const do_review = msg => {
 	let msgInfo = msg.text.split(' ') // for testing, so can explicitly specify user
 	console.log('msgInfo',msgInfo)
 	let user
@@ -115,9 +115,11 @@ bot.onText(/\/review/i, msg => {
 	tell( msg.chat.id, say( 'review', {user} ) ).then( () => {
 		tell( msg.chat.id, say( 'review_categories', {user} ) )
 	})
-})
+}
 
-bot.onText(/\/analyze/i, msg => { // jurist start round
+bot.onText(/\/review/i, msg => do_review( msg ) )
+
+const do_analyze = msg => { // jurist start round
 	let msgInfo = msg.text.split(' ') // for testing, so can explicitly specify user
 	console.log('msgInfo',msgInfo)
 	let user
@@ -133,6 +135,10 @@ bot.onText(/\/analyze/i, msg => { // jurist start round
 	tell(msg.chat.id,cmdResult).then( () => {
 		if (cmdResult.status !== -1) tell( msg.chat.id, say( 'question',{ user }))
 	})
+}
+
+bot.onText(/\/analyze/i, msg => { 
+	do_analyze( msg )
 })
 
 
@@ -267,6 +273,12 @@ bot.on('message', msg => {
 				break
 			case 'tokens':
 				tell( msg.chat.id, say('tokens') )
+				break
+			case 'analyze':
+				do_analyze( msg )
+				break
+			case 'review':
+				do_review( msg )
 				break
 			default:
 				//console.log(`unknown msg ${msg.text}`)

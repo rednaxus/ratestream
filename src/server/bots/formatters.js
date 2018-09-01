@@ -20,7 +20,10 @@ module.exports = {
 	menu: () => ({ 
 		"reply_markup": {
 			"resize_keyboard": true,
-    	"keyboard": [[ "tokens", "commands", "news", "activity" ]]
+    	"keyboard": [
+    		[ "tokens", "commands", "news", "activity" ],
+    		[ "analyze", "review" ]
+    	]
    	}
 	}),
 	analyst_question: ( question, question_number ) => {

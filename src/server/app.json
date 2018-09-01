@@ -20,7 +20,8 @@
           "start": 1514764820,
           "finish": 0,
           "sections": {
-            "overview": "kjkj"
+            "overview": "kjkj",
+            "team": "asdkfj askdfj"
           }
         }
       ]
@@ -914,7 +915,7 @@
       "active_jury_round": -1,
       "active_review_round": 0,
       "id": 21,
-      "receive": null,
+      "receive": "review-category-2",
       "mockAs": -1
     },
     {
