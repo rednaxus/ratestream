@@ -238,7 +238,7 @@ bot.on('callback_query', query => {
 bot.on('message', msg => {
 	let user = identify( msg )
 	if (user.mockAs >= 0) user = testUsers[user.mockAs]
-	if (user.receive) {
+	if (user.receive && !msg.text.startsWith('/')) {
 		console.log('user receive',user)
 		let q = user.receive.split('-')
 		switch (q[0]) {
