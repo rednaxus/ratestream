@@ -163,6 +163,8 @@ bot.onText(/\/clearRounds/i,msg => { // beware, clears all rounds, really
 	tell(msg.chat.id, say('roundsClear'))
 })
 
+bot.onText(/\/ratings/, msg => tell( msg.chat.id, say('ratings') ) )
+
 bot.onText(/\/refreshTokens/, msg => tell( msg.chat.id, say('tokens_refresh') ) )
 
 bot.onText(/\/refreshInfo/, msg => tell( msg.chat.id, say('news_refresh') ) )

@@ -29,6 +29,7 @@ const info = require('../app/services/API/newsinfo')
 let appData = require('./app.json')
 let infoData = require('./info.json')
 let scripts = require('./scripts.json')
+let time = require('./time.json')
 
 var { tokens, users, analyst_questions, reviewer_questions, rounds, reviews } = appData
 
@@ -64,6 +65,9 @@ var cronTimer
 const round_window = 3600*8 // 8 hours
 const round_window_min = 3600*2 // 2 hours, minimum window left for a second lead to be added
 const tally_window = 3600*24*7   // window from now to consider tallies (e.g. 1 week)
+const WEEK = 3600*24*7
+const DAY = 3600*24
+const MONTH = 3600*24*28
 
 const parseHtml = {parse_mode:'HTML'} 
 
@@ -84,24 +88,37 @@ var nextTokenInfoFetch = 0
 var nextRoundToken = 0
 var tokensToCover = []
 
-var now = config.timebase //() => Math.round(+new Date() / 1000) // can fix time from here
+var now = time.last_time // config.timebase //() => Math.round(+new Date() / 1000) // can fix time from here
 var last_tally = now
+var time_str = time => `${time}:${moment(time*1000).format('YYYY-MM-DD hh:mm:ss')}`
+console.log(`app-time at start ${time_str(now)}`)
 
 const randomInt = max => Math.floor( Math.random() * Math.floor( max ) )
 const randomIdx = length => randomInt( length - 1 )	// random int starting at 0 to e.g. length-1 
 
 const round_user = ( round, user ) => round.users.find( roundUser => roundUser.uid == user.id )
 
+
+const periods = [ 
+	{ name:'day', value: DAY },
+	{ name: 'week', value: WEEK },
+	{ name: 'month', value: MONTH }
+]
+
 const app = {
 	...info,
 	data: appData,
 	time: () => now,
-	cron: forward_seconds => ( now += forward_seconds ),
+	cron: forward_seconds => { 
+		now += forward_seconds 
+		time.last_time = now
+		fs.writeFileSync('../time.json', JSON.stringify(time,null,2), 'utf8')
+	},
 	start: ( autosave = true, cb ) => {  // start app
 		if (autosave) saveTimer = setInterval( ()=> {
 			let changes = module.exports.roundsAssess()
 			if (cb) cb( changes )
-			console.log(`autosaving at ${now}`)
+			console.log(`autosaving at ${time_str(now)}`)
 			app.save()
 		}, 600000 )
 		// time
@@ -116,7 +133,7 @@ const app = {
 		clearInterval(saveTimer)
 	},
 	save: () => {
-		console.log(`${now}: saving app`)
+		console.log(`${time_str(now)} saving app`)
 		app.now = now
 		fs.writeFileSync('../app.json', JSON.stringify(appData,null,2), 'utf8')
 	},
@@ -343,6 +360,84 @@ const app = {
 		last_tally = now
 		return { /* analysts_change_stage:[], analysts_round_expired:[]   */ }
 	},
+	portfolio: () => {
+
+	},
+	ratingAtTime: (time, timewindow) => {
+
+	},
+	ratings: (  ) => { // get best current ratings
+		let ratings = tokens.reduce( ( taccum, token, tIdx ) => {
+			if (!token.tallies) return taccum
+			console.log(`time now ${time_str(now)}`)
+			console.log(`have tallies for token ${tIdx}:${token.name}`)
+			taccum[tIdx] = ['current','previous'].reduce( (cpaccum, iteration,idx) => { 	
+				let periods_result =  periods.reduce( (accum, period, pIdx )=> {
+					let time = idx ? now - period.value : now
+					//console.log('checking time',iteration,period,time)
+					let valid_tallies = token.tallies.filter( 
+						tally => {
+							let condition =  tally.timestamp < time && tally.timestamp > (time - period.value) 
+							//console.log(`tally:${time_str(tally.timestamp)} begin:${time_str(time-period.value)} now:${time_str(time)} ${condition}`)
+							return condition
+						}
+					)
+					//console.log('valid tallies for period',period, valid_tallies.length)
+
+					let ss = valid_tallies.reduce( (tally_accum,tally) => {
+						//console.log('tally',tally)
+						let accum_answers = tally.answers.map( ( answer, aIdx) => {
+							let aa = tally_accum.answers[aIdx] // || { count: 0, avg: 0 }
+							//console.log('aa',aa,'answer',answer)
+							return { 
+								count: aa.count + answer.count, 
+								avg: aa.count || answer.count ? ( aa.count * aa.avg + answer.count * answer.avg ) / ( aa.count + answer.count ) : 0
+							}
+						})
+						//console.log('accum answer',accum_answers)
+						let accum_cats = tally.categories.map( ( category, aIdx) => {
+							let aa = tally_accum.categories[aIdx] || { count: 0, avg: 0 }
+							//console.log('aa',aa,'cat',category)
+							return { 
+								count: aa.count + category.count, 
+								avg: aa.count || category.count ? ( aa.count * aa.avg + category.count * category.avg ) / ( aa.count + category.count ) : 0
+							}
+						})
+
+						let summaries = { answers: accum_answers, categories: accum_cats }
+						//console.log('summaries',JSON.stringify(summaries))
+						return summaries
+					},{ 
+						answers: new Array(analyst_questions.length).fill().map( _ => ({ count: 0, avg: 0 })),
+						categories: new Array(categories.length).fill().map( _ => ({ count: 0, avg: 0 }))
+					} )
+					accum[period.name] = ss
+					return accum
+				},{} )
+				//console.log('periods result',periods_result)
+				cpaccum[iteration] = periods_result // current, previous
+				return cpaccum
+			}, { })
+
+			return taccum
+		},{}) 
+
+		
+		for (let [key,value] of entries(ratings)) {
+			appData.tokens[key].rating = value
+			appData.tokens[key].rating.timestamp = now
+		} 
+		app.save()
+		
+		console.log('result',JSON.stringify(ratings))
+		/*
+		{ 	
+			averages: {
+				current: { day: [{count,value},...], week: [], month: [] },
+				previous: { day: [], week: [], month: [] }
+		}
+		*/
+	},
 	roundExpire: ( round ) => {
 		// compute sways and points
 
@@ -537,6 +632,10 @@ const app = {
 			case 'news_refresh':
 				app.refreshInfo()
 				retval = { text: dialogs['news.refresh'].text() }
+				break
+			case 'ratings':
+				app.ratings()
+				retval = { text: dialogs['token.ratings'].text() }
 				break
 			case 'summaries':
 				break
@@ -839,6 +938,9 @@ const app = {
 		},
 		'token.notfound': {
 			text: ({tokenName}) => `no token ${tokenName} in our library`
+		},
+		'token.ratings': {
+			text: () => `got token ratings`
 		},
 		'tokens': {
 			text: () => `Covered Tokens`

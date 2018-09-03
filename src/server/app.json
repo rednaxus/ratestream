@@ -5,7 +5,7 @@
       "token": 43,
       "start": 1514764900,
       "finish": 1514793700,
-      "status": "active",
+      "status": "finished",
       "users": [
         {
           "uid": 3,
@@ -21,7 +21,8 @@
           "finish": 0,
           "sections": {
             "overview": "kjkj",
-            "team": "asdkfj askdfj"
+            "team": "asdkfj askdfj",
+            "opportunity": "this is a bad opportunity"
           }
         }
       ]
@@ -31,7 +32,7 @@
       "token": 23,
       "start": 1514764820,
       "finish": 1514793620,
-      "status": "active",
+      "status": "finished",
       "users": [
         {
           "uid": 0,
@@ -915,8 +916,8 @@
       "active_jury_round": -1,
       "active_review_round": 0,
       "id": 21,
-      "receive": "review-category-2",
-      "mockAs": -1
+      "receive": null,
+      "mockAs": 1
     },
     {
       "identity": "0xc9f413023e002651def5d896abfa7fa360680940",
@@ -1795,6 +1796,33 @@
             "currency": "USD"
           },
           "countOps": 263614
+        },
+        {
+          "timestamp": 1515369960,
+          "address": "0xef68e7c694f40c8202821edf525de3782458639f",
+          "name": "loopring",
+          "decimals": 18,
+          "symbol": "LRC",
+          "totalSupply": "1395076054523857892274603100",
+          "owner": "0x",
+          "transfersCount": 265510,
+          "lastUpdated": 1535994424,
+          "issuancesCount": 0,
+          "holdersCount": 70827,
+          "description": "loopriiinng\n\nloopring.org",
+          "ethTransfersCount": 13272,
+          "price": {
+            "rate": "0.1196494433",
+            "diff": -2.66,
+            "diff7d": -6.13,
+            "ts": "1535997570",
+            "marketCapUsd": "68448341.0",
+            "availableSupply": "572074043.0",
+            "volume24h": "6270532.0451",
+            "diff30d": -33.04751701099,
+            "currency": "USD"
+          },
+          "countOps": 265510
         }
       ]
     },
@@ -1905,6 +1933,32 @@
             "currency": "USD"
           },
           "countOps": 102945
+        },
+        {
+          "timestamp": 1515369960,
+          "address": "0x39bb259f66e1c59d5abef88375979b4d20d98022",
+          "name": "Wax Token",
+          "decimals": "8",
+          "symbol": "WAX",
+          "totalSupply": "185000000000000000",
+          "owner": "0xe53f54aef69ca4a1be22ae53977f0bf7ed10f967",
+          "transfersCount": 103449,
+          "lastUpdated": 1535997375,
+          "issuancesCount": 0,
+          "holdersCount": 15086,
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "0.0808908972",
+            "diff": -2.29,
+            "diff7d": 8.23,
+            "ts": "1535995175",
+            "marketCapUsd": "75301480.0",
+            "availableSupply": "930901783.0",
+            "volume24h": "294163.080999",
+            "diff30d": -19.322897122625,
+            "currency": "USD"
+          },
+          "countOps": 103449
         }
       ]
     },
@@ -2169,6 +2223,23 @@
         },
         {
           "timestamp": 1514764840,
+          "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
+          "name": "EOS",
+          "decimals": 18,
+          "symbol": "EOS",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0xd0a6e6c54dbc68db5db3a091b171a77407ff7ccf",
+          "transfersCount": 3170931,
+          "lastUpdated": 1531913635,
+          "issuancesCount": 0,
+          "holdersCount": 331093,
+          "description": "https://eos.io/",
+          "ethTransfersCount": 224,
+          "price": false,
+          "countOps": 3170931
+        },
+        {
+          "timestamp": 1515369960,
           "address": "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
           "name": "EOS",
           "decimals": 18,
@@ -2475,6 +2546,32 @@
             "currency": "USD"
           },
           "countOps": 2815410
+        },
+        {
+          "timestamp": 1515369960,
+          "address": "0xf230b790e05390fc8295f4d3f60332c93bed42e2",
+          "name": "Tronix",
+          "decimals": "6",
+          "symbol": "TRX",
+          "totalSupply": "100000000000000000",
+          "owner": "0x",
+          "transfersCount": 2816139,
+          "lastUpdated": 1535997418,
+          "issuancesCount": 0,
+          "holdersCount": 1085106,
+          "ethTransfersCount": 13,
+          "price": {
+            "rate": "0.0250152794",
+            "diff": -2.65,
+            "diff7d": 4.81,
+            "ts": "1535997511",
+            "marketCapUsd": "1644707385.0",
+            "availableSupply": "65748111645.0",
+            "volume24h": "87790106.6744",
+            "diff30d": -18.928174048879,
+            "currency": "USD"
+          },
+          "countOps": 2816139
         }
       ]
     },
@@ -2782,6 +2879,32 @@
             "currency": "USD"
           },
           "countOps": 385683
+        },
+        {
+          "timestamp": 1515369960,
+          "address": "0xd850942ef8811f2a866692a623011bde52a462c1",
+          "name": "VeChain Token",
+          "decimals": "18",
+          "symbol": "VEN",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0x0000000000000000000000000000000000000000",
+          "transfersCount": 386923,
+          "lastUpdated": 1503349448,
+          "issuancesCount": 0,
+          "holdersCount": 52167,
+          "ethTransfersCount": 32,
+          "price": {
+            "rate": "0.0181564719",
+            "diff": 1.83,
+            "diff7d": 8.3,
+            "ts": "1535997525",
+            "marketCapUsd": "1006862335.0",
+            "availableSupply": "55454734800.0",
+            "volume24h": "19743506.5509",
+            "diff30d": 35.163194372069,
+            "currency": "USD"
+          },
+          "countOps": 386923
         }
       ]
     },
@@ -3101,6 +3224,32 @@
             "currency": "USD"
           },
           "countOps": 1971859
+        },
+        {
+          "timestamp": 1515369970,
+          "address": "0xd26114cd6ee289accf82350c8d8487fedb8a0c07",
+          "name": "OMGToken",
+          "decimals": "18",
+          "symbol": "OMG",
+          "totalSupply": "140245398245132780789239631",
+          "owner": "0x000000000000000000000000000000000000dead",
+          "transfersCount": 1976060,
+          "lastUpdated": 1535997444,
+          "issuancesCount": 0,
+          "holdersCount": 655096,
+          "ethTransfersCount": 80,
+          "price": {
+            "rate": "4.3833620579",
+            "diff": 1.93,
+            "diff7d": 9.11,
+            "ts": "1535995105",
+            "marketCapUsd": "614746357.0",
+            "availableSupply": "140245398.0",
+            "volume24h": "23110798.1836",
+            "diff30d": -19.877274884342,
+            "currency": "USD"
+          },
+          "countOps": 1976060
         }
       ]
     },
@@ -3404,6 +3553,33 @@
             "currency": "USD"
           },
           "countOps": 295681
+        },
+        {
+          "timestamp": 1515369970,
+          "address": "0xb5a5f22694352c15b00323844ad545abb2b11028",
+          "name": "ICON",
+          "decimals": 18,
+          "symbol": "ICX",
+          "totalSupply": "400228739999999999999999999",
+          "owner": "0xe16fd9b95758fe8f3a478ef9b750a64513bf2e80",
+          "transfersCount": 296847,
+          "lastUpdated": 1535997444,
+          "issuancesCount": 0,
+          "holdersCount": 29264,
+          "description": "The ICON project is building one of the largest decentralized networks in the world.",
+          "ethTransfersCount": 7,
+          "price": {
+            "rate": "0.9106965646",
+            "diff": -2.21,
+            "diff7d": 2.67,
+            "ts": "1535996373",
+            "marketCapUsd": "352832390.0",
+            "availableSupply": "387431340.0",
+            "volume24h": "24988381.2576",
+            "diff30d": -6.2051336996441,
+            "currency": "USD"
+          },
+          "countOps": 296847
         }
       ]
     },
@@ -3696,6 +3872,32 @@
             "currency": "USD"
           },
           "countOps": 453705
+        },
+        {
+          "timestamp": 1515369970,
+          "address": "0xb8c77482e45f1f44de1745f52c74426c631bdd52",
+          "name": "BNB",
+          "decimals": "18",
+          "symbol": "BNB",
+          "totalSupply": "192443301000000000000000000",
+          "owner": "0x00c5e04176d95a286fcce0e68c683ca0bfec8454",
+          "transfersCount": 454809,
+          "lastUpdated": 1535997285,
+          "issuancesCount": 0,
+          "holdersCount": 296246,
+          "ethTransfersCount": 26,
+          "price": {
+            "rate": "11.277873221",
+            "diff": 0.49,
+            "diff7d": 3.73,
+            "ts": "1535992167",
+            "marketCapUsd": "1077178127.0",
+            "availableSupply": "95512523.0",
+            "volume24h": "15937882.744",
+            "diff30d": -20.576679641119,
+            "currency": "USD"
+          },
+          "countOps": 454809
         }
       ]
     },
@@ -3988,6 +4190,32 @@
             "currency": "USD"
           },
           "countOps": 82226
+        },
+        {
+          "timestamp": 1515369970,
+          "address": "0xe0b7927c4af23765cb51314a0e0521a9645f0e2a",
+          "name": "Digix",
+          "decimals": "9",
+          "symbol": "DGD",
+          "totalSupply": "1999999996600000",
+          "owner": "0x4366ddc115d8cf213c564da36e64c8ebaa30cdbd",
+          "transfersCount": 82363,
+          "lastUpdated": 1530123385469,
+          "issuancesCount": 0,
+          "holdersCount": 7902,
+          "ethTransfersCount": 44,
+          "price": {
+            "rate": "51.8351887512",
+            "diff": -1.36,
+            "diff7d": -5.33,
+            "ts": "1535997566",
+            "marketCapUsd": "103670378.0",
+            "availableSupply": "2000000.0",
+            "volume24h": "235862.438337",
+            "diff30d": -36.240747037515,
+            "currency": "USD"
+          },
+          "countOps": 82363
         }
       ]
     },
@@ -4291,6 +4519,33 @@
             "currency": "USD"
           },
           "countOps": 229284
+        },
+        {
+          "timestamp": 1515369970,
+          "address": "0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a",
+          "name": "Populous Platform",
+          "decimals": "8",
+          "symbol": "PPT",
+          "totalSupply": "5325224600000000",
+          "owner": "0x9cc9c3de8e710781983a65b90b7efeaad2d3d7d8",
+          "transfersCount": 230156,
+          "lastUpdated": 1535996820,
+          "issuancesCount": 0,
+          "holdersCount": 26260,
+          "description": "http://populous.co/",
+          "ethTransfersCount": 82,
+          "price": {
+            "rate": "4.3766380165",
+            "diff": 0.06,
+            "diff7d": -6.66,
+            "ts": "1535995109",
+            "marketCapUsd": "161953231.0",
+            "availableSupply": "37004027.0",
+            "volume24h": "3511508.87827",
+            "diff30d": -3.8731113139066,
+            "currency": "USD"
+          },
+          "countOps": 230156
         }
       ]
     },
@@ -4594,6 +4849,33 @@
             "currency": "USD"
           },
           "countOps": 58505
+        },
+        {
+          "timestamp": 1515369970,
+          "address": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+          "name": "Maker",
+          "decimals": "18",
+          "symbol": "MKR",
+          "totalSupply": "1000000000000000000000000",
+          "owner": "0x7bb0b08587b8a6b8945e09f1baca426558b0f06a",
+          "transfersCount": 59922,
+          "lastUpdated": 1535995998,
+          "issuancesCount": 0,
+          "holdersCount": 4506,
+          "description": "Maker Token for Makerdao governance and fees.\n\nhttp://makerdao.com/\nhttps://twitter.com/makerdao\nhttps://reddit.com/r/makerdao\nhttps://chat.makerdao.com for questions/discussion",
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "488.151398641",
+            "diff": -2.23,
+            "diff7d": 10.93,
+            "ts": "1535997568",
+            "marketCapUsd": "326196321.0",
+            "availableSupply": "668228.0",
+            "volume24h": "233940.631361",
+            "diff30d": -12.71507832805,
+            "currency": "USD"
+          },
+          "countOps": 59922
         }
       ]
     },
@@ -4907,6 +5189,34 @@
             "currency": "USD"
           },
           "countOps": 569408
+        },
+        {
+          "timestamp": 1515369970,
+          "address": "0x744d70fdbe2ba4cf95131626614a1763df805b9e",
+          "name": "Status Network",
+          "decimals": "18",
+          "symbol": "SNT",
+          "totalSupply": "6804870174878168246198837603",
+          "owner": "0x",
+          "transfersCount": 570525,
+          "lastUpdated": 1535996740,
+          "issuancesCount": 0,
+          "holdersCount": 68169,
+          "image": "https://ethplorer.io/images/status.png",
+          "description": "https://status.im",
+          "ethTransfersCount": 106,
+          "price": {
+            "rate": "0.0430469166",
+            "diff": 0.02,
+            "diff7d": 6.88,
+            "ts": "1535997571",
+            "marketCapUsd": "149393626.0",
+            "availableSupply": "3470483788.0",
+            "volume24h": "28985620.258",
+            "diff30d": -22.730637118517,
+            "currency": "USD"
+          },
+          "countOps": 570525
         }
       ]
     },
@@ -5173,6 +5483,32 @@
             "currency": "USD"
           },
           "countOps": 34181
+        },
+        {
+          "timestamp": 1515369970,
+          "address": "0x168296bb09e24a88805cb9c33356536b980d3fc5",
+          "name": "RHOC",
+          "decimals": "8",
+          "symbol": "RHOC",
+          "totalSupply": "100000000000000000",
+          "owner": "0x",
+          "transfersCount": 34576,
+          "lastUpdated": 1535995592,
+          "issuancesCount": 0,
+          "holdersCount": 7936,
+          "ethTransfersCount": 9,
+          "price": {
+            "rate": "0.3844756309",
+            "diff": -0.46,
+            "diff7d": -2.57,
+            "ts": "1535993973",
+            "marketCapUsd": "146473554.0",
+            "availableSupply": "380969669.0",
+            "volume24h": "268426.015309",
+            "diff30d": -38.440462646445,
+            "currency": "USD"
+          },
+          "countOps": 34576
         }
       ]
     },
@@ -5436,6 +5772,32 @@
             "availableSupply": "11000000.0",
             "volume24h": "10335323.4382",
             "diff30d": -30.829592174448,
+            "currency": "USD"
+          },
+          "countOps": 224666
+        },
+        {
+          "timestamp": 1515369980,
+          "address": "0xe94327d07fc17907b4db788e5adf2ed424addff6",
+          "name": "Reputation",
+          "decimals": "18",
+          "symbol": "REP",
+          "totalSupply": "11000000000000000000000000",
+          "owner": "0x7e614ec62cfd5761f20a9c5a2fe2bc0ac7431918",
+          "transfersCount": 224666,
+          "lastUpdated": 1535970086,
+          "issuancesCount": 0,
+          "holdersCount": 37472,
+          "ethTransfersCount": 21,
+          "price": {
+            "rate": "20.1358667955",
+            "diff": -0.42,
+            "diff7d": 4.04,
+            "ts": "1535993965",
+            "marketCapUsd": "221494535.0",
+            "availableSupply": "11000000.0",
+            "volume24h": "4229867.76659",
+            "diff30d": -31.28933402661,
             "currency": "USD"
           },
           "countOps": 224666
@@ -5705,6 +6067,32 @@
             "currency": "USD"
           },
           "countOps": 173031
+        },
+        {
+          "timestamp": 1515369980,
+          "address": "0x5ca9a71b1d01849c0a95490cc00559717fcf0d1d",
+          "name": "Aeternity",
+          "decimals": "18",
+          "symbol": "AE",
+          "totalSupply": "273685830164329920936121003",
+          "owner": "0x",
+          "transfersCount": 173889,
+          "lastUpdated": 1535993842,
+          "issuancesCount": 0,
+          "holdersCount": 24679,
+          "ethTransfersCount": 37,
+          "price": {
+            "rate": "1.1911888639",
+            "diff": 0.6,
+            "diff7d": 11.25,
+            "ts": "1535997568",
+            "marketCapUsd": "277571391.0",
+            "availableSupply": "233020472.0",
+            "volume24h": "5077022.08856",
+            "diff30d": -32.029941803803,
+            "currency": "USD"
+          },
+          "countOps": 173889
         }
       ]
     },
@@ -5981,6 +6369,33 @@
             "currency": "USD"
           },
           "countOps": 284760
+        },
+        {
+          "timestamp": 1515369980,
+          "address": "0xcb97e65f07da24d46bcdd078ebebd7c6e6e3d750",
+          "name": "Bytom",
+          "decimals": 8,
+          "symbol": "BTM",
+          "totalSupply": "140700000000000000",
+          "owner": "0x",
+          "transfersCount": 285544,
+          "lastUpdated": 1535995025,
+          "issuancesCount": 0,
+          "holdersCount": 54642,
+          "description": "Bytom is an interactive protocol of multiple byte assets. Heterogeneous byte-assets (indigenous digital currency, digital assets) that operate in different forms on the Bytom Blockchain and atomic assets (warrants, securities, dividends, bonds, intelligence information, forecasting information and other information that exist in the physical world) can be registered, exchanged, gambled and engaged in other more complicated and contract-based interoperations via Bytom.\n\nhttp://bytom.io/\nhttps://facebook.com/bytomofficial\nhttps://twitter.com/Bytom_Official\nhttps://www.reddit.com/r/BytomBlockchain/",
+          "ethTransfersCount": 6,
+          "price": {
+            "rate": "0.2130394022",
+            "diff": -5,
+            "diff7d": 11.29,
+            "ts": "1535996971",
+            "marketCapUsd": "213571846.0",
+            "availableSupply": "1002499275.0",
+            "volume24h": "57569350.9195",
+            "diff30d": -27.708511444035,
+            "currency": "USD"
+          },
+          "countOps": 285544
         }
       ]
     },
@@ -6247,6 +6662,32 @@
             "currency": "USD"
           },
           "countOps": 132904
+        },
+        {
+          "timestamp": 1515369980,
+          "address": "0xb7cb1c96db6b22b0d3d9536e0108d062bd488f74",
+          "name": "Walton Token",
+          "decimals": "18",
+          "symbol": "WTC",
+          "totalSupply": "70000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 135182,
+          "lastUpdated": 1535997507,
+          "issuancesCount": 0,
+          "holdersCount": 24658,
+          "ethTransfersCount": 19,
+          "price": {
+            "rate": "4.9078809309",
+            "diff": 7.49,
+            "diff7d": 22.63,
+            "ts": "1535997569",
+            "marketCapUsd": "197022460.0",
+            "availableSupply": "40144099.0",
+            "volume24h": "11047558.9047",
+            "diff30d": 17.146336961428,
+            "currency": "USD"
+          },
+          "countOps": 135182
         }
       ]
     },
@@ -6513,6 +6954,32 @@
             "currency": "USD"
           },
           "countOps": 127351
+        },
+        {
+          "timestamp": 1515369980,
+          "address": "0x4ceda7906a5ed2179785cd3a40a69ee8bc99c466",
+          "name": "AION",
+          "decimals": "8",
+          "symbol": "AION",
+          "totalSupply": "46593458666000000",
+          "owner": "0x9b317d104399ef0759063b0ca1e9c7d24d36f7f5",
+          "transfersCount": 128140,
+          "lastUpdated": 1535997251,
+          "issuancesCount": 0,
+          "holdersCount": 20148,
+          "ethTransfersCount": 1,
+          "price": {
+            "rate": "0.5865267201",
+            "diff": -4.84,
+            "diff7d": -9.79,
+            "ts": "1535997573",
+            "marketCapUsd": "121403403.0",
+            "availableSupply": "206986994.0",
+            "volume24h": "2536467.2812",
+            "diff30d": 4.8528141105954,
+            "currency": "USD"
+          },
+          "countOps": 128140
         }
       ]
     },
@@ -6631,6 +7098,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 1350352
+        },
+        {
+          "timestamp": 1515369980,
+          "address": "0x58b6a8a3302369daec383334672404ee733ab239",
+          "name": "Livepeer Token",
+          "decimals": "18",
+          "symbol": "LPT",
+          "totalSupply": "10402103190621055906554992",
+          "owner": "0x8573f2f5a3bd960eee3d998473e50c75cdbe6828",
+          "transfersCount": 1584265,
+          "lastUpdated": 1535997567,
+          "issuancesCount": 0,
+          "holdersCount": 759593,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 1584265
         }
       ]
     },
@@ -6749,6 +7232,22 @@
           "ethTransfersCount": 21,
           "price": false,
           "countOps": 159939
+        },
+        {
+          "timestamp": 1515369980,
+          "address": "0xfcca0c5ccd723baf6bf7f6678c8cfb49ce0042c7",
+          "name": "One Metric That Matters",
+          "decimals": "18",
+          "symbol": "OMTM",
+          "totalSupply": "500000000000000000000000000",
+          "owner": "0x25deb7ea7516e060a2aab960b09bf39b5599a9a4",
+          "transfersCount": 159971,
+          "lastUpdated": 1535977622,
+          "issuancesCount": 0,
+          "holdersCount": 43109,
+          "ethTransfersCount": 21,
+          "price": false,
+          "countOps": 159971
         }
       ]
     },
@@ -6894,6 +7393,31 @@
             "currency": "USD"
           },
           "countOps": 547650
+        },
+        {
+          "timestamp": 1515369980,
+          "address": "0x8a88f04e0c905054d2f33b26bb3a46d7091a039a",
+          "name": "IG",
+          "decimals": "18",
+          "symbol": "IG",
+          "totalSupply": "10000000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 704178,
+          "lastUpdated": 1535997177,
+          "issuancesCount": 0,
+          "holdersCount": 138501,
+          "ethTransfersCount": 3627,
+          "price": {
+            "rate": "0.0004713127",
+            "diff": -19.18,
+            "diff7d": 410.72,
+            "ts": "1535996922",
+            "marketCapUsd": "820449.0",
+            "availableSupply": "1740774251.0",
+            "volume24h": "1885652.66502",
+            "currency": "USD"
+          },
+          "countOps": 704178
         }
       ]
     },
@@ -7039,6 +7563,31 @@
             "currency": "USD"
           },
           "countOps": 579493
+        },
+        {
+          "timestamp": 1515369980,
+          "address": "0xe530441f4f73bdb6dc2fa5af7c3fc5fd551ec838",
+          "name": "GSENetwork",
+          "decimals": "4",
+          "symbol": "GSE",
+          "totalSupply": "1000000000000000",
+          "owner": "0xaefb0ec922dee45739ac2a4edf358f70e1272d79",
+          "transfersCount": 580264,
+          "lastUpdated": 1535992900,
+          "issuancesCount": 0,
+          "holdersCount": 298164,
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "0.0064602538",
+            "diff": -2.49,
+            "diff7d": -8.74,
+            "ts": "1535993321",
+            "marketCapUsd": null,
+            "availableSupply": null,
+            "volume24h": "153250.443881",
+            "currency": "USD"
+          },
+          "countOps": 580264
         }
       ]
     },
@@ -7157,6 +7706,22 @@
           "ethTransfersCount": 172,
           "price": false,
           "countOps": 179329
+        },
+        {
+          "timestamp": 1515369990,
+          "address": "0x3520ba6a529b2504a28eebda47d255db73966694",
+          "name": "OmegaProtocol",
+          "decimals": "18",
+          "symbol": "OPL",
+          "totalSupply": "60000000000000000250000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 179366,
+          "lastUpdated": 1535896883,
+          "issuancesCount": 0,
+          "holdersCount": 33001,
+          "ethTransfersCount": 172,
+          "price": false,
+          "countOps": 179366
         }
       ]
     },
@@ -7274,6 +7839,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 207761
+        },
+        {
+          "timestamp": 1515369990,
+          "address": "0x5da8d37485b4374fc338fc1f1ea31d07eb7bedd3",
+          "name": "Tuzy Coin",
+          "decimals": "8",
+          "symbol": "TUC",
+          "totalSupply": "158731362674908201",
+          "owner": "0x46c72cef8c737de00bf343a42a69463823c670df",
+          "transfersCount": 220127,
+          "lastUpdated": 1535996759,
+          "issuancesCount": 0,
+          "holdersCount": 836,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 220127
         }
       ],
       "tallies": [
@@ -7813,8 +8394,523 @@
               "winner": null
             }
           ]
+        },
+        {
+          "timestamp": 1515375970,
+          "answers": [
+            {
+              "count": 9,
+              "avg": 2,
+              "sway_count": 9,
+              "avg_sway": -2,
+              "winner": 1
+            },
+            {
+              "count": 9,
+              "avg": 2,
+              "sway_count": 9,
+              "avg_sway": -1,
+              "winner": 1
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": -1,
+              "winner": 0
+            },
+            {
+              "count": 9,
+              "avg": 1,
+              "sway_count": 9,
+              "avg_sway": -1,
+              "winner": 1
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": 3,
+              "winner": 0
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 36,
+              "avg": 2.25,
+              "sway_count": 36,
+              "avg_sway": -1.25,
+              "winner": 1
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": 3,
+              "winner": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ]
         }
-      ]
+      ],
+      "rating": {
+        "current": {
+          "day": {
+            "answers": [
+              {
+                "count": 9,
+                "avg": 2
+              },
+              {
+                "count": 9,
+                "avg": 2
+              },
+              {
+                "count": 9,
+                "avg": 4
+              },
+              {
+                "count": 9,
+                "avg": 1
+              },
+              {
+                "count": 9,
+                "avg": 4
+              }
+            ],
+            "categories": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 36,
+                "avg": 2.25
+              },
+              {
+                "count": 9,
+                "avg": 4
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ]
+          },
+          "week": {
+            "answers": [
+              {
+                "count": 9,
+                "avg": 2
+              },
+              {
+                "count": 9,
+                "avg": 2
+              },
+              {
+                "count": 9,
+                "avg": 4
+              },
+              {
+                "count": 9,
+                "avg": 1
+              },
+              {
+                "count": 9,
+                "avg": 4
+              }
+            ],
+            "categories": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 36,
+                "avg": 2.25
+              },
+              {
+                "count": 9,
+                "avg": 4
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ]
+          },
+          "month": {
+            "answers": [
+              {
+                "count": 63,
+                "avg": 2
+              },
+              {
+                "count": 63,
+                "avg": 2
+              },
+              {
+                "count": 63,
+                "avg": 4
+              },
+              {
+                "count": 63,
+                "avg": 1
+              },
+              {
+                "count": 63,
+                "avg": 4
+              }
+            ],
+            "categories": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 252,
+                "avg": 2.25
+              },
+              {
+                "count": 63,
+                "avg": 4
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ]
+          }
+        },
+        "previous": {
+          "day": {
+            "answers": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ],
+            "categories": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ]
+          },
+          "week": {
+            "answers": [
+              {
+                "count": 54,
+                "avg": 2
+              },
+              {
+                "count": 54,
+                "avg": 2
+              },
+              {
+                "count": 54,
+                "avg": 4
+              },
+              {
+                "count": 54,
+                "avg": 1
+              },
+              {
+                "count": 54,
+                "avg": 4
+              }
+            ],
+            "categories": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 216,
+                "avg": 2.25
+              },
+              {
+                "count": 54,
+                "avg": 4
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ]
+          },
+          "month": {
+            "answers": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ],
+            "categories": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ]
+          }
+        },
+        "timestamp": 1515382900
+      }
     },
     {
       "address": "0x001575786dfa7b9d9d1324ec308785738f80a951",
@@ -7931,6 +9027,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 193364
+        },
+        {
+          "timestamp": 1515369990,
+          "address": "0x001575786dfa7b9d9d1324ec308785738f80a951",
+          "name": "DECENTURION",
+          "decimals": "8",
+          "symbol": "DCNT",
+          "totalSupply": "3000000000000000",
+          "owner": "0x",
+          "transfersCount": 194309,
+          "lastUpdated": 1535996200,
+          "issuancesCount": 0,
+          "holdersCount": 190131,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 194309
         }
       ]
     },
@@ -8049,6 +9161,22 @@
           "ethTransfersCount": 76,
           "price": false,
           "countOps": 128894
+        },
+        {
+          "timestamp": 1515369990,
+          "address": "0xf1def7f0e620f39531eb352fe13da6825218e7df",
+          "name": "Bit Dinero",
+          "decimals": "18",
+          "symbol": "XBD",
+          "totalSupply": "30000000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 133229,
+          "lastUpdated": 1535997444,
+          "issuancesCount": 0,
+          "holdersCount": 68571,
+          "ethTransfersCount": 97,
+          "price": false,
+          "countOps": 133229
         }
       ]
     },
@@ -8167,6 +9295,22 @@
           "ethTransfersCount": 1312,
           "price": false,
           "countOps": 584004
+        },
+        {
+          "timestamp": 1515369990,
+          "address": "0x74fd51a98a4a1ecbef8cc43be801cce630e260bd",
+          "name": "SiaCashCoin",
+          "decimals": "18",
+          "symbol": "SCC",
+          "totalSupply": "25000000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 591423,
+          "lastUpdated": 1535997508,
+          "issuancesCount": 0,
+          "holdersCount": 164527,
+          "ethTransfersCount": 1314,
+          "price": false,
+          "countOps": 591423
         }
       ]
     },
@@ -8285,6 +9429,22 @@
           "ethTransfersCount": 38,
           "price": false,
           "countOps": 80816
+        },
+        {
+          "timestamp": 1515369990,
+          "address": "0x7a6542e629630a6a2c89ccce098386dcec39f6cf",
+          "name": "XENetwork",
+          "decimals": "8",
+          "symbol": "XEN",
+          "totalSupply": "10000000000000000",
+          "owner": "0x",
+          "transfersCount": 80875,
+          "lastUpdated": 1535979809,
+          "issuancesCount": 0,
+          "holdersCount": 38803,
+          "ethTransfersCount": 38,
+          "price": false,
+          "countOps": 80875
         }
       ]
     },
@@ -8403,6 +9563,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 73696
+        },
+        {
+          "timestamp": 1515369990,
+          "address": "0x66e2e867b93fbe69f84387427d08861285a9a65a",
+          "name": "Atp",
+          "decimals": "18",
+          "symbol": "Atp",
+          "totalSupply": "6000000000000000000000000000",
+          "owner": "0xdbbf2f23e4f19e2913decffe0dcb3942639e4b4d",
+          "transfersCount": 73718,
+          "lastUpdated": 1535994548,
+          "issuancesCount": 0,
+          "holdersCount": 35633,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 73718
         }
       ]
     },
@@ -8521,6 +9697,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 865579
+        },
+        {
+          "timestamp": 1515369990,
+          "address": "0xdc17e8a84fee8b52e4de7a85160f8cdbb3bb2494",
+          "name": "BitAnex Coin",
+          "decimals": "10",
+          "symbol": "ANEX",
+          "totalSupply": "80000000000000000000",
+          "owner": "0x",
+          "transfersCount": 881046,
+          "lastUpdated": 1535994941,
+          "issuancesCount": 0,
+          "holdersCount": 47084,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 881046
         }
       ]
     },
@@ -8639,6 +9831,22 @@
           "ethTransfersCount": 28,
           "price": false,
           "countOps": 74832
+        },
+        {
+          "timestamp": 1515370000,
+          "address": "0x26c7bdd051318b48092390eabd1b69fce5080b25",
+          "name": "Claim Everything",
+          "decimals": "18",
+          "symbol": "CETH",
+          "totalSupply": "500000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 75090,
+          "lastUpdated": 1535996246,
+          "issuancesCount": 0,
+          "holdersCount": 27124,
+          "ethTransfersCount": 28,
+          "price": false,
+          "countOps": 75090
         }
       ]
     },
@@ -8757,6 +9965,22 @@
           "ethTransfersCount": 4443,
           "price": false,
           "countOps": 181027
+        },
+        {
+          "timestamp": 1515370000,
+          "address": "0xd48b633045af65ff636f3c6edd744748351e020d",
+          "name": "Zethr",
+          "decimals": "18",
+          "symbol": "ZTH",
+          "totalSupply": "4016545733260160982591290",
+          "owner": "0x0000000000000000000000000000000000000000",
+          "transfersCount": 185414,
+          "lastUpdated": 1535997506,
+          "issuancesCount": 0,
+          "holdersCount": 1519,
+          "ethTransfersCount": 4443,
+          "price": false,
+          "countOps": 185414
         }
       ]
     },
@@ -8875,6 +10099,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 66146
+        },
+        {
+          "timestamp": 1515370000,
+          "address": "0xa4ba60fee8fc18a214140da7a085fff7d2628d2f",
+          "name": "Electronic Sports Alliance",
+          "decimals": "18",
+          "symbol": "ESA",
+          "totalSupply": "2000000000000000000000000000",
+          "owner": "0x8ef497fb6d4facb59ab37ff5d51e2bc2de545dc0",
+          "transfersCount": 68659,
+          "lastUpdated": 1535975628,
+          "issuancesCount": 0,
+          "holdersCount": 35129,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 68659
         }
       ]
     },
@@ -8993,6 +10233,22 @@
           "ethTransfersCount": 69529,
           "price": false,
           "countOps": 459459
+        },
+        {
+          "timestamp": 1515370000,
+          "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "name": "Wrapped Ether",
+          "decimals": "18",
+          "symbol": "WETH",
+          "totalSupply": "570475619218261155949075",
+          "owner": "0x",
+          "transfersCount": 467177,
+          "lastUpdated": 1535997567,
+          "issuancesCount": 0,
+          "holdersCount": 22047,
+          "ethTransfersCount": 69529,
+          "price": false,
+          "countOps": 467177
         }
       ]
     },
@@ -9181,6 +10437,32 @@
             "currency": "USD"
           },
           "countOps": 955704
+        },
+        {
+          "timestamp": 1515370000,
+          "address": "0x1f573d6fb3f13d689ff844b4ce37794d79a7ff1c",
+          "name": "Bancor Network Token",
+          "decimals": "18",
+          "symbol": "BNT",
+          "totalSupply": "77525314373913583713690978",
+          "owner": "0x3839416bd0095d97be9b354cbfb0f6807d4d609e",
+          "transfersCount": 964952,
+          "lastUpdated": 1535997448,
+          "issuancesCount": 0,
+          "holdersCount": 21293,
+          "ethTransfersCount": 87,
+          "price": {
+            "rate": "1.7042646709",
+            "diff": -1.35,
+            "diff7d": 5.24,
+            "ts": "1535996369",
+            "marketCapUsd": "90076367.0",
+            "availableSupply": "52853508.0",
+            "volume24h": "2843886.44696",
+            "diff30d": -16.955069588056,
+            "currency": "USD"
+          },
+          "countOps": 964952
         }
       ]
     },
@@ -9299,6 +10581,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 709704
+        },
+        {
+          "timestamp": 1515370000,
+          "address": "0xc0829421c1d260bd3cb3e0f06cfe2d52db2ce315",
+          "name": "Ether Token",
+          "decimals": "18",
+          "symbol": "ETH",
+          "totalSupply": "15956871759913221822725",
+          "owner": "0x9d0357d184122b85dbc095d196b5ebbafc7f3010",
+          "transfersCount": 717980,
+          "lastUpdated": 1535997457,
+          "issuancesCount": 0,
+          "holdersCount": 46,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 717980
         }
       ]
     },
@@ -9487,6 +10785,31 @@
             "currency": "USD"
           },
           "countOps": 424983
+        },
+        {
+          "timestamp": 1515370000,
+          "address": "0xa15c7ebe1f07caf6bff097d8a589fb8ac49ae5b3",
+          "name": "Pundi X Token",
+          "decimals": "18",
+          "symbol": "NPXS",
+          "totalSupply": "280255193860999996455928087001",
+          "owner": "0x28744a3ce59a1a2f7fa17e22a3955ba61558356f",
+          "transfersCount": 460873,
+          "issuancesCount": 0,
+          "holdersCount": 32010,
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "0.0020568714",
+            "diff": 9.85,
+            "diff7d": 11.27,
+            "ts": "1535995719",
+            "marketCapUsd": "221197802.0",
+            "availableSupply": "107540901033",
+            "volume24h": "18339368.0859",
+            "diff30d": 2.728514064248,
+            "currency": "USD"
+          },
+          "countOps": 460873
         }
       ]
     },
@@ -9632,6 +10955,31 @@
             "currency": "USD"
           },
           "countOps": 215404
+        },
+        {
+          "timestamp": 1515370000,
+          "address": "0xf1ca9cb74685755965c7458528a36934df52a3ef",
+          "name": "AVINOC Token",
+          "decimals": "18",
+          "symbol": "AVINOC",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0xca2f40cdae6c295cdba6204c24c67462c17f2807",
+          "transfersCount": 215918,
+          "lastUpdated": 1535997189,
+          "issuancesCount": 0,
+          "holdersCount": 180052,
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "0.0083633778",
+            "diff": -2.06,
+            "diff7d": -7.65,
+            "ts": "1535997521",
+            "marketCapUsd": null,
+            "availableSupply": null,
+            "volume24h": "86420.1872064",
+            "currency": "USD"
+          },
+          "countOps": 215918
         }
       ]
     },
@@ -9737,6 +11085,22 @@
         },
         {
           "timestamp": 1514764880,
+          "address": "0xe534619defdbf0caf673b8abf7158714f5bd4bd9",
+          "name": "TokenFans Token",
+          "decimals": 0,
+          "symbol": "TFT",
+          "totalSupply": "89946",
+          "owner": "0x",
+          "transfersCount": 88432,
+          "lastUpdated": 1535617997,
+          "issuancesCount": 0,
+          "holdersCount": 87485,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 88432
+        },
+        {
+          "timestamp": 1515370010,
           "address": "0xe534619defdbf0caf673b8abf7158714f5bd4bd9",
           "name": "TokenFans Token",
           "decimals": 0,
@@ -9868,6 +11232,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 38839
+        },
+        {
+          "timestamp": 1515370010,
+          "address": "0x66e5dbc7fece1d31eb60af8cfa0563ec0d1a81bd",
+          "name": "BitEye Token",
+          "decimals": "18",
+          "symbol": "BEY",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0xbbbce6a05d4fb741e435583217e06393518d8083",
+          "transfersCount": 44213,
+          "lastUpdated": 1535997447,
+          "issuancesCount": 0,
+          "holdersCount": 21513,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 44213
         }
       ]
     },
@@ -9986,6 +11366,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 33519
+        },
+        {
+          "timestamp": 1515370010,
+          "address": "0xaafd35ddb9189995937a2862e8ff17519f5aae78",
+          "name": "Golden Time of Life",
+          "decimals": "18",
+          "symbol": "GTL",
+          "totalSupply": "2500000000000000000000000000",
+          "owner": "0xd33e7ee32a2ae23c63b5084d54fe9fce1c67144c",
+          "transfersCount": 41862,
+          "lastUpdated": 1535857488,
+          "issuancesCount": 0,
+          "holdersCount": 20061,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 41862
         }
       ]
     },
@@ -10104,6 +11500,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 21070
+        },
+        {
+          "timestamp": 1515370010,
+          "address": "0x737fa0372c8d001904ae6acaf0552d4015f9c947",
+          "name": "MEDIBIT",
+          "decimals": "18",
+          "symbol": "MEDIBIT",
+          "totalSupply": "50000000000000000000000000000",
+          "owner": "0x488fb41f8d05453d9b9a07dfcb559f5461b8734f",
+          "transfersCount": 21134,
+          "lastUpdated": 1535994141,
+          "issuancesCount": 0,
+          "holdersCount": 18365,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 21134
         }
       ]
     },
@@ -10222,6 +11634,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 112155
+        },
+        {
+          "timestamp": 1515370010,
+          "address": "0x0fb52add090338dda73bdb421d8ada0da57126ac",
+          "name": "Beauty Coin",
+          "decimals": "18",
+          "symbol": "BEAUTY",
+          "totalSupply": "10000000000000000000000000000",
+          "owner": "0xc9976d3099d70e5edeede89811f889e8cb935bfc",
+          "transfersCount": 112162,
+          "lastUpdated": 1535901774,
+          "issuancesCount": 0,
+          "holdersCount": 106103,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 112162
         }
       ]
     },
@@ -10445,6 +11873,37 @@
             "currency": "USD"
           },
           "countOps": 217917
+        },
+        {
+          "timestamp": 1515370010,
+          "address": "0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359",
+          "name": "DAI",
+          "decimals": "18",
+          "symbol": "DAI",
+          "totalSupply": "48998912016623375826844535",
+          "owner": "0x0000000000000000000000000000000000000000",
+          "transfersCount": 220377,
+          "lastUpdated": 1525270896825,
+          "issuancesCount": 0,
+          "holdersCount": 5426,
+          "image": "https://ethplorer.io/images/dai.png",
+          "description": "Decentralized stablecoin by MakerDAO",
+          "website": "https://makerdao.com/",
+          "twitter": "makerdao",
+          "reddit": "MakerDAO",
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "1.0008551512",
+            "diff": -0.04,
+            "diff7d": -0.3,
+            "ts": "1535995172",
+            "marketCapUsd": "49040314.0",
+            "availableSupply": "48998413.0",
+            "volume24h": "748558.550043",
+            "diff30d": 0.067502969465465,
+            "currency": "USD"
+          },
+          "countOps": 220377
         }
       ],
       "tallies": [
@@ -10984,8 +12443,523 @@
               "winner": null
             }
           ]
+        },
+        {
+          "timestamp": 1515375970,
+          "answers": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ]
         }
-      ]
+      ],
+      "rating": {
+        "current": {
+          "day": {
+            "answers": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ],
+            "categories": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ]
+          },
+          "week": {
+            "answers": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ],
+            "categories": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ]
+          },
+          "month": {
+            "answers": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ],
+            "categories": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ]
+          }
+        },
+        "previous": {
+          "day": {
+            "answers": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ],
+            "categories": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ]
+          },
+          "week": {
+            "answers": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ],
+            "categories": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ]
+          },
+          "month": {
+            "answers": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ],
+            "categories": [
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              },
+              {
+                "count": 0,
+                "avg": 0
+              }
+            ]
+          }
+        },
+        "timestamp": 1515382900
+      }
     },
     {
       "address": "0x7ba8a5d59b21390a70b2ba968a183712e12a049c",
@@ -11102,6 +13076,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 18302
+        },
+        {
+          "timestamp": 1515370010,
+          "address": "0x7ba8a5d59b21390a70b2ba968a183712e12a049c",
+          "name": "VerityToken",
+          "decimals": "18",
+          "symbol": "VTY",
+          "totalSupply": "500000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 18461,
+          "lastUpdated": 1535996355,
+          "issuancesCount": 0,
+          "holdersCount": 16232,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 18461
         }
       ]
     },
@@ -11247,6 +13237,31 @@
             "currency": "USD"
           },
           "countOps": 22874
+        },
+        {
+          "timestamp": 1515370010,
+          "address": "0x72430a612adc007c50e3b6946dbb1bb0fd3101d1",
+          "name": "Thingschain",
+          "decimals": "8",
+          "symbol": "TIC",
+          "totalSupply": "10000000000000000000",
+          "owner": "0x3d5ae81bcb0a3fb9a12a7cf46cbff44b5f20a2c5",
+          "transfersCount": 23243,
+          "lastUpdated": 1535995976,
+          "issuancesCount": 0,
+          "holdersCount": 5439,
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "0.0005610039",
+            "diff": 11.03,
+            "diff7d": 62.52,
+            "ts": "1535996925",
+            "marketCapUsd": null,
+            "availableSupply": null,
+            "volume24h": "1862102.0566",
+            "currency": "USD"
+          },
+          "countOps": 23243
         }
       ]
     },
@@ -11352,6 +13367,22 @@
         },
         {
           "timestamp": 1514764890,
+          "address": "0x06404399e748cd83f25ab163711f9f4d61cfd0e6",
+          "name": "FunkeyCoin",
+          "decimals": "18",
+          "symbol": "FNK",
+          "totalSupply": "20000000000000000000000000000",
+          "owner": "0x523a83c826b1ed6fc0aadbd258652d1c86025da2",
+          "transfersCount": 18336,
+          "lastUpdated": 1535684537,
+          "issuancesCount": 0,
+          "holdersCount": 17907,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 18336
+        },
+        {
+          "timestamp": 1515370010,
           "address": "0x06404399e748cd83f25ab163711f9f4d61cfd0e6",
           "name": "FunkeyCoin",
           "decimals": "18",
@@ -11483,6 +13514,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 15072
+        },
+        {
+          "timestamp": 1515370020,
+          "address": "0xb8e068919a254c88ad4f2274d7226204843f22fb",
+          "name": "Versara Trade",
+          "decimals": "18",
+          "symbol": "VXR",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0x6a1839be7f567979777c6133704e1045f1e4258e",
+          "transfersCount": 15073,
+          "lastUpdated": 1535818325,
+          "issuancesCount": 0,
+          "holdersCount": 14913,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 15073
         }
       ]
     },
@@ -11628,6 +13675,31 @@
             "currency": "USD"
           },
           "countOps": 15541
+        },
+        {
+          "timestamp": 1515370020,
+          "address": "0x245ef47d4d0505ecf3ac463f4d81f41ade8f1fd1",
+          "name": "Nuggets",
+          "decimals": "18",
+          "symbol": "NUG",
+          "totalSupply": "10000000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 15643,
+          "lastUpdated": 1535994632,
+          "issuancesCount": 0,
+          "holdersCount": 13732,
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "0.0012568335",
+            "diff": 6,
+            "diff7d": -3.03,
+            "ts": "1535995722",
+            "marketCapUsd": null,
+            "availableSupply": null,
+            "volume24h": "999.225953775",
+            "currency": "USD"
+          },
+          "countOps": 15643
         }
       ]
     },
@@ -11746,6 +13818,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 39271
+        },
+        {
+          "timestamp": 1515370020,
+          "address": "0x5f0bfe2ac3c0a34eca548d377315c2d3fe60c84f",
+          "name": "Defraycoin",
+          "decimals": "4",
+          "symbol": "DAR",
+          "totalSupply": "1000000000000000",
+          "owner": "0xaeb305c91dbb4993c2b078a4b0b326ffcf05115b",
+          "transfersCount": 39329,
+          "lastUpdated": 1535988608,
+          "issuancesCount": 0,
+          "holdersCount": 18941,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 39329
         }
       ]
     },
@@ -11934,6 +14022,32 @@
             "currency": "USD"
           },
           "countOps": 1064945
+        },
+        {
+          "timestamp": 1515370020,
+          "address": "0xb64ef51c888972c908cfacf59b47c1afbc0ab8ac",
+          "name": "StorjToken",
+          "decimals": "8",
+          "symbol": "STORJ",
+          "totalSupply": "42499999800001337",
+          "owner": "0x",
+          "transfersCount": 1065268,
+          "lastUpdated": 1535997507,
+          "issuancesCount": 0,
+          "holdersCount": 231621,
+          "ethTransfersCount": 46,
+          "price": {
+            "rate": "0.3169331563",
+            "diff": -2.8,
+            "diff7d": 8.14,
+            "ts": "1535993968",
+            "marketCapUsd": "43035542.0",
+            "availableSupply": "135787439.0",
+            "volume24h": "1580341.81697",
+            "diff30d": -24.080956757743,
+            "currency": "USD"
+          },
+          "countOps": 1065268
         }
       ]
     },
@@ -12052,6 +14166,22 @@
           "ethTransfersCount": 546,
           "price": false,
           "countOps": 17641
+        },
+        {
+          "timestamp": 1515370020,
+          "address": "0x602087badcb6ed10cc0dff3301b50d6f1993f3b3",
+          "name": "ArtifactCoin",
+          "decimals": "18",
+          "symbol": "3A",
+          "totalSupply": "900000000000000000000000000",
+          "owner": "0x00b1e84513e765df4e02ab8af7f477a629afa284",
+          "transfersCount": 17899,
+          "lastUpdated": 1535997567,
+          "issuancesCount": 0,
+          "holdersCount": 12304,
+          "ethTransfersCount": 546,
+          "price": false,
+          "countOps": 17899
         }
       ]
     },
@@ -12170,6 +14300,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 13906
+        },
+        {
+          "timestamp": 1515370020,
+          "address": "0x4cfe597e2922790353a093a1de4f6b47a4bb3f44",
+          "name": "XENC Token",
+          "decimals": "6",
+          "symbol": "XENC",
+          "totalSupply": "200000000000000",
+          "owner": "0x0a42409fa23217c019e5fe219cd93cc057b4d258",
+          "transfersCount": 13963,
+          "lastUpdated": 1535995233,
+          "issuancesCount": 0,
+          "holdersCount": 13724,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 13963
         }
       ]
     },
@@ -12275,6 +14421,22 @@
         },
         {
           "timestamp": 1514764900,
+          "address": "0x87ed87a34adc1ecc62232f248d74fe1f81e5da68",
+          "name": "Woyager",
+          "decimals": "18",
+          "symbol": "WYX",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 13568,
+          "lastUpdated": 1535576466,
+          "issuancesCount": 0,
+          "holdersCount": 6347,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 13568
+        },
+        {
+          "timestamp": 1515370020,
           "address": "0x87ed87a34adc1ecc62232f248d74fe1f81e5da68",
           "name": "Woyager",
           "decimals": "18",
@@ -12406,6 +14568,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 14675
+        },
+        {
+          "timestamp": 1515370020,
+          "address": "0x54f0e3b0d7ccbb65e56d166350aa86f7e71ce20b",
+          "name": "Veen",
+          "decimals": "18",
+          "symbol": "VEEN",
+          "totalSupply": "1979948512000000000000000000",
+          "owner": "0x4a6a17301f098e94b65dc3151519289531dd266e",
+          "transfersCount": 14878,
+          "lastUpdated": 1535989916,
+          "issuancesCount": 0,
+          "holdersCount": 4387,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 14878
         }
       ]
     },
@@ -12524,6 +14702,22 @@
           "ethTransfersCount": 21,
           "price": false,
           "countOps": 13044
+        },
+        {
+          "timestamp": 1515370030,
+          "address": "0xfc79774fb9dedeea2325d0d5570554eddc4e6747",
+          "name": "VotePumpCoin0x",
+          "decimals": "18",
+          "symbol": "VPC0x",
+          "totalSupply": "46000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 13134,
+          "lastUpdated": 1535990090,
+          "issuancesCount": 0,
+          "holdersCount": 4760,
+          "ethTransfersCount": 21,
+          "price": false,
+          "countOps": 13134
         }
       ]
     },
@@ -12642,6 +14836,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 11331
+        },
+        {
+          "timestamp": 1515370030,
+          "address": "0xf5ed2dc77f0d1ea7f106ecbd1850e406adc41b51",
+          "name": "The Ocean Token",
+          "decimals": "18",
+          "symbol": "OCEAN",
+          "totalSupply": "10092875000000000000000000",
+          "owner": "0x23ba63cb9f20ea28a18f28895732baf2a88a18de",
+          "transfersCount": 11336,
+          "lastUpdated": 1535996138,
+          "issuancesCount": 0,
+          "holdersCount": 11071,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 11336
         }
       ]
     },
@@ -12760,6 +14970,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 37272
+        },
+        {
+          "timestamp": 1515370030,
+          "address": "0x4b04633ee658d83a24a91e3a1b244221800d89b4",
+          "name": "Global Risk Exchange Token",
+          "decimals": "18",
+          "symbol": "RISK",
+          "totalSupply": "10000000000000000000000000000",
+          "owner": "0xd7319dec186d9cd07fbdec4e6db022fbf5a63f21",
+          "transfersCount": 40292,
+          "lastUpdated": 1535997567,
+          "issuancesCount": 0,
+          "holdersCount": 26596,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 40292
         }
       ]
     },
@@ -12878,6 +15104,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 160621
+        },
+        {
+          "timestamp": 1515370030,
+          "address": "0xd77bcd9cf4212a41defbcd2e2ff0f50fea2be643",
+          "name": "GA_chain",
+          "decimals": "18",
+          "symbol": "GA",
+          "totalSupply": "1800000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 163227,
+          "lastUpdated": 1535983511,
+          "issuancesCount": 0,
+          "holdersCount": 2273,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 163227
         }
       ]
     },
@@ -12996,6 +15238,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 10306
+        },
+        {
+          "timestamp": 1515370030,
+          "address": "0xd04a63eea250ce2b330d4ed46338d7cfa6999040",
+          "name": "TycoonCoin",
+          "decimals": 0,
+          "symbol": "TTC",
+          "totalSupply": "219172838",
+          "owner": "0x",
+          "transfersCount": 10310,
+          "lastUpdated": 1535972620,
+          "issuancesCount": 0,
+          "holdersCount": 9730,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 10310
         }
       ]
     },
@@ -13240,6 +15498,40 @@
             "currency": "USD"
           },
           "countOps": 31139
+        },
+        {
+          "timestamp": 1515370030,
+          "address": "0x5e3346444010135322268a4630d2ed5f8d09446c",
+          "name": "LockTrip",
+          "decimals": "18",
+          "symbol": "LOC",
+          "totalSupply": "18585932741500854062225000",
+          "owner": "0x",
+          "transfersCount": 31389,
+          "lastUpdated": 1528702164286,
+          "issuancesCount": 0,
+          "holdersCount": 9518,
+          "image": "https://ethplorer.io/images/loctrip.png",
+          "description": "Hotel Booking & Vacation Rental Marketplace With 0% Commissions",
+          "website": "https://locktrip.com/",
+          "facebook": "LockChainLOK",
+          "twitter": "LockChainCo",
+          "reddit": "LockChainCo",
+          "telegram": "https://t.me/LockTrip",
+          "links": "Subreddit: https://www.reddit.com/r/locktrip/\nGitHub: https://github.com/LockTrip\n",
+          "ethTransfersCount": 4776,
+          "price": {
+            "rate": "0.5425822231",
+            "diff": -4.27,
+            "diff7d": -2.49,
+            "ts": "1535994573",
+            "marketCapUsd": "5042198.0",
+            "availableSupply": "9292966.0",
+            "volume24h": "62519.8585669",
+            "diff30d": -40.330729570358,
+            "currency": "USD"
+          },
+          "countOps": 31389
         }
       ]
     },
@@ -13345,6 +15637,22 @@
         },
         {
           "timestamp": 1514764910,
+          "address": "0x29c02afa1fa7d0cac86e0c84ce25fc1ec4d3bf70",
+          "name": " Attention Token",
+          "decimals": "18",
+          "symbol": "@币",
+          "totalSupply": "500000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 9851,
+          "lastUpdated": 1534418616,
+          "issuancesCount": 0,
+          "holdersCount": 9839,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 9851
+        },
+        {
+          "timestamp": 1515370030,
           "address": "0x29c02afa1fa7d0cac86e0c84ce25fc1ec4d3bf70",
           "name": " Attention Token",
           "decimals": "18",
@@ -13542,6 +15850,32 @@
             "currency": "USD"
           },
           "countOps": 209308
+        },
+        {
+          "timestamp": 1515370040,
+          "address": "0xfb5a551374b656c6e39787b1d3a03feab7f3a98e",
+          "name": "ThingsOpreatingSystem",
+          "decimals": "18",
+          "symbol": "TOS",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0x0000000000000000000000000000000000000000",
+          "transfersCount": 209746,
+          "lastUpdated": 1535996361,
+          "issuancesCount": 0,
+          "holdersCount": 102388,
+          "ethTransfersCount": 1,
+          "price": {
+            "rate": "0.0318812443",
+            "diff": -0.91,
+            "diff7d": 19.47,
+            "ts": "1535996923",
+            "marketCapUsd": null,
+            "availableSupply": null,
+            "volume24h": "251257.439439",
+            "diff30d": -44.790653741119,
+            "currency": "USD"
+          },
+          "countOps": 209746
         }
       ]
     },
@@ -13687,6 +16021,31 @@
             "currency": "USD"
           },
           "countOps": 77109
+        },
+        {
+          "timestamp": 1515370040,
+          "address": "0x05d412ce18f24040bb3fa45cf2c69e506586d8e8",
+          "name": "MFTU",
+          "decimals": "18",
+          "symbol": "MFTU",
+          "totalSupply": "1400000000000000000000000000",
+          "owner": "0x202abc6cf98863ee0126c182ca325a33a867acba",
+          "transfersCount": 77497,
+          "lastUpdated": 1535997418,
+          "issuancesCount": 0,
+          "holdersCount": 20306,
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "0.000361407",
+            "diff": -5.66,
+            "diff7d": 22.7,
+            "ts": "1535997523",
+            "marketCapUsd": "88545.0",
+            "availableSupply": "245000000.0",
+            "volume24h": "6641.6739818",
+            "currency": "USD"
+          },
+          "countOps": 77497
         }
       ]
     },
@@ -13805,6 +16164,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 17438
+        },
+        {
+          "timestamp": 1515370040,
+          "address": "0xb16d3ed603d62b125c6bd45519eda40829549489",
+          "name": "Insureum Token",
+          "decimals": "18",
+          "symbol": "ISR",
+          "totalSupply": "297000000000000000000000000",
+          "owner": "0x29fcbd41d1f516255f7956148cc6f7bd7ec250b5",
+          "transfersCount": 17767,
+          "lastUpdated": 1535996415,
+          "issuancesCount": 0,
+          "holdersCount": 4401,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 17767
         }
       ]
     },
@@ -13923,6 +16298,22 @@
           "ethTransfersCount": 37,
           "price": false,
           "countOps": 28494
+        },
+        {
+          "timestamp": 1515370040,
+          "address": "0xb2edc59fc6108884b7bde8d623887badf031fc4b",
+          "name": "Mobile switching",
+          "decimals": "4",
+          "symbol": "MBSC",
+          "totalSupply": "10000000000000",
+          "owner": "0x",
+          "transfersCount": 28820,
+          "lastUpdated": 1535991906,
+          "issuancesCount": 0,
+          "holdersCount": 19325,
+          "ethTransfersCount": 37,
+          "price": false,
+          "countOps": 28820
         }
       ]
     },
@@ -13945,6 +16336,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 255744
+        },
+        {
+          "timestamp": 1515370040,
+          "address": "0xd4de05944572d142fbf70f3f010891a35ac15188",
+          "name": "Bulleon Promo Token",
+          "decimals": "18",
+          "symbol": "BULLEON PROMO",
+          "totalSupply": "400000000000000000000000000",
+          "owner": "0xbc63ca1bb8afde0cebb68a10bc43de49857ebec1",
+          "transfersCount": 265805,
+          "lastUpdated": 1535995632,
+          "issuancesCount": 0,
+          "holdersCount": 209514,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 265805
         }
       ]
     },
@@ -13967,6 +16374,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 126932
+        },
+        {
+          "timestamp": 1515370040,
+          "address": "0x949bd9e6031a3d43623fec3f85e9adbf8a6d9f7a",
+          "name": "UnityChainToken",
+          "decimals": "18",
+          "symbol": "UCT",
+          "totalSupply": "5000000000000000000000000000",
+          "owner": "0xb7a14c19fc2014129947eabce73e8db241ffd313",
+          "transfersCount": 143330,
+          "lastUpdated": 1535996988,
+          "issuancesCount": 0,
+          "holdersCount": 21968,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 143330
         }
       ]
     },
@@ -13999,6 +16422,32 @@
             "currency": "USD"
           },
           "countOps": 172155
+        },
+        {
+          "timestamp": 1515370040,
+          "address": "0x57ad67acf9bf015e4820fbd66ea1a21bed8852ec",
+          "name": "Lympo tokens",
+          "decimals": "18",
+          "symbol": "LYM",
+          "totalSupply": "999999999017098867808380000",
+          "owner": "0x",
+          "transfersCount": 172475,
+          "lastUpdated": 1535995886,
+          "issuancesCount": 0,
+          "holdersCount": 75131,
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "0.0165959568",
+            "diff": 22.19,
+            "diff7d": 22.12,
+            "ts": "1535996976",
+            "marketCapUsd": "12502531.0",
+            "availableSupply": "753347989.0",
+            "volume24h": "5774935.32805",
+            "diff30d": -27.168550213281,
+            "currency": "USD"
+          },
+          "countOps": 172475
         }
       ]
     },
@@ -14021,6 +16470,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 86432
+        },
+        {
+          "timestamp": 1515370040,
+          "address": "0x9d9832d1beb29cc949d75d61415fd00279f84dc2",
+          "name": "DNN",
+          "decimals": "18",
+          "symbol": "DNN",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 119200,
+          "lastUpdated": 1535997447,
+          "issuancesCount": 0,
+          "holdersCount": 43577,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 119200
         }
       ]
     },
@@ -14053,6 +16518,32 @@
             "currency": "USD"
           },
           "countOps": 198818
+        },
+        {
+          "timestamp": 1515370050,
+          "address": "0x9992ec3cf6a55b00978cddf2b27bc6882d88d1ec",
+          "name": "Polymath",
+          "decimals": "18",
+          "symbol": "POLY",
+          "totalSupply": "1000000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 202350,
+          "lastUpdated": 1535997300,
+          "issuancesCount": 0,
+          "holdersCount": 97893,
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "0.2128208789",
+            "diff": -1.35,
+            "diff7d": -5.9,
+            "ts": "1535997575",
+            "marketCapUsd": "59735651.0",
+            "availableSupply": "280685107.0",
+            "volume24h": "2234592.98613",
+            "diff30d": -24.331161303168,
+            "currency": "USD"
+          },
+          "countOps": 202350
         }
       ]
     },
@@ -14085,6 +16576,32 @@
             "currency": "USD"
           },
           "countOps": 84151
+        },
+        {
+          "timestamp": 1515370050,
+          "address": "0x6425c6be902d692ae2db752b3c268afadb099d3b",
+          "name": "RED MWAT",
+          "decimals": "18",
+          "symbol": "MWAT",
+          "totalSupply": "485000000000000000000000000",
+          "owner": "0xa94c2707e233e5d63f46011a4a158cd2452d1d86",
+          "transfersCount": 84385,
+          "lastUpdated": 1535997312,
+          "issuancesCount": 0,
+          "holdersCount": 67021,
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "0.0280517988",
+            "diff": -1.56,
+            "diff7d": -3.84,
+            "ts": "1535997578",
+            "marketCapUsd": "11858898.0",
+            "availableSupply": "422750000.0",
+            "volume24h": "27692.2998535",
+            "diff30d": 56.086995810126,
+            "currency": "USD"
+          },
+          "countOps": 84385
         }
       ]
     },
@@ -14107,6 +16624,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 61952
+        },
+        {
+          "timestamp": 1515370050,
+          "address": "0x7a173fbb00c036b291d4db78ef62d99577e65ea9",
+          "name": "VectoraicToken",
+          "decimals": "18",
+          "symbol": "VT",
+          "totalSupply": "3300000000000000000000000000",
+          "owner": "0xa407ebfc761caf463f59b8edce2ca2cc1f4b2838",
+          "transfersCount": 62842,
+          "lastUpdated": 1535997441,
+          "issuancesCount": 0,
+          "holdersCount": 61156,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 62842
         }
       ]
     },
@@ -14139,6 +16672,32 @@
             "currency": "USD"
           },
           "countOps": 115165
+        },
+        {
+          "timestamp": 1515370050,
+          "address": "0x1961b3331969ed52770751fc718ef530838b6dee",
+          "name": "BitDegree Token",
+          "decimals": "18",
+          "symbol": "BDG",
+          "totalSupply": "660000000000000000000000000",
+          "owner": "0xe259ece17feef05bdead9689c6f1bc8e778c517b",
+          "transfersCount": 115250,
+          "lastUpdated": 1535996740,
+          "issuancesCount": 0,
+          "holdersCount": 74426,
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "0.0066590761",
+            "diff": -7.87,
+            "diff7d": 1.57,
+            "ts": "1535997573",
+            "marketCapUsd": "2366225.0",
+            "availableSupply": "355338365.0",
+            "volume24h": "7445.243541",
+            "diff30d": -11.925836820641,
+            "currency": "USD"
+          },
+          "countOps": 115250
         }
       ]
     },
@@ -14161,6 +16720,22 @@
           "ethTransfersCount": 25,
           "price": false,
           "countOps": 56472
+        },
+        {
+          "timestamp": 1515370050,
+          "address": "0x2fe0bc5ffb80a84739da913f0a393a4b0cce661b",
+          "name": "QPay",
+          "decimals": "18",
+          "symbol": "QPY",
+          "totalSupply": "219768040118000000000150000",
+          "owner": "0x",
+          "transfersCount": 57927,
+          "lastUpdated": 1535997508,
+          "issuancesCount": 0,
+          "holdersCount": 22442,
+          "ethTransfersCount": 25,
+          "price": false,
+          "countOps": 57927
         }
       ]
     },
@@ -14170,6 +16745,22 @@
       "markets": [
         {
           "timestamp": 1514764920,
+          "address": "0x007ac2f589eb9d4fe1cea9f46b5f4f52dab73dd4",
+          "name": "SKW",
+          "decimals": "8",
+          "symbol": "SKW",
+          "totalSupply": "5000000000000000000",
+          "owner": "0x",
+          "transfersCount": 31777,
+          "lastUpdated": 1535618932,
+          "issuancesCount": 0,
+          "holdersCount": 31682,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 31777
+        },
+        {
+          "timestamp": 1515370050,
           "address": "0x007ac2f589eb9d4fe1cea9f46b5f4f52dab73dd4",
           "name": "SKW",
           "decimals": "8",
@@ -14205,6 +16796,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 59360
+        },
+        {
+          "timestamp": 1515370050,
+          "address": "0x2d3e7d4870a51b918919e7b851fe19983e4c38d5",
+          "name": "UBCoin",
+          "decimals": "18",
+          "symbol": "UBC",
+          "totalSupply": "633837700532870222418763359",
+          "owner": "0xf1f94bad54c8827c3b53754ad7daa0ff5dcd527d",
+          "transfersCount": 60315,
+          "lastUpdated": 1535996841,
+          "issuancesCount": 0,
+          "holdersCount": 49357,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 60315
         }
       ]
     },
@@ -14227,6 +16834,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 28057
+        },
+        {
+          "timestamp": 1515370050,
+          "address": "0x5d210a4c794fa210c64712f1e395ec1136aaec4c",
+          "name": "www.pnztrust.com",
+          "decimals": 0,
+          "symbol": "www.pnztrust.com",
+          "totalSupply": "42001000000",
+          "owner": "0x",
+          "transfersCount": 28075,
+          "lastUpdated": 1535989748,
+          "issuancesCount": 0,
+          "holdersCount": 28001,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 28075
         }
       ]
     },
@@ -14249,6 +16872,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 33847
+        },
+        {
+          "timestamp": 1515370060,
+          "address": "0xe964c79a2a6a94365c0b0c07a65f1c882e3f4059",
+          "name": "NeonCoin",
+          "decimals": "8",
+          "symbol": "NEON",
+          "totalSupply": "5000000000000000000",
+          "owner": "0x",
+          "transfersCount": 33957,
+          "lastUpdated": 1535994687,
+          "issuancesCount": 0,
+          "holdersCount": 11972,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 33957
         }
       ]
     },
@@ -14271,6 +16910,22 @@
           "ethTransfersCount": 107,
           "price": false,
           "countOps": 24241
+        },
+        {
+          "timestamp": 1515370060,
+          "address": "0x0dba7ca3d25f8c2f46d9b06ba7b1b3144e206f38",
+          "name": "Burma first token",
+          "decimals": "8",
+          "symbol": "BFT",
+          "totalSupply": "100000000000000000",
+          "owner": "0x",
+          "transfersCount": 24377,
+          "lastUpdated": 1535986020,
+          "issuancesCount": 0,
+          "holdersCount": 16585,
+          "ethTransfersCount": 107,
+          "price": false,
+          "countOps": 24377
         }
       ]
     },
@@ -14293,6 +16948,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 28840
+        },
+        {
+          "timestamp": 1515370060,
+          "address": "0xf947b0824c3995787efc899017a36bc9f281265e",
+          "name": "Lotoblock",
+          "decimals": "8",
+          "symbol": "LOTO",
+          "totalSupply": "1000000000000000000",
+          "owner": "0xd06d5897ae5e54f0c080ec64b709addc806bc880",
+          "transfersCount": 29452,
+          "lastUpdated": 1535996495,
+          "issuancesCount": 0,
+          "holdersCount": 27529,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 29452
         }
       ]
     },
@@ -14324,6 +16995,31 @@
             "currency": "USD"
           },
           "countOps": 21870
+        },
+        {
+          "timestamp": 1515370060,
+          "address": "0xd82df0abd3f51425eb15ef7580fda55727875f14",
+          "name": "DAV Token",
+          "decimals": "18",
+          "symbol": "DAV",
+          "totalSupply": "1380276937552821754827570000",
+          "owner": "0xf4feafc0844ad30498cece9d1797614b3c557fcf",
+          "transfersCount": 22397,
+          "lastUpdated": 1535997419,
+          "issuancesCount": 0,
+          "holdersCount": 18306,
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "0.0162018624",
+            "diff": 10.08,
+            "diff7d": 55.01,
+            "ts": "1535996925",
+            "marketCapUsd": null,
+            "availableSupply": null,
+            "volume24h": "76801.8426307",
+            "currency": "USD"
+          },
+          "countOps": 22397
         }
       ]
     },
@@ -14346,6 +17042,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 28551
+        },
+        {
+          "timestamp": 1515370060,
+          "address": "0xaa843f65872a25d6e9552ea0b360fb1d5e333124",
+          "name": "Eco Value Coin",
+          "decimals": "18",
+          "symbol": "EVC",
+          "totalSupply": "3300000000000000000000000000",
+          "owner": "0xe6b8de6924ba1247c9876324f42e0c94f0837e64",
+          "transfersCount": 28631,
+          "lastUpdated": 1535988299,
+          "issuancesCount": 0,
+          "holdersCount": 25686,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 28631
         }
       ]
     },
@@ -14368,6 +17080,22 @@
           "ethTransfersCount": 1211,
           "price": false,
           "countOps": 132914
+        },
+        {
+          "timestamp": 1515370060,
+          "address": "0x0cfda67b0067f1a99deb1cb80e0273a3f26d317c",
+          "name": "TrekChain",
+          "decimals": "18",
+          "symbol": "TREK",
+          "totalSupply": "1200000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 136721,
+          "lastUpdated": 1535997177,
+          "issuancesCount": 0,
+          "holdersCount": 70499,
+          "ethTransfersCount": 1228,
+          "price": false,
+          "countOps": 136721
         }
       ]
     },
@@ -14390,6 +17118,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 24493
+        },
+        {
+          "timestamp": 1515370060,
+          "address": "0x69d94dc74dcdccbadec877454a40341ecac34a7c",
+          "name": "iRide",
+          "decimals": "18",
+          "symbol": "iRide",
+          "totalSupply": "10000000000000000000000000000",
+          "owner": "0x",
+          "transfersCount": 24635,
+          "lastUpdated": 1535989287,
+          "issuancesCount": 0,
+          "holdersCount": 24050,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 24635
         }
       ]
     },
@@ -14412,6 +17156,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 17084
+        },
+        {
+          "timestamp": 1515370070,
+          "address": "0x89332542b57621dbee1e305b30b0e02f86283100",
+          "name": "Kryptonium",
+          "decimals": "18",
+          "symbol": "KRYP",
+          "totalSupply": "177700000000000000000000000",
+          "owner": "0xee8e76a3e92cae6e8215d17d9f7f00890ac089e9",
+          "transfersCount": 23759,
+          "lastUpdated": 1535997322,
+          "issuancesCount": 0,
+          "holdersCount": 21599,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 23759
         }
       ]
     },
@@ -14444,6 +17204,32 @@
             "currency": "USD"
           },
           "countOps": 93324
+        },
+        {
+          "timestamp": 1515370070,
+          "address": "0x039b5649a59967e3e936d7471f9c3700100ee1ab",
+          "name": "Kucoin Shares",
+          "decimals": "6",
+          "symbol": "KCS",
+          "totalSupply": "180334365000076",
+          "owner": "0x",
+          "transfersCount": 93428,
+          "lastUpdated": 1535993119,
+          "issuancesCount": 0,
+          "holdersCount": 54153,
+          "ethTransfersCount": 1,
+          "price": {
+            "rate": "1.4659542508",
+            "diff": 0.72,
+            "diff7d": 7.69,
+            "ts": "1535997572",
+            "marketCapUsd": "133006874.0",
+            "availableSupply": "90730576.0",
+            "volume24h": "161937.443368",
+            "diff30d": -35.748286240237,
+            "currency": "USD"
+          },
+          "countOps": 93428
         }
       ]
     },
@@ -14466,6 +17252,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 17561
+        },
+        {
+          "timestamp": 1515370070,
+          "address": "0x7d3761297d48e3364448560de2a40a3ccce399e2",
+          "name": "BZcash",
+          "decimals": "18",
+          "symbol": "BZC",
+          "totalSupply": "210000000000000000000000005",
+          "owner": "0x2f57b6df86a0ca987666022c821d737d949f2412",
+          "transfersCount": 29169,
+          "lastUpdated": 1535996771,
+          "issuancesCount": 0,
+          "holdersCount": 8242,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 29169
         }
       ]
     },
@@ -14488,6 +17290,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 34060
+        },
+        {
+          "timestamp": 1515370070,
+          "address": "0x78fceca5bf5ec79c23effece97ae758665ba4f55",
+          "name": "YouDeal Token",
+          "decimals": "18",
+          "symbol": "YD",
+          "totalSupply": "10500000000000000000000000000",
+          "owner": "0x1734c8171fc60976760043b8d47116117db63fcd",
+          "transfersCount": 34061,
+          "lastUpdated": 1535867107,
+          "issuancesCount": 0,
+          "holdersCount": 32655,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 34061
         }
       ]
     },
@@ -14510,6 +17328,22 @@
           "ethTransfersCount": 4,
           "price": false,
           "countOps": 15078
+        },
+        {
+          "timestamp": 1515370070,
+          "address": "0x83fa34ffd45dced0482d92048d04823556351520",
+          "name": "0xTube",
+          "decimals": "8",
+          "symbol": "0xTube",
+          "totalSupply": "100000000000000000",
+          "owner": "0x",
+          "transfersCount": 15341,
+          "lastUpdated": 1535961069,
+          "issuancesCount": 0,
+          "holdersCount": 8255,
+          "ethTransfersCount": 4,
+          "price": false,
+          "countOps": 15341
         }
       ]
     },
@@ -14532,6 +17366,22 @@
           "ethTransfersCount": 10,
           "price": false,
           "countOps": 15029
+        },
+        {
+          "timestamp": 1515370070,
+          "address": "0x088dfd01e4e279d9b9b89690dc1682c89fee1dcb",
+          "name": "LUMA",
+          "decimals": "8",
+          "symbol": "LUMA",
+          "totalSupply": "50000000000000000",
+          "owner": "0x",
+          "transfersCount": 15199,
+          "lastUpdated": 1535992345,
+          "issuancesCount": 0,
+          "holdersCount": 13415,
+          "ethTransfersCount": 10,
+          "price": false,
+          "countOps": 15199
         }
       ]
     },
@@ -14564,6 +17414,32 @@
             "currency": "USD"
           },
           "countOps": 55294
+        },
+        {
+          "timestamp": 1515370070,
+          "address": "0x4dc3643dbc642b72c158e7f3d2ff232df61cb6ce",
+          "name": "Amber Token",
+          "decimals": "18",
+          "symbol": "AMB",
+          "totalSupply": "361477437535701402159030000",
+          "owner": "0x0000000000000000000000000000000000000000",
+          "transfersCount": 55458,
+          "lastUpdated": 1535997250,
+          "issuancesCount": 0,
+          "holdersCount": 24353,
+          "ethTransfersCount": 2,
+          "price": {
+            "rate": "0.1755944429",
+            "diff": 1.02,
+            "diff7d": 21.02,
+            "ts": "1535997573",
+            "marketCapUsd": "25389372.0",
+            "availableSupply": "144590975.0",
+            "volume24h": "184222.636963",
+            "diff30d": 3.6946479230888,
+            "currency": "USD"
+          },
+          "countOps": 55458
         }
       ]
     },
@@ -14596,6 +17472,32 @@
             "currency": "USD"
           },
           "countOps": 220792
+        },
+        {
+          "timestamp": 1515370080,
+          "address": "0x4672bad527107471cb5067a887f4656d585a8a31",
+          "name": "Dropil",
+          "decimals": "18",
+          "symbol": "DROP",
+          "totalSupply": "30000000000000000000000000000",
+          "owner": "0x925ea5af075bde17811e4bcdc198dc5d3675e466",
+          "transfersCount": 222007,
+          "lastUpdated": 1535997375,
+          "issuancesCount": 0,
+          "holdersCount": 45340,
+          "ethTransfersCount": 0,
+          "price": {
+            "rate": "0.003427973",
+            "diff": 12.23,
+            "diff7d": 31.29,
+            "ts": "1535995774",
+            "marketCapUsd": "73353849.0",
+            "availableSupply": "21398607296.0",
+            "volume24h": "387415.176112",
+            "diff30d": -31.498766048858,
+            "currency": "USD"
+          },
+          "countOps": 222007
         }
       ]
     },
@@ -14618,6 +17520,22 @@
           "ethTransfersCount": 785,
           "price": false,
           "countOps": 163409
+        },
+        {
+          "timestamp": 1515370080,
+          "address": "0x4cc29dd2b01a3e0ed005c6e2deb5b3666e4c240c",
+          "name": "QMQCoin",
+          "decimals": "8",
+          "symbol": "QMQ",
+          "totalSupply": "100000000000000000",
+          "owner": "0x",
+          "transfersCount": 163739,
+          "lastUpdated": 1535997448,
+          "issuancesCount": 0,
+          "holdersCount": 103180,
+          "ethTransfersCount": 787,
+          "price": false,
+          "countOps": 163739
         }
       ]
     },
@@ -14649,6 +17567,32 @@
             "currency": "USD"
           },
           "countOps": 83728
+        },
+        {
+          "timestamp": 1515370080,
+          "address": "0x48f775efbe4f5ece6e0df2f7b5932df56823b990",
+          "name": "R token",
+          "decimals": 0,
+          "symbol": "R",
+          "totalSupply": "1000000000",
+          "owner": "0x",
+          "transfersCount": 85018,
+          "lastUpdated": 1535996685,
+          "issuancesCount": 0,
+          "holdersCount": 52031,
+          "ethTransfersCount": 1,
+          "price": {
+            "rate": "0.1344717174",
+            "diff": -1.17,
+            "diff7d": 6.6,
+            "ts": "1535996373",
+            "marketCapUsd": "25072252.0",
+            "availableSupply": "186450000.0",
+            "volume24h": "2033388.17426",
+            "diff30d": -16.937905036042,
+            "currency": "USD"
+          },
+          "countOps": 85018
         }
       ]
     },
@@ -14671,6 +17615,22 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 11961
+        },
+        {
+          "timestamp": 1515370080,
+          "address": "0x9707bf953563580fcf6847ab6a8dc42abcf98b14",
+          "name": "Wisdom Tourism Chain Coin",
+          "decimals": "4",
+          "symbol": "WTCC",
+          "totalSupply": "1000000000000",
+          "owner": "0xb80b8aaa61c9c2e701a32ef5ba4b1ccf9c061476",
+          "transfersCount": 12092,
+          "lastUpdated": 1535976479,
+          "issuancesCount": 0,
+          "holdersCount": 8791,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 12092
         }
       ]
     },
@@ -14680,6 +17640,22 @@
       "markets": [
         {
           "timestamp": 1514764950,
+          "address": "0x0eee3715d385ecefc6afd9fbf30ddee725be3de1",
+          "name": "Relative Chain",
+          "decimals": "18",
+          "symbol": "REL",
+          "totalSupply": "10000000000000000000000000000",
+          "owner": "0xa67750f7e36058702503456cce508168c351de55",
+          "transfersCount": 11475,
+          "lastUpdated": 1535457567,
+          "issuancesCount": 0,
+          "holdersCount": 11413,
+          "ethTransfersCount": 0,
+          "price": false,
+          "countOps": 11475
+        },
+        {
+          "timestamp": 1515370080,
           "address": "0x0eee3715d385ecefc6afd9fbf30ddee725be3de1",
           "name": "Relative Chain",
           "decimals": "18",
@@ -14726,6 +17702,33 @@
             "currency": "USD"
           },
           "countOps": 318498
+        },
+        {
+          "timestamp": 1515370080,
+          "address": "0x818fc6c2ec5986bc6e2cbf00939d90556ab12ce5",
+          "name": "Kin",
+          "decimals": 18,
+          "symbol": "KIN",
+          "totalSupply": "1180039079176592100760704913",
+          "owner": "0x8bfe5ebb128ee82f4ba80f56bb32409cc87bc6fb",
+          "transfersCount": 320831,
+          "lastUpdated": 1505221252,
+          "issuancesCount": 0,
+          "holdersCount": 51267,
+          "description": "Kin is a cryptocurrency built on top of the Ethereum blockchain. It is envisioned as a general purpose cryptocurrency for use in everyday digital services such as chat, social media, and payments. Kin will be the unit of account for all economic transactions within the Kin Ecosystem, and it will serve as the basis of interoperability with other digital services.",
+          "ethTransfersCount": 16,
+          "price": {
+            "rate": "0.0000966541",
+            "diff": 2.55,
+            "diff7d": -10.14,
+            "ts": "1535996374",
+            "marketCapUsd": "73079927.0",
+            "availableSupply": "756097560976",
+            "volume24h": "277807.336672",
+            "diff30d": -46.853053414127,
+            "currency": "USD"
+          },
+          "countOps": 320831
         }
       ]
     }
