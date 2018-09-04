@@ -616,6 +616,7 @@ const app = {
 		let answer
 		let question
 		let phase
+		let token
 
 		//var ret = (text,format) => ({ text:text, format:format })
 		console.log(`command is ${command}`,data)
@@ -750,9 +751,15 @@ const app = {
 				if( tokenId === -1)
 					retval = { text:dialogs['token.notfound'].text( {tokenName:data.name} ) } 
 				else {
-					let markets = tokens[tokenId].markets
+					token = tokens[tokenId]
+					let markets = token.markets
 					let current = markets[markets.length-1]
-					retval = { text: formatters.tokenMarket( current ), parse: parseHtml }
+					//retval = { text: formatters.tokenMarket( current ), parse: parseHtml }
+					retval = { 
+						text: dialogs['token'].text( { tokenName:token.name, market: current, rating:token.rating } ),
+						format: formatters.token( token, tokenId ),
+						parse: parseHtml
+					}
 				}
 				break
 			case 'review':
@@ -941,6 +948,35 @@ const app = {
 		},
 		'token.ratings': {
 			text: () => `got token ratings`
+		},
+		'token': {
+			text: ( {tokenName, market, rating }) => {
+				const chg = (curr, prev) => (!curr.count || !prev.count ? ' ' : ( curr.avg > prev.avg ? '⬆': (curr.avg < prev.avg ? '⬇': '↔' )))
+		
+				let str = `<b>${tokenName}</b>`
+				//console.log('hello',market,JSON.stringify(rating))
+				if (market.price) str += `\nprice <b>${market.price.rate}</b> ${market.price.currency}`
+				let cats = {
+					day: rating.current.day.categories.reduce( (str,cat,cidx) => (
+						str + (cat.count == 0 ? '---' : cat.avg.toFixed(1)) + chg(cat,rating.previous.day.categories[cidx]) + ' '
+					), ''),
+					week: rating.current.week.categories.reduce( (str,cat,cidx) => (
+						str + (cat.count == 0 ? '---' : cat.avg.toFixed(1)) + chg(cat,rating.previous.week.categories[cidx]) + ' '
+					), ''),
+					month: rating.current.month.categories.reduce( (str,cat,cidx) => (
+						str + (cat.count == 0 ? '---' : cat.avg.toFixed(1)) + chg(cat,rating.previous.month.categories[cidx]) + ' '
+					), '')
+				}
+				if (rating) {
+					str
+					str += `\n...ratings / change ↔⬆⬇` // 
+					str += `\n\n<i>categories======</i>\n${categories.reduce((str,cat) => str + cat.substr(0,4) + ' ','')}`
+					str += `\n\n<i>day</i>\n${cats.day}`
+					str += `\n<i>week</i>\n${cats.week}`
+					str += `\n<i>month</i>\n${cats.month}\n\n<i>======categories</i>\n`
+				}
+				return str
+			}
 		},
 		'tokens': {
 			text: () => `Covered Tokens`

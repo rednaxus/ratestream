@@ -22,7 +22,14 @@
           "sections": {
             "overview": "kjkj",
             "team": "asdkfj askdfj",
-            "opportunity": "this is a bad opportunity"
+            "opportunity": "this is a bad opportunity",
+            "outreach": "kajsdf",
+            "ecosystem": "asdf",
+            "solution": "asdf",
+            "resources": "commands",
+            "token-supply": "awefasdf",
+            "summary": "adsf",
+            "momentum": "asdf"
           }
         }
       ]
@@ -916,8 +923,8 @@
       "active_jury_round": -1,
       "active_review_round": 0,
       "id": 21,
-      "receive": null,
-      "mockAs": 1
+      "receive": "review-category-5",
+      "mockAs": -1
     },
     {
       "identity": "0xc9f413023e002651def5d896abfa7fa360680940",
@@ -7900,12 +7907,12 @@
               "avg": 4
             },
             {
-              "count": 0,
-              "avg": 0
+              "count": 3,
+              "avg": 3
             },
             {
-              "count": 0,
-              "avg": 0
+              "count": 3,
+              "avg": 4
             },
             {
               "count": 0,
@@ -7967,12 +7974,12 @@
               "avg": 4
             },
             {
-              "count": 0,
-              "avg": 0
+              "count": 3,
+              "avg": 2
             },
             {
-              "count": 0,
-              "avg": 0
+              "count": 2,
+              "avg": 4
             },
             {
               "count": 0,
@@ -8052,111 +8059,14 @@
               "avg_sway": null
             },
             {
-              "count": 0,
-              "avg": 0,
-              "sway_count": 0,
-              "avg_sway": 0
-            },
-            {
-              "count": 0,
-              "avg": 0,
-              "sway_count": 0,
-              "avg_sway": 0
-            },
-            {
-              "count": 0,
-              "avg": 0,
-              "sway_count": 0,
-              "avg_sway": 0
-            },
-            {
-              "count": 0,
-              "avg": 0,
-              "sway_count": 0,
-              "avg_sway": 0
-            },
-            {
-              "count": 0,
-              "avg": 0,
-              "sway_count": 0,
-              "avg_sway": 0
-            },
-            {
-              "count": 0,
-              "avg": 0,
-              "sway_count": 0,
-              "avg_sway": 0
-            }
-          ]
-        },
-        {
-          "timestamp": 1514764800,
-          "answers": [
-            {
-              "count": 9,
-              "avg": 2,
-              "sway_count": 9,
-              "avg_sway": -2
-            },
-            {
-              "count": 9,
-              "avg": 2,
-              "sway_count": 9,
-              "avg_sway": -1
-            },
-            {
-              "count": 9,
-              "avg": 4,
-              "sway_count": 9,
-              "avg_sway": -1
-            },
-            {
-              "count": 9,
+              "count": 3,
               "avg": 1,
-              "sway_count": 9,
-              "avg_sway": -1
-            },
-            {
-              "count": 9,
-              "avg": 4,
-              "sway_count": 9,
-              "avg_sway": 3
-            }
-          ],
-          "categories": [
-            {
-              "count": 0,
-              "avg": 0,
               "sway_count": 0,
               "avg_sway": 0
             },
             {
-              "count": 0,
-              "avg": 0,
-              "sway_count": 0,
-              "avg_sway": 0
-            },
-            {
-              "count": 36,
-              "avg": 2.25,
-              "sway_count": 36,
-              "avg_sway": -1.25
-            },
-            {
-              "count": 9,
-              "avg": 4,
-              "sway_count": 9,
-              "avg_sway": 3
-            },
-            {
-              "count": 0,
-              "avg": 0,
-              "sway_count": 0,
-              "avg_sway": 0
-            },
-            {
-              "count": 0,
-              "avg": 0,
+              "count": 5,
+              "avg": 5,
               "sway_count": 0,
               "avg_sway": 0
             },
@@ -8246,6 +8156,18 @@
               "avg_sway": 3
             },
             {
+              "count": 2,
+              "avg": 4,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 2,
+              "avg": 5,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
               "count": 0,
               "avg": 0,
               "sway_count": 0,
@@ -8254,6 +8176,91 @@
             {
               "count": 0,
               "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            }
+          ]
+        },
+        {
+          "timestamp": 1514764800,
+          "answers": [
+            {
+              "count": 9,
+              "avg": 2,
+              "sway_count": 9,
+              "avg_sway": -2
+            },
+            {
+              "count": 9,
+              "avg": 2,
+              "sway_count": 9,
+              "avg_sway": -1
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": -1
+            },
+            {
+              "count": 9,
+              "avg": 1,
+              "sway_count": 9,
+              "avg_sway": -1
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": 3
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 36,
+              "avg": 2.25,
+              "sway_count": 36,
+              "avg_sway": -1.25
+            },
+            {
+              "count": 9,
+              "avg": 4,
+              "sway_count": 9,
+              "avg_sway": 3
+            },
+            {
+              "count": 4,
+              "avg": 2,
+              "sway_count": 0,
+              "avg_sway": 0
+            },
+            {
+              "count": 5,
+              "avg": 1,
               "sway_count": 0,
               "avg_sway": 0
             },
@@ -8352,15 +8359,15 @@
               "winner": 0
             },
             {
-              "count": 0,
-              "avg": 0,
+              "count": 1,
+              "avg": 5,
               "sway_count": 0,
               "avg_sway": 0,
               "winner": null
             },
             {
-              "count": 0,
-              "avg": 0,
+              "count": 2,
+              "avg": 3,
               "sway_count": 0,
               "avg_sway": 0,
               "winner": null
@@ -8683,12 +8690,12 @@
                 "avg": 4
               },
               {
-                "count": 0,
-                "avg": 0
+                "count": 16,
+                "avg": 2.4375
               },
               {
-                "count": 0,
-                "avg": 0
+                "count": 19,
+                "avg": 3.473684210526316
               },
               {
                 "count": 0,
@@ -8817,12 +8824,12 @@
                 "avg": 4
               },
               {
-                "count": 0,
-                "avg": 0
+                "count": 16,
+                "avg": 2.4375
               },
               {
-                "count": 0,
-                "avg": 0
+                "count": 19,
+                "avg": 3.473684210526316
               },
               {
                 "count": 0,
@@ -8909,7 +8916,7 @@
             ]
           }
         },
-        "timestamp": 1515382900
+        "timestamp": 1515389760
       }
     },
     {
@@ -12958,7 +12965,7 @@
             ]
           }
         },
-        "timestamp": 1515382900
+        "timestamp": 1515389760
       }
     },
     {

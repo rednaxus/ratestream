@@ -64,7 +64,13 @@ module.exports = {
 	apptime: seconds => ( 
 		`app time is [${seconds}] ${moment(seconds*1000).format('DD-MMMM-YYYY HH:MM:SS')}`
 	),
-
+	token: ( token, id ) => {
+		let ik = [[ 
+			{ text: 'info detail', callback_data: `token-details-${id}`},
+			{ text: 'rating detail', callback_data: `token-something`}
+		]]
+		return { reply_markup:{ inline_keyboard: ik } }		
+	},
 	tokens: tokens => {
 		//	let msgtokens = tokens.reduce( (str,token) => `${str}[${token.name}] `, "" )
 		let ik = []

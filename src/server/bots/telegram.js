@@ -61,8 +61,9 @@ const tell = (chat_id,reply) => {
 	//console.log('bot reply',chat_id,reply)
 	let ret
 	let parse = reply.parse ? {...reply.parse} : null // oops, bug in bot, sendMessage modifies parse 
-	if (parse && reply.format)
-		ret = bot.sendMessage(chat_id,reply.text,reply.format,parse)
+	if (parse && reply.format) {
+		ret = bot.sendMessage(chat_id,reply.text,{...reply.format,...parse})
+	}
 	else if (reply.parse || reply.format)
 		ret = bot.sendMessage(chat_id,reply.text,reply.format || parse)
 	else
