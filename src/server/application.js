@@ -369,22 +369,15 @@ const app = {
 	ratings: (  ) => { // get best current ratings
 		let ratings = tokens.reduce( ( taccum, token, tIdx ) => {
 			if (!token.tallies) return taccum
-			console.log(`time now ${time_str(now)}`)
-			console.log(`have tallies for token ${tIdx}:${token.name}`)
+			//console.log(`time now ${time_str(now)}`)
+			//console.log(`have tallies for token ${tIdx}:${token.name}`)
 			taccum[tIdx] = ['current','previous'].reduce( (cpaccum, iteration,idx) => { 	
-				let periods_result =  periods.reduce( (accum, period, pIdx )=> {
+				cpaccum[iteration] =  periods.reduce( (accum, period, pIdx )=> {
 					let time = idx ? now - period.value : now
 					//console.log('checking time',iteration,period,time)
-					let valid_tallies = token.tallies.filter( 
-						tally => {
-							let condition =  tally.timestamp < time && tally.timestamp > (time - period.value) 
-							//console.log(`tally:${time_str(tally.timestamp)} begin:${time_str(time-period.value)} now:${time_str(time)} ${condition}`)
-							return condition
-						}
-					)
-					//console.log('valid tallies for period',period, valid_tallies.length)
-
-					let ss = valid_tallies.reduce( (tally_accum,tally) => {
+					accum[period.name] = token.tallies.filter( 
+						tally => tally.timestamp < time && tally.timestamp > (time - period.value) 
+					).reduce( (tally_accum,tally) => {
 						//console.log('tally',tally)
 						let accum_answers = tally.answers.map( ( answer, aIdx) => {
 							let aa = tally_accum.answers[aIdx] // || { count: 0, avg: 0 }
@@ -403,21 +396,15 @@ const app = {
 								avg: aa.count || category.count ? ( aa.count * aa.avg + category.count * category.avg ) / ( aa.count + category.count ) : 0
 							}
 						})
-
-						let summaries = { answers: accum_answers, categories: accum_cats }
-						//console.log('summaries',JSON.stringify(summaries))
-						return summaries
+						return { answers: accum_answers, categories: accum_cats }
 					},{ 
 						answers: new Array(analyst_questions.length).fill().map( _ => ({ count: 0, avg: 0 })),
 						categories: new Array(categories.length).fill().map( _ => ({ count: 0, avg: 0 }))
-					} )
-					accum[period.name] = ss
+					})
 					return accum
-				},{} )
-				//console.log('periods result',periods_result)
-				cpaccum[iteration] = periods_result // current, previous
+				},{})
 				return cpaccum
-			}, { })
+			}, {})
 
 			return taccum
 		},{}) 

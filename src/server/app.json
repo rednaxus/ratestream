@@ -923,7 +923,7 @@
       "active_jury_round": -1,
       "active_review_round": 0,
       "id": 21,
-      "receive": "review-category-5",
+      "receive": null,
       "mockAs": -1
     },
     {
@@ -8916,7 +8916,7 @@
             ]
           }
         },
-        "timestamp": 1515389760
+        "timestamp": 1515408130
       }
     },
     {
@@ -12965,7 +12965,7 @@
             ]
           }
         },
-        "timestamp": 1515389760
+        "timestamp": 1515408130
       }
     },
     {
