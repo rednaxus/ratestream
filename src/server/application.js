@@ -366,37 +366,23 @@ const app = {
 	ratingAtTime: (time, timewindow) => {
 
 	},
-	ratings: (  ) => { // get best current ratings
+	ratings: (  ) => { // get best current and previous ratings for different time windows
 		let ratings = tokens.reduce( ( taccum, token, tIdx ) => {
 			if (!token.tallies) return taccum
-			//console.log(`time now ${time_str(now)}`)
-			//console.log(`have tallies for token ${tIdx}:${token.name}`)
 			taccum[tIdx] = ['current','previous'].reduce( (cpaccum, iteration,idx) => { 	
 				cpaccum[iteration] =  periods.reduce( (accum, period, pIdx )=> {
 					let time = idx ? now - period.value : now
-					//console.log('checking time',iteration,period,time)
 					accum[period.name] = token.tallies.filter( 
 						tally => tally.timestamp < time && tally.timestamp > (time - period.value) 
 					).reduce( (tally_accum,tally) => {
-						//console.log('tally',tally)
-						let accum_answers = tally.answers.map( ( answer, aIdx) => {
-							let aa = tally_accum.answers[aIdx] // || { count: 0, avg: 0 }
-							//console.log('aa',aa,'answer',answer)
-							return { 
-								count: aa.count + answer.count, 
-								avg: aa.count || answer.count ? ( aa.count * aa.avg + answer.count * answer.avg ) / ( aa.count + answer.count ) : 0
-							}
+						const blend = (aa, answer) => ({
+							count: aa.count + answer.count, 
+							avg: aa.count || answer.count ? ( aa.count * aa.avg + answer.count * answer.avg ) / ( aa.count + answer.count ) : 0
 						})
-						//console.log('accum answer',accum_answers)
-						let accum_cats = tally.categories.map( ( category, aIdx) => {
-							let aa = tally_accum.categories[aIdx] || { count: 0, avg: 0 }
-							//console.log('aa',aa,'cat',category)
-							return { 
-								count: aa.count + category.count, 
-								avg: aa.count || category.count ? ( aa.count * aa.avg + category.count * category.avg ) / ( aa.count + category.count ) : 0
-							}
-						})
-						return { answers: accum_answers, categories: accum_cats }
+						return { 
+							answers: tally.answers.map( ( answer, aIdx) => blend( tally_accum.answers[idx], answer ) ),
+							categories: tally.categories.map( ( category, cIdx) => blend( tally_accum.categories[cIdx], category ) )
+						}
 					},{ 
 						answers: new Array(analyst_questions.length).fill().map( _ => ({ count: 0, avg: 0 })),
 						categories: new Array(categories.length).fill().map( _ => ({ count: 0, avg: 0 }))
@@ -405,7 +391,6 @@ const app = {
 				},{})
 				return cpaccum
 			}, {})
-
 			return taccum
 		},{}) 
 
