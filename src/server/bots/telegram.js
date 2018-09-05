@@ -120,7 +120,7 @@ const do_review = msg => {
 
 bot.onText(/\/review/i, msg => do_review( msg ) )
 
-const do_analyze = msg => { // jurist start round
+const do_rate = msg => { // jurist start round
 	let msgInfo = msg.text.split(' ') // for testing, so can explicitly specify user
 	console.log('msgInfo',msgInfo)
 	let user
@@ -132,14 +132,14 @@ const do_analyze = msg => { // jurist start round
 		user = identify( msg )
 		user.mockAs = -1
 	}
-	let cmdResult = say('analyze',{ user })
+	let cmdResult = say('rate',{ user })
 	tell(msg.chat.id,cmdResult).then( () => {
 		if (cmdResult.status !== -1) tell( msg.chat.id, say( 'question',{ user }))
 	})
 }
 
-bot.onText(/\/analyze/i, msg => { 
-	do_analyze( msg )
+bot.onText(/\/rate/i, msg => { 
+	do_rate( msg )
 })
 
 
@@ -194,7 +194,7 @@ bot.onText(/\/testAddReviewers/, msg => {
 bot.onText(/\/testAddAnalysts/, msg => {
 	testUsers.forEach( (user,idx) => {
 		//let user = identify( { id: user.t_id } )
-		let round = app.roundToAnalyze( user )
+		let round = app.roundToRate( user )
 		if (!round) {
 			bot.sendMessage(msg.chat.id,`Sorry...no rounds to analyze right now`)
 		} else {
@@ -277,8 +277,8 @@ bot.on('message', msg => {
 			case 'tokens':
 				tell( msg.chat.id, say('tokens') )
 				break
-			case 'analyze':
-				do_analyze( msg )
+			case 'rate':
+				do_rate( msg )
 				break
 			case 'review':
 				do_review( msg )

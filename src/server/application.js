@@ -44,7 +44,7 @@ const categories = config.review_categories
 
 const commands = [
 	'review',
-	'analyze',
+	'rate',
 	'activity',	// includes rounds you are and have been involved in, and outcomes
 	'news',
 	'token <name>',
@@ -63,8 +63,12 @@ var saveTimer
 var cronTimer
 
 const round_window = 3600*8 // 8 hours
-const round_window_min = 3600*2 // 2 hours, minimum window left for a second lead to be added
+const round_window_min = 3600*2 // 2 hours, minimum window left for a second lead to be added, otherwise round cancelled
+const round_phase_window = 20*60 // 20 minutes per phase max
+
 const tally_window = 3600*24*7   // window from now to consider tallies (e.g. 1 week)
+
+
 const WEEK = 3600*24*7
 const DAY = 3600*24
 const MONTH = 3600*24*28
@@ -156,7 +160,7 @@ const app = {
 		categories.forEach( category => ( roundUser.sections[category] ? done.push(category): needed.push(category) ) )
 		return ({ done, needed })
 	},
-	roundToLead: user => { // get a round to lead
+	roundToReview: user => { // get a round to lead
 
 		let time = now
 		//let user = users[ userIdx ]
@@ -217,7 +221,7 @@ const app = {
 		app.save()
 		return round
 	},
-	roundToAnalyze: user => {
+	roundToRate: user => {
 		// get least covered round
 
  		if (user.active_jury_round !== -1) {
@@ -263,7 +267,7 @@ const app = {
 		app.save()
 		return round
 	},
-	roundsAssess: () => { // zorg should run every 10 minutes or so
+	roundsAssess: () => { // should run every 10 minutes or so, terminates and scores rounds
 		// tally results
 		let timepassed = now - last_tally
 		let tallies = {}
@@ -279,7 +283,7 @@ const app = {
 		console.log('questions by category', questionsByCategory )
 		*/
 
-		// windowed_rounds
+		// tally windowed_rounds
 		rounds.filter( round => round.finish >= timebegin ).forEach( round => {
 			//console.log(`${now}:run round ${round.id} ${round.finish} ${round.status}` )
 
@@ -329,13 +333,35 @@ const app = {
 					}
 				})
 			})
-			
-			// finish round if in need of finishing
-			if (round.finish <= now && round.status == 'active') {
-				console.log('expiring')
-				app.roundExpire( round )
-				// compute winners
+
+			// Expire reviewers and raters if due
+			if (round.status == 'active') {
+				
+				// reviewer...if round has only one reviewer and past round_window_min, cancel it
+				if ( !round.users[0].start || !round.users[1].start && (now - round.start > round_window_min) ) 
+					app.roundCancel( round )
+				
+
+				// finish round if in need of finishing
+				if (round.finish <= now) 
+					app.roundExpire( round )
+				
+
+				if (round.status == 'active') round.users.forEach( (roundUser,uIdx) => {// not cancelled or expired, advance rater
+					if (uIdx < 2) return
+
+					if (roundUser.phase == 0 && (now - roundUser.start > round_phase_window)) {
+						roundUser.phase = 1
+						roundUser.question = 0
+					} else if (roundUser.phase == 1 && (now - roundUser.start > round_phase_window * 2 )) {
+						// phase 2 timeout call rate again to start new round
+						users[roundUser.uid].active_jury_round == -1
+						roundUser.phase = 2
+						roundUser.question = -1
+					}
+				})
 			}
+
 		})
 		
 
@@ -363,17 +389,22 @@ const app = {
 	portfolio: () => {
 
 	},
-	ratingAtTime: (time, timewindow) => {
-
-	},
-	ratings: (  ) => { // get best current and previous ratings for different time windows
+	/*
+		{ 	
+			'tokenid': {
+				current: { day: [{count,value},...], week: [], month: [] },
+				previous: { day: [], week: [], month: [] }
+				timestamp: time
+		}
+	*/
+	ratingsUpdate: (  ) => { // get best current and previous ratings for different time windows
 		let ratings = tokens.reduce( ( taccum, token, tIdx ) => {
 			if (!token.tallies) return taccum
 			taccum[tIdx] = ['current','previous'].reduce( (cpaccum, iteration,idx) => { 	
 				cpaccum[iteration] =  periods.reduce( (accum, period, pIdx )=> {
 					let time = idx ? now - period.value : now
 					accum[period.name] = token.tallies.filter( 
-						tally => tally.timestamp < time && tally.timestamp > (time - period.value) 
+						tally => tally.timestamp < time && tally.timestamp > ( time - period.value ) 
 					).reduce( (tally_accum,tally) => {
 						const blend = (aa, answer) => ({
 							count: aa.count + answer.count, 
@@ -402,18 +433,8 @@ const app = {
 		app.save()
 		
 		console.log('result',JSON.stringify(ratings))
-		/*
-		{ 	
-			averages: {
-				current: { day: [{count,value},...], week: [], month: [] },
-				previous: { day: [], week: [], month: [] }
-		}
-		*/
 	},
-	roundExpire: ( round ) => {
-		// compute sways and points
-
-		console.log('round expire',round.id)
+	roundClear: ( round ) => {
 		round.users.forEach( rounduser => {// remove users references
 			let user = users[rounduser.uid]
 			if (user.active_jury_round === round.id) {
@@ -425,16 +446,25 @@ const app = {
 				user.active_lead_round = -1
 			}
 		})
+	},
+	roundCancel: ( round ) => {
+		console.log('round cancelled')
+		app.roundClear( round )
+		round.status = 'cancelled'
+		// app.save()
+	},
+	roundExpire: ( round ) => {
+		// compute sways and points
+		console.log('round expire',round.id)
+		app.roundClear( round )
 		round.status = 'finished'
 		//app.save()
 	},
-	roundRole: ( round, user ) => {
-		console.log('round role',round,user)
-		return ( 
+	roundRole: ( round, user ) => ( 
 		round.users[0].uid == user.id ? 'bull': 
-		( round.users[1].uid == user.id ? 'bear': 'analyst')
-	)},
-	clearRounds: () => { // clear all rounds...beware!
+		( round.users[1].uid == user.id ? 'bear': 'rater')
+	),
+	roundsClear: () => { // clear all rounds...beware!
 		appData.rounds = []
 		rounds = appData.rounds
 		users.forEach( user => {
@@ -567,7 +597,7 @@ const app = {
 		doFetch()
 
 	},
-	roundReviews: (round) => {
+	roundReviews: round => {
 		return categories.reduce( ( result, category, cidx ) => {
 			if (!round.users[0].sections[category] && !round.users[1].sections[category]) return result
 			let reply = [
@@ -577,6 +607,9 @@ const app = {
 			console.log('reply',reply)
 			return `${result}\n\n<b>${category}</b>\n\n<i>bull:</i> ${reply[0]}\n\n<i>bear:</i> ${reply[1]}`
 		},'')
+	},
+	userActivity: user => {
+		return 'activity'
 	},
 	say: (command, data = {}) => { // command processor for the app
 		var retval
@@ -597,6 +630,8 @@ const app = {
 				retval = { text: dialogs['commands'].text() }
 				break
 			case 'activity':
+				let pastRounds = app.activity( user )
+				retval = { text: dialogs['user.activity'].text({ user }) }
 				break
 			case 'account':
 				break
@@ -607,7 +642,7 @@ const app = {
 				retval = { text: dialogs['news.refresh'].text() }
 				break
 			case 'ratings':
-				app.ratings()
+				app.ratingsUpdate()
 				retval = { text: dialogs['token.ratings'].text() }
 				break
 			case 'summaries':
@@ -620,33 +655,41 @@ const app = {
 				console.log('time')
 				retval = { text: formatters.apptime( app.time() ) }
 				break
-			case 'analyze':
-				console.log('analyze',user)
+			case 'rate':
+				console.log('rate',user)
 				if (user.active_jury_round !== -1) {
 					round = rounds[ user.active_jury_round ]
 					console.log('got round',round)
-					roundUser = round.users.find( roundUser => {
-						return roundUser.uid == user.id 
-					})
+					roundUser = round_user( round, user )
 					console.log('got round user',roundUser)
-					retval = { text: dialogs['analysis.already'].text( { round, user }) }
-					//user.receive = 'question-'+roundUser.question
-				
-				} else {
-					round = app.roundToAnalyze( user )
-					console.log('round to analyze',round)
-					if (round) {
-						retval = { text: dialogs['analysis.active'].text( { round, user }) }
-						//user.receive = 'question-0' 
-					} else {
-						retval = { text: dialogs['analysis.none'].text(), status:-1 }
+					// check for timeout...if timeout phase 1 move to phase 2...if timeout phase 2 (say timed out and) get another to rate
+					if (roundUser.phase == 0 && (now - roundUser.start > round_phase_window)) {
+						roundUser.phase = 1
+						roundUser.question = 0
+					} else if (roundUser.phase == 1 && (now - roundUser.start > round_phase_window * 2 )) {
+						// phase 2 timeout call rate again to start new round
+						user.active_jury_round == -1
+						roundUser.phase = 2
+						roundUser.question = -1
+						round = app.roundToRate( user )
 					}
+
+					retval = round ? 
+						{ text: dialogs['analysis.already'].text( { round, user }) }
+						: { text: dialogs['analysis.none'].text(), status:-1 }		
+				
+				} else {		
+					round = app.roundToRate( user )
+					console.log('round to rate',round)
+					retval = round ? 
+						{ text: dialogs['analysis.active'].text( { round, user }) }
+						: { text: dialogs['analysis.none'].text(), status:-1 }					
 				}
 				break
 
 			case 'roundsClear':
 				console.log('rounds clear')
-				app.clearRounds()
+				app.roundsClear()
 				retval = { text: dialogs['rounds.clear'].text() }
 				break
 			case 'questions':
@@ -655,7 +698,6 @@ const app = {
 			case 'question':
 				round = rounds[user.active_jury_round]
 				roundUser = round.users.find( roundUser => roundUser.uid == user.id )
-				zorg
 				// put analysts in proper pre or post stage
 				retval = { 
 					text: dialogs['analysis.question'].text({ round, user }), 
@@ -741,7 +783,7 @@ const app = {
 					retval = { text: dialogs['review.already'].text( {round,user} ), parse: parseHtml } //console.log('with round',round)
 				} else {
 					console.log(`finding review round for user ${user.id}`)
-					round = app.roundToLead( user )
+					round = app.roundToReview( user )
 					console.log('app-round created',round)
 					retval = { text: dialogs['review.started'].text( { round, user } ) }
 				}
@@ -825,20 +867,28 @@ const app = {
 			text: ({ user }) => `Welcome back ${user.first_name}`
 		},
 		'analysis.active': {
-			text: ({ round, user }) => (
-				`now active in round with token ${token_name(round)}` 
-			)
+			text: ({ round, user }) => {
+				let roundUser = round_user( round, user )
+				return (
+					`now active in round with token ${token_name(round)}`
+					+ `you have ${moment(1000*(roundUser.start + round_phase_window - now)).format('mm:ss')} min:sec to finish the '${roundUser.phase ? 'pre':'post'}' phase` 
+				)
+			}
 		},
 		'analysis.none': {
-			text: () => `Sorry...no rounds to analyze right now`
+			text: () => `Sorry...no rounds to rate right now`
 		},
 		'analysis.start': {
 			text: ({ round, user }) => `starting analysis with token ${token_name(round)}`
 		},
 		'analysis.already': {
-			text: ({ round, user }) => (
-				`${user.first_name} you are already analyst in round with token ${token_name(round)}`
-			)
+			text: ({ round, user }) => {
+				let roundUser = round_user( round, user )
+				return (
+					`${user.first_name} you are already rater in round with token ${token_name(round)}\n`
+					+ `you are on phase ${roundUser.phase ? 'pre':'post'} and have ${moment(1000*(roundUser.start + round_phase_window - now)).format('mm:ss')} min:sec left to complete`
+				)
+			}
 		},
 		'analysis.finish.pre': {
 			text: ({ round, user }) => {
@@ -958,6 +1008,9 @@ const app = {
 		},
 		'tokens.top': {
 			text: () => `Refreshing and acquiring top tokens (by market cap)`
+		},
+		'user.activity': {
+			text: ({ user }) => `user activity for ${user.first_name}`
 		}
 	},
 

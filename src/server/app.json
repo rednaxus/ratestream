@@ -589,6 +589,191 @@
           ]
         }
       ]
+    },
+    {
+      "id": 2,
+      "token": 41,
+      "start": 1515549710,
+      "finish": 1515578510,
+      "status": "active",
+      "users": [
+        {
+          "uid": 4,
+          "start": 1515549710,
+          "finish": 0,
+          "payoff": 0,
+          "sections": {
+            "overview": "hjhj",
+            "team": "juhgf"
+          }
+        },
+        {
+          "uid": 6,
+          "start": 1515549730,
+          "finish": 0,
+          "sections": {
+            "overview": "yes...good bad toke"
+          }
+        },
+        {
+          "uid": 21,
+          "question": -1,
+          "phase": 2,
+          "phases": [
+            {
+              "start": 1515549760,
+              "finish": 1515559450,
+              "answers": [
+                {
+                  "value": 2,
+                  "timestamp": 1515559430
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515559440
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515559440
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515559440
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515559450
+                }
+              ]
+            },
+            {
+              "start": 1515559450,
+              "finish": 1515559470,
+              "answers": [
+                {
+                  "value": 2,
+                  "timestamp": 1515559460
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515559460
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515559470
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515559470
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1515559470
+                }
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "token": 82,
+      "start": 1515559500,
+      "finish": 1515588300,
+      "status": "active",
+      "users": [
+        {
+          "uid": 7,
+          "start": 1515559500,
+          "finish": 0,
+          "payoff": 0,
+          "sections": {
+            "overview": "ok...so this is some bull"
+          }
+        },
+        {
+          "uid": 8,
+          "start": 1515559520,
+          "finish": 0,
+          "sections": {
+            "overview": "ok this is some bear"
+          }
+        },
+        {
+          "uid": 21,
+          "question": -1,
+          "phase": 2,
+          "phases": [
+            {
+              "start": 1515559560,
+              "finish": 1515559610,
+              "answers": [
+                {
+                  "value": 3,
+                  "timestamp": 1515559600
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515559600
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515559610
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515559610
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1515559610
+                }
+              ]
+            },
+            {
+              "start": 1515559610,
+              "finish": 1515566100,
+              "answers": [
+                {
+                  "value": 4,
+                  "timestamp": 1515566090
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515566100
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515566100
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1515566100
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515566100
+                }
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
     }
   ],
   "analyst_questions": [
@@ -699,7 +884,7 @@
       "username": "tester_4",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": -1,
+      "active_review_round": 2,
       "id": 4,
       "receive": null
     },
@@ -725,7 +910,7 @@
       "username": "tester_6",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": -1,
+      "active_review_round": 2,
       "id": 6,
       "receive": null
     },
@@ -738,7 +923,7 @@
       "username": "tester_7",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": -1,
+      "active_review_round": 3,
       "id": 7,
       "receive": null
     },
@@ -751,7 +936,7 @@
       "username": "tester_8",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": -1,
+      "active_review_round": 3,
       "id": 8,
       "receive": null
     },

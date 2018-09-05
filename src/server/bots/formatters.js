@@ -22,7 +22,7 @@ module.exports = {
 			"resize_keyboard": true,
     	"keyboard": [
     		[ "tokens", "commands", "news", "activity" ],
-    		[ "analyze", "review" ]
+    		[ "rate", "review" ]
     	]
    	}
 	}),
