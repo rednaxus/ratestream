@@ -127,8 +127,8 @@ const app = {
 		}, 600000 )
 		// time
 		cronTimer = setInterval( () => app.cron( 10 ), 10000 )
-		tallyTimer = setInterval( () => app.ratingsUpdate(), 3600000 * 2 ) // 2 hours
-		roundTimer = setInterval( () => app.roundsAssess(), 3600000 ) // 1 hour
+		tallyTimer = setInterval( () => app.ratingsUpdate(), 3600000 * 1 ) // 1 hours
+		roundTimer = setInterval( () => app.roundsAssess(), 60000 * 10 ) // 10 minutes
 		tokenTimer = setInterval( () => app.refreshTokens(), 3600000 * 12 )
 		
 		tokens.forEach( (token,idx) => console.log( `[${idx}] ${token.name}` ) )
@@ -274,6 +274,7 @@ const app = {
 		return round
 	},
 	roundsAssess: () => { // should run every 10 minutes or so, terminates and scores rounds
+		console.log(`${time_str(now)} rounds assess`)
 		// tally results
 		let timepassed = now - last_tally
 		let tallies = {}
@@ -405,6 +406,7 @@ const app = {
 		}
 	*/
 	ratingsUpdate: (  ) => { // get best current and previous ratings for different time windows
+		console.log(`${time_str(now)} ratings update`)
 		let ratings = tokens.reduce( ( taccum, token, tIdx ) => {
 			if (!token.tallies) return taccum
 			taccum[tIdx] = ['current','previous'].reduce( (cpaccum, iteration,idx) => { 	
@@ -504,6 +506,7 @@ const app = {
 		}).catch( err => console.log(err) )
 	},
 	refreshTokens: () => {
+		console.log(`${time_str(now)} refresh tokens`)
 		doFetch = () => {
 			let token = appData.tokens[nextTokenFetch]
 			if (!token.markets) token.markets = []
