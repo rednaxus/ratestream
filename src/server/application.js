@@ -352,10 +352,11 @@ const app = {
 				if (round.status == 'active') round.users.forEach( (roundUser,uIdx) => {// not cancelled or expired, advance rater
 					if (uIdx < 2) return
 					let user = users[roundUser.uid]
-					if (roundUser.phase == 0 && (now - roundUser.start > round_phase_window)) {
+					if (roundUser.phase == 0 && (now - roundUser.phases[0].start > round_phase_window)) {
 						roundUser.phase = 1
 						roundUser.question = 0
-					} else if (roundUser.phase == 1 && (now - roundUser.start > round_phase_window * 2 )) {
+						roundUser.phases[1].start = now
+					} else if (roundUser.phase == 1 && (now - roundUser.phases[1].start > round_phase_window * 2 )) {
 						// phase 2 timeout call rate again to start new round
 						if (round.id == user.active_jury_round) user.active_jury_round == -1
 						roundUser.phase = 2
@@ -665,10 +666,11 @@ const app = {
 					roundUser = round_user( round, user )
 					console.log('got round user',roundUser)
 					// check for timeout...if timeout phase 1 move to phase 2...if timeout phase 2 (say timed out and) get another to rate
-					if (roundUser.phase == 0 && (now - roundUser.start > round_phase_window)) {
+					if (roundUser.phase == 0 && (now - roundUser.phases[0].start > round_phase_window)) {
 						roundUser.phase = 1
+						roundUser.phases[1].start = now
 						roundUser.question = 0
-					} else if (roundUser.phase == 1 && (now - roundUser.start > round_phase_window * 2 )) {
+					} else if (roundUser.phase == 1 && (now - roundUser.phases[1].start > round_phase_window * 2 )) {
 						// phase 2 timeout call rate again to start new round
 						user.active_jury_round == -1
 						roundUser.phase = 2
@@ -787,7 +789,7 @@ const app = {
 					console.log(`finding review round for user ${user.id}`)
 					round = app.roundToReview( user )
 					console.log('app-round created',round)
-					retval = { text: dialogs['review.started'].text( { round, user } ) }
+					retval = { text: dialogs['review.started'].text( { round, user } ), parse: parseHtml }
 				}
 				break
 			case 'review_categories': // query for categories
@@ -795,7 +797,7 @@ const app = {
 				const { needed: needed } = app.roundReviewCategories( round, user )
 				console.log('needed',needed)
 				if (needed[0] === 'overview') {
-					console.log('overview needded')
+					//console.log('overview needded')
 					retval = { 
 						text: dialogs['review.overview'].text( { round, user }), 
 						parse:parseHtml
@@ -873,9 +875,10 @@ const app = {
 		'analysis.active': {
 			text: ({ round, user }) => {
 				let roundUser = round_user( round, user )
+				let phase = roundUser.phases[roundUser.phase]
 				return (
 					`now active in round with token ${token_name(round)}`
-					+ `you have ${moment(1000*(roundUser.start + round_phase_window - now)).format('mm:ss')} min:sec to finish the '${roundUser.phase ? 'pre':'post'}' phase` 
+					+ `\n\ncomplete ${moment(1000*(phase.start + round_phase_window)).from(1000*now)} min:sec to finish the '${roundUser.phase ? 'pre':'post'}' phase` 
 				)
 			}
 		},
@@ -888,9 +891,12 @@ const app = {
 		'analysis.already': {
 			text: ({ round, user }) => {
 				let roundUser = round_user( round, user )
+				//console.log('round user',roundUser)
+				let phase = roundUser.phases[roundUser.phase]
+				//console.log('!!!times:',phase.start,round_phase_window,now,phase.start + round_phase_window - now)
 				return (
-					`${user.first_name} you are already rater in round with token ${token_name(round)}\n`
-					+ `you are on phase ${roundUser.phase ? 'pre':'post'} and have ${moment(1000*(roundUser.start + round_phase_window - now)).format('mm:ss')} min:sec left to complete`
+					`${user.first_name} you are already rater in round with token ${token_name(round)}`
+					+ `\n\nyou are on phase ${roundUser.phase ? 'post-review':'pre-review'}...complete ${moment(1000*(phase.start + round_phase_window )).from(1000*now)}`
 				)
 			}
 		},
@@ -916,7 +922,7 @@ const app = {
 				let roundUser = round.users.find( roundUser => roundUser.uid == user.id )
 				console.log('round user question ',roundUser)
 				let question = analyst_questions[roundUser.question]
-				return `${question.category}:${question.name}:${roundUser.phase ? '[post-review]':'[pre-review]'}\n\n${question.text}`
+				return `<b>${question.category}</b>:${question.name}      <i>${roundUser.phase ? 'post-review':'pre-review'}</i>\n\n${question.text}`
 			}
 		},
 		'analysis.finished':{
@@ -927,9 +933,11 @@ const app = {
 		},
 		'review.started': {
 			text: ({round, user }) => {
+				let roundUser = round_user(round,user)
 				return (
-					`Great ${user.first_name}....you are now Lead as ${app.roundRole(round,user)} analyst for token ${token_name(round)}.`
-					+ `\n\nTo lead the round, You will need to submit reviews for ${categories.map( category => `\n  ${category}`) }.`
+					`Great ${user.first_name}....you are now Lead ${app.roundRole(round,user)} reviewer for token ${token_name(round)}.`
+					+ `\n\nTo lead the round, You will need to submit reviews for \n${categories.map( category => `\n  ${category}`) }.`
+					+ `\n\n<i>complete ${moment(1000*(roundUser.start + round_window_min)).from(1000*now)}</i>`
 				)
 			}
 		},
@@ -939,9 +947,14 @@ const app = {
 			)
 		},
 		'review.already': {
-			text: ({round, user}) => (
-				`${user.first_name}...you are already ${app.roundRole( round, user )} reviewer for ${token_name(round)}`
-			)
+			text: ({round, user}) => {
+				let roundUser = round_user(round,user)
+				console.log('!!times',roundUser.start,round_window_min, now)
+				return (
+					`${user.first_name}...you are already ${app.roundRole( round, user )} reviewer for ${token_name(round)}`
+					+ `\n<i>complete ${moment(1000*(roundUser.start + round_window_min)).from(1000*now)}</i>`
+				)
+			}
 		},
 		'review.categories.awaiting':{
 			text: () => ``

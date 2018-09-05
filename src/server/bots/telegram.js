@@ -183,7 +183,7 @@ bot.onText(/\/time/, msg => tell( msg.chat.id, say('time') ) )
 bot.onText(/\/cron/, msg => { // specified in hours if want to specify
 	const fields = msg.text.split(' ')
 	console.log('fields',fields)
-	const delta = fields.length == 1 ? 3600 : +fields[1] * 3600
+	const delta = fields.length == 1 ? 3600 : +fields[1]
 	//console.log('delta is',delta)
 	tell( msg.chat.id, say('cron',{delta:delta}) )
 })
