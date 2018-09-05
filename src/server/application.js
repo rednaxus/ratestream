@@ -162,7 +162,6 @@ const app = {
 	},
 	roundToReview: user => { // get a round to lead
 
-		let time = now
 		//let user = users[ userIdx ]
 		// sanity check, don't call me if you already have active round
 		if ( user.active_review_round !== -1 ) {
@@ -176,9 +175,12 @@ const app = {
 		let round
 		let role
 		let roundCandidates = rounds.reduce( ( candidates, round, idx ) => { 
-			if (!round.users[1].uid && round.finish >= time + round_window_min) {
+			if (
+				round.users[0].uid != user.id  // user was in this round already
+				&& !round.users[1].uid 
+				&& round.finish >= now + round_window_min
+			) 
 				candidates.push( idx )
-			}
 			return candidates
 		}, [])
 		console.log(`round candidates ${roundCandidates}`)
@@ -186,7 +188,7 @@ const app = {
 			roundIdx = roundCandidates[ randomIdx( roundCandidates.length ) ]
 			console.log(`assigning to existing round ${roundIdx}`)
 			round = rounds[ roundIdx ]
-			round.users[1] = { uid: user.id, start: time, finish:0, sections:{} }
+			round.users[1] = { uid: user.id, start: now, finish:0, sections:{} }
 		} else { // create round
 			if (!tokensToCover.length) { // reset list of tokens to choose
 				tokensToCover = tokens.map( (_,idx) => idx )
@@ -200,12 +202,12 @@ const app = {
 			round = {
 				id: roundIdx,
 				token: tokenIdx,
-				start: time,
-				finish: time + round_window,
+				start: now,
+				finish: now + round_window,
 				status: 'active',
 				users: [{ // first 2 are leads
 				  uid: user.id, 
-          start: time,
+          start: now,
           finish: 0,
           payoff: 0,
           sections:{}
@@ -349,13 +351,13 @@ const app = {
 
 				if (round.status == 'active') round.users.forEach( (roundUser,uIdx) => {// not cancelled or expired, advance rater
 					if (uIdx < 2) return
-
+					let user = users[roundUser.uid]
 					if (roundUser.phase == 0 && (now - roundUser.start > round_phase_window)) {
 						roundUser.phase = 1
 						roundUser.question = 0
 					} else if (roundUser.phase == 1 && (now - roundUser.start > round_phase_window * 2 )) {
 						// phase 2 timeout call rate again to start new round
-						users[roundUser.uid].active_jury_round == -1
+						if (round.id == user.active_jury_round) user.active_jury_round == -1
 						roundUser.phase = 2
 						roundUser.question = -1
 					}
@@ -676,14 +678,14 @@ const app = {
 
 					retval = round ? 
 						{ text: dialogs['analysis.already'].text( { round, user }) }
-						: { text: dialogs['analysis.none'].text(), status:-1 }		
+						: { text: dialogs['analysis.none'].text(), status: -1 }		
 				
 				} else {		
 					round = app.roundToRate( user )
 					console.log('round to rate',round)
 					retval = round ? 
 						{ text: dialogs['analysis.active'].text( { round, user }) }
-						: { text: dialogs['analysis.none'].text(), status:-1 }					
+						: { text: dialogs['analysis.none'].text(), status: -1 }					
 				}
 				break
 
@@ -808,8 +810,10 @@ const app = {
 					}
 				} else {
 					retval = {
-						text:dialogs['review.categories.finished'].text({ round, user })
+						text:dialogs['review.categories.finished'].text({ round, user }),
+						status: -1
 					}
+					user.active_review_round = -1 // enable next round to review
 				}
 				break
 			case 'review_category_request': // request to review category

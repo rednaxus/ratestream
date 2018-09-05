@@ -114,7 +114,13 @@ const do_review = msg => {
 		user.mockAs = -1
 	}
 	tell( msg.chat.id, say( 'review', {user} ) ).then( () => {
-		tell( msg.chat.id, say( 'review_categories', {user} ) )
+		let cmdResult = say( 'review_categories', {user} ) 
+		tell( msg.chat.id, cmdResult ).then( () => {
+			if (cmdResult.status == -1) {
+				console.log('!!!starting next review',{...user})
+				do_review(msg) // start next review
+			}
+		})
 	})
 }
 
