@@ -350,7 +350,7 @@
       "active_jury_round": -1,
       "active_review_round": 0,
       "id": 21,
-      "receive": "review-category-0",
+      "receive": null,
       "mockAs": -1
     },
     {

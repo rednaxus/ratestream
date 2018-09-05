@@ -120,13 +120,17 @@ const app = {
 	},
 	start: ( autosave = true, cb ) => {  // start app
 		if (autosave) saveTimer = setInterval( ()=> {
-			let changes = module.exports.roundsAssess()
-			if (cb) cb( changes )
+			//let changes = module.exports.roundsAssess()
+			//if (cb) cb( changes )
 			console.log(`autosaving at ${time_str(now)}`)
 			app.save()
 		}, 600000 )
 		// time
 		cronTimer = setInterval( () => app.cron( 10 ), 10000 )
+		tallyTimer = setInterval( () => app.ratingsUpdate(), 3600000 * 2 ) // 2 hours
+		roundTimer = setInterval( () => app.roundsAssess(), 3600000 ) // 1 hour
+		tokenTimer = setInterval( () => app.refreshTokens(), 3600000 * 12 )
+		
 		tokens.forEach( (token,idx) => console.log( `[${idx}] ${token.name}` ) )
 		users.forEach( user => user.receive = null ) // clear out previous state (for development)
 		//console.log('not covere',appData.tokens_not_covered)
