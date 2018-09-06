@@ -253,7 +253,7 @@ bot.on('callback_query', query => {
 bot.on('message', msg => {
 	let user = identify( msg )
 	if (user.mockAs >= 0) user = testUsers[user.mockAs]
-	if (user.receive && !msg.text.startsWith('/')) {
+	if (user.receive && !msg.text.startsWith('/') && !['news','commands','tokens','activity','rate','review'].includes(msg.text)) {
 		console.log('user receive',user)
 		let q = user.receive.split('-')
 		switch (q[0]) {
@@ -272,7 +272,7 @@ bot.on('message', msg => {
 		user.receive = null // clear it	
 	}
 	else { // not sure about this yet
-		let msgText = msg.text.toString().toLowerCase()
+		let msgText = msg.text.toString().split(' ')[0].toLowerCase()
 		//console.log('msg in essage',msg)
 		switch (msgText) {
 			case 'news':
@@ -282,6 +282,9 @@ bot.on('message', msg => {
 				break
 			case 'tokens':
 				tell( msg.chat.id, say('tokens') )
+				break
+			case 'activity':
+				tell( msg.chat.id, say('activity',{user}))
 				break
 			case 'rate':
 				do_rate( msg )
