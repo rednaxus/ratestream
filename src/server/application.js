@@ -18,7 +18,7 @@ const refcode = require('../app/services/referralCode')
 
 
 const ethplorer = require('../app/services/API/ethplorer')
-
+const coinmarket = require('../app/services/API/coinmarket')
 
 
 //const survey = require('../app/services/survey')
@@ -30,11 +30,11 @@ let appData = require('./app.json')
 let infoData = require('./info.json')
 let scripts = require('./scripts.json')
 let questions = require('./analyst_questions.json')
-
+let tokenData = require('./tokens.json')
 let time = require('./time.json')
 
-var { rounds, tokens, users } = appData
-
+var { rounds, users } = appData
+var { tokens, coinmarket_ids } = tokenData
 const question_set = [0,4,8,12,16,20,24,25,26]
 const analyst_questions = question_set.map( qnum => questions[qnum] )
 
@@ -154,8 +154,13 @@ const app = {
 	},
 
 	saveInfo: () => {
-		console.log(`${now}: saving info`)
+		console.log(`${time_str(now)}: saving info`)
 		fs.writeFileSync('../info.json', JSON.stringify(infoData,null,2), 'utf8')
+	},
+
+	saveTokens: () => {
+		console.log(`${time_str(now)}: saving tokens`)
+		fs.writeFileSync('../tokens.json', JSON.stringify(tokenData,null,2), 'utf8')		
 	},
 
 	/* rounds */
@@ -463,12 +468,14 @@ const app = {
 			if (user.active_jury_round === round.id) {
 				user.active_jury_round = -1
 				rounduser.question = -1
-				rounduser.phases[rounduser.phase].finish = now
-				if (rounduser.phase == 0) {
-					rounduser.phases[1].start = now
-					rounduser.phases[1].finish = now
+				if (rounduser.phase < 2) {
+					if (rounduser.phase == 0) {
+						rounduser.phases[1].start = now
+						rounduser.phases[1].finish = now
+					}
+					rounduser.phases[rounduser.phase].finish = now
+					rounduser.phase = 2
 				}
-				rounduser.phase = 2
 			}
 			else if (user.active_lead_round === round.id) {
 				user.active_lead_round = -1
@@ -505,8 +512,69 @@ const app = {
 
 	/* tokens */
 	getTokenId: name => ( appData.tokens.findIndex( token => token.name == name ) ),
-
+	refreshTokenIds: () => (
+		coinmarket.refreshIds( ).then( token_ids => {
+			tokenData.coinmarket_ids = token_ids 
+			app.saveTokens()
+		}).catch( err => console.log('error fetching token ids ',err))
+	),
+	refreshTokenQuotes: ids => (
+		coinmarket.refreshQuotes( ids ).then( token_quotes => {
+			tokenData.coinmarket_quotes = token_quotes 
+			app.saveTokens()
+		}).catch( err => console.log('error fetching token quotes ',err))
+	),
+	refreshTokenTickers: () => {
+		coinmarket.refreshTickers( {sort:'market_cap'} ).then( token_tickers => {
+			tokenData.coinmarket_tickers = token_tickers 
+			app.saveTokens()
+		}).catch( err => console.log('error fetching token tickers ',err))
+	},
+	/*
+	    "id": 1,
+      "name": "Bitcoin",
+      "symbol": "BTC",
+      "slug": "bitcoin",
+      "circulating_supply": 17253125,
+      "total_supply": 17253125,
+      "max_supply": 21000000,
+      "date_added": "2013-04-28T00:00:00.000Z",
+      "num_market_pairs": 6037,
+      "cmc_rank": 1,
+      "last_updated": "2018-09-06T22:17:21.000Z",
+      "quote": {
+        "USD": {
+          "price": 6469.49532626,
+          "volume_24h": 5701938887.38691,
+          "percent_change_1h": -0.165422,
+          "percent_change_24h": -6.91809,
+          "percent_change_7d": -6.56854,
+          "market_cap": 111619011550.87956,
+          "last_updated": "2018-09-06T22:17:21.000Z"
+        }
+      }
+   */
 	refreshTopTokens: () => {
+		coinmarket.refreshTickers( {sort:'market_cap'} ).then( token_tickers => {
+			tokenData.coinmarket_tickers = token_tickers
+			token_tickers.forEach( ticker_token => {
+				let current_idx = tokens.findIndex( token => token.cmc_id == ticker_token.id )
+				const { id, quote, ...t_token } = ticker_token
+				t_token.cmc_id = id
+
+				if ( current_idx == -1 ) {
+					current_idx = tokens.length
+					t_token.quotes = []
+					tokens.push( t_token )
+				} else {
+					t_token.quotes = tokens[ current_idx ].quotes
+				}
+				tokens[ current_idx ].quotes.push( quote )
+
+			}) 
+		})
+	},
+	refreshTopTokensEthplorer: () => {
 		ethplorer.getTopTokens().then( tops => {
 			//appData.tokens_top = tops
 			let toptokens = tops.data.tokens
@@ -524,7 +592,7 @@ const app = {
 			app.save()
 		}).catch( err => console.log(err) )
 	},
-	refreshTokens: () => {
+	refreshTokensEthplorer: () => {
 		console.log(`${time_str(now)} refresh tokens`)
 		doFetch = () => {
 			let token = appData.tokens[nextTokenFetch]
@@ -851,6 +919,18 @@ const app = {
 				break
 			case 'tokens':
 				retval = { text:dialogs['tokens'].text(), format:formatters.tokens( tokens ) }
+				break
+			case 'token_ids':
+				app.refreshTokenIds()
+				retval = { text: 'ids refreshing' }
+				break
+			case 'token_quotes':
+				app.refreshTokenQuotes( data.ids ) // needs ids
+				retval = { text: 'quotes refreshing' }
+				break
+			case 'token_tickers':
+				app.refreshTokenTickers()
+				retval = { text: 'tickers refreshing' }
 				break
 			case 'tokens_refresh':
 				app.refreshTokens() // can do this on regular interval

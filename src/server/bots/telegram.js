@@ -154,6 +154,16 @@ bot.onText(/\/rate/i, msg => do_rate( msg ) )
 /* tokens */
 bot.onText(/\/tokens/i, msg => tell( msg.chat.id, say('tokens') ) )
 
+bot.onText(/\/token_ids/i, msg => tell( msg.chat.id, say('token_ids') ) )
+bot.onText(/\/token_quotes/i, msg => {
+	let msgInfo = msg.text.split(' ') // for testing, so can explicitly specify user
+	let ids = msgInfo[1].split(',')
+	tell( msg.chat.id, say('token_quotes',{ ids }) )
+})
+
+bot.onText(/\/token_tickers/i, msg => tell( msg.chat.id, say('token_tickers') ) )
+
+
 bot.onText(/\/token /i, msg => tell( msg.chat.id, say('token', {name:msg.text.substring(12)}) ) )
 
 /* internal use, admin only */
