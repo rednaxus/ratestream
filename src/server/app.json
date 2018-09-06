@@ -2,9 +2,9 @@
   "rounds": [
     {
       "id": 0,
-      "token": 14,
-      "start": 1515619880,
-      "finish": 1515648680,
+      "token": 11,
+      "start": 1515631500,
+      "finish": 1515660300,
       "status": "active",
       "question_set": [
         0,
@@ -20,10 +20,10 @@
       "users": [
         {
           "uid": 0,
-          "start": 1515619880,
-          "finish": 0,
+          "start": 1515631500,
+          "finish": 1515638700,
           "sections": {
-            "overview": "aksdfj"
+            "overview": "kasjdf"
           },
           "payoff": 0,
           "win_pctg": {
@@ -33,10 +33,10 @@
         },
         {
           "uid": 1,
-          "start": 1515619890,
-          "finish": 0,
+          "start": 1515631500,
+          "finish": 1515638700,
           "sections": {
-            "overview": "kajsdf"
+            "overview": "akdjf"
           },
           "payoff": 0,
           "win_pctg": {
@@ -45,92 +45,134 @@
           }
         },
         {
-          "uid": 21,
-          "question": -1,
-          "phase": 2,
+          "uid": 2,
+          "question": 0,
+          "phase": 1,
           "phases": [
             {
-              "start": 1515619910,
-              "finish": 1515619970,
+              "start": 1515631560,
+              "finish": 1515635740,
               "answers": [
-                {
-                  "value": 3,
-                  "timestamp": 1515619920
-                },
-                {
-                  "value": 3,
-                  "timestamp": 1515619930
-                },
-                {
-                  "value": 1,
-                  "timestamp": 1515619950
-                },
-                {
-                  "value": 4,
-                  "timestamp": 1515619950
-                },
-                {
-                  "value": 3,
-                  "timestamp": 1515619960
-                },
-                {
-                  "value": 2,
-                  "timestamp": 1515619960
-                },
-                {
-                  "value": 3,
-                  "timestamp": 1515619970
-                },
-                {
-                  "value": 2,
-                  "timestamp": 1515619970
-                },
-                {
-                  "value": 4,
-                  "timestamp": 1515619970
-                }
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
               ]
             },
             {
-              "start": 1515619970,
-              "finish": 1515620130,
+              "start": 1515635740,
+              "finish": 1515633960,
               "answers": [
-                {
-                  "value": 3,
-                  "timestamp": 1515620100
-                },
-                {
-                  "value": 2,
-                  "timestamp": 1515620110
-                },
-                {
-                  "value": 5,
-                  "timestamp": 1515620110
-                },
-                {
-                  "value": 2,
-                  "timestamp": 1515620110
-                },
-                {
-                  "value": 5,
-                  "timestamp": 1515620120
-                },
-                {
-                  "value": 2,
-                  "timestamp": 1515620120
-                },
-                {
-                  "value": 4,
-                  "timestamp": 1515620120
-                },
-                {
-                  "value": 2,
-                  "timestamp": 1515620130
-                },
-                {
-                  "value": 3,
-                  "timestamp": 1515620130
-                }
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "uid": 3,
+          "question": 0,
+          "phase": 1,
+          "phases": [
+            {
+              "start": 1515631570,
+              "finish": 1515635740,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            {
+              "start": 1515635740,
+              "finish": 1515633970,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "uid": 4,
+          "question": 0,
+          "phase": 1,
+          "phases": [
+            {
+              "start": 1515631580,
+              "finish": 1515635740,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            {
+              "start": 1515635740,
+              "finish": 1515633980,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
               ]
             }
           ],
@@ -150,9 +192,9 @@
     },
     {
       "id": 1,
-      "token": 59,
-      "start": 1515619900,
-      "finish": 1515648700,
+      "token": 80,
+      "start": 1515632050,
+      "finish": 1515660850,
       "status": "active",
       "question_set": [
         0,
@@ -167,11 +209,11 @@
       ],
       "users": [
         {
-          "uid": 2,
-          "start": 1515619900,
-          "finish": 0,
+          "uid": 3,
+          "start": 1515632050,
+          "finish": 1515639250,
           "sections": {
-            "overview": "adsfkjadf"
+            "overview": "jakdfj"
           },
           "payoff": 0,
           "win_pctg": {
@@ -180,17 +222,161 @@
           }
         },
         {
-          "uid": 3,
-          "start": 1515619900,
-          "finish": 0,
+          "uid": 4,
+          "start": 1515632050,
+          "finish": 1515639250,
           "sections": {
-            "overview": "kadsjf"
+            "overview": "laksdjf"
           },
           "payoff": 0,
           "win_pctg": {
             "questions": 0,
             "categories": 0
           }
+        },
+        {
+          "uid": 0,
+          "question": 0,
+          "phase": 1,
+          "phases": [
+            {
+              "start": 1515632060,
+              "finish": 1515635740,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            {
+              "start": 1515635740,
+              "finish": 1515634460,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "uid": 5,
+          "question": 0,
+          "phase": 1,
+          "phases": [
+            {
+              "start": 1515635970,
+              "finish": 1515637170,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            {
+              "start": 1515639650,
+              "finish": 1515638370,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "uid": 21,
+          "question": 0,
+          "phase": 0,
+          "phases": [
+            {
+              "start": 1515639740,
+              "finish": 1515640940,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            {
+              "start": 1515640940,
+              "finish": 1515642140,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
         }
       ]
     }
@@ -204,7 +390,7 @@
       "last_name": "k",
       "username": "tester_0",
       "language_code": "en-US",
-      "active_jury_round": -1,
+      "active_jury_round": 1,
       "active_review_round": 0,
       "id": 0,
       "receive": null
@@ -230,8 +416,8 @@
       "last_name": "k",
       "username": "tester_2",
       "language_code": "en-US",
-      "active_jury_round": -1,
-      "active_review_round": 1,
+      "active_jury_round": 0,
+      "active_review_round": -1,
       "id": 2,
       "receive": null
     },
@@ -243,7 +429,7 @@
       "last_name": "k",
       "username": "tester_3",
       "language_code": "en-US",
-      "active_jury_round": -1,
+      "active_jury_round": 0,
       "active_review_round": 1,
       "id": 3,
       "receive": null
@@ -256,8 +442,8 @@
       "last_name": "k",
       "username": "tester_4",
       "language_code": "en-US",
-      "active_jury_round": -1,
-      "active_review_round": -1,
+      "active_jury_round": 0,
+      "active_review_round": 1,
       "id": 4,
       "receive": null
     },
@@ -269,7 +455,7 @@
       "last_name": "k",
       "username": "tester_5",
       "language_code": "en-US",
-      "active_jury_round": -1,
+      "active_jury_round": 1,
       "active_review_round": -1,
       "id": 5,
       "receive": null
@@ -479,7 +665,7 @@
       "last_name": "k",
       "username": "alan_on40",
       "language_code": "en-US",
-      "active_jury_round": -1,
+      "active_jury_round": 1,
       "active_review_round": -1,
       "id": 21,
       "receive": null,
@@ -5375,6 +5561,148 @@
             "currency": "USD"
           },
           "countOps": 570995
+        }
+      ],
+      "tallies": [
+        {
+          "timestamp": 1515635740,
+          "answers": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ]
         }
       ]
     },
@@ -36045,6 +36373,148 @@
           "price": false,
           "countOps": 29527
         }
+      ],
+      "tallies": [
+        {
+          "timestamp": 1515635740,
+          "answers": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ]
+        }
       ]
     },
     {
@@ -36218,6 +36688,1268 @@
           "ethTransfersCount": 0,
           "price": false,
           "countOps": 29152
+        }
+      ],
+      "tallies": [
+        {
+          "timestamp": 1515624060,
+          "answers": [
+            {
+              "count": 1,
+              "avg": null,
+              "sway_count": 1,
+              "avg_sway": null,
+              "winner": 1
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 1,
+              "avg": null,
+              "sway_count": 1,
+              "avg_sway": null,
+              "winner": 1
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ]
+        },
+        {
+          "timestamp": 1515624540,
+          "answers": [
+            {
+              "count": 1,
+              "avg": null,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 1,
+              "avg": null,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ]
+        },
+        {
+          "timestamp": 1515624720,
+          "answers": [
+            {
+              "count": 1,
+              "avg": null,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 1,
+              "avg": null,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ]
+        },
+        {
+          "timestamp": 1515624760,
+          "answers": [
+            {
+              "count": 1,
+              "avg": null,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 1,
+              "avg": null,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ]
+        },
+        {
+          "timestamp": 1515625030,
+          "answers": [
+            {
+              "count": 1,
+              "avg": 2,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 1,
+              "avg": 2,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ]
+        },
+        {
+          "timestamp": 1515625620,
+          "answers": [
+            {
+              "count": 1,
+              "avg": 2,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 1,
+              "avg": 2,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ]
+        },
+        {
+          "timestamp": 1515626330,
+          "answers": [
+            {
+              "count": 1,
+              "avg": 2,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 1,
+              "avg": 2,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ]
+        },
+        {
+          "timestamp": 1515626930,
+          "answers": [
+            {
+              "count": 1,
+              "avg": 2,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 1,
+              "avg": 2,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ]
+        },
+        {
+          "timestamp": 1515627530,
+          "answers": [
+            {
+              "count": 1,
+              "avg": 2,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ],
+          "categories": [
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 1,
+              "avg": 2,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            },
+            {
+              "count": 0,
+              "avg": 0,
+              "sway_count": 0,
+              "avg_sway": 0,
+              "winner": null
+            }
+          ]
         }
       ]
     },

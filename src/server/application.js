@@ -100,6 +100,8 @@ var tokensToCover = []
 var now = time.last_time // config.timebase //() => Math.round(+new Date() / 1000) // can fix time from here
 var last_tally = now
 var time_str = time => `${time}:${moment(time*1000).format('YYYY-MM-DD hh:mm:ss')}`
+var time_from = time => moment(1000*time).from(1000*now)
+
 console.log(`app-time at start ${time_str(now)}`)
 
 const randomInt = max => Math.floor( Math.random() * Math.floor( max ) )
@@ -181,7 +183,7 @@ const app = {
 		const lead_round_user = { 
 			uid: user.id, 
 			start: now, 
-			finish:0, 
+			finish:now+round_window_min, 
 			sections: {}, 
 			payoff: 0,
 			win_pctg: {
@@ -271,11 +273,11 @@ const app = {
 			phase: 0,
 			phases: [{ // pre or post review
 				start: now, 
-				finish: 0, 	
+				finish: now + round_phase_window, 	
 				answers: new Array(analyst_questions.length).fill({}) 			
 			},{
-				start: 0,
-				finish: 0,
+				start: now + round_phase_window,
+				finish: now + 2*round_phase_window,
 				answers: new Array(analyst_questions.length).fill({})			
 			}],
 			sways: new Array(analyst_questions.length).fill(0)
@@ -285,7 +287,7 @@ const app = {
 		return round
 	},
 	roundsAssess: () => { // should run every 10 minutes or so, terminates and scores rounds
-		console.log(`${time_str(now)} rounds assess`)
+		console.log(`${time_str(now)} rounds assess (tally)`)
 		// tally results for rounds
 		let timepassed = now - last_tally
 		//let timebegin = now - tally_window
@@ -304,12 +306,13 @@ const app = {
 		rounds.filter( round => round.finish >= now - tally_window ).forEach( round => {
 			//console.log(`${now}:run round ${round.id} ${round.finish} ${round.status}` )
 
-			let token = tokens[round.token]			
+			let token = tokens[round.token]
 			let tally = {	 
 				timestamp: now,
 				answers: new Array(analyst_questions.length).fill().map( _ => ({count:0, avg:0, sway_count:0, avg_sway:0, winner:null})),
 				categories: new Array(categories.length).fill().map( _ => ({count:0, avg:0, sway_count:0, avg_sway:0, winner:null }))
 			}
+			
 			if (!token.tallies) token.tallies = [tally]
 			else token.tallies.push(tally)
 			// go through all the valid answers
@@ -322,10 +325,11 @@ const app = {
 						if (avg_sway < -question.max * 0.2) return 1
 						return avg > question.max * 0.5 ? 0 : 1
 					}
-					let answer = rounduser.phases[1].answers[ qIdx ] || rounduser.phases[0].answers[ qIdx ] || null
+					let answer = rounduser.phases[1].answers[ qIdx ].timestamp ? rounduser.phases[1].answers[ qIdx ] 
+						: ( rounduser.phases[0].answers[ qIdx ].timestamp ? rounduser.phases[0].answers[qIdx]: null )
 					if (answer) { 
 
-						let sway = rounduser.phases[1].answers[ qIdx ] && rounduser.phases[0].answers[ qIdx ] ? 
+						let sway = rounduser.phases[1].answers[ qIdx ].timestamp && rounduser.phases[0].answers[ qIdx ].timestamp ? 
 							{ value: rounduser.phases[1].answers[ qIdx ].value - rounduser.phases[0].answers[ qIdx ].value } : null 
 
 						let categoryIdx = categories.findIndex( category => category == question.category )
@@ -370,10 +374,13 @@ const app = {
 					if (roundUser.phase == 0 && (now - roundUser.phases[0].start > round_phase_window)) {
 						roundUser.phase = 1
 						roundUser.question = 0
+						roundUser.phases[0].finish = now
 						roundUser.phases[1].start = now
+						roundUser.phases[1].finish = now + round_phase_window
 					} else if (roundUser.phase == 1 && (now - roundUser.phases[1].start > round_phase_window * 2 )) {
 						// phase 2 timeout call rate again to start new round
 						if (round.id == user.active_jury_round) user.active_jury_round == -1
+						roundUser.phases[1].finish = now
 						roundUser.phase = 2
 						roundUser.question = -1
 					}
@@ -456,7 +463,12 @@ const app = {
 			if (user.active_jury_round === round.id) {
 				user.active_jury_round = -1
 				rounduser.question = -1
-				rounduser.phase = -1
+				rounduser.phases[rounduser.phase].finish = now
+				if (rounduser.phase == 0) {
+					rounduser.phases[1].start = now
+					rounduser.phases[1].finish = now
+				}
+				rounduser.phase = 2
 			}
 			else if (user.active_lead_round === round.id) {
 				user.active_lead_round = -1
@@ -626,42 +638,51 @@ const app = {
 		},'')
 	},
 	userActivity: user => {
-
+		console.log('get user activity',user)
 		return rounds.reduce( (output, round) => {
+			console.log('round',round)
 			let roundUserIdx = round.users.findIndex( rounduser => rounduser.uid == user.id )
-			if (!roundUserIdx == -1) return output
+			if (roundUserIdx == -1) return output
 
+			console.log('get round info',round)
 			roundUser = round.users[roundUserIdx]
 			if (roundUserIdx < 2) {
-				console.log('review')
+				console.log('review',round,roundUserIdx,roundUser)
+
 				output.reviews.push({
 					id: round.id,
+					token: round.token,
 					status: round.status,
 					role: roundUserIdx,
 					start: round.start,
 					finish: round.finish,
-					review_start: roundUser.phases.map( phase => phase.start ),
-					review_finish: roundUser.phases.map( phase => phase.finish ),
+					review_start: roundUser.start,
+					review_finish: roundUser.finish,
+					raters: round.users.length - 2,
 					win_pctg:{
 						answers: [],
 						categories: []
 					},
 					winnings: 0
 				})
+				console.log('review output',output)
 			} else { // rating
 				console.log('rating')
 				output.ratings.push({
 					id: round.id,
+					token: round.token,
 					status: round.status,
 					start: round.start,
 					finish: round.finish,
-					ratings_start: roundUser.start,
-					rating_finish: roundUser.finish,
+					phase: roundUser.phase,
+					rating_start: roundUser.phases.map( phase => phase.start ),
+					rating_finish: roundUser.phases.map( phase => phase.finish ),
+					raters: round.users.length - 2,
 					winnings: round.winnings
 				})
 			}
 			return output
-		},{reviews:[],ratings:[]})
+		},{reviews:[],ratings:[], total_winnings:0})
 		/*
 		{ 
 			reviews: [{
@@ -708,9 +729,9 @@ const app = {
 				retval = { text: dialogs['commands'].text() }
 				break
 			case 'activity':
-				let pastRounds = app.userActivity( user )
-				console.log(`past rounds for ${user.first_name}`,pastRounds)
-				retval = { text: dialogs['user.activity'].text({ user }) }
+				let activity = app.userActivity( user )
+				console.log(`past rounds for ${user.first_name}`,activity)
+				retval = { text: dialogs['user.activity'].text({ user, activity }), parse:parseHtml }
 				break
 			case 'account':
 				break
@@ -755,14 +776,14 @@ const app = {
 					}
 
 					retval = round ? 
-						{ text: dialogs['analysis.already'].text( { round, user }) }
+						{ text: dialogs['analysis.already'].text( { round, user }), parse:parseHtml }
 						: { text: dialogs['analysis.none'].text(), status: -1 }		
 				
 				} else {		
 					round = app.roundToRate( user )
 					console.log('round to rate',round)
 					retval = round ? 
-						{ text: dialogs['analysis.active'].text( { round, user }) }
+						{ text: dialogs['analysis.active'].text( { round, user }), parse:parseHtml }
 						: { text: dialogs['analysis.none'].text(), status: -1 }					
 				}
 				break
@@ -963,8 +984,8 @@ const app = {
 				let roundUser = round_user( round, user )
 				let phase = roundUser.phases[roundUser.phase]
 				return (
-					`${user.first_name} now active in round with token ${token_name(round)}`
-					+ `\n\ncomplete ${moment(1000*(phase.start + round_phase_window)).from(1000*now)} to finish the '${roundUser.phase ? 'pre':'post'}' phase` 
+					`${user.first_name} now active in round with token <b>${token_name(round)}</b>`
+					+ `\n\ncomplete ${moment(1000*(phase.start + round_phase_window)).from(1000*now)} to finish the '${roundUser.phase ? 'post-review':'pre-review'}' phase` 
 				)
 			}
 		},
@@ -981,7 +1002,7 @@ const app = {
 				let phase = roundUser.phases[roundUser.phase]
 				//console.log('!!!times:',phase.start,round_phase_window,now,phase.start + round_phase_window - now)
 				return (
-					`${user.first_name} you are already rater in round with token ${token_name(round)}`
+					`${user.first_name} you are already rater in round with token <b>${token_name(round)}</b>`
 					+ `\n\nyou are on phase ${roundUser.phase ? 'post-review':'pre-review'}...complete ${moment(1000*(phase.start + round_phase_window )).from(1000*now)}`
 				)
 			}
@@ -1113,12 +1134,53 @@ const app = {
 			text: () => `Refreshing and acquiring top tokens (by market cap)`
 		},
 		'user.activity': {
-			text: ({ user }) => `user activity for ${user.first_name}`
+			text: ({ user, activity }) => {
+				let str = `${activity.reviews.length || activity.ratings.length ? '':' no'} activity for ${user.first_name}`
+				if (activity.reviews.length) {
+					str += `\n\n<i>------reviews------</i>`
+					str += activity.reviews.map( review => {
+						let revstr = 
+							`\n${user.active_review_round == review.id ? '*':' '}<b>${tokens[review.token].name}</b> [<i>${review.role?'bear':'bull'}</i>]`
+						 	+ `\n<i>review started ${time_from(review.review_start)}--finish ${time_from(review.review_finish)}</i>`
+						 	+ `\n<i>${review.raters} raters</i>`
+						return revstr
+					})
+				} 
+				if (activity.ratings.length) {
+					str += `\n\n<i>------ratings------</i>`
+					str += activity.ratings.map( rating => {
+						console.log('rating',rating)
+						let revstr = 
+							`\n${user.active_jury_round == rating.id ? '*':' '}<b>${tokens[rating.token].name}</b>`
+							+ `\n<i>round started ${time_from(rating.start)}--finish ${time_from(rating.finish)}</i>`
+							+ `\n<i>${rating.raters} raters</i>`
+						if (rating.phase < 2) {
+							revstr += `\n<i>on ${rating.phase ? 'post-':'pre-'}ratings--started ${time_from(rating.rating_start[rating.phase])}...finish ${time_from(rating.rating_finish[rating.phase])}</i>`
+						} else {
+							revstr += `\n<i>finish ${time_from(rating.rating_finish[1])}</i>`
+						}
+						return revstr
+					})
+				}
+				str += `\n\n------------------------\n<i>total winnings:</i> <b>${activity.total_winnings}</b>\n------------------------\n`
+				return str
+			}
 		}
 	},
 
 	/* temporary code for various things */
-
+/*
+				output.ratings.push({
+					id: round.id,
+					token: round.token,
+					status: round.status,
+					start: round.start,
+					finish: round.finish,
+					phase: roundUser.phase,
+					rating_start: roundUser.phases.map( phase => phase.start ),
+					rating_finish: roundUser.phases.map( phase => phase.finish ),
+					winnings: round.winnings
+*/
 }
 
 app.runScript('test.user.1')

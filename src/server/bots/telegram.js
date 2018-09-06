@@ -100,11 +100,11 @@ bot.onText(/\/restart/, msg => tell( msg.chat.id, say('restart',{user:identify( 
 
 bot.onText(/\/start/, msg => tell( msg.chat.id, say('start', {user: identify( msg )}) ) )
 
-/* rounds */
-const do_review = msg => {
-	let msgInfo = msg.text.split(' ') // for testing, so can explicitly specify user
-	console.log('msgInfo',msgInfo)
+/* user */
+const identifyUser = msg => {
 	let user
+	let msgInfo = msg.text.split(' ') // for testing, so can explicitly specify user
+	//console.log('msgInfo',msgInfo)
 	if (msgInfo[1]) { // testing purposes only
 		user = identify( msg )
 		user.mockAs = +msgInfo[1]
@@ -113,6 +113,20 @@ const do_review = msg => {
 		user = identify( msg )
 		user.mockAs = -1
 	}
+	return user
+}
+
+const do_activity = msg => {
+	let user = identifyUser(msg)
+	tell( msg.chat.id, say('activity',{ user }))
+}
+
+bot.onText(/\/activity/i, msg => do_activity( msg ))
+
+
+/* rounds */
+const do_review = msg => {
+	let user = identifyUser( msg )
 	tell( msg.chat.id, say( 'review', {user} ) ).then( () => {
 		let cmdResult = say( 'review_categories', {user} ) 
 		tell( msg.chat.id, cmdResult ).then( () => {
@@ -124,39 +138,17 @@ const do_review = msg => {
 	})
 }
 
-bot.onText(/\/review/i, msg => do_review( msg ) )
-
 const do_rate = msg => { // jurist start round
-	let msgInfo = msg.text.split(' ') // for testing, so can explicitly specify user
-	console.log('msgInfo',msgInfo)
-	let user
-	if (msgInfo[1]) { // testing purposes only
-		user = identify( msg )
-		user.mockAs = +msgInfo[1]
-		user = testUsers[+msgInfo[1]]		
-	} else {
-		user = identify( msg )
-		user.mockAs = -1
-	}
+	let user = identifyUser( msg )
 	let cmdResult = say('rate',{ user })
 	tell(msg.chat.id,cmdResult).then( () => {
 		if (cmdResult.status !== -1) tell( msg.chat.id, say( 'question',{ user }))
 	})
 }
 
-bot.onText(/\/rate/i, msg => { 
-	do_rate( msg )
-})
+bot.onText(/\/review/i, msg => do_review( msg ) )
 
-
-bot.onText(/\/next/i, msg => {
-	
-	bot.sendMessage(msg.from.id, analyst_questions[questionCount++].text, rk.open({resize_keyboard: true}))
-	.then( () => {
-		isRKOpen = !isRKOpen
-	})
-	if (questionCount == analyst_questions.length) questionCount = 0
-})
+bot.onText(/\/rate/i, msg => do_rate( msg ) )
 
 
 /* tokens */
@@ -284,7 +276,7 @@ bot.on('message', msg => {
 				tell( msg.chat.id, say('tokens') )
 				break
 			case 'activity':
-				tell( msg.chat.id, say('activity',{user}))
+				do_activity( msg )
 				break
 			case 'rate':
 				do_rate( msg )
