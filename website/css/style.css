@@ -15,6 +15,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Heebo:100');
 @import url('https://fonts.googleapis.com/css?family=Rye');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 html {
   overflow-x: hidden;
@@ -27,7 +28,7 @@ body {
   line-height: 1.7;
   font-size: 16px;
   /*font-family: "Open Sans", Arial, sans-serif;*/
-  font-family: 'Heebo', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 ::-moz-selection {
@@ -592,8 +593,10 @@ a:hover, a:focus, a:active {
   background: rgba(255, 255, 255, 0.3);
 }
 
+/*custom*/
 .probootstrap-section {
-  padding: 7em 0;
+  /*padding: 7em 0;*/
+  padding: 10px;
   position: relative;
 }
 
@@ -807,10 +810,8 @@ a:hover, a:focus, a:active {
 
 /*custom*/
 .btn.btn-primary {
-  /*background: #1a57a5;*/
-
-  background: #313924;
-  background: rgba(49,57,36, .6);
+  /*background: #1a57a5; background: rgba(49,57,36, .6); */
+  background: rgb(26, 87, 165, .6);
 }
 
 .btn.btn-primary:hover, .btn.btn-primary:active, .btn.btn-primary:focus {
@@ -1243,4 +1244,14 @@ a:hover, a:focus, a:active {
   margin-left: 50px;
   max-width: 70px ;
   max-height: 70px;
+}
+
+.imageSize {
+max-height: 400px;
+max-width: auto;
+}
+
+.imageCenter {
+  display: flex;
+  justify-content: center;
 }
