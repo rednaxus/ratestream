@@ -522,6 +522,81 @@
             0,
             0
           ]
+        },
+        {
+          "uid": 4,
+          "question": 0,
+          "phase": 1,
+          "phases": [
+            {
+              "start": 1515697400,
+              "finish": 1515697420,
+              "answers": [
+                {
+                  "value": 4,
+                  "timestamp": 1515697410
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1515697410
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515697410
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1515697410
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515697410
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515697410
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515697420
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1515697420
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515697420
+                }
+              ]
+            },
+            {
+              "start": 1515697420,
+              "finish": 1515699800,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
         }
       ]
     },
@@ -668,7 +743,7 @@
       "last_name": "k",
       "username": "tester_4",
       "language_code": "en-US",
-      "active_jury_round": -1,
+      "active_jury_round": 2,
       "active_review_round": 1,
       "id": 4,
       "receive": null
@@ -895,7 +970,7 @@
       "active_review_round": 3,
       "id": 21,
       "receive": null,
-      "mockAs": -1
+      "mockAs": 4
     },
     {
       "identity": "0xc9f413023e002651def5d896abfa7fa360680940",

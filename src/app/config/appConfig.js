@@ -258,6 +258,7 @@ const appConfig = {
     "solution",
     "resources",
     "token-supply",
+    "leads",
     "summary"
   ],
   
