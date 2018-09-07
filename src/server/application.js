@@ -80,6 +80,8 @@ const MONTH = 3600*24*28
 
 const parseHtml = {parse_mode:'HTML'} 
 
+const dashes = '------------------------'
+
 function* entries(obj) { // object iterator
 	for (let key of Object.keys(obj)) 
 		yield [key, obj[key]]
@@ -384,7 +386,7 @@ const app = {
 						roundUser.phases[1].finish = now + round_phase_window
 					} else if (roundUser.phase == 1 && (now - roundUser.phases[1].start > round_phase_window * 2 )) {
 						// phase 2 timeout call rate again to start new round
-						if (round.id == user.active_jury_round) user.active_jury_round == -1
+						if (round.id == user.active_jury_round) user.active_jury_round = -1
 						roundUser.phases[1].finish = now
 						roundUser.phase = 2
 						roundUser.question = -1
@@ -467,17 +469,15 @@ const app = {
 		round.users.forEach( rounduser => {// remove users references
 			console.log('rounduser',rounduser)
 			let user = users[rounduser.uid]
-			if (user.active_jury_round === round.id) {
-				user.active_jury_round = -1
-				rounduser.question = -1
-				if (rounduser.phase < 2) {
-					if (rounduser.phase == 0) {
-						rounduser.phases[1].start = now
-						rounduser.phases[1].finish = now
-					}
-					rounduser.phases[rounduser.phase].finish = now
-					rounduser.phase = 2
+			if (user.active_jury_round === round.id) user.active_jury_round = -1
+			rounduser.question = -1
+			if (rounduser.phase < 2) {
+				if (rounduser.phase == 0) {
+					rounduser.phases[1].start = now
+					rounduser.phases[1].finish = now
 				}
+				rounduser.phases[rounduser.phase].finish = now
+				rounduser.phase = 2
 			}
 			else if (user.active_lead_round === round.id) {
 				user.active_lead_round = -1
@@ -837,14 +837,14 @@ const app = {
 						roundUser.phase = 1
 						roundUser.phases[1].start = now
 						roundUser.question = 0
-					} else if (roundUser.phase == 1 && (now - roundUser.phases[1].start > round_phase_window * 2 )) {
+					} else if (roundUser.phase == 1 && (now - roundUser.phases[1].start > round_phase_window )) {
 						// phase 2 timeout call rate again to start new round
-						user.active_jury_round == -1
+						user.active_jury_round = -1
 						roundUser.phase = 2
 						roundUser.question = -1
 						round = app.roundToRate( user )
 					}
-
+					console.log('returning now')
 					retval = round ? 
 						{ text: dialogs['analysis.already'].text( { round, user }), parse:parseHtml }
 						: { text: dialogs['analysis.none'].text(), status: -1 }		
@@ -885,7 +885,7 @@ const app = {
 				phase = roundUser.phases[roundUser.phase]
 				phase.answers[question_number] = { value: answer, timestamp: now }
 				roundUser.question = phase.answers.findIndex( answer => !answer.timestamp )
-				console.log('next question',roundUser.question)
+				//console.log('next question',roundUser.question)
 
 				if (roundUser.question == -1) { // finished phase...todo: time check for 10 minute limit
 					phase.finish = now
@@ -894,8 +894,9 @@ const app = {
 					}
 					if (roundUser.phase == 1) {
 						user.active_jury_round = -1
-						retval = { text: dialogs['analysis.finished'].text({ round, user }), parse:parseHtml }
+						roundUser.phases[1].finish = now
 						roundUser.phase = 2
+						retval = { text: dialogs['analysis.finished'].text({ round, user }), parse:parseHtml }
 					} else { // move to next phase
 						roundUser.phase = 1
 						roundUser.question = 0
@@ -1094,12 +1095,12 @@ const app = {
 				// tell round is finished
 				let reviews = app.roundReviews( round )
 				return (
-					`\n\npre-analysis finished!`
+					`\n\n<b>pre</b>-rating finished!`
 					// tell reviews submitted
-					+`\n\nreviews:\n`
+					+`\n\n${dashes}\nreviews:\n`
 					+ app.roundReviews(round)
 					// start questions
-					+`\n\nnow the post review questions`
+					+`\n\nnow the <b>post</b> review questions\n`
 				)
 			}
 		},
@@ -1109,7 +1110,7 @@ const app = {
 		'analysis.question':{
 			text: ({ round, user}) => {
 				let roundUser = round.users.find( roundUser => roundUser.uid == user.id )
-				console.log('round user question ',roundUser)
+				//console.log('round user question ',roundUser)
 				let question = analyst_questions[roundUser.question]
 				return `<b>${question.category}</b>:${question.name}      <i>${roundUser.phase ? 'post-review':'pre-review'}</i>\n\n${question.text}`
 			}
@@ -1221,7 +1222,7 @@ const app = {
 			text: ({ user, activity }) => {
 				let str = `${activity.reviews.length || activity.ratings.length ? '':' no'} activity for ${user.first_name}`
 				if (activity.reviews.length) {
-					str += `\n\n<i>------reviews------</i>`
+					str += `\n\n${dashes}\n<i>------reviews------</i>\n${dashes}\n`
 					str += activity.reviews.map( review => {
 						let revstr = 
 							`\n\n${user.active_review_round == review.id ? '*':' '}<b>${tokens[review.token].name}</b> [<i>${review.role?'bear':'bull'}</i>]`
@@ -1231,7 +1232,7 @@ const app = {
 					})
 				} 
 				if (activity.ratings.length) {
-					str += `\n\n<i>------ratings------</i>`
+					str += `\n\n${dashes}\n<i>------ratings------</i>\n${dashes}\n`
 					str += activity.ratings.map( rating => {
 						console.log('rating',rating)
 						let revstr = 
@@ -1246,7 +1247,7 @@ const app = {
 						return revstr
 					})
 				}
-				str += `\n\n------------------------\n<i>total winnings:</i> <b>${activity.total_winnings}</b>\n------------------------\n`
+				str += `\n\n${dashes}\n<i>total winnings:</i> <b>${activity.total_winnings}</b>\n${dashes}\n`
 				return str
 			}
 		}

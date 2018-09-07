@@ -140,7 +140,9 @@ const do_review = msg => {
 
 const do_rate = msg => { // jurist start round
 	let user = identifyUser( msg )
+	console.log('make caomm')
 	let cmdResult = say('rate',{ user })
+	console.log('got command')
 	tell(msg.chat.id,cmdResult).then( () => {
 		if (cmdResult.status !== -1) tell( msg.chat.id, say( 'question',{ user }))
 	})
@@ -225,7 +227,7 @@ bot.on('callback_query', query => {
 	if (user.mockAs >= 0) user = testUsers[user.mockAs]
 	bot.answerCallbackQuery(query.id, { text: `Action received from ${user.first_name}!` })
 	.then( () => {
-		console.log('query on callback',query)
+		//console.log('query on callback',query)
 		let q = query.data.split('-')
 		switch (q[0]) {
 			case 'token': 

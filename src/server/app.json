@@ -2,10 +2,10 @@
   "rounds": [
     {
       "id": 0,
-      "token": 11,
-      "start": 1515631500,
-      "finish": 1515660300,
-      "status": "finished",
+      "token": 12,
+      "start": 1515713390,
+      "finish": 1515742190,
+      "status": "active",
       "question_set": [
         0,
         4,
@@ -19,24 +19,11 @@
       ],
       "users": [
         {
-          "uid": 0,
-          "start": 1515631500,
-          "finish": 1515638700,
-          "sections": {
-            "overview": "kasjdf"
-          },
-          "payoff": 0,
-          "win_pctg": {
-            "questions": 0,
-            "categories": 0
-          }
-        },
-        {
           "uid": 1,
-          "start": 1515631500,
-          "finish": 1515638700,
+          "start": 1515713390,
+          "finish": 1515720590,
           "sections": {
-            "overview": "akdjf"
+            "overview": "akdsfj"
           },
           "payoff": 0,
           "win_pctg": {
@@ -46,99 +33,16 @@
         },
         {
           "uid": 2,
-          "question": -1,
-          "phase": 2,
-          "phases": [
-            {
-              "start": 1515631560,
-              "finish": 1515635740,
-              "answers": [
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
-              ]
-            },
-            {
-              "start": 1515635740,
-              "finish": 1515640230,
-              "answers": [
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
-              ]
-            }
-          ],
-          "sways": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "uid": 3,
-          "question": -1,
-          "phase": 2,
-          "phases": [
-            {
-              "start": 1515631570,
-              "finish": 1515635740,
-              "answers": [
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
-              ]
-            },
-            {
-              "start": 1515635740,
-              "finish": 1515640230,
-              "answers": [
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
-              ]
-            }
-          ],
-          "sways": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ]
+          "start": 1515713400,
+          "finish": 1515720600,
+          "sections": {
+            "overview": "kadfj"
+          },
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
         },
         {
           "uid": 4,
@@ -146,8 +50,8 @@
           "phase": 2,
           "phases": [
             {
-              "start": 1515631580,
-              "finish": 1515635740,
+              "start": 1515713430,
+              "finish": 1515714630,
               "answers": [
                 {},
                 {},
@@ -161,8 +65,8 @@
               ]
             },
             {
-              "start": 1515635740,
-              "finish": 1515640230,
+              "start": 1515714640,
+              "finish": 1515715830,
               "answers": [
                 {},
                 {},
@@ -192,199 +96,9 @@
     },
     {
       "id": 1,
-      "token": 80,
-      "start": 1515632050,
-      "finish": 1515660850,
-      "status": "finished",
-      "question_set": [
-        0,
-        4,
-        8,
-        12,
-        16,
-        20,
-        24,
-        25,
-        26
-      ],
-      "users": [
-        {
-          "uid": 3,
-          "start": 1515632050,
-          "finish": 1515639250,
-          "sections": {
-            "overview": "jakdfj"
-          },
-          "payoff": 0,
-          "win_pctg": {
-            "questions": 0,
-            "categories": 0
-          }
-        },
-        {
-          "uid": 4,
-          "start": 1515632050,
-          "finish": 1515639250,
-          "sections": {
-            "overview": "laksdjf"
-          },
-          "payoff": 0,
-          "win_pctg": {
-            "questions": 0,
-            "categories": 0
-          }
-        },
-        {
-          "uid": 0,
-          "question": -1,
-          "phase": 2,
-          "phases": [
-            {
-              "start": 1515632060,
-              "finish": 1515635740,
-              "answers": [
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
-              ]
-            },
-            {
-              "start": 1515635740,
-              "finish": 1515640230,
-              "answers": [
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
-              ]
-            }
-          ],
-          "sways": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "uid": 5,
-          "question": -1,
-          "phase": 2,
-          "phases": [
-            {
-              "start": 1515635970,
-              "finish": 1515637170,
-              "answers": [
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
-              ]
-            },
-            {
-              "start": 1515639650,
-              "finish": 1515642630,
-              "answers": [
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
-              ]
-            }
-          ],
-          "sways": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "uid": 21,
-          "question": -1,
-          "phase": 2,
-          "phases": [
-            {
-              "start": 1515639740,
-              "finish": 1515641430,
-              "answers": [
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
-              ]
-            },
-            {
-              "start": 1515641430,
-              "finish": 1515644430,
-              "answers": [
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
-              ]
-            }
-          ],
-          "sways": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ]
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "token": 31,
-      "start": 1515677710,
-      "finish": 1515706510,
+      "token": 84,
+      "start": 1515713410,
+      "finish": 1515742210,
       "status": "active",
       "question_set": [
         0,
@@ -399,11 +113,11 @@
       ],
       "users": [
         {
-          "uid": 0,
-          "start": 1515677710,
-          "finish": 1515684910,
+          "uid": 3,
+          "start": 1515713410,
+          "finish": 1515720610,
           "sections": {
-            "overview": "kafjkjadf"
+            "overview": "kasdjf"
           },
           "payoff": 0,
           "win_pctg": {
@@ -412,9 +126,9 @@
           }
         },
         {
-          "uid": 1,
-          "start": 1515677930,
-          "finish": 1515685130,
+          "uid": 4,
+          "start": 1515713410,
+          "finish": 1515720610,
           "sections": {
             "overview": "kasjdf"
           },
@@ -423,189 +137,15 @@
             "questions": 0,
             "categories": 0
           }
-        },
-        {
-          "uid": 2,
-          "question": -1,
-          "phase": 2,
-          "phases": [
-            {
-              "start": 1515677940,
-              "finish": 1515679270,
-              "answers": [
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
-              ]
-            },
-            {
-              "start": 1515679270,
-              "finish": 1515682320,
-              "answers": [
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
-              ]
-            }
-          ],
-          "sways": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "uid": 21,
-          "question": -1,
-          "phase": 2,
-          "phases": [
-            {
-              "start": 1515677990,
-              "finish": 1515679270,
-              "answers": [
-                {
-                  "value": 3,
-                  "timestamp": 1515677990
-                },
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
-              ]
-            },
-            {
-              "start": 1515679270,
-              "finish": 1515682320,
-              "answers": [
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
-              ]
-            }
-          ],
-          "sways": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "uid": 4,
-          "question": 0,
-          "phase": 1,
-          "phases": [
-            {
-              "start": 1515697400,
-              "finish": 1515697420,
-              "answers": [
-                {
-                  "value": 4,
-                  "timestamp": 1515697410
-                },
-                {
-                  "value": 5,
-                  "timestamp": 1515697410
-                },
-                {
-                  "value": 4,
-                  "timestamp": 1515697410
-                },
-                {
-                  "value": 5,
-                  "timestamp": 1515697410
-                },
-                {
-                  "value": 4,
-                  "timestamp": 1515697410
-                },
-                {
-                  "value": 3,
-                  "timestamp": 1515697410
-                },
-                {
-                  "value": 4,
-                  "timestamp": 1515697420
-                },
-                {
-                  "value": 5,
-                  "timestamp": 1515697420
-                },
-                {
-                  "value": 4,
-                  "timestamp": 1515697420
-                }
-              ]
-            },
-            {
-              "start": 1515697420,
-              "finish": 1515699800,
-              "answers": [
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
-              ]
-            }
-          ],
-          "sways": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ]
         }
       ]
     },
     {
-      "id": 3,
-      "token": 55,
-      "start": 1515677980,
-      "finish": 1515706780,
-      "status": "cancelled",
+      "id": 2,
+      "token": 75,
+      "start": 1515713420,
+      "finish": 1515742220,
+      "status": "active",
       "question_set": [
         0,
         4,
@@ -619,11 +159,11 @@
       ],
       "users": [
         {
-          "uid": 21,
-          "start": 1515677980,
-          "finish": 1515685180,
+          "uid": 5,
+          "start": 1515713420,
+          "finish": 1515720620,
           "sections": {
-            "overview": "adf"
+            "overview": "kasjdfjkd"
           },
           "payoff": 0,
           "win_pctg": {
@@ -632,13 +172,26 @@
           }
         },
         {
-          "uid": 20,
-          "question": -1,
-          "phase": 2,
+          "uid": 6,
+          "start": 1515713420,
+          "finish": 1515720620,
+          "sections": {
+            "overview": "kasjdfk"
+          },
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
+        },
+        {
+          "uid": 4,
+          "question": 0,
+          "phase": 0,
           "phases": [
             {
-              "start": 1515681670,
-              "finish": 1515682920,
+              "start": 1515715860,
+              "finish": 1515717060,
               "answers": [
                 {},
                 {},
@@ -652,8 +205,8 @@
               ]
             },
             {
-              "start": 1515682920,
-              "finish": 1515685730,
+              "start": 1515717060,
+              "finish": 1515718260,
               "answers": [
                 {},
                 {},
@@ -692,7 +245,7 @@
       "username": "tester_0",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": 2,
+      "active_review_round": 0,
       "id": 0,
       "receive": null
     },
@@ -705,7 +258,7 @@
       "username": "tester_1",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": 2,
+      "active_review_round": 0,
       "id": 1,
       "receive": null
     },
@@ -717,8 +270,8 @@
       "last_name": "k",
       "username": "tester_2",
       "language_code": "en-US",
-      "active_jury_round": 2,
-      "active_review_round": -1,
+      "active_jury_round": -1,
+      "active_review_round": 0,
       "id": 2,
       "receive": null
     },
@@ -757,7 +310,7 @@
       "username": "tester_5",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": -1,
+      "active_review_round": 2,
       "id": 5,
       "receive": null
     },
@@ -770,7 +323,7 @@
       "username": "tester_6",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": -1,
+      "active_review_round": 2,
       "id": 6,
       "receive": null
     },
@@ -966,8 +519,8 @@
       "last_name": "k",
       "username": "alan_on40",
       "language_code": "en-US",
-      "active_jury_round": 2,
-      "active_review_round": 3,
+      "active_jury_round": -1,
+      "active_review_round": -1,
       "id": 21,
       "receive": null,
       "mockAs": 4
