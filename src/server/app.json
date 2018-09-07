@@ -426,8 +426,8 @@
         },
         {
           "uid": 2,
-          "question": 0,
-          "phase": 1,
+          "question": -1,
+          "phase": 2,
           "phases": [
             {
               "start": 1515677940,
@@ -446,7 +446,7 @@
             },
             {
               "start": 1515679270,
-              "finish": 1515680470,
+              "finish": 1515682320,
               "answers": [
                 {},
                 {},
@@ -474,8 +474,8 @@
         },
         {
           "uid": 21,
-          "question": 0,
-          "phase": 1,
+          "question": -1,
+          "phase": 2,
           "phases": [
             {
               "start": 1515677990,
@@ -497,7 +497,7 @@
             },
             {
               "start": 1515679270,
-              "finish": 1515680470,
+              "finish": 1515682320,
               "answers": [
                 {},
                 {},
@@ -530,7 +530,7 @@
       "token": 55,
       "start": 1515677980,
       "finish": 1515706780,
-      "status": "active",
+      "status": "cancelled",
       "question_set": [
         0,
         4,
@@ -556,15 +556,14 @@
             "categories": 0
           }
         },
-        {},
         {
           "uid": 20,
-          "question": 0,
-          "phase": 0,
+          "question": -1,
+          "phase": 2,
           "phases": [
             {
               "start": 1515681670,
-              "finish": 1515682870,
+              "finish": 1515682920,
               "answers": [
                 {},
                 {},
@@ -578,8 +577,8 @@
               ]
             },
             {
-              "start": 1515682870,
-              "finish": 1515684070,
+              "start": 1515682920,
+              "finish": 1515685730,
               "answers": [
                 {},
                 {},
@@ -878,7 +877,7 @@
       "username": "ryoungblom",
       "active_jury_rounds": -1,
       "active_review_rounds": -1,
-      "active_jury_round": 3,
+      "active_jury_round": -1,
       "active_review_round": -1,
       "id": 20,
       "receive": null,

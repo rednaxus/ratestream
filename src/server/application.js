@@ -465,6 +465,7 @@ const app = {
 	},
 	roundClear: ( round ) => {
 		round.users.forEach( rounduser => {// remove users references
+			console.log('rounduser',rounduser)
 			let user = users[rounduser.uid]
 			if (user.active_jury_round === round.id) {
 				user.active_jury_round = -1
@@ -484,14 +485,14 @@ const app = {
 		})
 	},
 	roundCancel: ( round ) => {
-		console.log('round cancelled')
+		console.log(`round ${round.id} cancel`)
 		app.roundClear( round )
 		round.status = 'cancelled'
 		// app.save()
 	},
 	roundExpire: ( round ) => {
 		// compute sways and points
-		console.log('round expire',round.id)
+		console.log(`round ${round.id} expire`)
 		app.roundClear( round )
 		round.status = 'finished'
 		//app.save()
