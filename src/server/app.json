@@ -427,11 +427,11 @@
         {
           "uid": 2,
           "question": 0,
-          "phase": 0,
+          "phase": 1,
           "phases": [
             {
               "start": 1515677940,
-              "finish": 1515679140,
+              "finish": 1515679270,
               "answers": [
                 {},
                 {},
@@ -445,8 +445,8 @@
               ]
             },
             {
-              "start": 1515679140,
-              "finish": 1515680340,
+              "start": 1515679270,
+              "finish": 1515680470,
               "answers": [
                 {},
                 {},
@@ -474,12 +474,12 @@
         },
         {
           "uid": 21,
-          "question": 1,
-          "phase": 0,
+          "question": 0,
+          "phase": 1,
           "phases": [
             {
               "start": 1515677990,
-              "finish": 1515679190,
+              "finish": 1515679270,
               "answers": [
                 {
                   "value": 3,
@@ -496,8 +496,8 @@
               ]
             },
             {
-              "start": 1515679190,
-              "finish": 1515680390,
+              "start": 1515679270,
+              "finish": 1515680470,
               "answers": [
                 {},
                 {},
@@ -556,7 +556,55 @@
             "categories": 0
           }
         },
-        {}
+        {},
+        {
+          "uid": 20,
+          "question": 0,
+          "phase": 0,
+          "phases": [
+            {
+              "start": 1515681670,
+              "finish": 1515682870,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            {
+              "start": 1515682870,
+              "finish": 1515684070,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
       ]
     }
   ],
@@ -830,7 +878,7 @@
       "username": "ryoungblom",
       "active_jury_rounds": -1,
       "active_review_rounds": -1,
-      "active_jury_round": -1,
+      "active_jury_round": 3,
       "active_review_round": -1,
       "id": 20,
       "receive": null,

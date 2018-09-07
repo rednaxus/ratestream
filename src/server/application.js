@@ -136,7 +136,7 @@ const app = {
 		cronTimer = setInterval( () => app.cron( 10 ), 10000 )
 		tallyTimer = setInterval( () => app.ratingsUpdate(), 3600000 * 1 ) // 1 hours
 		roundTimer = setInterval( () => app.roundsAssess(), 60000 * 10 ) // 10 minutes
-		tokenTimer = setInterval( () => app.refreshTokens(), 3600000 * 12 )
+		tokenTimer = setInterval( () => app.refreshTopTokens(), 3600000 * 12 )
 		
 		tokens.forEach( (token,idx) => console.log( `[${idx}] ${token.name}` ) )
 		users.forEach( user => user.receive = null ) // clear out previous state (for development)
@@ -455,9 +455,10 @@ const app = {
 
 		
 		for (let [key,value] of entries(ratings)) {
-			appData.tokens[key].rating = value
-			appData.tokens[key].rating.timestamp = now
+			tokens[key].rating = value
+			tokens[key].rating.timestamp = now
 		} 
+		app.saveTokens()
 		app.save()
 		
 		console.log('result',JSON.stringify(ratings))
