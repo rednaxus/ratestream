@@ -237,6 +237,11 @@ const appConfig = {
     apiKey: 'sifd7328Ophmc33' //  freekey
   },
 
+  COINMARKETCAP: {
+    apiKey:  "a1c9be76-9992-46c8-9fe3-7fcb3229bcab", // (real)
+    sanbox: "8eb843d6-09f8-492b-9b62-728fc9379259" 
+  },
+
 
   review_roles: [
     "bull",
@@ -255,6 +260,7 @@ const appConfig = {
     "token-supply",
     "summary"
   ],
+  
 
   ...customConfig
 
