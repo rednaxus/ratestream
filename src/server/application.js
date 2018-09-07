@@ -56,7 +56,7 @@ const commands = [
 	'tokens',
 	'summaries',
 	'refreshInfo',
-	'refreshTokens',
+	//'refreshTokens',
 	'refreshTopTokens',
 	'clearRounds',
 	'refreshInfo',
@@ -142,7 +142,7 @@ const app = {
 		users.forEach( user => user.receive = null ) // clear out previous state (for development)
 		//console.log('not covere',appData.tokens_not_covered)
 
-		console.log(`${now}: tokens covered:${tokens.length}...tokens in db but not covered:${Object.keys(appData.tokens_not_covered).length}`)
+		console.log(`${now}: tokens covered:${tokens.length}...tokens in db but not covered:${Object.keys(tokenData.tokens_not_covered).length}`)
 	},
 	stop: () => {
 		clearInterval(saveTimer)
@@ -521,7 +521,6 @@ const app = {
 	refreshTokenQuotes: ids => (
 		coinmarket.refreshQuotes( ids ).then( token_quotes => {
 			tokenData.coinmarket_quotes = token_quotes 
-			app.saveTokens()
 		}).catch( err => console.log('error fetching token quotes ',err))
 	),
 	refreshTokenTickers: () => {
@@ -556,25 +555,26 @@ const app = {
    */
 	refreshTopTokens: () => {
 		coinmarket.refreshTickers( {sort:'market_cap'} ).then( token_tickers => {
-			tokenData.coinmarket_tickers = token_tickers
+			//tokenData.coinmarket_tickers = token_tickers
 			token_tickers.forEach( ticker_token => {
-				let current_idx = tokens.findIndex( token => token.cmc_id == ticker_token.id )
-				const { id, quote, ...t_token } = ticker_token
+				var { id, quote, ...t_token } = ticker_token
+				quote = { ...quote.USD, units:'USD' }
 				t_token.cmc_id = id
 
-				if ( current_idx == -1 ) {
-					current_idx = tokens.length
+				let token_idx = tokens.findIndex( token => token.cmc_id == ticker_token.id )
+				if ( token_idx == -1 ) {
+					token_idx = tokens.length
 					t_token.quotes = []
 					tokens.push( t_token )
 				} else {
-					t_token.quotes = tokens[ current_idx ].quotes
+					t_token.quotes = tokens[ token_idx ].quotes
 				}
-				tokens[ current_idx ].quotes.push( quote )
-
+				tokens[ token_idx ].quotes.push( quote )
 			}) 
+			app.saveTokens()
 		})
 	},
-	refreshTopTokensEthplorer: () => {
+	refreshTopTokensEthplorer: () => { // no longer used
 		ethplorer.getTopTokens().then( tops => {
 			//appData.tokens_top = tops
 			let toptokens = tops.data.tokens
@@ -592,7 +592,7 @@ const app = {
 			app.save()
 		}).catch( err => console.log(err) )
 	},
-	refreshTokensEthplorer: () => {
+	refreshTokensEthplorer: () => { // no longer used
 		console.log(`${time_str(now)} refresh tokens`)
 		doFetch = () => {
 			let token = appData.tokens[nextTokenFetch]
@@ -947,11 +947,11 @@ const app = {
 					retval = { text:dialogs['token.notfound'].text( {tokenName:data.name} ) } 
 				else {
 					token = tokens[tokenId]
-					let markets = token.markets
-					let current = markets[markets.length-1]
+					let quotes = token.quotes
+					let current = quotes[quotes.length-1]
 					//retval = { text: formatters.tokenMarket( current ), parse: parseHtml }
 					retval = { 
-						text: dialogs['token'].text( { tokenName:token.name, market: current, rating:token.rating } ),
+						text: dialogs['token'].text( { token:token, quote: current, rating:token.rating } ),
 						format: formatters.token( token, tokenId ),
 						parse: parseHtml
 					}
@@ -1176,32 +1176,34 @@ const app = {
 			text: () => `got token ratings`
 		},
 		'token': {
-			text: ( {tokenName, market, rating }) => {
+			text: ( {token, quote, rating }) => {
 				const chg = (curr, prev) => (!curr.count || !prev.count ? ' ' : ( curr.avg > prev.avg ? '⬆': (curr.avg < prev.avg ? '⬇': '↔' )))
 		
-				let str = `<b>${tokenName}</b>`
+				let str = `\n\n<a href="https://coinmarketcap.com/currencies/${token.slug}/">${token.name}</a>`
 				//console.log('hello',market,JSON.stringify(rating))
-				if (market.price) str += `\nprice <b>${market.price.rate}</b> ${market.price.currency}`
-				let cats = {
-					day: rating.current.day.categories.reduce( (str,cat,cidx) => (
-						str + (cat.count == 0 ? '---' : cat.avg.toFixed(1)) + chg(cat,rating.previous.day.categories[cidx]) + ' '
-					), ''),
-					week: rating.current.week.categories.reduce( (str,cat,cidx) => (
-						str + (cat.count == 0 ? '---' : cat.avg.toFixed(1)) + chg(cat,rating.previous.week.categories[cidx]) + ' '
-					), ''),
-					month: rating.current.month.categories.reduce( (str,cat,cidx) => (
-						str + (cat.count == 0 ? '---' : cat.avg.toFixed(1)) + chg(cat,rating.previous.month.categories[cidx]) + ' '
-					), '')
-				}
+				if (quote.price) str += `\nprice <b>${quote.price}</b> ${quote.units}`
+				
 				if (rating) {
-					str
+					let cats = {
+						day: rating.current.day.categories.reduce( (str,cat,cidx) => (
+							str + (cat.count == 0 ? '---' : cat.avg.toFixed(1)) + chg(cat,rating.previous.day.categories[cidx]) + ' '
+						), ''),
+						week: rating.current.week.categories.reduce( (str,cat,cidx) => (
+							str + (cat.count == 0 ? '---' : cat.avg.toFixed(1)) + chg(cat,rating.previous.week.categories[cidx]) + ' '
+						), ''),
+						month: rating.current.month.categories.reduce( (str,cat,cidx) => (
+							str + (cat.count == 0 ? '---' : cat.avg.toFixed(1)) + chg(cat,rating.previous.month.categories[cidx]) + ' '
+						), '')
+					}
+
 					str += `\n...ratings / change ↔⬆⬇` // 
-					str += `\n\n<i>categories======</i>\n${categories.reduce((str,cat) => str + cat.substr(0,4) + ' ','')}`
-					str += `\n\n<i>day</i>\n${cats.day}`
-					str += `\n<i>week</i>\n${cats.week}`
-					str += `\n<i>month</i>\n${cats.month}\n\n<i>======categories</i>\n`
+					 		+ `\n\n<i>categories======</i>\n${categories.reduce((str,cat) => str + cat.substr(0,4) + ' ','')}`
+					 		+ `\n\n<i>day</i>\n${cats.day}`
+					 		+ `\n<i>week</i>\n${cats.week}`
+					 		+ `\n<i>month</i>\n${cats.month}\n\n<i>======categories</i>\n`
 				}
-				return str
+
+				return `\n${str}`
 			}
 		},
 		'tokens': {
@@ -1220,7 +1222,7 @@ const app = {
 					str += `\n\n<i>------reviews------</i>`
 					str += activity.reviews.map( review => {
 						let revstr = 
-							`\n${user.active_review_round == review.id ? '*':' '}<b>${tokens[review.token].name}</b> [<i>${review.role?'bear':'bull'}</i>]`
+							`\n\n${user.active_review_round == review.id ? '*':' '}<b>${tokens[review.token].name}</b> [<i>${review.role?'bear':'bull'}</i>]`
 						 	+ `\n<i>review started ${time_from(review.review_start)}--finish ${time_from(review.review_finish)}</i>`
 						 	+ `\n<i>${review.raters} raters</i>`
 						return revstr
@@ -1231,7 +1233,7 @@ const app = {
 					str += activity.ratings.map( rating => {
 						console.log('rating',rating)
 						let revstr = 
-							`\n${user.active_jury_round == rating.id ? '*':' '}<b>${tokens[rating.token].name}</b>`
+							`\n\n${user.active_jury_round == rating.id ? '*':' '}<b>${tokens[rating.token].name}</b>`
 							+ `\n<i>round started ${time_from(rating.start)}--finish ${time_from(rating.finish)}</i>`
 							+ `\n<i>${rating.raters} raters</i>`
 						if (rating.phase < 2) {
@@ -1266,7 +1268,7 @@ const app = {
 app.runScript('test.user.1')
 const dialogs = app.dialogs
 
-const token_name = round => appData.tokens[round.token].name
+const token_name = round => tokens[round.token].name
 
 module.exports = app
 

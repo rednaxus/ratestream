@@ -220,9 +220,7 @@ const sanitizeIdAndSymbol = (id, symbol) => {
 }
 
 const createRequest = (args = {}) => {
-  console.log('args',args)
   const { url, config, query, fetcher } = args
-  console.log(`fetch: ${url}${query ? `?${qs.stringify(query)}` : ''}`, config)
   return fetcher(`${url}${query ? `?${qs.stringify(query)}` : ''}`, config).then(res =>
     res.json()
   )

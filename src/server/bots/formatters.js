@@ -107,8 +107,31 @@ module.exports = {
 }
 */
 	},
-	tokenMarket: market => {
+	tokenQuote: quote => { // fix this to match cmc
 		/*
+		{	
+			"id": 1,
+      "name": "Bitcoin",
+      "symbol": "BTC",
+      "slug": "bitcoin",
+      "circulating_supply": 17253125,
+      "total_supply": 17253125,
+      "max_supply": 21000000,
+      "date_added": "2013-04-28T00:00:00.000Z",
+      "num_market_pairs": 6037,
+      "cmc_rank": 1,
+      "last_updated": "2018-09-06T22:17:21.000Z",
+      "quotes": [{
+          "price": 6469.49532626,
+          "volume_24h": 5701938887.38691,
+          "percent_change_1h": -0.165422,
+          "percent_change_24h": -6.91809,
+          "percent_change_7d": -6.56854,
+          "market_cap": 111619011550.87956,
+          "last_updated": "2018-09-06T22:17:21.000Z"
+        	"units": "USD"
+      }]
+     }
 		{
 			"timestamp":1534704803,
 			"address":"0xf230b790e05390fc8295f4d3f60332c93bed42e2",
