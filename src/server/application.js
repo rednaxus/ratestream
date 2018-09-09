@@ -44,6 +44,8 @@ var testUsers = users.filter( user => user.first_name.startsWith('tester_'))
 const formatters = require('./bots/formatters')
 
 
+
+
 const categories = config.review_categories
 
 
@@ -319,9 +321,7 @@ const app = {
 				answers: new Array(analyst_questions.length).fill().map( _ => ({count:0, avg:0, sway_count:0, avg_sway:0, winner:null})),
 				categories: new Array(categories.length).fill().map( _ => ({count:0, avg:0, sway_count:0, avg_sway:0, winner:null }))
 			}
-			
-			if (!token.tallies) token.tallies = [tally]
-			else token.tallies.push(tally)
+
 			// go through all the valid answers
 			round.users.forEach( (rounduser,uIdx) => {
 				if (uIdx < 2) return // not for leads
@@ -361,7 +361,11 @@ const app = {
 					}
 				})
 			})
-
+			// TODO: !! important...test this
+			if ( tally.answers.filter( answer => answer.count ).length && tally.categories.filter( category => category.count ).length ) {
+				if (!token.tallies) token.tallies = [tally]
+				else token.tallies.push(tally)
+			}
 			// Expire reviewers and raters if due
 			if (round.status == 'active') {
 				
@@ -1270,6 +1274,27 @@ const app = {
 
 app.runScript('test.user.1')
 const dialogs = app.dialogs
+
+/* clean out the tallies / temp 
+tokens.forEach( token => {
+	if (!token.tallies) return
+	var newtallies = token.tallies.reduce( (accum,tally,tIdx) => {
+		if (
+			tally.answers.filter( answer => answer.count ).length 
+			|| tally.categories.filter( category => category.count ).length ) {
+			console.log(`kept tally ${tally}`)
+			accum.push( tally )
+		}
+		else {
+			console.log(`${tIdx} remove empty tally`)
+		}
+		return accum
+	}, [])
+	console.log(`token ${token.name} new tallies ${newtallies.length}`)
+	token.tallies = newtallies
+})
+app.saveTokens()
+ --- */
 
 const token_name = round => tokens[round.token].name
 
