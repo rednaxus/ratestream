@@ -35,6 +35,11 @@ let time = require('./time.json')
 
 var { rounds, users } = appData
 var { tokens, coinmarket_ids } = tokenData
+var tokens_covered = tokens.filter( token => token.tags && token.tags.includes('top') )
+
+console.log('<covered tokens>')
+tokens_covered.forEach( (token,tIdx) => console.log(`${tIdx} ${token.name}`) )
+
 const question_set = [0,4,8,12,16,20,24,25,26]
 const analyst_questions = question_set.map( qnum => questions[qnum] )
 
@@ -77,6 +82,7 @@ const tally_window = 3600*24*7   // window from now to consider tallies (e.g. 1 
 
 
 const WEEK = 3600*24*7
+const FORTNIGHT = WEEK * 2
 const DAY = 3600*24
 const MONTH = 3600*24*28
 
@@ -224,7 +230,7 @@ const app = {
 			
 		} else { // create round
 			if (!tokensToCover.length) { // reset list of tokens to choose
-				tokensToCover = tokens.map( (_,idx) => idx )
+				tokensToCover = tokens_covered.map( (_,idx) => idx )
 			}
 			let tokenIdx = randomIdx( tokensToCover.length )
 			let token = tokens[ tokenIdx ]
@@ -560,13 +566,13 @@ const app = {
       }
    */
 	refreshTopTokens: () => {
-		coinmarket.refreshTickers( {sort:'market_cap'} ).then( token_tickers => {
+		coinmarket.refreshTickers( {sort:'market_cap',limit:200} ).then( token_tickers => {
 			//tokenData.coinmarket_tickers = token_tickers
-			token_tickers.forEach( ticker_token => {
+			token_tickers.forEach( ( ticker_token, tIdx ) => {
+				console.log(`${tIdx} token fetched ${ticker_token.name}`)
 				var { id, quote, ...t_token } = ticker_token
 				quote = { ...quote.USD, units:'USD' }
 				t_token.cmc_id = id
-
 				let token_idx = tokens.findIndex( token => token.cmc_id == ticker_token.id )
 				if ( token_idx == -1 ) {
 					token_idx = tokens.length
@@ -575,7 +581,19 @@ const app = {
 				} else {
 					t_token.quotes = tokens[ token_idx ].quotes
 				}
-				tokens[ token_idx ].quotes.push( quote )
+				let token = tokens[ token_idx ]
+				token.tags = tIdx < 100 ? ['top'] : (token.quotes.reduce((mover,past_quote) => { // decipher if is a mover
+					if (mover) return true
+					let timedelta = +moment(quote.last_updated) - +moment(past_quote.last_updated)/1000
+					return 
+						timedelta >= WEEK 
+						&& timedelta <= FORTNIGHT 
+						&& past_quote.market_cap < quote.market_cap 
+						&& (quote.market_cap - past_quote.market_cap) / quote.market_cap > 0.2  // 20% increase
+					? true : false
+				}, false ) ? ['mover','next'] : ['next'] )
+
+				token.quotes.push( quote )
 			}) 
 			app.saveTokens()
 		})
@@ -925,7 +943,7 @@ const app = {
 				retval = { text: dialogs['welcome.returning'].text({user: data.user}), format: formatters.menu() }
 				break
 			case 'tokens':
-				retval = { text:dialogs['tokens'].text(), format:formatters.tokens( tokens ) }
+				retval = { text:dialogs['tokens'].text(), format:formatters.tokens( tokens_covered ) }
 				break
 			case 'token_ids':
 				app.refreshTokenIds()
