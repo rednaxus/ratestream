@@ -35,7 +35,7 @@ let time = require('./time.json')
 
 var { rounds, users } = appData
 var { tokens, coinmarket_ids } = tokenData
-var tokens_covered = tokens.filter( token => token.tags && token.tags.includes('top') )
+var tokens_covered = tokens.filter( token => token.tags && (token.tags.includes('top') || token.tags.includes('mover'))  )
 
 console.log('<covered tokens>')
 tokens_covered.forEach( (token,tIdx) => console.log(`${tIdx} ${token.name}`) )
@@ -47,8 +47,6 @@ var testUsers = users.filter( user => user.first_name.startsWith('tester_'))
 
 //const dialogs = require('./dialogs')
 const formatters = require('./bots/formatters')
-
-
 
 
 const categories = config.review_categories
@@ -70,6 +68,7 @@ const commands = [
 	'time',
 	'cron'
 ]
+
 
 var saveTimer
 var cronTimer
@@ -152,7 +151,7 @@ const app = {
 		users.forEach( user => user.receive = null ) // clear out previous state (for development)
 		//console.log('not covere',appData.tokens_not_covered)
 
-		console.log(`${now}: tokens covered:${tokens.length}...tokens in db but not covered:${Object.keys(tokenData.tokens_not_covered).length}`)
+		console.log(`${now}: tokens covered:${tokens_covered.length}`)
 	},
 	stop: () => {
 		clearInterval(saveTimer)
@@ -672,43 +671,45 @@ const app = {
 	/* news / info */
 	refreshInfo: () => {
 		doFetch = () => {
-			let token = appData.tokens[nextTokenInfoFetch]
+			let token = tokens[nextTokenInfoFetch]
 			//if (!infoData.tokens[token.name]) infoData.tokens[tokenName] = 
 			console.log(`getting details for ${token.name}`)
 			let tokenName = token.name.toLowerCase()
-			module.exports.coinDetails( tokenName ).then( details => {
+			app.coinDetails( tokenName ).then( details => {
 				console.log('got token details',details)
 				if (!infoData.tokens[token.name]) infoData.tokens[token.name] = { timestamp: Math.round( moment.now() / 1000 ) }
 				infoData.tokens[token.name].details = details
-				//console.log(appData.tokens)
-				module.exports.topNewsByCoin( tokenName ).then( news => {
+				console.log(`check top news for ${tokenName}`)
+				app.topNewsByCoin( tokenName ).then( news => {
 					infoData.tokens[token.name].news = news
 					// save any coins for staging if included in the article and not in the db
 					news.forEach( anews => anews.coins.forEach( coin => {
 						console.log('checking coverage for ',coin)
 						let coinname = coin.name.toLowerCase()
-						let tokenFound = appData.tokens.findIndex( token => token.name.toLowerCase() === coinname )
-						if ( tokenFound === -1 && !appData.tokens_not_covered[coin.name] ) {
+						let tokenFound = tokens.findIndex( token => token.name.toLowerCase() === coinname )
+						if ( tokenFound === -1 && !tokenData.tokens_not_covered[coin.name] ) {
 							//console.log('adding ',coin.name)
-							appData.tokens_not_covered[coin.name] = { name: coin.name }
+							tokenData.tokens_not_covered[coin.name] = { name: coin.name }
 						}
 					}))
-					if (++nextTokenInfoFetch === appData.tokens.length ) {
-						module.exports.saveInfo()
-						module.exports.save()
+					if (++nextTokenInfoFetch === tokens.length ) {
+						app.saveInfo()
+						app.saveTokens()
+						app.save()
 						nextTokenInfoFetch = 0
 					} else {
 						doFetch()
 					}					
 				}).catch( err => {
-					console.log('!!!!should not happen, error in getting news')
+					console.log('!!!!should not happen, error in getting news',err)
 				})
 
 			}).catch( err => { 
 				console.log(`fail to get info`,err )
-				if (++nextTokenInfoFetch === appData.tokens.length ) {
-					module.exports.saveInfo()
-					module.exports.save()
+				if (++nextTokenInfoFetch === tokens.length ) {
+					app.saveInfo()
+					app.saveTokens()
+					app.save()
 					nextTokenInfoFetch = 0
 				} else {
 					doFetch()
@@ -1203,11 +1204,25 @@ const app = {
 		'token': {
 			text: ( {token, quote, rating }) => {
 				const chg = (curr, prev) => (!curr.count || !prev.count ? ' ' : ( curr.avg > prev.avg ? '⬆': (curr.avg < prev.avg ? '⬇': '↔' )))
-		
+				const updown = num => `${num > 0 ? '⬆':'⬇'}`
 				let str = `\n\n<a href="https://coinmarketcap.com/currencies/${token.slug}/">${token.name}</a>`
-				//console.log('hello',market,JSON.stringify(rating))
-				if (quote.price) str += `\nprice <b>${quote.price}</b> ${quote.units}`
-				
+				if (quote.price) {
+					str += `\nprice <b>${quote.price.toFixed(4)}</b> ${quote.units} -- vol: ${utils.format(quote.volume_24h)} -- mkt cap: ${utils.format(quote.market_cap)}`
+							+ `\nΔ% 24h:${utils.format(quote.percent_change_24h)}${updown(quote.percent_change_24h)} 7d:${utils.format(quote.percent_change_7d)}${updown(quote.percent_change_7d)}`
+					    + `      rank:${token.cmc_rank}\n`
+					/*
+          "volume_24h": 5645084065.18842,
+          "percent_change_1h": 0.41041,
+          "percent_change_24h": -5.12802,
+          "percent_change_7d": -6.32094,
+          "market_cap": 112057203667.55663,				
+				*/
+				}
+				let description = ((infoData.tokens[token.name] || {}).details || {}).description || null
+				if (description){
+					console.log('got description',description)
+					str += `\n${description}\n`
+				}
 				if (rating) {
 					let cats = {
 						day: rating.current.day.categories.reduce( (str,cat,cidx) => (

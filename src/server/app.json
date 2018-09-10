@@ -285,6 +285,513 @@
           "question": -1
         }
       ]
+    },
+    {
+      "id": 4,
+      "token": 3,
+      "start": 1515862760,
+      "finish": 1515891560,
+      "status": "active",
+      "question_set": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        25,
+        26
+      ],
+      "users": [
+        {
+          "uid": 1,
+          "start": 1515862760,
+          "finish": 1515869960,
+          "sections": {
+            "overview": "wow, bitcoin caseh"
+          },
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
+        },
+        {
+          "uid": 2,
+          "start": 1515862780,
+          "finish": 1515869980,
+          "sections": {
+            "overview": "seriously"
+          },
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
+        },
+        {
+          "uid": 0,
+          "question": -1,
+          "phase": 2,
+          "phases": [
+            {
+              "start": 1515862800,
+              "finish": 1515862830,
+              "answers": [
+                {
+                  "value": 4,
+                  "timestamp": 1515862810
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515862810
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515862810
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515862810
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515862820
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515862820
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515862820
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1515862830
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515862830
+                }
+              ]
+            },
+            {
+              "start": 1515862830,
+              "finish": 1515865530,
+              "answers": [
+                {
+                  "value": 3,
+                  "timestamp": 1515862840
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515862840
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1515862850
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515862850
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515862850
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515862850
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1515862850
+                },
+                {},
+                {}
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "uid": 21,
+          "question": -1,
+          "phase": 2,
+          "phases": [
+            {
+              "start": 1515882330,
+              "finish": 1515882410,
+              "answers": [
+                {
+                  "value": 5,
+                  "timestamp": 1515882330
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515882340
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515882350
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1515882370
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1515882380
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515882390
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1515882390
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1515882400
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515882410
+                }
+              ]
+            },
+            {
+              "start": 1515882410,
+              "finish": 1515882970,
+              "answers": [
+                {
+                  "value": 4,
+                  "timestamp": 1515882890
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515882900
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515882910
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515882910
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1515882920
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515882930
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515882950
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515882950
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515882970
+                }
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "token": 71,
+      "start": 1515882440,
+      "finish": 1515911240,
+      "status": "active",
+      "question_set": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        25,
+        26
+      ],
+      "users": [
+        {
+          "uid": 21,
+          "start": 1515882440,
+          "finish": 1515889640,
+          "sections": {
+            "overview": "review 0"
+          },
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
+        },
+        {
+          "uid": 3,
+          "start": 1515883070,
+          "finish": 1515890270,
+          "sections": {
+            "overview": "have not the slightest idea what this is about.   if there was more on reddit might be interesting"
+          },
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
+        },
+        {
+          "uid": 5,
+          "question": 0,
+          "phase": 0,
+          "phases": [
+            {
+              "start": 1515895530,
+              "finish": 1515896730,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            {
+              "start": 1515896730,
+              "finish": 1515897930,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "token": 62,
+      "start": 1515883150,
+      "finish": 1515911950,
+      "status": "active",
+      "question_set": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        25,
+        26
+      ],
+      "users": [
+        {
+          "uid": 4,
+          "start": 1515883150,
+          "finish": 1515890350,
+          "sections": {},
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
+        },
+        {
+          "uid": 1,
+          "question": 0,
+          "phase": 0,
+          "phases": [
+            {
+              "start": 1515895480,
+              "finish": 1515896680,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            {
+              "start": 1515896680,
+              "finish": 1515897880,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "token": 16,
+      "start": 1515895480,
+      "finish": 1515924280,
+      "status": "active",
+      "question_set": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        25,
+        26
+      ],
+      "users": [
+        {
+          "uid": 1,
+          "start": 1515895480,
+          "finish": 1515902680,
+          "sections": {},
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
+        },
+        {
+          "uid": 3,
+          "start": 1515895490,
+          "finish": 1515902690,
+          "sections": {
+            "overview": "kasjdfkjei akdjf"
+          },
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "token": 65,
+      "start": 1515895500,
+      "finish": 1515924300,
+      "status": "active",
+      "question_set": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        25,
+        26
+      ],
+      "users": [
+        {
+          "uid": 4,
+          "start": 1515895500,
+          "finish": 1515902700,
+          "sections": {
+            "overview": "kajdfkj"
+          },
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
+        },
+        {
+          "uid": 2,
+          "start": 1515895520,
+          "finish": 1515902720,
+          "sections": {
+            "overview": "kajdfkj"
+          },
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
+        }
+      ]
     }
   ],
   "users": [
@@ -309,10 +816,10 @@
       "last_name": "k",
       "username": "tester_1",
       "language_code": "en-US",
-      "active_jury_round": -1,
-      "active_review_round": 0,
+      "active_jury_round": 6,
+      "active_review_round": 7,
       "id": 1,
-      "receive": null
+      "receive": "review-category-0"
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -323,7 +830,7 @@
       "username": "tester_2",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": 3,
+      "active_review_round": 8,
       "id": 2,
       "receive": null
     },
@@ -336,7 +843,7 @@
       "username": "tester_3",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": 1,
+      "active_review_round": 7,
       "id": 3,
       "receive": null
     },
@@ -349,7 +856,7 @@
       "username": "tester_4",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": 3,
+      "active_review_round": 8,
       "id": 4,
       "receive": null
     },
@@ -361,7 +868,7 @@
       "last_name": "k",
       "username": "tester_5",
       "language_code": "en-US",
-      "active_jury_round": -1,
+      "active_jury_round": 5,
       "active_review_round": 2,
       "id": 5,
       "receive": null
@@ -375,7 +882,7 @@
       "username": "tester_6",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": 2,
+      "active_review_round": -1,
       "id": 6,
       "receive": null
     },
@@ -572,10 +1079,10 @@
       "username": "alan_on40",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": -1,
+      "active_review_round": 5,
       "id": 21,
       "receive": null,
-      "mockAs": 4
+      "mockAs": 5
     },
     {
       "identity": "0xc9f413023e002651def5d896abfa7fa360680940",
