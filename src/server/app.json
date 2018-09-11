@@ -291,7 +291,7 @@
       "token": 3,
       "start": 1515862760,
       "finish": 1515891560,
-      "status": "active",
+      "status": "finished",
       "question_set": [
         0,
         4,
@@ -315,7 +315,8 @@
           "win_pctg": {
             "questions": 0,
             "categories": 0
-          }
+          },
+          "question": -1
         },
         {
           "uid": 2,
@@ -328,7 +329,8 @@
           "win_pctg": {
             "questions": 0,
             "categories": 0
-          }
+          },
+          "question": -1
         },
         {
           "uid": 0,
@@ -576,12 +578,12 @@
         },
         {
           "uid": 5,
-          "question": 0,
-          "phase": 0,
+          "question": -1,
+          "phase": 2,
           "phases": [
             {
               "start": 1515895530,
-              "finish": 1515896730,
+              "finish": 1515897020,
               "answers": [
                 {},
                 {},
@@ -595,8 +597,8 @@
               ]
             },
             {
-              "start": 1515896730,
-              "finish": 1515897930,
+              "start": 1515897020,
+              "finish": 1515900020,
               "answers": [
                 {},
                 {},
@@ -629,7 +631,7 @@
       "token": 62,
       "start": 1515883150,
       "finish": 1515911950,
-      "status": "active",
+      "status": "cancelled",
       "question_set": [
         0,
         4,
@@ -651,16 +653,17 @@
           "win_pctg": {
             "questions": 0,
             "categories": 0
-          }
+          },
+          "question": -1
         },
         {
           "uid": 1,
-          "question": 0,
-          "phase": 0,
+          "question": -1,
+          "phase": 2,
           "phases": [
             {
               "start": 1515895480,
-              "finish": 1515896680,
+              "finish": 1515895820,
               "answers": [
                 {},
                 {},
@@ -674,8 +677,8 @@
               ]
             },
             {
-              "start": 1515896680,
-              "finish": 1515897880,
+              "start": 1515895820,
+              "finish": 1515895820,
               "answers": [
                 {},
                 {},
@@ -816,10 +819,10 @@
       "last_name": "k",
       "username": "tester_1",
       "language_code": "en-US",
-      "active_jury_round": 6,
+      "active_jury_round": -1,
       "active_review_round": 7,
       "id": 1,
-      "receive": "review-category-0"
+      "receive": null
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -868,7 +871,7 @@
       "last_name": "k",
       "username": "tester_5",
       "language_code": "en-US",
-      "active_jury_round": 5,
+      "active_jury_round": -1,
       "active_review_round": 2,
       "id": 5,
       "receive": null

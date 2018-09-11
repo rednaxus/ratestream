@@ -472,11 +472,12 @@ const app = {
 		app.saveTokens()
 		app.save()
 		
-		console.log('result',JSON.stringify(ratings))
+		//console.log('result',JSON.stringify(ratings))
 	},
 	roundClear: ( round ) => {
 		round.users.forEach( rounduser => {// remove users references
 			console.log('rounduser',rounduser)
+			if (rounduser.uid === undefined) return // mainly for second lead if unpopulated
 			let user = users[rounduser.uid]
 			if (user.active_jury_round === round.id) user.active_jury_round = -1
 			rounduser.question = -1

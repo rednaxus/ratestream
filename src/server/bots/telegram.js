@@ -166,7 +166,10 @@ bot.onText(/\/token_quotes/i, msg => {
 bot.onText(/\/token_tickers/i, msg => tell( msg.chat.id, say('token_tickers') ) )
 
 
-bot.onText(/\/token /i, msg => tell( msg.chat.id, say('token', {name:msg.text.substring(12)}) ) )
+bot.onText(/\/token /i, msg => {
+	let msgInfo = msg.text.split(' ')
+	tell( msg.chat.id, say('token', {id:+msgInfo[1]}) )
+})
 
 /* internal use, admin only */
 
