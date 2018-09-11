@@ -154,7 +154,10 @@ bot.onText(/\/rate/i, msg => do_rate( msg ) )
 
 
 /* tokens */
-bot.onText(/\/tokens/i, msg => tell( msg.chat.id, say('tokens') ) )
+bot.onText(/\/tokens/i, msg => {
+	let msgInfo = msg.text.split(' ')
+	tell( msg.chat.id, say('tokens', msgInfo.length > 1 ? {number:+msgInfo[1]}: {} ) ) 
+})
 
 bot.onText(/\/token_ids/i, msg => tell( msg.chat.id, say('token_ids') ) )
 bot.onText(/\/token_quotes/i, msg => {

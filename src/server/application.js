@@ -722,7 +722,10 @@ const app = {
 	},
 	roundReviews: round => {
 		return categories.reduce( ( result, category, cidx ) => {
-			if (!round.users[0].sections[category] && !round.users[1].sections[category]) return result
+			if (
+				!round.users[0].sections[category] && 
+				(round.users[1].uid == undefined || !round.users[1].sections[category])
+			) return result
 			let reply = [
 				round.users[0].sections[category] || '[-no review-]',
 				round.users[1].sections[category] || '[-no review-]'
@@ -945,7 +948,8 @@ const app = {
 				retval = { text: dialogs['welcome.returning'].text({user: data.user}), format: formatters.menu() }
 				break
 			case 'tokens':
-				retval = { text:dialogs['tokens'].text(), format:formatters.tokens( tokens_covered ) }
+				console.log('~!!',tokens.length,tokens.slice(0,data.number).length)
+				retval = { text:dialogs['tokens'].text(), format:formatters.tokens( data.number ? tokens.slice(data.number,data.number+99) : tokens_covered ) }
 				break
 			case 'token_ids':
 				app.refreshTokenIds()
@@ -1136,7 +1140,7 @@ const app = {
 				let roundUser = round.users.find( roundUser => roundUser.uid == user.id )
 				//console.log('round user question ',roundUser)
 				let question = analyst_questions[roundUser.question]
-				return `<b>${question.category}</b>:${question.name}      <i>${roundUser.phase ? 'post-review':'pre-review'}</i>\n\n${question.text}`
+				return `\n${tokens[round.token].name}\n<b>${question.category}</b>:${question.name}      <i>${roundUser.phase ? 'post-review':'pre-review'}</i>\n\n${question.text}`
 			}
 		},
 		'analysis.finished':{

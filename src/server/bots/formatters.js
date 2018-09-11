@@ -75,6 +75,7 @@ module.exports = {
 		//	let msgtokens = tokens.reduce( (str,token) => `${str}[${token.name}] `, "" )
 		let ik = []
 		let row = []
+		console.log('tokens',tokens.length)
 		tokens.forEach( (token,idx) => {
 			let col = { text: token.name, callback_data: `token-${idx}` }
 			if (idx % 3 != 0) { // add column
@@ -85,6 +86,7 @@ module.exports = {
 			}
 		})
 		ik.push( row )
+		console.log(ik)
 		return { reply_markup:{ inline_keyboard: ik } }
 	
 /*
