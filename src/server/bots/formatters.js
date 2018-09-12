@@ -71,12 +71,12 @@ module.exports = {
 		]]
 		return { reply_markup:{ inline_keyboard: ik } }		
 	},
-	tokens: tokens => {
+	tokens: (tokenIdxs, tokens) => {
 		//	let msgtokens = tokens.reduce( (str,token) => `${str}[${token.name}] `, "" )
 		let ik = []
 		let row = []
-		console.log('tokens',tokens.length)
-		tokens.forEach( (token,idx) => {
+		tokenIdxs.forEach( idx => {
+			let token = tokens[ idx ]
 			let col = { text: token.name, callback_data: `token-${idx}` }
 			if (idx % 3 != 0) { // add column
 				row.push( col )
@@ -86,7 +86,7 @@ module.exports = {
 			}
 		})
 		ik.push( row )
-		console.log(ik)
+		//console.log(ik)
 		return { reply_markup:{ inline_keyboard: ik } }
 	
 /*

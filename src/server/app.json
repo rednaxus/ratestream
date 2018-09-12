@@ -807,7 +807,7 @@
       "token": 70,
       "start": 1515941120,
       "finish": 1515969920,
-      "status": "active",
+      "status": "finished",
       "question_set": [
         0,
         4,
@@ -831,7 +831,8 @@
           "win_pctg": {
             "questions": 0,
             "categories": 0
-          }
+          },
+          "question": -1
         },
         {
           "uid": 3,
@@ -844,7 +845,8 @@
           "win_pctg": {
             "questions": 0,
             "categories": 0
-          }
+          },
+          "question": -1
         },
         {
           "uid": 4,
@@ -1144,7 +1146,7 @@
       "token": 89,
       "start": 1515952290,
       "finish": 1515981090,
-      "status": "active",
+      "status": "finished",
       "question_set": [
         0,
         4,
@@ -1166,7 +1168,8 @@
           "win_pctg": {
             "questions": 0,
             "categories": 0
-          }
+          },
+          "question": -1
         },
         {
           "uid": 9,
@@ -1177,7 +1180,8 @@
           "win_pctg": {
             "questions": 0,
             "categories": 0
-          }
+          },
+          "question": -1
         },
         {
           "uid": 5,
@@ -1564,7 +1568,7 @@
       "token": 4,
       "start": 1515954750,
       "finish": 1515983550,
-      "status": "active",
+      "status": "finished",
       "question_set": [
         0,
         4,
@@ -1586,7 +1590,8 @@
           "win_pctg": {
             "questions": 0,
             "categories": 0
-          }
+          },
+          "question": -1
         },
         {
           "uid": 10,
@@ -1597,7 +1602,8 @@
           "win_pctg": {
             "questions": 0,
             "categories": 0
-          }
+          },
+          "question": -1
         },
         {
           "uid": 21,
@@ -1681,7 +1687,7 @@
       "token": 22,
       "start": 1515956130,
       "finish": 1515984930,
-      "status": "active",
+      "status": "finished",
       "question_set": [
         0,
         4,
@@ -1705,7 +1711,8 @@
           "win_pctg": {
             "questions": 0,
             "categories": 0
-          }
+          },
+          "question": -1
         },
         {
           "uid": 21,
@@ -1728,7 +1735,302 @@
           "win_pctg": {
             "questions": 0,
             "categories": 0
+          },
+          "question": -1
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "token": 51,
+      "start": 1516005210,
+      "finish": 1516034010,
+      "status": "active",
+      "question_set": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        25,
+        26
+      ],
+      "users": [
+        {
+          "uid": 21,
+          "start": 1516005210,
+          "finish": 1516012410,
+          "sections": {},
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
           }
+        },
+        {
+          "uid": 1,
+          "start": 1516005790,
+          "finish": 1516012990,
+          "sections": {
+            "overview": "kbjaskjv"
+          },
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
+        },
+        {
+          "uid": 2,
+          "question": -1,
+          "phase": 2,
+          "phases": [
+            {
+              "start": 1516005820,
+              "finish": 1516005850,
+              "answers": [
+                {
+                  "value": 3,
+                  "timestamp": 1516005820
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516005830
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516005830
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516005830
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1516005830
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1516005830
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516005830
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516005840
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1516005850
+                }
+              ]
+            },
+            {
+              "start": 1516005850,
+              "finish": 1516005870,
+              "answers": [
+                {
+                  "value": 1,
+                  "timestamp": 1516005850
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1516005850
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516005860
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1516005860
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1516005860
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1516005860
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516005860
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516005870
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1516005850
+                }
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "token": 92,
+      "start": 1516005810,
+      "finish": 1516034610,
+      "status": "active",
+      "question_set": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        25,
+        26
+      ],
+      "users": [
+        {
+          "uid": 2,
+          "start": 1516005810,
+          "finish": 1516013010,
+          "sections": {
+            "overview": "kasjdf"
+          },
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
+        },
+        {
+          "uid": 3,
+          "start": 1516005810,
+          "finish": 1516013010,
+          "sections": {
+            "overview": "kadjf"
+          },
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
+        },
+        {
+          "uid": 5,
+          "question": -1,
+          "phase": 2,
+          "phases": [
+            {
+              "start": 1516007370,
+              "finish": 1516007390,
+              "answers": [
+                {
+                  "value": 3,
+                  "timestamp": 1516007370
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516007380
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516007380
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1516007380
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516007380
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1516007380
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516007380
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516007380
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1516007390
+                }
+              ]
+            },
+            {
+              "start": 1516007390,
+              "finish": 1516007400,
+              "answers": [
+                {
+                  "value": 3,
+                  "timestamp": 1516007390
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1516007390
+                },
+                {
+                  "value": 0,
+                  "timestamp": 1516007390
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1516007400
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516007400
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516007400
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516007400
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516007400
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1516007400
+                }
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
         }
       ]
     }
@@ -1756,7 +2058,7 @@
       "username": "tester_1",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": 7,
+      "active_review_round": 14,
       "id": 1,
       "receive": null
     },
@@ -1769,7 +2071,7 @@
       "username": "tester_2",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": 11,
+      "active_review_round": 15,
       "id": 2,
       "receive": null
     },
@@ -1782,7 +2084,7 @@
       "username": "tester_3",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": 9,
+      "active_review_round": 15,
       "id": 3,
       "receive": null
     },
@@ -2018,10 +2320,10 @@
       "username": "alan_on40",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": -1,
+      "active_review_round": 14,
       "id": 21,
       "receive": null,
-      "mockAs": -1
+      "mockAs": 5
     },
     {
       "identity": "0xc9f413023e002651def5d896abfa7fa360680940",

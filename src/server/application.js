@@ -35,10 +35,13 @@ let time = require('./time.json')
 
 var { rounds, users } = appData
 var { tokens, coinmarket_ids } = tokenData
-var tokens_covered = tokens.filter( token => token.tags && (token.tags.includes('top') || token.tags.includes('mover'))  )
+var tokens_covered = tokens.reduce( (covered,token,tIdx) => {
+	if (token.tags && (token.tags.includes('top') || token.tags.includes('mover'))) covered.push( tIdx )
+	return covered
+}, [])
 
 console.log('<covered tokens>')
-tokens_covered.forEach( (token,tIdx) => console.log(`${tIdx} ${token.name}`) )
+tokens_covered.forEach( id => console.log(`${id} ${tokens[id].name}`) )
 
 const question_set = [0,4,8,12,16,20,24,25,26]
 const analyst_questions = question_set.map( qnum => questions[qnum] )
@@ -229,11 +232,12 @@ const app = {
 			
 		} else { // create round
 			if (!tokensToCover.length) { // reset list of tokens to choose
-				tokensToCover = tokens_covered.map( (_,idx) => idx )
+				tokensToCover = [...tokens_covered]
 			}
-			let tokenIdx = randomIdx( tokensToCover.length )
+			let coverIdx = randomIdx( tokensToCover.length )
+			let tokenIdx = tokensToCover[ coverIdx ]
 			let token = tokens[ tokenIdx ]
-			tokensToCover = tokensToCover.slice(tokenIdx, tokenIdx)
+			tokensToCover = tokensToCover.slice(coverIdx, coverIdx)
 
 			console.log(`creating round with token ${token.name}`)
 			roundIdx = rounds.length
@@ -445,6 +449,7 @@ const app = {
 					accum[period.name] = token.tallies.filter( 
 						tally => tally.timestamp < time && tally.timestamp > ( time - period.value ) 
 					).reduce( (tally_accum,tally) => {
+						if (token.name == 'Komodo') console.log('accuming tally')
 						const blend = (aa, answer) => ({
 							count: aa.count + answer.count, 
 							avg: aa.count || answer.count ? ( aa.count * aa.avg + answer.count * answer.avg ) / ( aa.count + answer.count ) : 0
@@ -461,7 +466,11 @@ const app = {
 				},{})
 				return cpaccum
 			}, {})
+			//if (token.name == 'Komodo') {
+			//	console.log('token',token,'\n'+JSON.stringify(token.tallies),'\n'+JSON.stringify(token.rating))
+			//}
 			return taccum
+		
 		},{}) 
 
 		
@@ -948,8 +957,14 @@ const app = {
 				retval = { text: dialogs['welcome.returning'].text({user: data.user}), format: formatters.menu() }
 				break
 			case 'tokens':
-				console.log('~!!',tokens.length,tokens.slice(0,data.number).length)
-				retval = { text:dialogs['tokens'].text(), format:formatters.tokens( data.number ? tokens.slice(data.number,data.number+99) : tokens_covered ) }
+				let tokensDisplay = data.number && data.number < tokens.length ? 
+					tokens.reduce( ( accum, _, idx) => { 
+						if (idx >= data.number && idx < data.number+100) 
+							accum.push(idx) 
+						return accum 
+					},[])
+					: tokens_covered
+				retval = { text:dialogs['tokens'].text(), format:formatters.tokens(  tokensDisplay, tokens ) }
 				break
 			case 'token_ids':
 				app.refreshTokenIds()
