@@ -950,8 +950,8 @@
         },
         {
           "uid": 20,
-          "question": 0,
-          "phase": 1,
+          "question": -1,
+          "phase": 2,
           "phases": [
             {
               "start": 1515951830,
@@ -970,7 +970,7 @@
             },
             {
               "start": 1515953520,
-              "finish": 1515954720,
+              "finish": 1515956190,
               "answers": [
                 {},
                 {},
@@ -998,8 +998,8 @@
         },
         {
           "uid": 2,
-          "question": 0,
-          "phase": 1,
+          "question": -1,
+          "phase": 2,
           "phases": [
             {
               "start": 1515951890,
@@ -1018,7 +1018,7 @@
             },
             {
               "start": 1515953520,
-              "finish": 1515954720,
+              "finish": 1515956190,
               "answers": [
                 {},
                 {},
@@ -1283,12 +1283,12 @@
         },
         {
           "uid": 4,
-          "question": 8,
-          "phase": 0,
+          "question": -1,
+          "phase": 2,
           "phases": [
             {
               "start": 1515954110,
-              "finish": 1515955310,
+              "finish": 1515955590,
               "answers": [
                 {
                   "value": 4,
@@ -1326,8 +1326,8 @@
               ]
             },
             {
-              "start": 1515955310,
-              "finish": 1515956510,
+              "start": 1515955590,
+              "finish": 1515958590,
               "answers": [
                 {},
                 {},
@@ -1454,6 +1454,108 @@
             0,
             0
           ]
+        },
+        {
+          "uid": 21,
+          "question": -1,
+          "phase": 2,
+          "phases": [
+            {
+              "start": 1515962140,
+              "finish": 1515963080,
+              "answers": [
+                {
+                  "value": 3,
+                  "timestamp": 1515962780
+                },
+                {
+                  "value": 0,
+                  "timestamp": 1515962920
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515962930
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515962960
+                },
+                {
+                  "value": 0,
+                  "timestamp": 1515962980
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515962990
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515963080
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515963080
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515963080
+                }
+              ]
+            },
+            {
+              "start": 1515963080,
+              "finish": 1515963100,
+              "answers": [
+                {
+                  "value": 4,
+                  "timestamp": 1515963090
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515963090
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515963090
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515963090
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515963100
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515963100
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1515963100
+                },
+                {
+                  "value": 1,
+                  "timestamp": 1515963100
+                },
+                {
+                  "value": 0,
+                  "timestamp": 1515963100
+                }
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
         }
       ]
     },
@@ -1486,7 +1588,148 @@
             "categories": 0
           }
         },
-        {}
+        {
+          "uid": 10,
+          "start": 1515956130,
+          "finish": 1515963330,
+          "sections": {},
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
+        },
+        {
+          "uid": 21,
+          "question": -1,
+          "phase": 2,
+          "phases": [
+            {
+              "start": 1515955520,
+              "finish": 1515955600,
+              "answers": [
+                {
+                  "value": 5,
+                  "timestamp": 1515955520
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515955530
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1515955540
+                },
+                {
+                  "value": 3,
+                  "timestamp": 1515955540
+                },
+                {
+                  "value": 5,
+                  "timestamp": 1515955550
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515955550
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515955580
+                },
+                {
+                  "value": 2,
+                  "timestamp": 1515955580
+                },
+                {
+                  "value": 4,
+                  "timestamp": 1515955600
+                }
+              ]
+            },
+            {
+              "start": 1515955600,
+              "finish": 1515958590,
+              "answers": [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            }
+          ],
+          "sways": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "token": 22,
+      "start": 1515956130,
+      "finish": 1515984930,
+      "status": "active",
+      "question_set": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        25,
+        26
+      ],
+      "users": [
+        {
+          "uid": 11,
+          "start": 1515956130,
+          "finish": 1515963330,
+          "sections": {
+            "overview": "During this webinar, Jonathan is going to illustrate a strategy using traditional options, with small fixed risk while looking for outsized returns. Jonathan will illustrate the options to buy-and the characteristics of the options you should never buy. He'll also show how to account for time value or \"theta,\" and what to do when a trade goes against you."
+          },
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
+        },
+        {
+          "uid": 21,
+          "start": 1515959630,
+          "finish": 1515966830,
+          "sections": {
+            "overview": "Lisk may be relying too heavily on sidechains to power its scaling. Sidechains allow you to use the same infrastructure as the original blockchain on a completely separate blockchain, but in such a way that the two are interconnected.",
+            "team": "United by a drive to lower barriers and make blockchain accessible, our dedicated team of blockchain enthusiasts work to inspire and support innovators. By working together, we can build a better world.",
+            "solution": "wget https://github.com/fiorix/freegeoip/releases/download/v3.4.1/freegeoip-3.4.1-darwin-amd64.tar.gz\ntar -zxf freegeoip-3.4.1-darwin-amd64.tar.gz\nln -s freegeoip-3.4.1-darwin-amd64 freegeoip\nnohup ./freegeoip/freegeoip > ./freegeoip/freegeoip.log 2>&1 &",
+            "transparency": "“With respect to the VW defendants’ assertions of privilege and work product, the ICA has disagreed with some of the VW defendants’ assertions,” Thompson’s interim report said on Monday.\n\n“The VW defendants have promised further improvements in their provision of information, and increased the frequency of discussions with the ICA regarding this topic.”\n\nThompson’s role is to ensure VW’s systems conform to new compliance standards.\n\nIn 2017, the ICA identified 176 “corrective actions” to be taken by Volkswagen and a further 240, in 2018, the report said without providing further detail.",
+            "outreach": "Perhaps the place where Lisk may stand out is the focus on newcomers to the crypto world and the general ease of use. And yes, going for a rebrand, new design, and marketing could help pave the way for this platform to become one of the more widely used ones in 2018 and beyond. Especially with the development fund to aid new projects in need of funding. But it’s too soon to say with confidence.",
+            "ecosystem": "Lisk isn’t the only competitor in the field of decentralized applications (dApps). And it’s certainly not the only one that supports sidechains. Ethereum, EOS, NEO, Cardano, Ark, ICON and others have similar features.",
+            "momentum": "Most of the competing projects have stronger adoption metrics (especially Ethereum and NEO). Or, they have more robust technology (EOS or Cardano). In the face of such strong competition from other, more established players with stronger developer teams, it may be difficult for Lisk to gain adoption.",
+            "opportunity": "Lisk doesn’t stand out for its technology. When push comes to shove, a key deciding factor will be whether or not Lisk promoters can get newcomers excited about their platform. Let’s give them a chance and see what they can do.",
+            "summary": "Every tomorrow will be a new day for lisk",
+            "resources": "Lisk will never ever have a functional VM",
+            "token-supply": "will run out of money"
+          },
+          "payoff": 0,
+          "win_pctg": {
+            "questions": 0,
+            "categories": 0
+          }
+        }
       ]
     }
   ],
@@ -1525,7 +1768,7 @@
       "last_name": "k",
       "username": "tester_2",
       "language_code": "en-US",
-      "active_jury_round": 9,
+      "active_jury_round": -1,
       "active_review_round": 11,
       "id": 2,
       "receive": null
@@ -1551,7 +1794,7 @@
       "last_name": "k",
       "username": "tester_4",
       "language_code": "en-US",
-      "active_jury_round": 11,
+      "active_jury_round": -1,
       "active_review_round": 8,
       "id": 4,
       "receive": null
@@ -1606,7 +1849,7 @@
       "active_jury_round": -1,
       "active_review_round": 12,
       "id": 8,
-      "receive": "review-category-0"
+      "receive": null
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -1619,7 +1862,7 @@
       "active_jury_round": -1,
       "active_review_round": 11,
       "id": 9,
-      "receive": "review-category-0"
+      "receive": null
     },
     {
       "identity": "0x563e965b4f0ebb94a503cf3f8b0452c7610bb4e0",
@@ -1630,7 +1873,7 @@
       "username": "tester_10",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": -1,
+      "active_review_round": 12,
       "id": 10,
       "receive": null
     },
@@ -1643,7 +1886,7 @@
       "username": "tester_11",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": -1,
+      "active_review_round": 13,
       "id": 11,
       "receive": null
     },
@@ -1760,7 +2003,7 @@
       "username": "ryoungblom",
       "active_jury_rounds": -1,
       "active_review_rounds": -1,
-      "active_jury_round": 9,
+      "active_jury_round": -1,
       "active_review_round": 10,
       "id": 20,
       "receive": null,
@@ -1775,10 +2018,10 @@
       "username": "alan_on40",
       "language_code": "en-US",
       "active_jury_round": -1,
-      "active_review_round": 9,
+      "active_review_round": -1,
       "id": 21,
       "receive": null,
-      "mockAs": 8
+      "mockAs": -1
     },
     {
       "identity": "0xc9f413023e002651def5d896abfa7fa360680940",

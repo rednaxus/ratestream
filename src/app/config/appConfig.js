@@ -261,6 +261,14 @@ const appConfig = {
     "transparency",
     "summary"
   ],
+
+  ratings: [
+    [],
+    ["no","yes"],
+    ["no","uncertain","yes"],
+    [],
+    ['--','-','o','+','++']  
+  ],
   
 
   ...customConfig

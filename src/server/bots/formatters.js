@@ -22,7 +22,7 @@ module.exports = {
 			"resize_keyboard": true,
     	"keyboard": [
     		[ "tokens", "commands", "news", "activity" ],
-    		[ "rate", "review" ]
+    		[ "rate", "review", "trade" ]
     	]
    	}
 	}),
@@ -30,10 +30,10 @@ module.exports = {
 		let ik = []
 		let row = []
 		if (question.max == 2) { // yes/no
-			row.push( { text: 'yes', callback_data: `question-${question_number}-yes` } )
-			row.push( { text: 'no', callback_data: `question-${question_number}-no` } )
+			row.push( { text: 'yes', callback_data: `question-${question_number}-0` } )
+			row.push( { text: 'no', callback_data: `question-${question_number}-1` } )
 		} else for (let idx = 1; idx <= question.max; idx++ ) {
- 			row.push( { text: idx, callback_data: `question-${question_number}-${idx}` })
+ 			row.push( { text: config.ratings[question.max-1][idx-1], callback_data: `question-${question_number}-${idx-1}` })
 		}
 		ik.push( row )
 		console.log('ik',JSON.stringify(ik))
