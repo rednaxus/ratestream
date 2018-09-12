@@ -22,7 +22,7 @@ module.exports = {
 			"resize_keyboard": true,
     	"keyboard": [
     		[ "tokens", "commands", "news", "activity" ],
-    		[ "rate", "review", "trade" ]
+    		[ "rate", "review", "portfolio" ]
     	]
    	}
 	}),
@@ -75,10 +75,10 @@ module.exports = {
 		//	let msgtokens = tokens.reduce( (str,token) => `${str}[${token.name}] `, "" )
 		let ik = []
 		let row = []
-		tokenIdxs.forEach( idx => {
+		tokenIdxs.forEach( (idx,num) => {
 			let token = tokens[ idx ]
 			let col = { text: token.name, callback_data: `token-${idx}` }
-			if (idx % 3 != 0) { // add column
+			if (num % 3 != 0) { // add column
 				row.push( col )
 			} else { // new row
 				if (row.length) ik.push( row )
@@ -86,7 +86,7 @@ module.exports = {
 			}
 		})
 		ik.push( row )
-		//console.log(ik)
+		console.log(ik)
 		return { reply_markup:{ inline_keyboard: ik } }
 	
 /*
