@@ -1229,13 +1229,14 @@ const app = {
 				if (quote.price) {
 					str += `\nprice <b>${quote.price.toFixed(4)}</b> ${quote.units} -- vol: ${utils.format(quote.volume_24h)} -- mkt cap: ${utils.format(quote.market_cap)}`
 							+ `\nΔ% 24h:${utils.format(quote.percent_change_24h)}${updown(quote.percent_change_24h)} 7d:${utils.format(quote.percent_change_7d)}${updown(quote.percent_change_7d)}`
-					    + `      rank:${token.cmc_rank}\n`
+					    + `      rank:${token.cmc_rank} updated:${moment(quote.last_updated).format('DD-MMM-YY hh:ss')}\n`
 					/*
           "volume_24h": 5645084065.18842,
           "percent_change_1h": 0.41041,
           "percent_change_24h": -5.12802,
           "percent_change_7d": -6.32094,
-          "market_cap": 112057203667.55663,				
+          "market_cap": 112057203667.55663,			
+          "last_updated": "2018-09-06T23:14:25.000Z",	
 				*/
 				}
 				let description = ((infoData.tokens[token.name] || {}).details || {}).description || null
