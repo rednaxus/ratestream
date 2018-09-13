@@ -35,6 +35,14 @@ let time = require('./time.json')
 
 var { rounds, users } = appData
 var { tokens, coinmarket_ids } = tokenData
+var tokens_covered = tokens.reduce( (covered,token,tIdx) => {
+	if (token.tags && (token.tags.includes('top') || token.tags.includes('mover'))) covered.push( tIdx )
+	return covered
+}, [])
+
+console.log('<covered tokens>')
+tokens_covered.forEach( id => console.log(`${id} ${tokens[id].name}`) )
+
 const question_set = [0,4,8,12,16,20,24,25,26]
 const analyst_questions = question_set.map( qnum => questions[qnum] )
 
@@ -64,6 +72,7 @@ const commands = [
 	'cron'
 ]
 
+
 var saveTimer
 var cronTimer
 
@@ -75,10 +84,13 @@ const tally_window = 3600*24*7   // window from now to consider tallies (e.g. 1 
 
 
 const WEEK = 3600*24*7
+const FORTNIGHT = WEEK * 2
 const DAY = 3600*24
 const MONTH = 3600*24*28
 
 const parseHtml = {parse_mode:'HTML'} 
+
+const dashes = '------------------------'
 
 function* entries(obj) { // object iterator
 	for (let key of Object.keys(obj)) 
@@ -142,7 +154,7 @@ const app = {
 		users.forEach( user => user.receive = null ) // clear out previous state (for development)
 		//console.log('not covere',appData.tokens_not_covered)
 
-		console.log(`${now}: tokens covered:${tokens.length}...tokens in db but not covered:${Object.keys(tokenData.tokens_not_covered).length}`)
+		console.log(`${now}: tokens covered:${tokens_covered.length}`)
 	},
 	stop: () => {
 		clearInterval(saveTimer)
@@ -220,11 +232,12 @@ const app = {
 			
 		} else { // create round
 			if (!tokensToCover.length) { // reset list of tokens to choose
-				tokensToCover = tokens.map( (_,idx) => idx )
+				tokensToCover = [...tokens_covered]
 			}
-			let tokenIdx = randomIdx( tokensToCover.length )
+			let coverIdx = randomIdx( tokensToCover.length )
+			let tokenIdx = tokensToCover[ coverIdx ]
 			let token = tokens[ tokenIdx ]
-			tokensToCover = tokensToCover.slice(tokenIdx, tokenIdx)
+			tokensToCover = tokensToCover.slice(coverIdx, coverIdx)
 
 			console.log(`creating round with token ${token.name}`)
 			roundIdx = rounds.length
@@ -317,9 +330,7 @@ const app = {
 				answers: new Array(analyst_questions.length).fill().map( _ => ({count:0, avg:0, sway_count:0, avg_sway:0, winner:null})),
 				categories: new Array(categories.length).fill().map( _ => ({count:0, avg:0, sway_count:0, avg_sway:0, winner:null }))
 			}
-			
-			if (!token.tallies) token.tallies = [tally]
-			else token.tallies.push(tally)
+
 			// go through all the valid answers
 			round.users.forEach( (rounduser,uIdx) => {
 				if (uIdx < 2) return // not for leads
@@ -359,7 +370,11 @@ const app = {
 					}
 				})
 			})
-
+			// TODO: !! important...test this
+			if ( tally.answers.filter( answer => answer.count ).length && tally.categories.filter( category => category.count ).length ) {
+				if (!token.tallies) token.tallies = [tally]
+				else token.tallies.push(tally)
+			}
 			// Expire reviewers and raters if due
 			if (round.status == 'active') {
 				
@@ -384,7 +399,7 @@ const app = {
 						roundUser.phases[1].finish = now + round_phase_window
 					} else if (roundUser.phase == 1 && (now - roundUser.phases[1].start > round_phase_window * 2 )) {
 						// phase 2 timeout call rate again to start new round
-						if (round.id == user.active_jury_round) user.active_jury_round == -1
+						if (round.id == user.active_jury_round) user.active_jury_round = -1
 						roundUser.phases[1].finish = now
 						roundUser.phase = 2
 						roundUser.question = -1
@@ -434,6 +449,7 @@ const app = {
 					accum[period.name] = token.tallies.filter( 
 						tally => tally.timestamp < time && tally.timestamp > ( time - period.value ) 
 					).reduce( (tally_accum,tally) => {
+						if (token.name == 'Komodo') console.log('accuming tally')
 						const blend = (aa, answer) => ({
 							count: aa.count + answer.count, 
 							avg: aa.count || answer.count ? ( aa.count * aa.avg + answer.count * answer.avg ) / ( aa.count + answer.count ) : 0
@@ -450,7 +466,11 @@ const app = {
 				},{})
 				return cpaccum
 			}, {})
+			//if (token.name == 'Komodo') {
+			//	console.log('token',token,'\n'+JSON.stringify(token.tallies),'\n'+JSON.stringify(token.rating))
+			//}
 			return taccum
+		
 		},{}) 
 
 		
@@ -461,23 +481,22 @@ const app = {
 		app.saveTokens()
 		app.save()
 		
-		console.log('result',JSON.stringify(ratings))
+		//console.log('result',JSON.stringify(ratings))
 	},
 	roundClear: ( round ) => {
 		round.users.forEach( rounduser => {// remove users references
 			console.log('rounduser',rounduser)
+			if (rounduser.uid === undefined) return // mainly for second lead if unpopulated
 			let user = users[rounduser.uid]
-			if (user.active_jury_round === round.id) {
-				user.active_jury_round = -1
-				rounduser.question = -1
-				if (rounduser.phase < 2) {
-					if (rounduser.phase == 0) {
-						rounduser.phases[1].start = now
-						rounduser.phases[1].finish = now
-					}
-					rounduser.phases[rounduser.phase].finish = now
-					rounduser.phase = 2
+			if (user.active_jury_round === round.id) user.active_jury_round = -1
+			rounduser.question = -1
+			if (rounduser.phase < 2) {
+				if (rounduser.phase == 0) {
+					rounduser.phases[1].start = now
+					rounduser.phases[1].finish = now
 				}
+				rounduser.phases[rounduser.phase].finish = now
+				rounduser.phase = 2
 			}
 			else if (user.active_lead_round === round.id) {
 				user.active_lead_round = -1
@@ -556,13 +575,13 @@ const app = {
       }
    */
 	refreshTopTokens: () => {
-		coinmarket.refreshTickers( {sort:'market_cap'} ).then( token_tickers => {
+		coinmarket.refreshTickers( {sort:'market_cap',limit:200} ).then( token_tickers => {
 			//tokenData.coinmarket_tickers = token_tickers
-			token_tickers.forEach( ticker_token => {
+			token_tickers.forEach( ( ticker_token, tIdx ) => {
+				console.log(`${tIdx} token fetched ${ticker_token.name}`)
 				var { id, quote, ...t_token } = ticker_token
 				quote = { ...quote.USD, units:'USD' }
 				t_token.cmc_id = id
-
 				let token_idx = tokens.findIndex( token => token.cmc_id == ticker_token.id )
 				if ( token_idx == -1 ) {
 					token_idx = tokens.length
@@ -571,7 +590,19 @@ const app = {
 				} else {
 					t_token.quotes = tokens[ token_idx ].quotes
 				}
-				tokens[ token_idx ].quotes.push( quote )
+				let token = tokens[ token_idx ]
+				token.tags = tIdx < 100 ? ['top'] : (token.quotes.reduce((mover,past_quote) => { // decipher if is a mover
+					if (mover) return true
+					let timedelta = +moment(quote.last_updated) - +moment(past_quote.last_updated)/1000
+					return 
+						timedelta >= WEEK 
+						&& timedelta <= FORTNIGHT 
+						&& past_quote.market_cap < quote.market_cap 
+						&& (quote.market_cap - past_quote.market_cap) / quote.market_cap > 0.2  // 20% increase
+					? true : false
+				}, false ) ? ['mover','next'] : ['next'] )
+
+				token.quotes.push( quote )
 			}) 
 			app.saveTokens()
 		})
@@ -650,43 +681,45 @@ const app = {
 	/* news / info */
 	refreshInfo: () => {
 		doFetch = () => {
-			let token = appData.tokens[nextTokenInfoFetch]
+			let token = tokens[nextTokenInfoFetch]
 			//if (!infoData.tokens[token.name]) infoData.tokens[tokenName] = 
 			console.log(`getting details for ${token.name}`)
 			let tokenName = token.name.toLowerCase()
-			module.exports.coinDetails( tokenName ).then( details => {
+			app.coinDetails( tokenName ).then( details => {
 				console.log('got token details',details)
 				if (!infoData.tokens[token.name]) infoData.tokens[token.name] = { timestamp: Math.round( moment.now() / 1000 ) }
 				infoData.tokens[token.name].details = details
-				//console.log(appData.tokens)
-				module.exports.topNewsByCoin( tokenName ).then( news => {
+				console.log(`check top news for ${tokenName}`)
+				app.topNewsByCoin( tokenName ).then( news => {
 					infoData.tokens[token.name].news = news
 					// save any coins for staging if included in the article and not in the db
 					news.forEach( anews => anews.coins.forEach( coin => {
 						console.log('checking coverage for ',coin)
 						let coinname = coin.name.toLowerCase()
-						let tokenFound = appData.tokens.findIndex( token => token.name.toLowerCase() === coinname )
-						if ( tokenFound === -1 && !appData.tokens_not_covered[coin.name] ) {
+						let tokenFound = tokens.findIndex( token => token.name.toLowerCase() === coinname )
+						if ( tokenFound === -1 && !tokenData.tokens_not_covered[coin.name] ) {
 							//console.log('adding ',coin.name)
-							appData.tokens_not_covered[coin.name] = { name: coin.name }
+							tokenData.tokens_not_covered[coin.name] = { name: coin.name }
 						}
 					}))
-					if (++nextTokenInfoFetch === appData.tokens.length ) {
-						module.exports.saveInfo()
-						module.exports.save()
+					if (++nextTokenInfoFetch === tokens.length ) {
+						app.saveInfo()
+						app.saveTokens()
+						app.save()
 						nextTokenInfoFetch = 0
 					} else {
 						doFetch()
 					}					
 				}).catch( err => {
-					console.log('!!!!should not happen, error in getting news')
+					console.log('!!!!should not happen, error in getting news',err)
 				})
 
 			}).catch( err => { 
 				console.log(`fail to get info`,err )
-				if (++nextTokenInfoFetch === appData.tokens.length ) {
-					module.exports.saveInfo()
-					module.exports.save()
+				if (++nextTokenInfoFetch === tokens.length ) {
+					app.saveInfo()
+					app.saveTokens()
+					app.save()
 					nextTokenInfoFetch = 0
 				} else {
 					doFetch()
@@ -698,7 +731,10 @@ const app = {
 	},
 	roundReviews: round => {
 		return categories.reduce( ( result, category, cidx ) => {
-			if (!round.users[0].sections[category] && !round.users[1].sections[category]) return result
+			if (
+				!round.users[0].sections[category] && 
+				(round.users[1].uid == undefined || !round.users[1].sections[category])
+			) return result
 			let reply = [
 				round.users[0].sections[category] || '[-no review-]',
 				round.users[1].sections[category] || '[-no review-]'
@@ -837,14 +873,14 @@ const app = {
 						roundUser.phase = 1
 						roundUser.phases[1].start = now
 						roundUser.question = 0
-					} else if (roundUser.phase == 1 && (now - roundUser.phases[1].start > round_phase_window * 2 )) {
+					} else if (roundUser.phase == 1 && (now - roundUser.phases[1].start > round_phase_window )) {
 						// phase 2 timeout call rate again to start new round
-						user.active_jury_round == -1
+						user.active_jury_round = -1
 						roundUser.phase = 2
 						roundUser.question = -1
 						round = app.roundToRate( user )
 					}
-
+					console.log('returning now')
 					retval = round ? 
 						{ text: dialogs['analysis.already'].text( { round, user }), parse:parseHtml }
 						: { text: dialogs['analysis.none'].text(), status: -1 }		
@@ -885,7 +921,7 @@ const app = {
 				phase = roundUser.phases[roundUser.phase]
 				phase.answers[question_number] = { value: answer, timestamp: now }
 				roundUser.question = phase.answers.findIndex( answer => !answer.timestamp )
-				console.log('next question',roundUser.question)
+				//console.log('next question',roundUser.question)
 
 				if (roundUser.question == -1) { // finished phase...todo: time check for 10 minute limit
 					phase.finish = now
@@ -894,8 +930,9 @@ const app = {
 					}
 					if (roundUser.phase == 1) {
 						user.active_jury_round = -1
-						retval = { text: dialogs['analysis.finished'].text({ round, user }), parse:parseHtml }
+						roundUser.phases[1].finish = now
 						roundUser.phase = 2
+						retval = { text: dialogs['analysis.finished'].text({ round, user }), parse:parseHtml }
 					} else { // move to next phase
 						roundUser.phase = 1
 						roundUser.question = 0
@@ -920,7 +957,14 @@ const app = {
 				retval = { text: dialogs['welcome.returning'].text({user: data.user}), format: formatters.menu() }
 				break
 			case 'tokens':
-				retval = { text:dialogs['tokens'].text(), format:formatters.tokens( tokens ) }
+				let tokensDisplay = data.number && data.number < tokens.length ? 
+					tokens.reduce( ( accum, _, idx) => { 
+						if (idx >= data.number && idx < data.number+100) 
+							accum.push(idx) 
+						return accum 
+					},[])
+					: tokens_covered
+				retval = { text:dialogs['tokens'].text(), format:formatters.tokens(  tokensDisplay, tokens ) }
 				break
 			case 'token_ids':
 				app.refreshTokenIds()
@@ -1094,12 +1138,12 @@ const app = {
 				// tell round is finished
 				let reviews = app.roundReviews( round )
 				return (
-					`\n\npre-analysis finished!`
+					`\n\n<b>pre</b>-rating finished!`
 					// tell reviews submitted
-					+`\n\nreviews:\n`
+					+`\n\n${dashes}\nreviews:\n`
 					+ app.roundReviews(round)
 					// start questions
-					+`\n\nnow the post review questions`
+					+`\n\nnow the <b>post</b> review questions\n`
 				)
 			}
 		},
@@ -1109,9 +1153,9 @@ const app = {
 		'analysis.question':{
 			text: ({ round, user}) => {
 				let roundUser = round.users.find( roundUser => roundUser.uid == user.id )
-				console.log('round user question ',roundUser)
+				//console.log('round user question ',roundUser)
 				let question = analyst_questions[roundUser.question]
-				return `<b>${question.category}</b>:${question.name}      <i>${roundUser.phase ? 'post-review':'pre-review'}</i>\n\n${question.text}`
+				return `\n${tokens[round.token].name}\n<b>${question.category}</b>:${question.name}      <i>${roundUser.phase ? 'post-review':'pre-review'}</i>\n\n${question.text}`
 			}
 		},
 		'analysis.finished':{
@@ -1180,11 +1224,26 @@ const app = {
 		'token': {
 			text: ( {token, quote, rating }) => {
 				const chg = (curr, prev) => (!curr.count || !prev.count ? ' ' : ( curr.avg > prev.avg ? '⬆': (curr.avg < prev.avg ? '⬇': '↔' )))
-		
+				const updown = num => `${num > 0 ? '⬆':'⬇'}`
 				let str = `\n\n<a href="https://coinmarketcap.com/currencies/${token.slug}/">${token.name}</a>`
-				//console.log('hello',market,JSON.stringify(rating))
-				if (quote.price) str += `\nprice <b>${quote.price}</b> ${quote.units}`
-				
+				if (quote.price) {
+					str += `\nprice <b>${quote.price.toFixed(4)}</b> ${quote.units} -- vol: ${utils.format(quote.volume_24h)} -- mkt cap: ${utils.format(quote.market_cap)}`
+							+ `\nΔ% 24h:${utils.format(quote.percent_change_24h)}${updown(quote.percent_change_24h)} 7d:${utils.format(quote.percent_change_7d)}${updown(quote.percent_change_7d)}`
+					    + `      rank:${token.cmc_rank} updated:${moment(quote.last_updated).format('DD-MMM-YY hh:ss')}\n`
+					/*
+          "volume_24h": 5645084065.18842,
+          "percent_change_1h": 0.41041,
+          "percent_change_24h": -5.12802,
+          "percent_change_7d": -6.32094,
+          "market_cap": 112057203667.55663,			
+          "last_updated": "2018-09-06T23:14:25.000Z",	
+				*/
+				}
+				let description = ((infoData.tokens[token.name] || {}).details || {}).description || null
+				if (description){
+					console.log('got description',description)
+					str += `\n${description}\n`
+				}
 				if (rating) {
 					let cats = {
 						day: rating.current.day.categories.reduce( (str,cat,cidx) => (
@@ -1221,7 +1280,7 @@ const app = {
 			text: ({ user, activity }) => {
 				let str = `${activity.reviews.length || activity.ratings.length ? '':' no'} activity for ${user.first_name}`
 				if (activity.reviews.length) {
-					str += `\n\n<i>------reviews------</i>`
+					str += `\n\n${dashes}\n<i>------reviews------</i>\n${dashes}\n`
 					str += activity.reviews.map( review => {
 						let revstr = 
 							`\n\n${user.active_review_round == review.id ? '*':' '}<b>${tokens[review.token].name}</b> [<i>${review.role?'bear':'bull'}</i>]`
@@ -1231,7 +1290,7 @@ const app = {
 					})
 				} 
 				if (activity.ratings.length) {
-					str += `\n\n<i>------ratings------</i>`
+					str += `\n\n${dashes}\n<i>------ratings------</i>\n${dashes}\n`
 					str += activity.ratings.map( rating => {
 						console.log('rating',rating)
 						let revstr = 
@@ -1246,7 +1305,7 @@ const app = {
 						return revstr
 					})
 				}
-				str += `\n\n------------------------\n<i>total winnings:</i> <b>${activity.total_winnings}</b>\n------------------------\n`
+				str += `\n\n${dashes}\n<i>total winnings:</i> <b>${activity.total_winnings}</b>\n${dashes}\n`
 				return str
 			}
 		}
@@ -1269,6 +1328,27 @@ const app = {
 
 app.runScript('test.user.1')
 const dialogs = app.dialogs
+
+/* clean out the tallies / temp 
+tokens.forEach( token => {
+	if (!token.tallies) return
+	var newtallies = token.tallies.reduce( (accum,tally,tIdx) => {
+		if (
+			tally.answers.filter( answer => answer.count ).length 
+			|| tally.categories.filter( category => category.count ).length ) {
+			console.log(`kept tally ${tally}`)
+			accum.push( tally )
+		}
+		else {
+			console.log(`${tIdx} remove empty tally`)
+		}
+		return accum
+	}, [])
+	console.log(`token ${token.name} new tallies ${newtallies.length}`)
+	token.tallies = newtallies
+})
+app.saveTokens()
+ --- */
 
 const token_name = round => tokens[round.token].name
 

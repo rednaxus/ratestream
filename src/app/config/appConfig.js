@@ -258,7 +258,16 @@ const appConfig = {
     "solution",
     "resources",
     "token-supply",
+    "transparency",
     "summary"
+  ],
+
+  ratings: [
+    [],
+    ["no","yes"],
+    ["no","uncertain","yes"],
+    [],
+    ['--','-','o','+','++']  
   ],
   
 

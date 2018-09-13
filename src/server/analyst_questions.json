@@ -169,14 +169,14 @@
     },
     {
       "name": "bull brief",
-      "category": "leads",
+      "category": "transparency",
       "max": 5,
       "min": 1,
       "text": "Upon review, can you attest that the Bull valuation brief represents a best-effort, truthful, non-plagiarized, non-conflicted effort by the analyst?"
     },
     {
       "name": "bear brief",
-      "category": "leads",
+      "category": "transparency",
       "max": 5,
       "min": 1,
       "text": "Upon review, can you attest that the Bear valuation brief represents a best-effort, truthful, non-plagiarized, non-conflicted effort by the analyst?"

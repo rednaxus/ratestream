@@ -22,7 +22,7 @@ module.exports = {
 			"resize_keyboard": true,
     	"keyboard": [
     		[ "tokens", "commands", "news", "activity" ],
-    		[ "rate", "review" ]
+    		[ "rate", "review", "portfolio" ]
     	]
    	}
 	}),
@@ -30,10 +30,10 @@ module.exports = {
 		let ik = []
 		let row = []
 		if (question.max == 2) { // yes/no
-			row.push( { text: 'yes', callback_data: `question-${question_number}-yes` } )
-			row.push( { text: 'no', callback_data: `question-${question_number}-no` } )
+			row.push( { text: 'yes', callback_data: `question-${question_number}-0` } )
+			row.push( { text: 'no', callback_data: `question-${question_number}-1` } )
 		} else for (let idx = 1; idx <= question.max; idx++ ) {
- 			row.push( { text: idx, callback_data: `question-${question_number}-${idx}` })
+ 			row.push( { text: config.ratings[question.max-1][idx-1], callback_data: `question-${question_number}-${idx-1}` })
 		}
 		ik.push( row )
 		console.log('ik',JSON.stringify(ik))
@@ -71,13 +71,14 @@ module.exports = {
 		]]
 		return { reply_markup:{ inline_keyboard: ik } }		
 	},
-	tokens: tokens => {
+	tokens: (tokenIdxs, tokens) => {
 		//	let msgtokens = tokens.reduce( (str,token) => `${str}[${token.name}] `, "" )
 		let ik = []
 		let row = []
-		tokens.forEach( (token,idx) => {
+		tokenIdxs.forEach( (idx,num) => {
+			let token = tokens[ idx ]
 			let col = { text: token.name, callback_data: `token-${idx}` }
-			if (idx % 3 != 0) { // add column
+			if (num % 3 != 0) { // add column
 				row.push( col )
 			} else { // new row
 				if (row.length) ik.push( row )
@@ -85,6 +86,7 @@ module.exports = {
 			}
 		})
 		ik.push( row )
+		console.log(ik)
 		return { reply_markup:{ inline_keyboard: ik } }
 	
 /*

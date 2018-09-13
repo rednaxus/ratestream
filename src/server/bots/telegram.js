@@ -140,7 +140,9 @@ const do_review = msg => {
 
 const do_rate = msg => { // jurist start round
 	let user = identifyUser( msg )
+	console.log('make caomm')
 	let cmdResult = say('rate',{ user })
+	console.log('got command')
 	tell(msg.chat.id,cmdResult).then( () => {
 		if (cmdResult.status !== -1) tell( msg.chat.id, say( 'question',{ user }))
 	})
@@ -152,7 +154,10 @@ bot.onText(/\/rate/i, msg => do_rate( msg ) )
 
 
 /* tokens */
-bot.onText(/\/tokens/i, msg => tell( msg.chat.id, say('tokens') ) )
+bot.onText(/\/tokens/i, msg => {
+	let msgInfo = msg.text.split(' ')
+	tell( msg.chat.id, say('tokens', msgInfo.length > 1 ? {number:+msgInfo[1]}: {} ) ) 
+})
 
 bot.onText(/\/token_ids/i, msg => tell( msg.chat.id, say('token_ids') ) )
 bot.onText(/\/token_quotes/i, msg => {
@@ -164,7 +169,10 @@ bot.onText(/\/token_quotes/i, msg => {
 bot.onText(/\/token_tickers/i, msg => tell( msg.chat.id, say('token_tickers') ) )
 
 
-bot.onText(/\/token /i, msg => tell( msg.chat.id, say('token', {name:msg.text.substring(12)}) ) )
+bot.onText(/\/token /i, msg => {
+	let msgInfo = msg.text.split(' ')
+	tell( msg.chat.id, say('token', {id:+msgInfo[1]}) )
+})
 
 /* internal use, admin only */
 
@@ -225,7 +233,7 @@ bot.on('callback_query', query => {
 	if (user.mockAs >= 0) user = testUsers[user.mockAs]
 	bot.answerCallbackQuery(query.id, { text: `Action received from ${user.first_name}!` })
 	.then( () => {
-		console.log('query on callback',query)
+		//console.log('query on callback',query)
 		let q = query.data.split('-')
 		switch (q[0]) {
 			case 'token': 
