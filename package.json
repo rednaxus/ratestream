@@ -151,7 +151,7 @@
     "history": "^4.7.2",
     "ionicons": "^3.0.0",
     "ipfs-api": "^22.2.4",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "js-base64": "^2.1.9",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.10",
